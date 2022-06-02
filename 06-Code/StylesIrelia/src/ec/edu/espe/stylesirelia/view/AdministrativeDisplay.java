@@ -21,6 +21,9 @@ public class AdministrativeDisplay {
         int option;
         int customerCount;
         int productCount;
+        int number;
+        String appointment;
+        String address;
         Scanner textInput;
         boolean exit;
 
@@ -48,10 +51,21 @@ public class AdministrativeDisplay {
                     case 1:
                         System.out.println("You have selected option 1");
                         String name;
+                        System.out.println("Write the customer name: ");
                         name = textInput.next();
-                        customers.add(customerCount, new Customer(name, 988, false, "fdsf", "222"));
+                        System.out.println("Write the number of the customer: ");
+                        number = textInput.nextInt();
+                        System.out.println("Enter the date of the next appointment with the next structure");
+                        System.out.println("Day/Month/Hour-Minutes");
+                        System.out.println("Example: 19/April/10:30");
+                        appointment = textInput.next();
+                        System.out.println("Enter the address of the customer");
+                        address = textInput.next();
+                        customers.add(customerCount, new Customer(name, number, false, appointment, address));
                         customerCount++;
                         break;
+                    case 2:
+                        System.out.println("You have selected option 2");
                     case 7:
                         exit = true;
                         break;
