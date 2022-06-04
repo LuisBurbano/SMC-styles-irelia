@@ -69,8 +69,36 @@ public class AdministrativeDisplay {
                     case 7:
                         exit = true;
                         break;
+                    case 4:
+                        System.out.println("You have selected option 4");
+                        String nameStylist;
+                        int numberStylist;
+                        int paymentStylist;
+                        int adress;
+                        System.out.println("Write the Stylist name: ");
+                        nameStylist = textInput.next();
+                        System.out.println("Write the number of the Stylist: ");
+                        numberStylist = textInput.nextInt();
+                        System.out.println("Write the pending payment with the Stylist: ");
+                        paymentStylist = textInput.nextInt();
+                        System.out.println("What is the address of the stylist? ");
+                        adress = textInput.nextInt();
+                        break;
+                    case 5:
+                        System.out.println("You have selected option 5");
+                        String supplier;
+                        int numberSupplier;
+                        int payment;
+                        System.out.println("Write the supplier name: ");
+                        supplier = textInput.next();
+                        System.out.println("Write the number of the Supplier: ");
+                        numberSupplier = textInput.nextInt();
+                        System.out.println("Write the pending payment with the supplier");
+                        payment = textInput.nextInt();
+                        break;
                     default:
                         System.out.println("Only numbers 1 ... 7");
+                        
 
                 }
             } catch (Exception e) {
