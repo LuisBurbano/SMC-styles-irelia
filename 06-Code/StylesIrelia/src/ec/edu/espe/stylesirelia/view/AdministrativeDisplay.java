@@ -11,6 +11,9 @@ import java.util.Scanner;
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
+ * user name: espe_smc
+ * clave mongodb atlas R6cjoel2019
+ * 
  */
 public class AdministrativeDisplay {
 
@@ -24,6 +27,7 @@ public class AdministrativeDisplay {
         int number;
         String appointment;
         String address;
+        String product;
         Scanner textInput;
         boolean exit;
 
@@ -66,6 +70,8 @@ public class AdministrativeDisplay {
                         break;
                     case 2:
                         System.out.println("You have selected option 2");
+                        product = textInput.next();
+                        System.out.println("We re searching the product...");        
                     case 7:
                         exit = true;
                         break;
