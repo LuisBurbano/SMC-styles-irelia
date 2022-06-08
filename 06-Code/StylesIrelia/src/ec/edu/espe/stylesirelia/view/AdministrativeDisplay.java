@@ -5,47 +5,80 @@
 package ec.edu.espe.stylesirelia.view;
 
 import ec.edu.espe.stylesirelia.model.Customer;
+import ec.edu.espe.stylesirelia.model.Product;
+import ec.edu.espe.stylesirelia.model.Service;
+import ec.edu.espe.stylesirelia.model.Stylist;
+import ec.edu.espe.stylesirelia.model.Supplier;
+import ec.edu.espe.stylesirelia.model.Turn;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
  *
- * @author Luis Burbano, DCCO- ESPE, BettaCoders
- * user name: espe_smc
- * clave mongodb atlas R6cjoel2019
- * 
+ * @author Luis Burbano, DCCO- ESPE, BettaCoders user name: espe_smc clave
+ * mongodb atlas R6cjoel2019
+ *
  */
 public class AdministrativeDisplay {
 
     public static void main(String[] args) {
         System.out.println("System of Styles Irelia");
 
+        String pathCustomerCSV;
+
+        FileWriter fileWriter;
+        BufferedWriter bufferedWriter;
+
         ArrayList<Customer> customers;
+        ArrayList<Turn> turns;
+        ArrayList<Stylist> stylists;
+        ArrayList<Product> products;
+        ArrayList<Service> services;
+        ArrayList<Supplier> suppliers;
+
         int option;
-        int customerCount;
-        int productCount;
+
         int number;
+        String identificationCard;
         String appointment;
         String address;
         String product;
+        String textService;
+        String customerAppointment;
+        String stylistAppointment;
+        String serviceAppointment;
+        String dateTurn;
         float cost;
         String expiration;
         int stock;
         String nameStylist;
         int numberStylist;
         int paymentStylist;
-        int adress;
+        String addressStylist;
         int price;
         float payment;
         String nameService;
+
         Scanner textInput;
         boolean exit;
 
+        pathCustomerCSV = "C:\\Users\\luis1\\Documents\\customers.csv";
+
         exit = false;
         customers = new ArrayList<>();
+        turns = new ArrayList<>();
+        products = new ArrayList<>();
+        stylists = new ArrayList<>();
+        services = new ArrayList<>();
+        suppliers = new ArrayList<>();
         textInput = new Scanner(System.in);
-        customerCount = 0;
-        productCount = 0;
+         customerAppointment="";
+         stylistAppointment="";
+         serviceAppointment="";
 
         while (!exit) {
             System.out.println("Welcome to system Styles by Irelia");
@@ -59,14 +92,25 @@ public class AdministrativeDisplay {
             System.out.println("7. exit");
 
             try {
+
                 System.out.println("Write the one option: ");
                 option = textInput.nextInt();
                 switch (option) {
                     case 1:
+                        File file = new File(pathCustomerCSV);
+                        fileWriter = new FileWriter(pathCustomerCSV);
+                        bufferedWriter = new BufferedWriter(fileWriter);
+                        if (!(file.exists())) {
+                            file.createNewFile();
+                        }
+
                         System.out.println("You have selected option 1");
                         String name;
+                        System.out.println("Write your identification card: ");
+                        identificationCard = textInput.next();
                         System.out.println("Write the customer name: ");
-                        name = textInput.next();
+                        textInput.nextLine();
+                        name = textInput.nextLine();
                         System.out.println("Write the number of the customer: ");
                         number = textInput.nextInt();
                         System.out.println("Enter the date of the next appointment with the next structure");
@@ -75,8 +119,16 @@ public class AdministrativeDisplay {
                         appointment = textInput.next();
                         System.out.println("Enter the address of the customer");
                         address = textInput.next();
-                        customers.add(customerCount, new Customer(name, number, false, appointment, address));
-                        customerCount++;
+                        customers.add(new Customer(identificationCard, name, number, false, appointment, address));
+                        String str = customers.toString().replaceAll("\\[|\\]", "").replaceAll(", ", ", ");
+
+                        System.out.println(str);
+                        bufferedWriter.newLine();
+                        bufferedWriter.write(str);
+
+                        //bufferedWriter.flush();
+                        bufferedWriter.close();
+
                         break;
                     case 2:
                         System.out.println("You have selected option 2");
@@ -88,6 +140,8 @@ public class AdministrativeDisplay {
                         expiration = textInput.next();
                         System.out.println("what is the stock of the product?");
                         stock = textInput.nextInt();
+                        products.add(new Product(product, cost, expiration, stock));
+                        break;
                     case 3:
                         System.out.println("You have selected option 3");
                         System.out.println("what is the Service: ?");
@@ -96,12 +150,12 @@ public class AdministrativeDisplay {
                         price = textInput.nextInt();
                         System.out.println("Do you have pending Payment?");
                         payment = textInput.nextInt();
-                        break;
-                    case 7:
-                        exit = true;
+                        services.add(new Service(nameService, price, false, false, stylists));
                         break;
                     case 4:
                         System.out.println("You have selected option 4");
+                        System.out.println("Write the Stylist identification card: ");
+                        identificationCard = textInput.next();
                         System.out.println("Write the Stylist name: ");
                         nameStylist = textInput.next();
                         System.out.println("Write the number of the Stylist: ");
@@ -109,32 +163,78 @@ public class AdministrativeDisplay {
                         System.out.println("Write the pending payment with the Stylist: ");
                         paymentStylist = textInput.nextInt();
                         System.out.println("What is the address of the stylist? ");
-                        adress = textInput.nextInt();
+                        addressStylist = textInput.nextLine();
+                        stylists.add(new Stylist(identificationCard, nameStylist, numberStylist, paymentStylist, "Quito", addressStylist));
                         break;
                     case 5:
                         System.out.println("You have selected option 5");
                         String supplier;
                         int numberSupplier;
-                       
+
                         System.out.println("Write the supplier name: ");
                         supplier = textInput.next();
                         System.out.println("Write the number of the Supplier: ");
                         numberSupplier = textInput.nextInt();
                         System.out.println("Write the pending payment with the supplier");
                         payment = textInput.nextInt();
+                        suppliers.add(new Supplier(supplier, numberSupplier, false, "quito", "Ecaudor"));
+                        break;
+                    case 6:
+                        
+                        System.out.println("You have selected option 6");
+                        System.out.println("What customer appointment service?");
+
+                        System.out.println(customers);
+
+                        System.out.println("Write identification card of costumer: ");
+                        identificationCard = textInput.next();
+                        for (int i = 0; i < customers.size(); i++) {
+                            if (identificationCard.equals(customers.get(i).getIdentificationCard())) {
+                                customerAppointment = customers.get(i).getName();
+                                System.out.println("Selected the customer: " + customers.get(i).getName());
+                                break;
+                            }
+                            System.out.println("Please create a new customer");
+
+                        }
+
+                        System.out.println("Write identification card of stylist: ");
+                        identificationCard = textInput.next();
+                        for (int i = 0; i < stylists.size(); i++) {
+                            if (identificationCard.equals(stylists.get(i).getIdentificationCard())) {
+                                stylistAppointment = stylists.get(i).getName();
+                                System.out.println("Selected the stylist: " + stylists.get(i).getName());
+                                break;
+                            }
+                            System.out.println("not found stylist");
+
+                        }
+                        System.out.println("Write the name service: ");
+                        textService = textInput.next();
+                        for (int i = 0; i < services.size(); i++) {
+                            if (textService.equals(services.get(i).getName())) {
+                                serviceAppointment = services.get(i).getName();
+                                System.out.println("Selected the service: " + services.get(i).getName());
+                                break;
+                            }
+                            System.out.println("not found service");
+
+                        }
+                        System.out.println("Writhe date turn: ");
+                        dateTurn = textInput.next();
+                        turns.add(new Turn(1, dateTurn, customerAppointment, serviceAppointment, stylistAppointment));
+                        System.out.println("Turns: " +  turns);
+                        break;
+                    case 7:
+                        exit = true;
                         break;
                     default:
                         System.out.println("Only numbers 1 ... 7");
-                        
 
                 }
             } catch (Exception e) {
                 System.out.println("Only enter the numbers");
                 textInput.next();
-            }
-
-            for (Customer customer : customers) {
-                System.out.println(customers);
             }
 
         }

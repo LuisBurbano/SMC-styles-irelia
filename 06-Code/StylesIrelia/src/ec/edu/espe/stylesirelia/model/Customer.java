@@ -9,13 +9,15 @@ package ec.edu.espe.stylesirelia.model;
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
 public class Customer {
+    private String identificationCard;
     private String name;
     private int number;
     private boolean pendingPayment;
     private String appointment;
     private String address;
 
-    public Customer(String name, int number, boolean pendingPayment, String appointment, String address) {
+    public Customer(String identificationCard, String name, int number, boolean pendingPayment, String appointment, String address) {
+        this.identificationCard = identificationCard;
         this.name = name;
         this.number = number;
         this.pendingPayment = pendingPayment;
@@ -25,8 +27,9 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" + "name=" + name + ", number=" + number + ", pendingPayment=" + pendingPayment + ", appointment=" + appointment + ", address=" + address + '}';
+        return  "identificationCard=" + identificationCard + ", name=" + name + ", number=" + number + ", pendingPayment=" + pendingPayment + ", appointment=" + appointment + ", address=" + address;
     }
+
     
     
     public void scheduleAppointment(){
@@ -104,5 +107,19 @@ public class Customer {
      */
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    /**
+     * @return the identificationCard
+     */
+    public String getIdentificationCard() {
+        return identificationCard;
+    }
+
+    /**
+     * @param identificationCard the identificationCard to set
+     */
+    public void setIdentificationCard(String identificationCard) {
+        this.identificationCard = identificationCard;
     }
 }

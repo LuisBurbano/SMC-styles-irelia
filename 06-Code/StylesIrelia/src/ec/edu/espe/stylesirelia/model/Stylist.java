@@ -9,13 +9,15 @@ package ec.edu.espe.stylesirelia.model;
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
 public class Stylist {
+    private String identificationCard;
     private String name;
     private int number;
     private float payment;
     private String appointment;
     private String address;
 
-    public Stylist(String name, int number, float payment, String appointment, String address) {
+    public Stylist(String identificationCard, String name, int number, float payment, String appointment, String address) {
+        this.identificationCard = identificationCard;
         this.name = name;
         this.number = number;
         this.payment = payment;
@@ -25,8 +27,10 @@ public class Stylist {
 
     @Override
     public String toString() {
-        return "Stylist{" + "name=" + name + ", number=" + number + ", payment=" + payment + ", appointment=" + appointment + ", address=" + address + '}';
+        return "Stylist --> " + "identificationCard=" + identificationCard + ", name=" + name + ", number=" + number + ", payment=" + payment + ", appointment=" + appointment + ", address=" + address + "\n";
     }
+
+    
     
     
     public void addAppointment(){
@@ -107,6 +111,20 @@ public class Stylist {
      */
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    /**
+     * @return the identificationCard
+     */
+    public String getIdentificationCard() {
+        return identificationCard;
+    }
+
+    /**
+     * @param identificationCard the identificationCard to set
+     */
+    public void setIdentificationCard(String identificationCard) {
+        this.identificationCard = identificationCard;
     }
     
 }
