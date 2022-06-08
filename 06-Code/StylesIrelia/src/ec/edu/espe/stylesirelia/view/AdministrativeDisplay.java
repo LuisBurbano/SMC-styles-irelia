@@ -10,9 +10,7 @@ import ec.edu.espe.stylesirelia.model.Service;
 import ec.edu.espe.stylesirelia.model.Stylist;
 import ec.edu.espe.stylesirelia.model.Supplier;
 import ec.edu.espe.stylesirelia.model.Turn;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -177,7 +175,7 @@ public class AdministrativeDisplay {
                         numberSupplier = textInput.nextInt();
                         System.out.println("Write the pending payment with the supplier");
                         payment = textInput.nextInt();
-                        suppliers.add(new Supplier(supplier, numberSupplier, false, "quito", "Ecaudor"));
+                        suppliers.add(new Supplier(supplier, numberSupplier, false, "Quito", "Ecuador"));
                         break;
                     case 6:
                         
