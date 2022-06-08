@@ -28,6 +28,16 @@ public class AdministrativeDisplay {
         String appointment;
         String address;
         String product;
+        float cost;
+        String expiration;
+        int stock;
+        String nameStylist;
+        int numberStylist;
+        int paymentStylist;
+        int adress;
+        int price;
+        float payment;
+        String nameService;
         Scanner textInput;
         boolean exit;
 
@@ -49,7 +59,7 @@ public class AdministrativeDisplay {
             System.out.println("7. exit");
 
             try {
-                System.out.println("Write the one option");
+                System.out.println("Write the one option: ");
                 option = textInput.nextInt();
                 switch (option) {
                     case 1:
@@ -70,17 +80,28 @@ public class AdministrativeDisplay {
                         break;
                     case 2:
                         System.out.println("You have selected option 2");
+                        System.out.println("what is the name of the product?");
                         product = textInput.next();
-                        System.out.println("We re searching the product...");        
+                        System.out.println("what is the cost of the product?");
+                        cost = textInput.nextInt();
+                        System.out.println("what is the date of the expiration?");
+                        expiration = textInput.next();
+                        System.out.println("what is the stock of the product?");
+                        stock = textInput.nextInt();
+                    case 3:
+                        System.out.println("You have selected option 3");
+                        System.out.println("what is the Service: ?");
+                        nameService = textInput.next();
+                        System.out.println("what is the price of the service?");
+                        price = textInput.nextInt();
+                        System.out.println("Do you have pending Payment?");
+                        payment = textInput.nextInt();
+                        break;
                     case 7:
                         exit = true;
                         break;
                     case 4:
                         System.out.println("You have selected option 4");
-                        String nameStylist;
-                        int numberStylist;
-                        int paymentStylist;
-                        int adress;
                         System.out.println("Write the Stylist name: ");
                         nameStylist = textInput.next();
                         System.out.println("Write the number of the Stylist: ");
@@ -94,7 +115,7 @@ public class AdministrativeDisplay {
                         System.out.println("You have selected option 5");
                         String supplier;
                         int numberSupplier;
-                        int payment;
+                       
                         System.out.println("Write the supplier name: ");
                         supplier = textInput.next();
                         System.out.println("Write the number of the Supplier: ");
