@@ -126,7 +126,7 @@ public class AdministrativeDisplay {
                         /////
                         customers.add(new Customer(identificationCard, name, number, false, appointment, address));
                         String str = customers.get(customers.size() - 1).toStringData().replaceAll(",", ";");
- 
+                        
                         //System.out.println(str);
                         bufferedWriter.append(str + "\n");    
    
