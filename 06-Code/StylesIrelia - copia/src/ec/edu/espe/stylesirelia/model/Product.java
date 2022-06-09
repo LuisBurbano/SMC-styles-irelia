@@ -26,10 +26,6 @@ public class Product {
         return "Product{" + "name=" + name + ", price=" + price + ", expiration=" + expiration + ", stock=" + stock + '}';
     }
     
-    public String toStringData() {
-        return  name + "," + price + "," + expiration + "," + stock;
-    }
-    
     
     
     public void addProduct(){

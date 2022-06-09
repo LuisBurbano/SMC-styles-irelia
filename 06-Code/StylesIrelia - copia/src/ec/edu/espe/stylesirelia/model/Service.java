@@ -30,10 +30,6 @@ public class Service {
         return "Service{" + "name=" + name + ", price=" + price + ", pendingPayment=" + pendingPayment + ", available=" + available + ", availableStylist=" + availableStylist + '}';
     }
     
-     public String toStringData() {
-        return name + "," + pendingPayment + "," + available + "," + availableStylist;
-    }
-    
     
     
     public void chargue(){

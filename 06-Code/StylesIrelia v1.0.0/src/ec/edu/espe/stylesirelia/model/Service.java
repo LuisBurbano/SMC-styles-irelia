@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Luis Burbano, DCCO- ESPE, BettaCoders
+ * @author Widinson Caiza, DCCO- ESPE, BettaCoders
  */
 public class Service {
     private String name;
@@ -28,10 +28,6 @@ public class Service {
     @Override
     public String toString() {
         return "Service{" + "name=" + name + ", price=" + price + ", pendingPayment=" + pendingPayment + ", available=" + available + ", availableStylist=" + availableStylist + '}';
-    }
-    
-     public String toStringData() {
-        return name + "," + pendingPayment + "," + available + "," + availableStylist;
     }
     
     

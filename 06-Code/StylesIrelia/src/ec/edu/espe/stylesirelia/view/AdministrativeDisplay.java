@@ -25,9 +25,16 @@ public class AdministrativeDisplay {
 
     public static void main(String[] args) {
         System.out.println("System of Styles Irelia");
-
+        String pathDirectory;
         String pathCustomerCSV;
+        String pathProductCSV;
+        String pathServiceCSV;
 
+        pathDirectory = System.getProperty("user.dir");
+        pathCustomerCSV = pathDirectory + "\\customer.csv";
+        pathProductCSV = pathDirectory + "\\Product.csv";
+        pathServiceCSV = pathDirectory + "\\Service.csv";
+        
         FileWriter fileWriter;
         BufferedWriter bufferedWriter;
 
@@ -56,15 +63,16 @@ public class AdministrativeDisplay {
         int numberStylist;
         int paymentStylist;
         String addressStylist;
-        int price;
+        int price = 0;
         float payment;
         String nameService;
 
         Scanner textInput;
         boolean exit;
 
-        pathCustomerCSV = "C:\\Users\\luis1\\Documents\\customers.csv";
-
+        // pathCustomerCSV = "C:\\Users\\luis1\\Documents\\customers.csv";
+        // pathProductCSV = "C:\\Users\\alexa\\OneDrive\\Escritorio\\Product_Styles\\Information_Product.csv";
+        // pathServiceCSV = "C:\\Users\\alexa\\OneDrive\\Escritorio\\Product_Styles\\Information_Service.csv";
         exit = false;
         
         customers = new ArrayList<>();
@@ -100,7 +108,7 @@ public class AdministrativeDisplay {
 
                         //--
                         System.out.println("You have selected option 1");
-                        String name;
+                        String name = null;
                         System.out.println("Write your identification card: ");
                         identificationCard = textInput.next();
                         System.out.println("Write the customer name: ");
@@ -117,7 +125,7 @@ public class AdministrativeDisplay {
                         
                         /////
                         customers.add(new Customer(identificationCard, name, number, false, appointment, address));
-                        String str = customers.get(customers.size() - 1).toString().replaceAll(",", ";");
+                        String str = customers.get(customers.size() - 1).toStringData().replaceAll(",", ";");
  
                         //System.out.println(str);
                         bufferedWriter.append(str + "\n");    
@@ -125,7 +133,19 @@ public class AdministrativeDisplay {
                         bufferedWriter.close();
                         /////
                         break;
+
                     case 2:
+                        
+                        File fileProduct = new File(pathProductCSV);
+                        if (!(fileProduct.exists())) {
+                            fileProduct.createNewFile();
+                            fileWriter = new FileWriter(pathProductCSV);
+                            fileWriter.append("Name;Price;Expiration;Stock\n");
+                        } else {
+                            fileWriter = new FileWriter(pathProductCSV, true);
+                        }
+                        bufferedWriter = new BufferedWriter(fileWriter);
+                        
                         System.out.println("You have selected option 2");
                         System.out.println("what is the name of the product?");
                         product = textInput.next();
@@ -136,8 +156,28 @@ public class AdministrativeDisplay {
                         System.out.println("what is the stock of the product?");
                         stock = textInput.nextInt();
                         products.add(new Product(product, cost, expiration, stock));
+                        
+                       
+                        str = products.get(products.size()-1).toStringData().replaceAll(",", ";");
+                        bufferedWriter.append(str + "\n");    
+   
+                        bufferedWriter.close();
                         break;
                     case 3:
+                        
+                        File fileService = new File(pathServiceCSV);
+                        if (!(fileService.exists())) {
+                            fileService.createNewFile();
+                            fileWriter = new FileWriter(pathServiceCSV);
+                            fileWriter.append("Name Service;Price;Pending Payment\n");
+                        } else {
+                            fileWriter = new FileWriter(pathServiceCSV, true);
+                        }
+                        bufferedWriter = new BufferedWriter(fileWriter);
+                        
+                        
+                        
+                        
                         System.out.println("You have selected option 3");
                         System.out.println("what is the Service: ?");
                         nameService = textInput.next();
@@ -146,6 +186,12 @@ public class AdministrativeDisplay {
                         System.out.println("Do you have pending Payment?");
                         payment = textInput.nextInt();
                         services.add(new Service(nameService, price, false, false, stylists));
+                        
+                        str = services.get(services.size()-1).toStringData().replaceAll(",", ";");
+                        bufferedWriter.append(str + "\n");    
+   
+                        bufferedWriter.close();
+                        
                         break;
                     case 4:
                         System.out.println("You have selected option 4");

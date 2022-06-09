@@ -6,7 +6,7 @@ package ec.edu.espe.stylesirelia.model;
 
 /**
  *
- * @author Luis Burbano, DCCO- ESPE, BettaCoders
+ * @author Widinson Caiza, DCCO- ESPE, BettaCoders
  */
 public class Product {
     private String name;
@@ -24,10 +24,6 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" + "name=" + name + ", price=" + price + ", expiration=" + expiration + ", stock=" + stock + '}';
-    }
-    
-    public String toStringData() {
-        return  name + "," + price + "," + expiration + "," + stock;
     }
     
     
