@@ -41,7 +41,6 @@ public class AdministrativeDisplay {
         ArrayList<Supplier> suppliers;
 
         int option;
-
         int number;
         String identificationCard;
         String appointment;
@@ -69,6 +68,7 @@ public class AdministrativeDisplay {
         pathCustomerCSV = "C:\\Users\\luis1\\Documents\\customers.csv";
 
         exit = false;
+        
         customers = new ArrayList<>();
         turns = new ArrayList<>();
         products = new ArrayList<>();
@@ -76,20 +76,12 @@ public class AdministrativeDisplay {
         services = new ArrayList<>();
         suppliers = new ArrayList<>();
         textInput = new Scanner(System.in);
-         customerAppointment="";
-         stylistAppointment="";
-         serviceAppointment="";
+        customerAppointment = "";
+        stylistAppointment = "";
+        serviceAppointment = "";
 
         while (!exit) {
-            System.out.println("Welcome to system Styles by Irelia");
-            System.out.println("This is a options");
-            System.out.println("1. Add a new customer");
-            System.out.println("2. Add a new product");
-            System.out.println("3. Add a new Service");
-            System.out.println("4. add a new Stylist");
-            System.out.println("5. Add a new Suppplier");
-            System.out.println("6. Add a new Turn");
-            System.out.println("7. exit");
+            printOptions();
 
             try {
 
@@ -97,13 +89,18 @@ public class AdministrativeDisplay {
                 option = textInput.nextInt();
                 switch (option) {
                     case 1:
+                        //Create file
                         File file = new File(pathCustomerCSV);
-                        fileWriter = new FileWriter(pathCustomerCSV);
-                        bufferedWriter = new BufferedWriter(fileWriter);
                         if (!(file.exists())) {
                             file.createNewFile();
+                            fileWriter = new FileWriter(pathCustomerCSV);
+                            fileWriter.append("#ID;Name;Customer;Number;Date;address\n");
+                        } else {
+                            fileWriter = new FileWriter(pathCustomerCSV, true);
                         }
+                        bufferedWriter = new BufferedWriter(fileWriter);
 
+                        //--
                         System.out.println("You have selected option 1");
                         String name;
                         System.out.println("Write your identification card: ");
@@ -119,16 +116,16 @@ public class AdministrativeDisplay {
                         appointment = textInput.next();
                         System.out.println("Enter the address of the customer");
                         address = textInput.next();
+                        
+                        /////
                         customers.add(new Customer(identificationCard, name, number, false, appointment, address));
-                        String str = customers.toString().replaceAll("\\[|\\]", "").replaceAll(", ", ", ");
-
-                        System.out.println(str);
-                        bufferedWriter.newLine();
-                        bufferedWriter.write(str);
-
-                        //bufferedWriter.flush();
+                        String str = customers.get(customers.size() - 1).toString().replaceAll(",", ";");
+ 
+                        //System.out.println(str);
+                        bufferedWriter.append(str + "\n");    
+   
                         bufferedWriter.close();
-
+                        /////
                         break;
                     case 2:
                         System.out.println("You have selected option 2");
@@ -180,7 +177,7 @@ public class AdministrativeDisplay {
                         suppliers.add(new Supplier(supplier, numberSupplier, false, "quito", "Ecaudor"));
                         break;
                     case 6:
-                        
+
                         System.out.println("You have selected option 6");
                         System.out.println("What customer appointment service?");
 
@@ -220,10 +217,10 @@ public class AdministrativeDisplay {
                             System.out.println("not found service");
 
                         }
-                        System.out.println("Writhe date turn: ");
+                        System.out.println("Write date turn: ");
                         dateTurn = textInput.next();
                         turns.add(new Turn(1, dateTurn, customerAppointment, serviceAppointment, stylistAppointment));
-                        System.out.println("Turns: " +  turns);
+                        System.out.println("Turns: " + turns);
                         break;
                     case 7:
                         exit = true;
@@ -233,12 +230,25 @@ public class AdministrativeDisplay {
 
                 }
             } catch (Exception e) {
+                System.out.println(e.getMessage());
                 System.out.println("Only enter the numbers");
                 textInput.next();
             }
 
         }
 
+    }
+
+    private static void printOptions() {
+        System.out.println("Welcome to system Styles by Irelia");
+        System.out.println("This is a options");
+        System.out.println("1. Add a new customer");
+        System.out.println("2. Add a new product");
+        System.out.println("3. Add a new Service");
+        System.out.println("4. add a new Stylist");
+        System.out.println("5. Add a new Suppplier");
+        System.out.println("6. Add a new Turn");
+        System.out.println("7. exit");
     }
 
 }

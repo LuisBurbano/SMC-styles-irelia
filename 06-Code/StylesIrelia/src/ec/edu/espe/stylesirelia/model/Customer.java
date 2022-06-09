@@ -15,6 +15,8 @@ public class Customer {
     private boolean pendingPayment;
     private String appointment;
     private String address;
+    private int a;
+    private int b;
 
     public Customer(String identificationCard, String name, int number, boolean pendingPayment, String appointment, String address) {
         this.identificationCard = identificationCard;
@@ -25,12 +27,16 @@ public class Customer {
         this.address = address;
     }
 
+   
+    
     @Override
     public String toString() {
         return  "identificationCard=" + identificationCard + ", name=" + name + ", number=" + number + ", pendingPayment=" + pendingPayment + ", appointment=" + appointment + ", address=" + address;
     }
 
-    
+    public String toStringData() {
+        return   identificationCard + "," + name + "," + number + "," + pendingPayment + "," + appointment + "," + address;
+    }
     
     public void scheduleAppointment(){
         
