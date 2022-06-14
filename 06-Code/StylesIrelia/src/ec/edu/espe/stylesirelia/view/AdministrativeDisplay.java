@@ -11,9 +11,8 @@ import ec.edu.espe.stylesirelia.model.Stylist;
 import ec.edu.espe.stylesirelia.model.Supplier;
 import ec.edu.espe.stylesirelia.model.Turn;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
+
 
 /**
  *
@@ -37,6 +36,13 @@ public class AdministrativeDisplay {
         
         FileWriter fileWriter;
         BufferedWriter bufferedWriter;
+        
+        Product productData;
+        Service servicesData;
+        Stylist stylistData;
+        Turn turnData;
+        Customer customerData;
+        Supplier supplierData;
 
         ArrayList<Customer> customers;
         ArrayList<Turn> turns;
@@ -125,7 +131,8 @@ public class AdministrativeDisplay {
                         address = textInput.next();
                         
                         /////
-                        customers.add(new Customer(identificationCard, name, number, false, appointment, address));
+                        customerData = new Customer(identificationCard, name, number, false, appointment, address);
+                        customers.add(customerData);
                         String str = customers.get(customers.size() - 1).toStringData().replaceAll(",", ";");
                         
                         //System.out.println(str);
@@ -156,12 +163,9 @@ public class AdministrativeDisplay {
                         expiration = textInput.next();
                         System.out.println("what is the stock of the product?");
                         stock = textInput.nextInt();
+                        productData = new Product(product, cost, expiration, stock); //Cost debería ser un boolean, al ingresar un número con comas da error xd|Notita para hacerlo despues xd
+                        products.add(productData);
                         
-                        int numberOne;                        
-                        
-                        products.add(new Product(product, cost, expiration, stock));
-                        
-                       
                         str = products.get(products.size()-1).toStringData().replaceAll(",", ";");
                         bufferedWriter.append(str + "\n");    
    
@@ -179,9 +183,6 @@ public class AdministrativeDisplay {
                         }
                         bufferedWriter = new BufferedWriter(fileWriter);
                         
-                        
-                        
-                        
                         System.out.println("You have selected option 3");
                         System.out.println("what is the Service: ?");
                         nameService = textInput.next();
@@ -189,7 +190,9 @@ public class AdministrativeDisplay {
                         price = textInput.nextInt();
                         System.out.println("Do you have pending Payment?");
                         payment = textInput.nextInt();
-                        services.add(new Service(nameService, price, false, false, stylists));
+                        servicesData = new Service(nameService, price, false, false, stylists);
+                        services.add(servicesData);
+                        
                         
                         str = services.get(services.size()-1).toStringData().replaceAll(",", ";");
                         bufferedWriter.append(str + "\n");    
@@ -209,7 +212,9 @@ public class AdministrativeDisplay {
                         paymentStylist = textInput.nextInt();
                         System.out.println("What is the address of the stylist? ");
                         addressStylist = textInput.nextLine();
-                        stylists.add(new Stylist(identificationCard, nameStylist, numberStylist, paymentStylist, "Quito", addressStylist));
+                        stylistData = new Stylist(identificationCard, nameStylist, numberStylist, paymentStylist, "Quito", addressStylist);
+                        stylists.add(stylistData);
+                        
                         break;
                     case 5:
                         System.out.println("You have selected option 5");
@@ -222,7 +227,8 @@ public class AdministrativeDisplay {
                         numberSupplier = textInput.nextInt();
                         System.out.println("Write the pending payment with the supplier");
                         payment = textInput.nextInt();
-                        suppliers.add(new Supplier(supplier, numberSupplier, false, "Quito", "Ecuador"));
+                        supplierData = new Supplier(supplier, numberSupplier, false, "Quito", "Ecuador");
+                        suppliers.add(supplierData);
                         break;
                     case 6:
 
@@ -267,7 +273,8 @@ public class AdministrativeDisplay {
                         }
                         System.out.println("Write date turn: ");
                         dateTurn = textInput.next();
-                        turns.add(new Turn(1, dateTurn, customerAppointment, serviceAppointment, stylistAppointment));
+                        turnData = new Turn(1, dateTurn, customerAppointment, serviceAppointment, stylistAppointment);
+                        turns.add(turnData);
                         System.out.println("Turns: " + turns);
                         break;
                     case 7:
