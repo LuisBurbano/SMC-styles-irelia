@@ -51,6 +51,7 @@ public class AdministrativeDisplay {
         String appointment;
         String address;
         String product;
+        
         String textService;
         String customerAppointment;
         String stylistAppointment;
@@ -155,6 +156,9 @@ public class AdministrativeDisplay {
                         expiration = textInput.next();
                         System.out.println("what is the stock of the product?");
                         stock = textInput.nextInt();
+                        
+                        int numberOne;                        
+                        
                         products.add(new Product(product, cost, expiration, stock));
                         
                        
