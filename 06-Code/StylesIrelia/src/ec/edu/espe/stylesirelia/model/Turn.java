@@ -1,8 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espe.stylesirelia.model;
+import com.toedter.calendar.JDateChooser;
+import java.text.SimpleDateFormat;
 import org.bson.Document;
 /**
  *
@@ -12,7 +10,6 @@ public class Turn extends BasicModel{
     
     private int id;
     private String date;
-    
     private String customer;
     private String service;
     private String stylist;
@@ -44,8 +41,7 @@ public class Turn extends BasicModel{
         return "yout Turn->>" + "id=" + id + ", date=" + date + ", customer=" + customer + ", service=" + service + ", stylist=" + stylist + '}';
     }
     
-    
-    
+
     
     public void addTurn(){
         
@@ -126,4 +122,6 @@ public class Turn extends BasicModel{
     public void setStylist(String stylist) {
         this.stylist = stylist;
     }
+    
 }
+
