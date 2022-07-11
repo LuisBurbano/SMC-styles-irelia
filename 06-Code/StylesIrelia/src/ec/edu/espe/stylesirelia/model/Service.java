@@ -5,17 +5,31 @@
 package ec.edu.espe.stylesirelia.model;
 
 import java.util.ArrayList;
+import org.bson.Document;
 
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Service {
+public class Service extends BasicModel{
     private String name;
     private float price;
     private boolean pendingPayment;
     private boolean available;
     private ArrayList<Stylist>availableStylist;
+
+
+    @Override
+   public Document buildDocument() {
+        Document document = new Document();
+
+        document.append("price", this.price).
+                append("name", this.name).
+                append("pendingPayment", this.pendingPayment).
+                append("availableStylist",this.availableStylist)               ;
+
+        return document;
+    }
 
     public Service(String name, float price, boolean pendingPayment, boolean available, ArrayList<Stylist> availableStylist) {
         this.name = name;

@@ -4,10 +4,12 @@
  */
 package ec.edu.espe.stylesirelia.model;
 
+import org.bson.Document;
+
 /**
  *
- * @author Joel Arguello, DCCO-ESPE, BETTACODDERS
+ * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Conection {
-    
+public abstract class BasicModel {
+    public abstract Document buildDocument();
 }

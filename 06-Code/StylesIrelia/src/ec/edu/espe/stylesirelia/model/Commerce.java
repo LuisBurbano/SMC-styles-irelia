@@ -4,13 +4,25 @@
  */
 package ec.edu.espe.stylesirelia.model;
 
+import org.bson.Document;
+
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Commerce {
+public class Commerce extends BasicModel {
+
     private String name;
     private String direction;
+
+    @Override
+    public Document buildDocument() {
+        Document document = new Document();
+
+        document.append("name", this.name).
+                append("direction", this.direction);
+        return document;
+    }
 
     public Commerce(String name, String direction) {
         this.name = name;
@@ -21,11 +33,9 @@ public class Commerce {
     public String toString() {
         return "Commerce{" + "name=" + name + ", direction=" + direction + '}';
     }
-    
-    
-    
-    public void addStylist(){
-        
+
+    public void addStylist() {
+
     }
 
     /**
@@ -55,5 +65,5 @@ public class Commerce {
     public void setDirection(String direction) {
         this.direction = direction;
     }
-    
+
 }

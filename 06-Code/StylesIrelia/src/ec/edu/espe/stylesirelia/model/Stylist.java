@@ -4,11 +4,14 @@
  */
 package ec.edu.espe.stylesirelia.model;
 
+import org.bson.Document;
+
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Stylist {
+public class Stylist extends BasicModel {
+
     private String identificationCard;
     private String name;
     private int number;
@@ -30,17 +33,16 @@ public class Stylist {
         return "Stylist --> " + "identificationCard=" + identificationCard + ", name=" + name + ", number=" + number + ", payment=" + payment + ", appointment=" + appointment + ", address=" + address + "\n";
     }
 
-    
-    
-    
-    public void addAppointment(){
-        
+    public void addAppointment() {
+
     }
-    public void removeAppointment(){
-        
+
+    public void removeAppointment() {
+
     }
-    public void editAppointment(){
-        
+
+    public void editAppointment() {
+
     }
 
     /**
@@ -126,5 +128,19 @@ public class Stylist {
     public void setIdentificationCard(String identificationCard) {
         this.identificationCard = identificationCard;
     }
-    
+
+    @Override
+    public Document buildDocument() {
+        Document document = new Document();
+
+        document.append("identificationCard", this.identificationCard).
+                append("name", this.name).
+                append("number", this.number).
+                append("payment", this.payment).
+                append("appointment", this.appointment).
+                append("adress", this.address);
+
+        return document;
+    }
+
 }

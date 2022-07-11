@@ -4,6 +4,9 @@
  */
 package ec.edu.espe.stylesirelia.view;
 
+import com.google.gson.Gson;
+import ec.edu.espe.stylesirelia.controller.CustomerController;
+import ec.edu.espe.stylesirelia.model.Connection;
 import ec.edu.espe.stylesirelia.model.Customer;
 import ec.edu.espe.stylesirelia.model.Product;
 import ec.edu.espe.stylesirelia.model.Service;
@@ -12,7 +15,6 @@ import ec.edu.espe.stylesirelia.model.Supplier;
 import ec.edu.espe.stylesirelia.model.Turn;
 import java.io.*;
 import java.util.*;
-
 
 /**
  *
@@ -24,19 +26,7 @@ public class AdministrativeDisplay {
 
     public static void main(String[] args) {
         System.out.println("System of Styles Irelia");
-        String pathDirectory;
-        String pathCustomerCSV;
-        String pathProductCSV;
-        String pathServiceCSV;
 
-        pathDirectory = System.getProperty("user.dir");
-        pathCustomerCSV = pathDirectory + "\\customer.csv";
-        pathProductCSV = pathDirectory + "\\Product.csv";
-        pathServiceCSV = pathDirectory + "\\Service.csv";
-        
-        FileWriter fileWriter;
-        BufferedWriter bufferedWriter;
-        
         Product productData;
         Service servicesData;
         Stylist stylistData;
@@ -57,7 +47,8 @@ public class AdministrativeDisplay {
         String appointment;
         String address;
         String product;
-        
+        String json;
+
         String textService;
         String customerAppointment;
         String stylistAppointment;
@@ -77,11 +68,10 @@ public class AdministrativeDisplay {
         Scanner textInput;
         boolean exit;
 
-        // pathCustomerCSV = "C:\\Users\\luis1\\Documents\\customers.csv";
-        // pathProductCSV = "C:\\Users\\alexa\\OneDrive\\Escritorio\\Product_Styles\\Information_Product.csv";
-        // pathServiceCSV = "C:\\Users\\alexa\\OneDrive\\Escritorio\\Product_Styles\\Information_Service.csv";
+        Gson gson = new Gson();
+
         exit = false;
-        
+
         customers = new ArrayList<>();
         turns = new ArrayList<>();
         products = new ArrayList<>();
@@ -93,6 +83,10 @@ public class AdministrativeDisplay {
         stylistAppointment = "";
         serviceAppointment = "";
 
+        //Nos conectamos a la base de datos
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+
         while (!exit) {
             printOptions();
 
@@ -102,18 +96,7 @@ public class AdministrativeDisplay {
                 option = textInput.nextInt();
                 switch (option) {
                     case 1:
-                        //Create file
-                        File file = new File(pathCustomerCSV);
-                        if (!(file.exists())) {
-                            file.createNewFile();
-                            fileWriter = new FileWriter(pathCustomerCSV);
-                            fileWriter.append("#ID;Name;Customer;Number;Date;address\n");
-                        } else {
-                            fileWriter = new FileWriter(pathCustomerCSV, true);
-                        }
-                        bufferedWriter = new BufferedWriter(fileWriter);
 
-                        //--
                         System.out.println("You have selected option 1");
                         String name = null;
                         System.out.println("Write your identification card: ");
@@ -129,31 +112,20 @@ public class AdministrativeDisplay {
                         appointment = textInput.next();
                         System.out.println("Enter the address of the customer");
                         address = textInput.next();
-                        
-                        /////
+
+                        //Creamos el obbjeto de Customer con la info que necesitamos
                         customerData = new Customer(identificationCard, name, number, false, appointment, address);
-                        customers.add(customerData);
-                        String str = customers.get(customers.size() - 1).toStringData().replaceAll(",", ";");
-                        
-                        //System.out.println(str);
-                        bufferedWriter.append(str + "\n");    
-   
-                        bufferedWriter.close();
+                        //Esto nos permite hacer las accciones del crud
+                        CustomerController customerController = new CustomerController(customerData, "customers");
+                        //creamos el registro en mongoDB
+
+                        customerController.create();
+
                         /////
                         break;
 
                     case 2:
-                        
-                        File fileProduct = new File(pathProductCSV);
-                        if (!(fileProduct.exists())) {
-                            fileProduct.createNewFile();
-                            fileWriter = new FileWriter(pathProductCSV);
-                            fileWriter.append("Name;Price;Expiration;Stock\n");
-                        } else {
-                            fileWriter = new FileWriter(pathProductCSV, true);
-                        }
-                        bufferedWriter = new BufferedWriter(fileWriter);
-                        
+
                         System.out.println("You have selected option 2");
                         System.out.println("what is the name of the product?");
                         product = textInput.next();
@@ -165,24 +137,10 @@ public class AdministrativeDisplay {
                         stock = textInput.nextInt();
                         productData = new Product(product, cost, expiration, stock); //Cost debería ser un boolean, al ingresar un número con comas da error xd|Notita para hacerlo despues xd
                         products.add(productData);
-                        
-                        str = products.get(products.size()-1).toStringData().replaceAll(",", ";");
-                        bufferedWriter.append(str + "\n");    
-   
-                        bufferedWriter.close();
+
                         break;
                     case 3:
-                        
-                        File fileService = new File(pathServiceCSV);
-                        if (!(fileService.exists())) {
-                            fileService.createNewFile();
-                            fileWriter = new FileWriter(pathServiceCSV);
-                            fileWriter.append("Name Service;Price;Pending Payment\n");
-                        } else {
-                            fileWriter = new FileWriter(pathServiceCSV, true);
-                        }
-                        bufferedWriter = new BufferedWriter(fileWriter);
-                        
+
                         System.out.println("You have selected option 3");
                         System.out.println("what is the Service: ?");
                         nameService = textInput.next();
@@ -192,13 +150,7 @@ public class AdministrativeDisplay {
                         payment = textInput.nextInt();
                         servicesData = new Service(nameService, price, false, false, stylists);
                         services.add(servicesData);
-                        
-                        
-                        str = services.get(services.size()-1).toStringData().replaceAll(",", ";");
-                        bufferedWriter.append(str + "\n");    
-   
-                        bufferedWriter.close();
-                        
+
                         break;
                     case 4:
                         System.out.println("You have selected option 4");
@@ -214,7 +166,7 @@ public class AdministrativeDisplay {
                         addressStylist = textInput.nextLine();
                         stylistData = new Stylist(identificationCard, nameStylist, numberStylist, paymentStylist, "Quito", addressStylist);
                         stylists.add(stylistData);
-                        
+
                         break;
                     case 5:
                         System.out.println("You have selected option 5");
@@ -285,13 +237,12 @@ public class AdministrativeDisplay {
 
                 }
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                //System.out.println(e.getMessage());
                 System.out.println("Only enter the numbers");
                 textInput.next();
             }
 
         }
-
     }
 
     private static void printOptions() {
@@ -299,11 +250,49 @@ public class AdministrativeDisplay {
         System.out.println("This is a options");
         System.out.println("1. Add a new customer");
         System.out.println("2. Add a new product");
-        System.out.println("3. Add a new Service");
-        System.out.println("4. add a new Stylist");
-        System.out.println("5. Add a new Suppplier");
-        System.out.println("6. Add a new Turn");
-        System.out.println("7. exit");
+//        System.out.println("3. Add a new Service");
+//        System.out.println("4. add a new Stylist");
+//        System.out.println("5. Add a new Suppplier");
+//        System.out.println("6. Add a new Turn");
+        System.out.println("3. exit");
+    }
+
+    public static void unitTest() {
+
+        boolean exit;
+        Scanner textInput;
+        int option;
+        option = 0;
+        textInput = new Scanner(System.in);
+        exit = false;
+        while (!exit) {
+            System.out.println("----------------------------------------------------");
+            printOptions();
+            try {
+                System.out.println("Write the one option: ");
+                option = textInput.nextInt();
+                switch (option) {
+                    case 1:
+                        System.out.println("You selected option 1");
+                        break;
+                    case 2:
+                        System.out.println("You selected option 1");
+                        break;
+                    case 3:
+                        System.out.println("You are leaft");
+                        exit = true;
+                        break;
+                    default:
+                        System.out.println("Only numbers 1 ... 3");
+                }
+            } catch (Exception e) {
+                //System.out.println(e.getMessage());
+                System.out.println("Only enter the numbers");
+                textInput.next();
+            }
+
+        }
+
     }
 
 }

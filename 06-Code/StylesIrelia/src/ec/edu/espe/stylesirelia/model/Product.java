@@ -4,15 +4,30 @@
  */
 package ec.edu.espe.stylesirelia.model;
 
+import org.bson.Document;
+
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Product {
+public class Product extends BasicModel{
     private String name;
     private float price;
     private String expiration;
     private int stock;
+
+    @Override
+    public Document buildDocument() {
+        Document document = new Document();
+
+        document.append("name", this.name).
+                append("price", this.price).
+                append("expiration",this.expiration).
+                append("stock",this.stock)
+                ;
+        return document;
+    }
+
 
     public Product(String name, float price, String expiration, int stock) {
         this.name = name;

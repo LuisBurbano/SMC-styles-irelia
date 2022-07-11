@@ -4,19 +4,35 @@
  */
 package ec.edu.espe.stylesirelia.model;
 
+import org.bson.Document;
+
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Customer {
+public class Customer extends BasicModel {
+
     private String identificationCard;
     private String name;
     private int number;
     private boolean pendingPayment;
     private String appointment;
     private String address;
-    private int a;
-    private int b;
+
+
+    
+    @Override
+    public Document buildDocument() {
+        Document document = new Document();
+
+        document.append("identificationCard", this.identificationCard).
+                append("name", this.name).append("number", this.number).
+                append("pendingPayment", this.pendingPayment).
+                append("appointment", this.appointment).
+                append("address", this.address);
+
+        return document;
+    }
 
     public Customer(String identificationCard, String name, int number, boolean pendingPayment, String appointment, String address) {
         this.identificationCard = identificationCard;
@@ -27,22 +43,21 @@ public class Customer {
         this.address = address;
     }
 
-   
-    
     @Override
     public String toString() {
-        return  "identificationCard=" + identificationCard + ", name=" + name + ", number=" + number + ", pendingPayment=" + pendingPayment + ", appointment=" + appointment + ", address=" + address;
+        return "identificationCard=" + identificationCard + ", name=" + name + ", number=" + number + ", pendingPayment=" + pendingPayment + ", appointment=" + appointment + ", address=" + address;
     }
 
     public String toStringData() {
-        return   identificationCard + "," + name + "," + number + "," + pendingPayment + "," + appointment + "," + address;
+        return identificationCard + "," + name + "," + number + "," + pendingPayment + "," + appointment + "," + address;
     }
-    
-    public void scheduleAppointment(){
-        
+
+    public void scheduleAppointment() {
+
     }
-    public void payService(){
-        
+
+    public void payService() {
+
     }
 
     /**

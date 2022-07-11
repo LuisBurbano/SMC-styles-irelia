@@ -3,18 +3,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ec.edu.espe.stylesirelia.model;
-
+import org.bson.Document;
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Supplier {
+public class Supplier extends BasicModel{
     
     private String name;
     private int number;
     private boolean pendingPayment;
     private String appointment;
     private String address;
+
+    @Override
+    public Document buildDocument() {
+        Document document = new Document();
+
+        document.append("number", this.number).
+                append("name", this.name).
+                append("pendingPayment",this.pendingPayment).
+                append("appointment",this.appointment).
+                append("adress",this.address)                               ;
+
+        return document;
+    }
 
     public Supplier(String name, int number, boolean pendingPayment, String appointment, String address) {
         this.name = name;
