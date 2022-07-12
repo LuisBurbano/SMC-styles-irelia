@@ -1,10 +1,13 @@
 package ec.edu.espe.stylesirelia.view;
 
 import com.toedter.calendar.JDateChooser;
+import ec.edu.espe.stylesirelia.controller.TurnController;
+import ec.edu.espe.stylesirelia.model.Connection;
 import ec.edu.espe.stylesirelia.model.Turn;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import ec.edu.espe.stylesirelia.model.Connection;
 
 /**
  *
@@ -13,16 +16,16 @@ import javax.swing.JOptionPane;
 public class FrmTurn extends javax.swing.JFrame {
 
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
-    
-    public String getDate(JDateChooser jdDate){
-        if(jdDate.getDate()!=null){
+
+    public String getDate(JDateChooser jdDate) {
+        if (jdDate.getDate() != null) {
             return formDate.format(jdDate.getDate());
-        }else{
+        } else {
             return null;
         }
-            
+
     }
-    
+
     /**
      * Creates new form FrmTurn
      */
@@ -188,22 +191,30 @@ public class FrmTurn extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void mnuStylesIreliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuStylesIreliaActionPerformed
-      
+
     }//GEN-LAST:event_mnuStylesIreliaActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
-        FrmStylesirelia frmStylesirelia;
-        frmStylesirelia = new FrmStylesirelia();
-        frmStylesirelia.setVisible(true);
-        this.setVisible(false);
+//        FrmStylesirelia frmStylesirelia;
+//        frmStylesirelia = new FrmStylesirelia();
+//        frmStylesirelia.setVisible(true);
+//        this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
 
     private void btnRegisterTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterTurnActionPerformed
-        JOptionPane.showMessageDialog(this,"Select Date is: " + getDate(dtcServiceTurn));
-        
-        
-        
-        
+        JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcServiceTurn));
+        String v;
+        v = formDate.format(dtcServiceTurn.getDate());
+        ////////////////////////////////////////
+        //CONNECTION TO DATABASE
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+
+        /////
+        Turn turn = new Turn(1, formDate.format(dtcServiceTurn.getDate()), v, v, v);
+        TurnController cTurn = new TurnController(turn, "turns");
+        cTurn.create();
+
     }//GEN-LAST:event_btnRegisterTurnActionPerformed
 
     /**
