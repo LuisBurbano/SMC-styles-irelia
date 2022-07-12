@@ -205,7 +205,9 @@ public class FrmTurn extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcServiceTurn));
         String v;
         v = formDate.format(dtcServiceTurn.getDate());
-        ////////////////////////////////////////
+        
+        
+        
         //CONNECTION TO DATABASE
         Connection connection = new Connection();
         connection.connectionDataBase();
