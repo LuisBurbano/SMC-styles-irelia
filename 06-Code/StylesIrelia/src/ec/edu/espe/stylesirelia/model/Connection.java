@@ -20,6 +20,7 @@ public class Connection {
 
             MongoClient mongoClient = MongoClients.create(uri);
 
+            
             Connection.mongodb = mongoClient.getDatabase(db);
         }
 

@@ -16,5 +16,6 @@ public class CustomerController extends BasicController<Customer>{
     public CustomerController(Customer object, String collectionName) {
         super(object, collectionName);
     }
+
     
 }
