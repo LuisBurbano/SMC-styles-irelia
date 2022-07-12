@@ -55,7 +55,7 @@ public class FrmCustomer extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
-        btnBackToMenu = new javax.swing.JTextField();
+        btnBackToMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -149,7 +149,12 @@ public class FrmCustomer extends javax.swing.JFrame {
             }
         });
 
-        btnBackToMenu.setText("Back to menu");
+        btnBackToMenu.setText("Back to Menu");
+        btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackToMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -161,8 +166,8 @@ public class FrmCustomer extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(btnSearch)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBackToMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addComponent(btnBackToMenu)
+                .addGap(49, 49, 49))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +176,7 @@ public class FrmCustomer extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
                     .addComponent(btnSearch)
-                    .addComponent(btnBackToMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBackToMenu))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -227,13 +232,13 @@ public class FrmCustomer extends javax.swing.JFrame {
         String appointment;
         String address;
 
-        
         identificationCard = txtId.getText();
         name = txtName.getText();
         number = Integer.parseInt(txtNumber.getText());
         pendigPayment = false;
         appointment = formDate.format(txtDateService.getDate());
         address = txtAddress.getText();
+
         
         Customer customer = new Customer(identificationCard, name, number, false, appointment, address);
          
@@ -241,8 +246,20 @@ public class FrmCustomer extends javax.swing.JFrame {
         connection.connectionDataBase();
         
         CustomerController customerController = new CustomerController(customer, "customers");
-        customerController.create();
+        customerController.read(identificationCard);
+        
+        
+        txtId.setText(identificationCard);
+        txtName.setText(name);
+        
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
+        FrmStylesirelia frmStylesirelia;
+        frmStylesirelia = new FrmStylesirelia();
+        frmStylesirelia.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackToMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,7 +298,7 @@ public class FrmCustomer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JTextField btnBackToMenu;
+    private javax.swing.JButton btnBackToMenu;
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<String> cmbPayment;
     private javax.swing.JLabel jLabel1;
