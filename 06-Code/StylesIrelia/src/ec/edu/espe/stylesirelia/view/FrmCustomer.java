@@ -143,6 +143,11 @@ public class FrmCustomer extends javax.swing.JFrame {
         });
 
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         btnBackToMenu.setText("Back to menu");
 
@@ -213,6 +218,31 @@ public class FrmCustomer extends javax.swing.JFrame {
         customerController.create();
         
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        String identificationCard;
+        String name;
+        int number;
+        boolean pendigPayment;
+        String appointment;
+        String address;
+
+        
+        identificationCard = txtId.getText();
+        name = txtName.getText();
+        number = Integer.parseInt(txtNumber.getText());
+        pendigPayment = false;
+        appointment = formDate.format(txtDateService.getDate());
+        address = txtAddress.getText();
+        
+        Customer customer = new Customer(identificationCard, name, number, false, appointment, address);
+         
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+        
+        CustomerController customerController = new CustomerController(customer, "customers");
+        customerController.create();
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     /**
      * @param args the command line arguments
