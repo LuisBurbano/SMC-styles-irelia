@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ec.edu.espe.stylesirelia.model;
 
 import com.mongodb.client.MongoClient;
@@ -18,8 +15,8 @@ public class Connection {
     public MongoDatabase connectionDataBase() {
 
         if (mongodb == null) {
-            String uri = "mongodb+srv://admin:adminStylesIrealia@stylesirelia.by7pr.mongodb.net/?retryWrites=true&w=majority";
-            String db = "dbStylesIrelia";
+            String uri = "mongodb+srv://danilo:danilo123@cluster0.smxif.mongodb.net/?retryWrites=true&w=majority";
+            String db = "debe";
 
             MongoClient mongoClient = MongoClients.create(uri);
 
