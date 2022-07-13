@@ -1,5 +1,6 @@
 package ec.edu.espe.stylesirelia.controller;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
@@ -37,8 +38,9 @@ class BasicController<T extends BasicModel> {
 
     }
 
-    public FindIterable<Document> read() {
-        return mongoCollection.find();
+    public FindIterable<Document> read(String id) {
+
+        return mongoCollection.find(eq(id));
     }
 
     public void delete(String id, Object idValue) {
