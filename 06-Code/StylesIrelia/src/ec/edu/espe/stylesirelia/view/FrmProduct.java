@@ -244,8 +244,8 @@ public class FrmProduct extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
-        FrmStylesirelia frmStylesirelia;
-        frmStylesirelia = new FrmStylesirelia();
+        FrmStylesIreliaMenu frmStylesirelia;
+        frmStylesirelia = new FrmStylesIreliaMenu();
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
