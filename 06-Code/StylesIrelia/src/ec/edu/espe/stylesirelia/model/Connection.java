@@ -18,8 +18,8 @@ public class Connection {
     public MongoDatabase connectionDataBase() {
 
         if (mongodb == null) {
-            String uri = "mongodb+srv://admin:adminStylesIrealia@stylesirelia.by7pr.mongodb.net/?retryWrites=true&w=majority";
-            String db = "dbStylesIrelia";
+            String uri = "mongodb+srv://danilo:danilo123@cluster0.smxif.mongodb.net/?retryWrites=true&w=majority";
+            String db = "debe";
 
             MongoClient mongoClient = MongoClients.create(uri);
 
