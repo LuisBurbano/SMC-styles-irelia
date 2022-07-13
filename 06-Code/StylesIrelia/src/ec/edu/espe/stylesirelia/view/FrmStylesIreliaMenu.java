@@ -1,17 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ec.edu.espe.stylesirelia.view;
 
 /**
  *
- * @author widin
+ * @author Joel Arguello, DCCO-ESPE, BETTACODDERS
  */
 public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmStylesIrelia
+     * Creates new form frmStylesirelia
      */
     public FrmStylesIreliaMenu() {
         initComponents();
@@ -26,17 +22,74 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu3 = new javax.swing.JMenu();
+        jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        itmLoginStylist = new javax.swing.JMenuItem();
+        itmCustomer = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        itmSupplier = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+
+        jMenu3.setText("jMenu3");
+
+        jButton3.setText("Yes");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Styles Irelia ");
+        jMenu1.setText("Styles Irelia");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("About");
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("C");
+        jMenu2.setText("Stylist");
+
+        itmLoginStylist.setText("Login Stylist");
+        itmLoginStylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmLoginStylistActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itmLoginStylist);
+
+        itmCustomer.setText("Customer");
+        itmCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmCustomerActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itmCustomer);
+
         jMenuBar1.add(jMenu2);
+
+        jMenu4.setText("Products");
+
+        jMenuItem2.setText("Add or sell");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem2);
+
+        itmSupplier.setText("Supplier");
+        jMenu4.add(itmSupplier);
+
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Help");
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -44,15 +97,40 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 494, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 337, Short.MAX_VALUE)
+            .addGap(0, 234, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+       FrmStylesIreliaMenu frmStylesirelia;
+       frmStylesirelia = new FrmStylesIreliaMenu();
+       frmStylesirelia.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void itmLoginStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmLoginStylistActionPerformed
+     
+    }//GEN-LAST:event_itmLoginStylistActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       FrmProduct frmProduct;
+       frmProduct = new FrmProduct();
+       frmProduct.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void itmCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCustomerActionPerformed
+        FrmCustomer frmCustomer;
+        frmCustomer = new FrmCustomer();
+        frmCustomer.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_itmCustomerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,8 +169,17 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itmCustomer;
+    private javax.swing.JMenuItem itmLoginStylist;
+    private javax.swing.JMenuItem itmSupplier;
+    private javax.swing.JButton jButton3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
