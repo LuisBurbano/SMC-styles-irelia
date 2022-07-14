@@ -10,7 +10,8 @@ import org.bson.Document;
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Product extends BasicModel{
+public class Product extends BasicModel {
+
     private String name;
     private float price;
     private String expiration;
@@ -22,12 +23,10 @@ public class Product extends BasicModel{
 
         document.append("name", this.name).
                 append("price", this.price).
-                append("expiration",this.expiration).
-                append("stock",this.stock)
-                ;
+                append("expiration", this.expiration).
+                append("stock", this.stock);
         return document;
     }
-
 
     public Product(String name, float price, String expiration, int stock) {
         this.name = name;
@@ -40,21 +39,21 @@ public class Product extends BasicModel{
     public String toString() {
         return "Product{" + "name=" + name + ", price=" + price + ", expiration=" + expiration + ", stock=" + stock + '}';
     }
-    
+
     public String toStringData() {
-        return  name + "," + price + "," + expiration + "," + stock;
+        return name + "," + price + "," + expiration + "," + stock;
     }
-    
-    
-    
-    public void addProduct(){
-        
+
+    public void addProduct() {
+
     }
-    public void removeProduct(){
-        
+
+    public void removeProduct() {
+
     }
-    public void buyProduct(){
-        
+
+    public void buyProduct() {
+
     }
 
     /**

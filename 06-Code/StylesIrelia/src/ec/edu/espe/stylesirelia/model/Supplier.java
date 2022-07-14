@@ -1,15 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espe.stylesirelia.model;
+
 import org.bson.Document;
+
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Supplier extends BasicModel{
-    
+public class Supplier extends BasicModel {
+
     private String name;
     private int number;
     private boolean pendingPayment;
@@ -22,9 +20,9 @@ public class Supplier extends BasicModel{
 
         document.append("number", this.number).
                 append("name", this.name).
-                append("pendingPayment",this.pendingPayment).
-                append("appointment",this.appointment).
-                append("adress",this.address)                               ;
+                append("pendingPayment", this.pendingPayment).
+                append("appointment", this.appointment).
+                append("adress", this.address);
 
         return document;
     }
@@ -41,30 +39,33 @@ public class Supplier extends BasicModel{
     public String toString() {
         return "Supplier{" + "name=" + name + ", number=" + number + ", pendingPayment=" + pendingPayment + ", appointment=" + appointment + ", address=" + address + '}';
     }
-    
-    
-    
-    
-    public void pay(){
-        
+
+    public void pay() {
+
     }
-    public void addOrder(){
-        
+
+    public void addOrder() {
+
     }
-    public void cancelOrder(){
-        
+
+    public void cancelOrder() {
+
     }
-    public void editOrder(){
-        
+
+    public void editOrder() {
+
     }
-    public void addSupplier(){
-        
+
+    public void addSupplier() {
+
     }
-    public void editSupplier(){
-        
+
+    public void editSupplier() {
+
     }
-    public void removeSupplier(){
-        
+
+    public void removeSupplier() {
+
     }
 
     /**
@@ -136,6 +137,5 @@ public class Supplier extends BasicModel{
     public void setAddress(String address) {
         this.address = address;
     }
-    
-    
+
 }

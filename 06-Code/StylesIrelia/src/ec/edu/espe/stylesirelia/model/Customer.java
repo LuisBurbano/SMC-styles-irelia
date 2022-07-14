@@ -19,8 +19,6 @@ public class Customer extends BasicModel {
     private String appointment;
     private String address;
 
-
-    
     @Override
     public Document buildDocument() {
         Document document = new Document();

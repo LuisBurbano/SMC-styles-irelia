@@ -11,22 +11,22 @@ import org.bson.Document;
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Service extends BasicModel{
+public class Service extends BasicModel {
+
     private String name;
     private float price;
     private boolean pendingPayment;
     private boolean available;
-    private ArrayList<Stylist>availableStylist;
-
+    private ArrayList<Stylist> availableStylist;
 
     @Override
-   public Document buildDocument() {
+    public Document buildDocument() {
         Document document = new Document();
 
         document.append("price", this.price).
                 append("name", this.name).
                 append("pendingPayment", this.pendingPayment).
-                append("availableStylist",this.availableStylist)               ;
+                append("availableStylist", this.availableStylist);
 
         return document;
     }
@@ -43,24 +43,25 @@ public class Service extends BasicModel{
     public String toString() {
         return "Service{" + "name=" + name + ", price=" + price + ", pendingPayment=" + pendingPayment + ", available=" + available + ", availableStylist=" + availableStylist + '}';
     }
-    
-     public String toStringData() {
+
+    public String toStringData() {
         return name + "," + pendingPayment + "," + available + "," + availableStylist;
     }
-    
-    
-    
-    public void chargue(){
-        
+
+    public void chargue() {
+
     }
-    public void deactivate(){
-        
+
+    public void deactivate() {
+
     }
-    public void activate(){
-        
+
+    public void activate() {
+
     }
-    public void addStylist(){
-        
+
+    public void addStylist() {
+
     }
 
     /**
@@ -132,5 +133,5 @@ public class Service extends BasicModel{
     public void setAvailableStylist(ArrayList<Stylist> availableStylist) {
         this.availableStylist = availableStylist;
     }
-    
+
 }

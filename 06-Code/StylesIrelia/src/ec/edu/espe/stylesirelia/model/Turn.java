@@ -1,29 +1,30 @@
 package ec.edu.espe.stylesirelia.model;
+
 import com.toedter.calendar.JDateChooser;
 import java.text.SimpleDateFormat;
 import org.bson.Document;
+
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Turn extends BasicModel{
-    
+public class Turn extends BasicModel {
+
     private int id;
     private String date;
     private String customer;
     private String service;
     private String stylist;
 
-    
     @Override
     public Document buildDocument() {
         Document document = new Document();
 
         document.append("id", this.id).
                 append("date", this.date).
-                append("customer",this.customer).
-                append("service",this.service).
-                append("stylist",this.stylist)                               ;
+                append("customer", this.customer).
+                append("service", this.service).
+                append("stylist", this.stylist);
 
         return document;
     }
@@ -40,17 +41,17 @@ public class Turn extends BasicModel{
     public String toString() {
         return "yout Turn->>" + "id=" + id + ", date=" + date + ", customer=" + customer + ", service=" + service + ", stylist=" + stylist + '}';
     }
-    
 
-    
-    public void addTurn(){
-        
+    public void addTurn() {
+
     }
-    public void editTurn(){
-        
+
+    public void editTurn() {
+
     }
-    public void removeTurn(){
-        
+
+    public void removeTurn() {
+
     }
 
     /**
@@ -122,6 +123,5 @@ public class Turn extends BasicModel{
     public void setStylist(String stylist) {
         this.stylist = stylist;
     }
-    
-}
 
+}

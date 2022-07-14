@@ -13,6 +13,7 @@ import com.mongodb.client.MongoDatabase;
  * @author Joel Arguello, DCCO-ESPE, BETTACODDERS
  */
 public class Connection {
+
     public static MongoDatabase mongodb = null;
 
     public MongoDatabase connectionDataBase() {
@@ -23,7 +24,6 @@ public class Connection {
 
             MongoClient mongoClient = MongoClients.create(uri);
 
-            
             Connection.mongodb = mongoClient.getDatabase(db);
         }
 
