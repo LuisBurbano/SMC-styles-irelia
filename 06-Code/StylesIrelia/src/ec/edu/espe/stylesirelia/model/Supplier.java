@@ -40,33 +40,7 @@ public class Supplier extends BasicModel {
         return "Supplier{" + "name=" + name + ", number=" + number + ", pendingPayment=" + pendingPayment + ", appointment=" + appointment + ", address=" + address + '}';
     }
 
-    public void pay() {
-
-    }
-
-    public void addOrder() {
-
-    }
-
-    public void cancelOrder() {
-
-    }
-
-    public void editOrder() {
-
-    }
-
-    public void addSupplier() {
-
-    }
-
-    public void editSupplier() {
-
-    }
-
-    public void removeSupplier() {
-
-    }
+    
 
     /**
      * @return the name

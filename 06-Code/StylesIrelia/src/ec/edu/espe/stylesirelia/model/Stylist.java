@@ -29,17 +29,7 @@ public class Stylist extends BasicModel {
         return "Stylist --> " + "identificationCard=" + identificationCard + ", name=" + name + ", number=" + number + ", payment=" + payment + ", appointment=" + appointment + ", address=" + address + "\n";
     }
 
-    public void addAppointment() {
-
-    }
-
-    public void removeAppointment() {
-
-    }
-
-    public void editAppointment() {
-
-    }
+   
 
     /**
      * @return the name
