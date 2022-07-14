@@ -30,7 +30,7 @@ class BasicController<T extends BasicModel> {
         return this.mongoCollection;
     }
 
-    public void create() {
+    public void create()  {
 
         Document document = model.buildDocument();
 

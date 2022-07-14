@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
  */
 public class FrmCustomer extends javax.swing.JFrame {
 
-     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
+    SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
 
     public String getDate(JDateChooser jdDate) {
         if (jdDate.getDate() != null) {
@@ -22,6 +22,7 @@ public class FrmCustomer extends javax.swing.JFrame {
         }
 
     }
+
     /**
      * Creates new form FrmCustomer
      */
@@ -199,29 +200,29 @@ public class FrmCustomer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        
+
         String identificationCard;
         String name;
         int number;
         boolean pendigPayment;
         String appointment;
         String address;
-        
+
         identificationCard = txtId.getText();
         name = txtName.getText();
         number = Integer.parseInt(txtNumber.getText());
         pendigPayment = false;
         appointment = formDate.format(txtDateService.getDate());
         address = txtAddress.getText();
-        
+
         Customer customer = new Customer(identificationCard, name, number, false, appointment, address);
-         
+
         Connection connection = new Connection();
         connection.connectionDataBase();
-        
+
         CustomerController customerController = new CustomerController(customer, "customers");
         customerController.create();
-        
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -239,19 +240,17 @@ public class FrmCustomer extends javax.swing.JFrame {
         appointment = formDate.format(txtDateService.getDate());
         address = txtAddress.getText();
 
-        
         Customer customer = new Customer(identificationCard, name, number, false, appointment, address);
-         
+
         Connection connection = new Connection();
         connection.connectionDataBase();
-        
+
         CustomerController customerController = new CustomerController(customer, "customers");
         customerController.read(identificationCard);
-        
-        
+
         txtId.setText(identificationCard);
         txtName.setText(name);
-        
+
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed

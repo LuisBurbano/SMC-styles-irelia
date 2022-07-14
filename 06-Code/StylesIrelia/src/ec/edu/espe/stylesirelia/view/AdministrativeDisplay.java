@@ -1,4 +1,3 @@
-
 package ec.edu.espe.stylesirelia.view;
 
 import com.google.gson.Gson;

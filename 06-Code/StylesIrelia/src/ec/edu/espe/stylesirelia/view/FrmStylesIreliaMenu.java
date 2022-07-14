@@ -108,21 +108,21 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-       FrmStylesIreliaMenu frmStylesirelia;
-       frmStylesirelia = new FrmStylesIreliaMenu();
-       frmStylesirelia.setVisible(true);
-       this.setVisible(false);
+        FrmStylesIreliaMenu frmStylesirelia;
+        frmStylesirelia = new FrmStylesIreliaMenu();
+        frmStylesirelia.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void itmLoginStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmLoginStylistActionPerformed
-     
+
     }//GEN-LAST:event_itmLoginStylistActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       FrmProduct frmProduct;
-       frmProduct = new FrmProduct();
-       frmProduct.setVisible(true);
-       this.setVisible(false);
+        FrmProduct frmProduct;
+        frmProduct = new FrmProduct();
+        frmProduct.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void itmCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCustomerActionPerformed

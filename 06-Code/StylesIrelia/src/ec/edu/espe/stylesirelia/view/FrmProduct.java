@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
  */
 public class FrmProduct extends javax.swing.JFrame {
 
-    
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
 
     public String getDate(JDateChooser jdDate) {
@@ -26,8 +25,7 @@ public class FrmProduct extends javax.swing.JFrame {
         }
 
     }
-    
-    
+
     /**
      * Creates new form FrmProduct
      */
@@ -197,15 +195,14 @@ public class FrmProduct extends javax.swing.JFrame {
         String name;
         Float price;
         int stock;
-              
-              
+
         name = txtName.getText();
         expiration = formDate.format(dtcExpirationProduct.getDate());
         price = Float.parseFloat(txtPrice.getText());
         stock = Integer.parseInt(txtStock.getText());
 
         Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
-        
+
         Connection connection = new Connection();
         connection.connectionDataBase();
 
@@ -216,31 +213,27 @@ public class FrmProduct extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddProductActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-                JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcExpirationProduct));
+        JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcExpirationProduct));
         String expiration;
         String name;
         Float price;
         int stock;
-              
-              
+
         name = txtName.getText();
         expiration = formDate.format(dtcExpirationProduct.getDate());
         price = Float.parseFloat(txtPrice.getText());
         stock = Integer.parseInt(txtStock.getText());
-                
-
 
         /////
         Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
-        
-        
+
         //CONNECTION TO DATABASE
         Connection connection = new Connection();
         connection.connectionDataBase();
 //        Turn turn = new Turn(1, formDate.format(dtcExpirationProduct.getDate()), v, v, v);
         ProductController productController = new ProductController(product, "products");
         productController.delete(name, stock);
-        
+
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
