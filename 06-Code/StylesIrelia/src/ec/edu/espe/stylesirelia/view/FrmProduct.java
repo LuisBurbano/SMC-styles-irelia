@@ -70,6 +70,12 @@ public class FrmProduct extends javax.swing.JFrame {
 
         jLabel5.setText("Stock");
 
+        txtStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStockActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -255,8 +261,34 @@ public class FrmProduct extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackToMenuActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcExpirationProduct));
+        String name;
+        String expiration;
+        Float price;
+        int stock;
+        
+        
+        name = txtName.getText();
+        expiration = formDate.format(dtcExpirationProduct.getDate());
+        price = Float.parseFloat(txtPrice.getText());
+        stock = Integer.parseInt(txtStock.getText());
+        
+       
+        Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
+
+        
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+
+        ProductController productController = new ProductController(product, "products");
+        productController.delete(name, stock);
+        
+        
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockActionPerformed
 
     /**
      * @param args the command line arguments
