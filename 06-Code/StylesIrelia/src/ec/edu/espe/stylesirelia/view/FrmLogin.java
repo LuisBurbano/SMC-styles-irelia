@@ -34,7 +34,8 @@ public class FrmLogin extends javax.swing.JFrame {
         String path = System.getProperty("user.dir");
         ImageIcon img = new ImageIcon(path +"\\src\\ec\\edu\\espe\\stylesirelia\\sources\\logoBettaCoders.png");
         this.setIconImage(img.getImage());
-
+        this.setTitle("Login Window");
+        
     }
 
     /**
@@ -135,9 +136,10 @@ public class FrmLogin extends javax.swing.JFrame {
         Document doc = m.find(user.buildDocument()).first();
         
         if(doc!=null){
-            
+            FrmStylesIreliaMenu frmStylesIreliaMenu = new FrmStylesIreliaMenu();
             JOptionPane.showMessageDialog(null, "Your enter");
-            
+            this.setVisible(false);
+            frmStylesIreliaMenu.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "A one value is incorrect try again");
         }
