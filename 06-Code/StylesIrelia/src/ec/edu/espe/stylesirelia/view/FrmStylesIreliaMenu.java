@@ -30,6 +30,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         itmLoginStylist = new javax.swing.JMenuItem();
         itmCustomer = new javax.swing.JMenuItem();
+        itmStylist = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         itmSupplier = new javax.swing.JMenuItem();
@@ -55,6 +56,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenu2.setText("Stylist");
 
+        itmLoginStylist.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmLoginStylist.setText("Login Stylist");
         itmLoginStylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +65,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu2.add(itmLoginStylist);
 
+        itmCustomer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmCustomer.setText("Customer");
         itmCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +73,15 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
             }
         });
         jMenu2.add(itmCustomer);
+
+        itmStylist.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmStylist.setText("Stylist");
+        itmStylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmStylistActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itmStylist);
 
         jMenuBar1.add(jMenu2);
 
@@ -132,6 +144,13 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_itmCustomerActionPerformed
 
+    private void itmStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmStylistActionPerformed
+        FrmStylist frmStylist;
+        frmStylist = new FrmStylist();
+        frmStylist.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_itmStylistActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -171,6 +190,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itmCustomer;
     private javax.swing.JMenuItem itmLoginStylist;
+    private javax.swing.JMenuItem itmStylist;
     private javax.swing.JMenuItem itmSupplier;
     private javax.swing.JButton jButton3;
     private javax.swing.JMenu jMenu1;
