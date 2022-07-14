@@ -56,6 +56,7 @@ public class FrmProduct extends javax.swing.JFrame {
         btnAddProduct = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
         btnBackToMenu = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,18 +145,27 @@ public class FrmProduct extends javax.swing.JFrame {
             }
         });
 
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addGap(16, 16, 16)
                 .addComponent(btnAddProduct)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnSearch)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(btnRemove)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(btnBackToMenu)
-                .addGap(22, 22, 22))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +174,8 @@ public class FrmProduct extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddProduct)
                     .addComponent(btnRemove)
-                    .addComponent(btnBackToMenu))
+                    .addComponent(btnBackToMenu)
+                    .addComponent(btnSearch))
                 .addGap(35, 35, 35))
         );
 
@@ -243,6 +254,10 @@ public class FrmProduct extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSearchActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -282,6 +297,7 @@ public class FrmProduct extends javax.swing.JFrame {
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnBackToMenu;
     private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnSearch;
     private com.toedter.calendar.JDateChooser dtcExpirationProduct;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

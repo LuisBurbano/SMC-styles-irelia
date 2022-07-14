@@ -34,6 +34,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         itmSupplier = new javax.swing.JMenuItem();
+        itmProduct = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
 
         jMenu3.setText("jMenu3");
@@ -98,6 +99,14 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         itmSupplier.setText("Supplier");
         jMenu4.add(itmSupplier);
 
+        itmProduct.setText("Product");
+        itmProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmProductActionPerformed(evt);
+            }
+        });
+        jMenu4.add(itmProduct);
+
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Help");
@@ -127,7 +136,10 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void itmLoginStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmLoginStylistActionPerformed
-
+        FrmLoginstylist frmStylist;
+        frmStylist = new FrmLoginstylist();
+        frmStylist.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_itmLoginStylistActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -150,6 +162,13 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         frmStylist.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmStylistActionPerformed
+
+    private void itmProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmProductActionPerformed
+        FrmProduct frmProduct;
+        frmProduct = new FrmProduct();
+        frmProduct.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_itmProductActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,6 +209,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itmCustomer;
     private javax.swing.JMenuItem itmLoginStylist;
+    private javax.swing.JMenuItem itmProduct;
     private javax.swing.JMenuItem itmStylist;
     private javax.swing.JMenuItem itmSupplier;
     private javax.swing.JButton jButton3;

@@ -137,7 +137,7 @@ public class FrmLogin extends javax.swing.JFrame {
         
         if(doc!=null){
             FrmStylesIreliaMenu frmStylesIreliaMenu = new FrmStylesIreliaMenu();
-            JOptionPane.showMessageDialog(null, "Your enter");
+            JOptionPane.showMessageDialog(null, "Welcome to the system");
             this.setVisible(false);
             frmStylesIreliaMenu.setVisible(true);
         }else{
