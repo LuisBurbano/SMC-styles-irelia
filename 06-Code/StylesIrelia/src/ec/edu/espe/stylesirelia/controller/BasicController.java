@@ -38,9 +38,9 @@ class BasicController<T extends BasicModel> {
 
     }
 
-    public FindIterable<Document> read(String id) {
+    public Document read(String id) {
 
-        return mongoCollection.find(eq(id));
+        return mongoCollection.find(eq(id)).first();
     }
 
     public void delete(String id, Object idValue) {
