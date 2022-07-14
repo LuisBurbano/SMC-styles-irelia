@@ -40,17 +40,7 @@ public class Product extends BasicModel {
         return name + "," + price + "," + expiration + "," + stock;
     }
 
-    public void addProduct() {
-
-    }
-
-    public void removeProduct() {
-
-    }
-
-    public void buyProduct() {
-
-    }
+    
 
     /**
      * @return the name

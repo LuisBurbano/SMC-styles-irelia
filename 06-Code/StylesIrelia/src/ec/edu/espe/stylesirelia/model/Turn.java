@@ -42,17 +42,7 @@ public class Turn extends BasicModel {
         return "yout Turn->>" + "id=" + id + ", date=" + date + ", customer=" + customer + ", service=" + service + ", stylist=" + stylist + '}';
     }
 
-    public void addTurn() {
-
-    }
-
-    public void editTurn() {
-
-    }
-
-    public void removeTurn() {
-
-    }
+    
 
     /**
      * @return the id

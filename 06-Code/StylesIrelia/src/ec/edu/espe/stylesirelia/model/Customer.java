@@ -46,13 +46,7 @@ public class Customer extends BasicModel {
         return identificationCard + "," + name + "," + number + "," + pendingPayment + "," + appointment + "," + address;
     }
 
-    public void scheduleAppointment() {
-
-    }
-
-    public void payService() {
-
-    }
+   
 
     /**
      * @return the name

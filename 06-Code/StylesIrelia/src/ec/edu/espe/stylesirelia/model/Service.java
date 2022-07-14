@@ -44,21 +44,7 @@ public class Service extends BasicModel {
         return name + "," + pendingPayment + "," + available + "," + availableStylist;
     }
 
-    public void chargue() {
-
-    }
-
-    public void deactivate() {
-
-    }
-
-    public void activate() {
-
-    }
-
-    public void addStylist() {
-
-    }
+   
 
     /**
      * @return the name
