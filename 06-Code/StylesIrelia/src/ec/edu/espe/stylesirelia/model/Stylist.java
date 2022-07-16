@@ -10,12 +10,17 @@ public class Stylist extends BasicModel {
 
     private String identificationCard;
     private String name;
-    private int number;
-    private float payment;
+    private String number;
+    private double payment;
     private String appointment;
     private String address;
 
-    public Stylist(String identificationCard, String name, int number, float payment, String appointment, String address) {
+    public Stylist() {
+    }
+    
+    
+
+    public Stylist(String identificationCard, String name, String number, double payment, String appointment, String address) {
         this.identificationCard = identificationCard;
         this.name = name;
         this.number = number;
@@ -48,28 +53,28 @@ public class Stylist extends BasicModel {
     /**
      * @return the number
      */
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
     /**
      * @param number the number to set
      */
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
     /**
      * @return the payment
      */
-    public float getPayment() {
+    public double getPayment() {
         return payment;
     }
 
     /**
      * @param payment the payment to set
      */
-    public void setPayment(float payment) {
+    public void setPayment(double payment) {
         this.payment = payment;
     }
 

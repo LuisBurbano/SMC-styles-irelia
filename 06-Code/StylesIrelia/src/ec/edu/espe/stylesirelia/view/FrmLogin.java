@@ -32,8 +32,8 @@ public class FrmLogin extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         String path = System.getProperty("user.dir");
-        ImageIcon img = new ImageIcon(path +"\\src\\ec\\edu\\espe\\stylesirelia\\sources\\logoBettaCoders.png");
-        this.setIconImage(img.getImage());
+//        ImageIcon img = new ImageIcon(path +"\\src\\ec\\edu\\espe\\stylesirelia\\sources\\logoBettaCoders.png");
+//        this.setIconImage(img.getImage());
         this.setTitle("Login Window");
         
     }

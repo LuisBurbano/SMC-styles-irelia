@@ -54,7 +54,7 @@ public class AdministrativeDisplay {
         String expiration;
         int stock;
         String nameStylist;
-        int numberStylist;
+        String numberStylist;
         int paymentStylist;
         String addressStylist;
         int price = 0;
@@ -82,6 +82,10 @@ public class AdministrativeDisplay {
         //Nos conectamos a la base de datos
         Connection connection = new Connection();
         connection.connectionDataBase();
+        
+        Customer c = new Customer("12", "luis", 9876, false, "76/87", "quito");
+        CustomerController cc = new CustomerController(c, "customers");
+        
 
         while (!exit) {
             printOptions();
@@ -155,7 +159,7 @@ public class AdministrativeDisplay {
                         System.out.println("Write the Stylist name: ");
                         nameStylist = textInput.next();
                         System.out.println("Write the number of the Stylist: ");
-                        numberStylist = textInput.nextInt();
+                        numberStylist = textInput.nextLine();
                         System.out.println("Write the pending payment with the Stylist: ");
                         paymentStylist = textInput.nextInt();
                         System.out.println("What is the address of the stylist? ");
