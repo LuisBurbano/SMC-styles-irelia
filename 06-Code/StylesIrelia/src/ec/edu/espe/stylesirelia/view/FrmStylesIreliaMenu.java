@@ -28,7 +28,6 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        itmLoginStylist = new javax.swing.JMenuItem();
         itmCustomer = new javax.swing.JMenuItem();
         itmStylist = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
@@ -62,15 +61,6 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Stylist");
-
-        itmLoginStylist.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itmLoginStylist.setText("Login Stylist");
-        itmLoginStylist.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmLoginStylistActionPerformed(evt);
-            }
-        });
-        jMenu2.add(itmLoginStylist);
 
         itmCustomer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         itmCustomer.setText("Customer");
@@ -140,13 +130,6 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void itmLoginStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmLoginStylistActionPerformed
-        FrmLoginstylist frmStylist;
-        frmStylist = new FrmLoginstylist();
-        frmStylist.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_itmLoginStylistActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         FrmProduct frmProduct;
@@ -221,7 +204,6 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itmCustomer;
-    private javax.swing.JMenuItem itmLoginStylist;
     private javax.swing.JMenuItem itmProduct;
     private javax.swing.JMenuItem itmStylist;
     private javax.swing.JMenuItem itmSupplier;

@@ -38,11 +38,9 @@ public class FrmTableStylist extends javax.swing.JFrame {
         connection.connectionDataBase();
         //-------
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
-            fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
-        MongoCollection<Stylist> collectionStylists = db.getCollection("stylists", Stylist.class);
-        
- 
+        MongoCollection<Stylist> collectionStylists = db.getCollection("stylists", Stylist.class); 
         List<Stylist> stylists = collectionStylists.find(new Document(), Stylist.class).into(new ArrayList<Stylist>());
 
         Object[][] objects = new Object[stylists.size()][6];
