@@ -146,9 +146,9 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_itmCustomerActionPerformed
 
     private void itmStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmStylistActionPerformed
-        FrmStylist frmStylist;
-        frmStylist = new FrmStylist();
-        frmStylist.setVisible(true);
+        FrmAddStylist frmAddStylist;
+        frmAddStylist = new FrmAddStylist();
+        frmAddStylist.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmStylistActionPerformed
 
