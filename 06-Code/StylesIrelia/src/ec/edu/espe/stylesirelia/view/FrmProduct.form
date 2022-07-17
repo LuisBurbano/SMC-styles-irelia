@@ -48,9 +48,10 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
@@ -76,12 +77,8 @@
                               <Component id="txtStock" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace pref="124" max="32767" attributes="0"/>
+                  <EmptySpace pref="199" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -164,9 +161,11 @@
                   <Component id="btnAddProduct" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="btnSearch" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="18" max="32767" attributes="0"/>
-                  <Component id="btnRemove" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="txtUpdate" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="btnRemove" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="27" max="32767" attributes="0"/>
                   <Component id="btnBackToMenu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -181,6 +180,7 @@
                       <Component id="btnBackToMenu" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnSearch" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnAddProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
@@ -198,7 +198,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnRemove">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Remove"/>
+            <Property name="text" type="java.lang.String" value="Delete"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveActionPerformed"/>
@@ -206,7 +206,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnBackToMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Back to Menu"/>
+            <Property name="text" type="java.lang.String" value="Back "/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackToMenuActionPerformed"/>
@@ -218,6 +218,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSearchActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="txtUpdate">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Update"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtUpdateActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

@@ -1,12 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package ec.edu.espe.stylesirelia.view;
+
+import ec.edu.espe.stylesirelia.controller.StylistController;
+import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.model.Stylist;
 
 /**
  *
- * @author José André
+ * @author Roberto Bedon, DCCO-ESPE, BETTACODDERS
  */
 public class FrmAddStylist extends javax.swing.JFrame {
 
@@ -36,13 +36,16 @@ public class FrmAddStylist extends javax.swing.JFrame {
         txtIdentification = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtNumber = new javax.swing.JTextField();
-        spiAppoinment = new javax.swing.JSpinner();
         txtAddress = new javax.swing.JTextField();
+        txtAppoinment = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtPayment = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
         btnRead = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        bntBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,43 +75,42 @@ public class FrmAddStylist extends javax.swing.JFrame {
 
         txtNumber.setToolTipText("only numbers");
 
-        spiAppoinment.setModel(new javax.swing.SpinnerNumberModel(1, 0, 50, 1));
+        txtAddress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAddressActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("Payment:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel2))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(spiAppoinment, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtIdentification, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNumber, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(100, 100, 100))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(217, 217, 217))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtIdentification, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAppoinment, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPayment)
+                    .addComponent(txtAddress)
+                    .addComponent(txtNumber)
+                    .addComponent(txtName))
+                .addGap(100, 100, 100))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,13 +131,17 @@ public class FrmAddStylist extends javax.swing.JFrame {
                     .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(spiAppoinment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(txtAppoinment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(jLabel5)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 0, 102));
@@ -143,33 +149,64 @@ public class FrmAddStylist extends javax.swing.JFrame {
         btnAdd.setBackground(new java.awt.Color(255, 204, 204));
         btnAdd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnRead.setBackground(new java.awt.Color(255, 204, 204));
         btnRead.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnRead.setText("Read");
+        btnRead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReadActionPerformed(evt);
+            }
+        });
 
         btnDelete.setBackground(new java.awt.Color(255, 204, 204));
         btnDelete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setBackground(new java.awt.Color(255, 204, 204));
         btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        bntBack.setBackground(new java.awt.Color(255, 204, 204));
+        bntBack.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        bntBack.setText("Back");
+        bntBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(23, 23, 23)
                 .addComponent(btnAdd)
-                .addGap(56, 56, 56)
+                .addGap(18, 18, 18)
                 .addComponent(btnRead)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
                 .addComponent(btnUpdate)
-                .addGap(46, 46, 46)
+                .addGap(27, 27, 27)
                 .addComponent(btnDelete)
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(bntBack)
+                .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,7 +216,8 @@ public class FrmAddStylist extends javax.swing.JFrame {
                     .addComponent(btnAdd)
                     .addComponent(btnRead)
                     .addComponent(btnDelete)
-                    .addComponent(btnUpdate))
+                    .addComponent(btnUpdate)
+                    .addComponent(bntBack))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -200,6 +238,114 @@ public class FrmAddStylist extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+
+        String identificationCard;
+        String name;
+        String number;
+        double payment;
+        String appointment;
+        String address;
+
+        identificationCard = txtIdentification.getText();
+        name = txtName.getText();
+        number = txtNumber.getText();
+        payment = Integer.parseInt(txtPayment.getText());
+        appointment = txtAppoinment.getText();
+        address = txtAddress.getText();
+
+        Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
+
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+
+        StylistController stylistController = new StylistController(stylist, "Stylist");
+        stylistController.create();
+
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddressActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        String identificationCard;
+        String name;
+        String number;
+        double payment;
+        String appointment;
+        String address;
+
+        identificationCard = txtIdentification.getText();
+        name = txtName.getText();
+        number = txtNumber.getText();
+        payment = Integer.parseInt(txtPayment.getText());
+        appointment = txtAppoinment.getText();
+        address = txtAddress.getText();
+
+        Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
+
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+
+        StylistController stylistController = new StylistController(stylist, "Stylist");
+        stylistController.update(name, name, address, name);    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+       String identificationCard;
+        String name;
+        String number;
+        double payment;
+        String appointment;
+        String address;
+        
+        identificationCard = txtIdentification.getText();
+        name = txtName.getText();
+        number = txtNumber.getText();
+        payment = Integer.parseInt(txtPayment.getText());
+        appointment = txtAppoinment.getText();
+        address = txtAddress.getText();
+        
+        Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
+        
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+        
+        StylistController stylistController = new StylistController(stylist, "Stylist");
+        stylistController.delete(name, name);
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
+       String identificationCard;
+        String name;
+        String number;
+        double payment;
+        String appointment;
+        String address;
+        
+        identificationCard = txtIdentification.getText();
+        name = txtName.getText();
+        number = txtNumber.getText();
+        payment = Integer.parseInt(txtPayment.getText());
+        appointment = txtAppoinment.getText();
+        address = txtAddress.getText();
+        
+        Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
+        
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+        
+        StylistController stylistController = new StylistController(stylist,"Stylist");
+        stylistController.read(name);
+    }//GEN-LAST:event_btnReadActionPerformed
+
+    private void bntBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntBackActionPerformed
+        FrmStylesIreliaMenu frmStylesirelia;
+        frmStylesirelia = new FrmStylesIreliaMenu();
+        frmStylesirelia.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_bntBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,6 +384,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntBack;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRead;
@@ -248,12 +395,14 @@ public class FrmAddStylist extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSpinner spiAppoinment;
     private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtAppoinment;
     private javax.swing.JTextField txtIdentification;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumber;
+    private javax.swing.JTextField txtPayment;
     // End of variables declaration//GEN-END:variables
 }

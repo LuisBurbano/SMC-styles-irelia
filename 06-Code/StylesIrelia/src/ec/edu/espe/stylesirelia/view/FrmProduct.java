@@ -57,6 +57,7 @@ public class FrmProduct extends javax.swing.JFrame {
         btnRemove = new javax.swing.JButton();
         btnBackToMenu = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
+        txtUpdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,7 +82,8 @@ public class FrmProduct extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -100,11 +102,8 @@ public class FrmProduct extends javax.swing.JFrame {
                             .addComponent(dtcExpirationProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
                             .addComponent(txtName)
                             .addComponent(txtPrice)
-                            .addComponent(txtStock)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(jLabel1)))
-                .addContainerGap(124, Short.MAX_VALUE))
+                            .addComponent(txtStock))))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,14 +136,14 @@ public class FrmProduct extends javax.swing.JFrame {
             }
         });
 
-        btnRemove.setText("Remove");
+        btnRemove.setText("Delete");
         btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRemoveActionPerformed(evt);
             }
         });
 
-        btnBackToMenu.setText("Back to Menu");
+        btnBackToMenu.setText("Back ");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackToMenuActionPerformed(evt);
@@ -158,6 +157,13 @@ public class FrmProduct extends javax.swing.JFrame {
             }
         });
 
+        txtUpdate.setText("Update");
+        txtUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -167,9 +173,11 @@ public class FrmProduct extends javax.swing.JFrame {
                 .addComponent(btnAddProduct)
                 .addGap(18, 18, 18)
                 .addComponent(btnSearch)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(btnRemove)
                 .addGap(18, 18, 18)
+                .addComponent(txtUpdate)
+                .addGap(26, 26, 26)
+                .addComponent(btnRemove)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addComponent(btnBackToMenu)
                 .addContainerGap())
         );
@@ -181,7 +189,8 @@ public class FrmProduct extends javax.swing.JFrame {
                     .addComponent(btnRemove)
                     .addComponent(btnBackToMenu)
                     .addComponent(btnSearch)
-                    .addComponent(btnAddProduct))
+                    .addComponent(btnAddProduct)
+                    .addComponent(txtUpdate))
                 .addGap(35, 35, 35))
         );
 
@@ -290,6 +299,30 @@ public class FrmProduct extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStockActionPerformed
 
+    private void txtUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateActionPerformed
+       JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcExpirationProduct));
+        String name;
+        String expiration;
+        Float price;
+        int stock;
+        
+        
+        name = txtName.getText();
+        expiration = formDate.format(dtcExpirationProduct.getDate());
+        price = Float.parseFloat(txtPrice.getText());
+        stock = Integer.parseInt(txtStock.getText());
+        
+       
+        Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
+
+        
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+
+        ProductController productController = new ProductController(product, "products");
+        productController.updateModel(product);
+    }//GEN-LAST:event_txtUpdateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -341,5 +374,6 @@ public class FrmProduct extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtStock;
+    private javax.swing.JButton txtUpdate;
     // End of variables declaration//GEN-END:variables
 }
