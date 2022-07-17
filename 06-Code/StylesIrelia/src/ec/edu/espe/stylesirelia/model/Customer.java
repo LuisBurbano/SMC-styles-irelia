@@ -15,6 +15,10 @@ public class Customer extends BasicModel {
     private String appointment;
     private String address;
 
+    public Customer() {
+    }
+    
+    
     @Override
     public Document buildDocument() {
         Document document = new Document();
@@ -131,4 +135,5 @@ public class Customer extends BasicModel {
     public void setIdentificationCard(String identificationCard) {
         this.identificationCard = identificationCard;
     }
+    
 }

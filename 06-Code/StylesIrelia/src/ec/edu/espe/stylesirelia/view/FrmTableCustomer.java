@@ -4,9 +4,8 @@ package ec.edu.espe.stylesirelia.view;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import ec.edu.espe.stylesirelia.model.Conection;
 import ec.edu.espe.stylesirelia.model.Connection;
-import ec.edu.espe.stylesirelia.model.Stylist;
+import ec.edu.espe.stylesirelia.model.Customer;
 import java.util.ArrayList;
 import java.util.List;
 import org.bson.Document;
@@ -17,19 +16,18 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
- * @author Luis Burbano, DCCO- ESPE, BettaCoders
+ * @author widin
  */
-public class FrmTableStylist extends javax.swing.JFrame {
+public class FrmTableCustomer extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmTableStylist
+     * Creates new form FrmTableCustomer
      */
-    public FrmTableStylist() {
+    public FrmTableCustomer() {
         initComponents();
     }
-
     
-    public void loadStylistsTable() {
+     public void loadCustomersTable() {
        //borrar estas dos lineas despues de juntar todas las pantallas
         Connection connection = new Connection();
         connection.connectionDataBase();
@@ -37,29 +35,31 @@ public class FrmTableStylist extends javax.swing.JFrame {
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
-        MongoCollection<Stylist> collectionStylists = db.getCollection("stylists", Stylist.class); 
-        List<Stylist> stylists = collectionStylists.find(new Document(), Stylist.class).into(new ArrayList<Stylist>());
+        MongoCollection<Customer> collectionCustomers = db.getCollection("customers", Customer.class); 
+        List<Customer> customers = collectionCustomers.find(new Document(), Customer.class).into(new ArrayList<Customer>());
 
-        Object[][] objects = new Object[stylists.size()][6];
+        Object[][] objects = new Object[customers.size()][6];
 
-        for (int i = 0; i < stylists.size(); i++) {
-            objects[i][0] = stylists.get(i).getIdentificationCard();
-            objects[i][1] = stylists.get(i).getName();
-            objects[i][2] = stylists.get(i).getNumber();
-            objects[i][3] = stylists.get(i).getPayment();
-            objects[i][4] = stylists.get(i).getAppointment();
-            objects[i][5] = stylists.get(i).getAddress();
+        for (int i = 0; i < customers.size(); i++) {
+            objects[i][0] = customers.get(i).getIdentificationCard();
+            objects[i][1] = customers.get(i).getName();
+            objects[i][2] = customers.get(i).getNumber();
+            objects[i][3] = customers.get(i).isPendingPayment();
+            objects[i][4] = customers.get(i).getAppointment();
+            objects[i][5] = customers.get(i).getAddress();
 
-            tableStylists.setModel(new javax.swing.table.DefaultTableModel(
+            tableCustomers.setModel(new javax.swing.table.DefaultTableModel(
                     objects,
                     new String[]{
-                        "Id", "Name", "Number", "Payment", "Appointmen", "Address"
+                        "Id", "Name", "Number", "PendingPaymentPayment", "Appointmen", "Address"
                     }
             ));
 
         }
 
     }
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,27 +71,33 @@ public class FrmTableStylist extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableStylists = new javax.swing.JTable();
+        tableCustomers = new javax.swing.JTable();
         btnLoad = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 18)); // NOI18N
-        jLabel1.setText("Stylists");
+        jLabel1.setText("Customers");
 
-        tableStylists.setModel(new javax.swing.table.DefaultTableModel(
+        tableCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Name", "Number", "Payment", "Appointment", "Address"
+                "identificationCard", "name", "number", "pendingPayment", "appointment", "address"
             }
-        ));
-        jScrollPane1.setViewportView(tableStylists);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Boolean.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableCustomers);
 
         btnLoad.setText("Load");
         btnLoad.addActionListener(new java.awt.event.ActionListener() {
@@ -107,33 +113,35 @@ public class FrmTableStylist extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(236, 236, 236)
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(342, 342, 342)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(198, 198, 198)
+                        .addGap(365, 365, 365)
                         .addComponent(btnLoad)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLoad)
-                .addContainerGap())
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadActionPerformed
-        loadStylistsTable();
+        
+        loadCustomersTable();
+        
     }//GEN-LAST:event_btnLoadActionPerformed
 
     /**
@@ -153,20 +161,20 @@ public class FrmTableStylist extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmTableStylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTableCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmTableStylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTableCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmTableStylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTableCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmTableStylist.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmTableCustomer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmTableStylist().setVisible(true);
+                new FrmTableCustomer().setVisible(true);
             }
         });
     }
@@ -175,6 +183,6 @@ public class FrmTableStylist extends javax.swing.JFrame {
     private javax.swing.JButton btnLoad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableStylists;
+    private javax.swing.JTable tableCustomers;
     // End of variables declaration//GEN-END:variables
 }

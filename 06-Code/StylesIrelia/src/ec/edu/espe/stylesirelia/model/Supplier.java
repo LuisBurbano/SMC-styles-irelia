@@ -14,6 +14,9 @@ public class Supplier extends BasicModel {
     private String appointment;
     private String address;
 
+    public Supplier() {
+    }
+    
     @Override
     public Document buildDocument() {
         Document document = new Document();

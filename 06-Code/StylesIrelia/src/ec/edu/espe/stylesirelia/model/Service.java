@@ -15,6 +15,9 @@ public class Service extends BasicModel {
     private boolean available;
     private ArrayList<Stylist> availableStylist;
 
+    public Service() {
+    }
+    
     @Override
     public Document buildDocument() {
         Document document = new Document();
