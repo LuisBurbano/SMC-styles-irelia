@@ -141,6 +141,11 @@ public class FrmService extends javax.swing.JFrame {
         btnUpdate.setText("Update");
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -204,15 +209,15 @@ public class FrmService extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         
      String name;
-     float price;
+     double price;
      boolean pendingPayment;
      boolean available;
     ArrayList<Stylist> availableStylist;
     name= txtName.getText();
-    price= parseFloat(txtPrice.getText());
+    price= Double.parseDouble(txtPrice.getText());
     available= Boolean.valueOf(txtAvailable.getText());
     availableStylist= split(txtAvailableStylist.getText());
-    Service service= new Service(name, price, false, available, availableStylist);
+    Service service= new Service(name, price, true, available, availableStylist);
     Connection connection = new Connection();
         connection.connectionDataBase();
 
@@ -222,6 +227,28 @@ public class FrmService extends javax.swing.JFrame {
     
         
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+     String name;
+     double price;
+     boolean pendingPayment;
+     boolean available;
+    ArrayList<Stylist> availableStylist;
+    name= txtName.getText();
+    price= Double.parseDouble(txtPrice.getText());
+    available= Boolean.valueOf(txtAvailable.getText());
+    availableStylist= split(txtAvailableStylist.getText());
+    Service service= new Service(name, price, true, available, availableStylist);
+    
+   
+
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+
+        ServiceController serviceController = new ServiceController(service, "services");
+        serviceController.delete(name, name);
+        
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
