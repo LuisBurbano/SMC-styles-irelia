@@ -99,6 +99,11 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         jMenu4.add(jMenuItem2);
 
         itmSupplier.setText("Supplier");
+        itmSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmSupplierActionPerformed(evt);
+            }
+        });
         jMenu4.add(itmSupplier);
 
         itmProduct.setText("Product");
@@ -125,9 +130,19 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         itmTableSupplier.add(itmTableProduct);
 
         itmTableCustomer.setText("TableCustomer");
+        itmTableCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmTableCustomerActionPerformed(evt);
+            }
+        });
         itmTableSupplier.add(itmTableCustomer);
 
         itmTableService.setText("Table Service");
+        itmTableService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmTableServiceActionPerformed(evt);
+            }
+        });
         itmTableSupplier.add(itmTableService);
 
         itmTableStylist.setText("Table Stylist");
@@ -139,6 +154,11 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         itmTableSupplier.add(itmTableStylist);
 
         itmTableSupllier.setText("Table Supplier");
+        itmTableSupllier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmTableSupllierActionPerformed(evt);
+            }
+        });
         itmTableSupplier.add(itmTableSupllier);
 
         jMenuBar1.add(itmTableSupplier);
@@ -214,6 +234,37 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         frmTableProduct.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmTableProductActionPerformed
+
+    private void itmSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmSupplierActionPerformed
+         FrmSupplier frmSupplier;
+        frmSupplier = new FrmSupplier();
+        frmSupplier.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_itmSupplierActionPerformed
+
+    private void itmTableCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmTableCustomerActionPerformed
+        FrmTableCustomer frmTableCustomer;
+        frmTableCustomer = new FrmTableCustomer();
+        frmTableCustomer.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_itmTableCustomerActionPerformed
+
+    private void itmTableServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmTableServiceActionPerformed
+        
+        FrmTableService frmTableService;
+        frmTableService = new FrmTableService();
+        frmTableService.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_itmTableServiceActionPerformed
+
+    private void itmTableSupllierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmTableSupllierActionPerformed
+        
+        FrmTableSupplier frmTableSupplier;
+        frmTableSupplier = new FrmTableSupplier();
+        frmTableSupplier.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_itmTableSupllierActionPerformed
 
     /**
      * @param args the command line arguments

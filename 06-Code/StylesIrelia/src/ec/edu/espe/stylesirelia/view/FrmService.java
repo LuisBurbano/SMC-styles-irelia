@@ -1,8 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package ec.edu.espe.stylesirelia.view;
+
+import com.toedter.calendar.JDateChooser;
+import ec.edu.espe.stylesirelia.controller.ServiceController;
+import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.model.Service;
+import ec.edu.espe.stylesirelia.model.Stylist;
+import static java.lang.Float.parseFloat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  *
@@ -10,6 +16,16 @@ package ec.edu.espe.stylesirelia.view;
  */
 public class FrmService extends javax.swing.JFrame {
 
+   SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
+
+    public String getDate(JDateChooser jdDate) {
+        if (jdDate.getDate() != null) {
+            return formDate.format(jdDate.getDate());
+        } else {
+            return null;
+        }
+
+    }
     /**
      * Creates new form FrmServices
      */
@@ -114,6 +130,11 @@ public class FrmService extends javax.swing.JFrame {
         );
 
         btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
 
         btnSearch.setText("Search");
 
@@ -180,6 +201,28 @@ public class FrmService extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        
+     String name;
+     float price;
+     boolean pendingPayment;
+     boolean available;
+    ArrayList<Stylist> availableStylist;
+    name= txtName.getText();
+    price= parseFloat(txtPrice.getText());
+    available= Boolean.valueOf(txtAvailable.getText());
+    availableStylist= split(txtAvailableStylist.getText());
+    Service service= new Service(name, price, false, available, availableStylist);
+    Connection connection = new Connection();
+        connection.connectionDataBase();
+
+        ServiceController serviceController = new ServiceController(service, "services");
+        serviceController.create();
+    
+    
+        
+    }//GEN-LAST:event_btnAddActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -235,4 +278,8 @@ public class FrmService extends javax.swing.JFrame {
     private javax.swing.JTextField txtPendingPayment;
     private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
+
+    private ArrayList<Stylist> split(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

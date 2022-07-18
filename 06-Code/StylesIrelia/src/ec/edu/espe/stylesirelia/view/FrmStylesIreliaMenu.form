@@ -85,6 +85,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Supplier"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmSupplierActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmProduct">
               <Properties>
@@ -118,11 +121,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="TableCustomer"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmTableCustomerActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmTableService">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Table Service"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmTableServiceActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmTableStylist">
               <Properties>
@@ -136,6 +145,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Table Supplier"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmTableSupllierActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

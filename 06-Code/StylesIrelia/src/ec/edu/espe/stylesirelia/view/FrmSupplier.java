@@ -1,12 +1,28 @@
 
 package ec.edu.espe.stylesirelia.view;
 
+import com.toedter.calendar.JDateChooser;
+import ec.edu.espe.stylesirelia.controller.SupplierController;
+import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.model.Supplier;
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author widin
  */
 public class FrmSupplier extends javax.swing.JFrame {
 
+    SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
+
+    public String getDate(JDateChooser jdDate) {
+        if (jdDate.getDate() != null) {
+            return formDate.format(jdDate.getDate());
+        } else {
+            return null;
+        }
+
+    }
     /**
      * Creates new form FrmSupplier
      */
@@ -212,48 +228,35 @@ public class FrmSupplier extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAppointmentActionPerformed
 
     private void btnAddSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierActionPerformed
-//        JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcExpirationProduct));
-//        String expiration;
-//        String name;
-//        Float price;
-//        int stock;
-//
-//        name = txtName.getText();
-//        expiration = formDate.format(dtcExpirationProduct.getDate());
-//        price = Float.parseFloat(txtPendingPayment.getText());
-//        stock = Integer.parseInt(txtAppointment.getText());
-//
-//        Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
-//
-//        Connection connection = new Connection();
-//        connection.connectionDataBase();
-//
-//        ProductController productController = new ProductController(product, "products");
-//        productController.create();
+
+        String name;
+        int number;
+        boolean pendingPayment;
+        String appointment;
+        String address;
+        
+
+        name = txtName.getText();
+        number= Integer.parseInt(txtNumber.getText());
+        pendingPayment= Boolean.valueOf(txtPendingPayment.getText());
+        appointment= txtAppointment.getText();
+        address= txtAddress.getText();
+
+        Supplier supplier = new Supplier(name, number, pendingPayment, appointment, address);
+
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+
+        SupplierController supplierController = new SupplierController(supplier, "suppliers");
+        supplierController.create();
 
     }//GEN-LAST:event_btnAddSupplierActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-//        JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcExpirationProduct));
-//        String expiration;
-//        String name;
-//        Float price;
-//        int stock;
-//
-//        name = txtName.getText();
-//        expiration = formDate.format(dtcExpirationProduct.getDate());
-//        price = Float.parseFloat(txtPendingPayment.getText());
-//        stock = Integer.parseInt(txtAppointment.getText());
-//
-//        /////
-//        Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
-//
-//        //CONNECTION TO DATABASE
-//        Connection connection = new Connection();
-//        connection.connectionDataBase();
-//        //        Turn turn = new Turn(1, formDate.format(dtcExpirationProduct.getDate()), v, v, v);
-//        ProductController productController = new ProductController(product, "products");
-//        productController.delete(name, stock);
+
+        
+        
+        
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
@@ -264,24 +267,8 @@ public class FrmSupplier extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackToMenuActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-//        JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcExpirationProduct));
-//        String name;
-//        String expiration;
-//        Float price;
-//        int stock;
-//
-//        name = txtName.getText();
-//        expiration = formDate.format(dtcExpirationProduct.getDate());
-//        price = Float.parseFloat(txtPendingPayment.getText());
-//        stock = Integer.parseInt(txtAppointment.getText());
-//
-//        Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
-//
-//        Connection connection = new Connection();
-//        connection.connectionDataBase();
-//
-//        ProductController productController = new ProductController(product, "products");
-//        productController.delete(name, stock);
+
+        
 
     }//GEN-LAST:event_btnSearchActionPerformed
 
