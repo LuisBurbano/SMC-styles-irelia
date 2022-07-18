@@ -16,16 +16,9 @@ import java.util.ArrayList;
  */
 public class FrmService extends javax.swing.JFrame {
 
-   SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
+   
 
-    public String getDate(JDateChooser jdDate) {
-        if (jdDate.getDate() != null) {
-            return formDate.format(jdDate.getDate());
-        } else {
-            return null;
-        }
-
-    }
+   
     /**
      * Creates new form FrmServices
      */
@@ -56,9 +49,9 @@ public class FrmService extends javax.swing.JFrame {
         txtAvailableStylist = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnAdd = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        btnSearch1 = new javax.swing.JButton();
+        btnBackToMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,14 +129,24 @@ public class FrmService extends javax.swing.JFrame {
             }
         });
 
-        btnSearch.setText("Search");
-
-        btnUpdate.setText("Update");
-
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnSearch1.setText("Search");
+        btnSearch1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearch1ActionPerformed(evt);
+            }
+        });
+
+        btnBackToMenu.setText("Back to Menu");
+        btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackToMenuActionPerformed(evt);
             }
         });
 
@@ -152,15 +155,15 @@ public class FrmService extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addComponent(btnAdd)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addComponent(btnDelete)
-                .addGap(32, 32, 32)
-                .addComponent(btnUpdate)
-                .addGap(33, 33, 33)
-                .addComponent(btnSearch)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(btnSearch1)
+                .addGap(30, 30, 30)
+                .addComponent(btnBackToMenu)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,9 +171,9 @@ public class FrmService extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAdd)
-                    .addComponent(btnSearch)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete))
+                    .addComponent(btnDelete)
+                    .addComponent(btnSearch1)
+                    .addComponent(btnBackToMenu))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -189,7 +192,7 @@ public class FrmService extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,6 +253,34 @@ public class FrmService extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+    private void btnSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearch1ActionPerformed
+     String name;
+     double price;
+     boolean pendingPayment;
+     boolean available;
+    ArrayList<Stylist> availableStylist;
+    name= txtName.getText();
+    price= Double.parseDouble(txtPrice.getText());
+    available= Boolean.valueOf(txtAvailable.getText());
+    availableStylist= split(txtAvailableStylist.getText());
+    Service service= new Service(name, price, true, available, availableStylist);
+    Connection connection = new Connection();
+        connection.connectionDataBase();
+
+        ServiceController serviceController = new ServiceController(service, "services");
+        serviceController.read(name);
+
+        txtName.setText(name);
+        
+    }//GEN-LAST:event_btnSearch1ActionPerformed
+
+    private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
+        FrmStylesIreliaMenu frmStylesirelia;
+        frmStylesirelia = new FrmStylesIreliaMenu();
+        frmStylesirelia.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackToMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -288,9 +319,9 @@ public class FrmService extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBackToMenu;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnSearch1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -13,16 +13,7 @@ import java.text.SimpleDateFormat;
  */
 public class FrmSupplier extends javax.swing.JFrame {
 
-    SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
-
-    public String getDate(JDateChooser jdDate) {
-        if (jdDate.getDate() != null) {
-            return formDate.format(jdDate.getDate());
-        } else {
-            return null;
-        }
-
-    }
+    
     /**
      * Creates new form FrmSupplier
      */
@@ -260,7 +251,28 @@ public class FrmSupplier extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
 
+        String name;
+        int number;
+        boolean pendingPayment;
+        String appointment;
+        String address;
         
+
+        name = txtName.getText();
+        number= Integer.parseInt(txtNumber.getText());
+        pendingPayment= Boolean.valueOf(txtPendingPayment.getText());
+        appointment= txtAppointment.getText();
+        address= txtAddress.getText();
+
+        Supplier supplier = new Supplier(name, number, pendingPayment, appointment, address);
+
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+        SupplierController supplierController = new SupplierController(supplier, "supplier");
+        supplierController.read(name);
+
+        txtName.setText(name);
+        //txtNumber.setText();
 
     }//GEN-LAST:event_btnSearchActionPerformed
 
