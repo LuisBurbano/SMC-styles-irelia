@@ -4,7 +4,6 @@ package ec.edu.espe.stylesirelia.view;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import ec.edu.espe.stylesirelia.model.Conection;
 import ec.edu.espe.stylesirelia.model.Connection;
 import ec.edu.espe.stylesirelia.model.Stylist;
 import java.util.ArrayList;
