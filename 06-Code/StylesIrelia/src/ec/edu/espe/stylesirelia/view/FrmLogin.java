@@ -42,19 +42,20 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnEnterLogin = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        txtPsd = new javax.swing.JLabel();
         textFieldUser = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        txtUsername = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
         labelWelcome = new javax.swing.JLabel();
         btnLeaveLogin = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
+        iconTeam = new javax.swing.JLabel();
+        sptPsd = new javax.swing.JSeparator();
+        sptUsn = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         exitButton = new javax.swing.JPanel();
         lbBtnExit = new javax.swing.JLabel();
+        txtInfo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -76,9 +77,9 @@ public class FrmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(btnEnterLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 160, 60));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        jLabel1.setText("Password");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+        txtPsd.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        txtPsd.setText("Password");
+        jPanel1.add(txtPsd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
         textFieldUser.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         textFieldUser.setForeground(new java.awt.Color(204, 204, 204));
@@ -96,9 +97,9 @@ public class FrmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(textFieldUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 230, -1));
 
-        jLabel3.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        jLabel3.setText("Username");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
+        txtUsername.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
+        txtUsername.setText("Username");
+        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
         passwordField.setForeground(new java.awt.Color(102, 102, 102));
         passwordField.setText("*********");
@@ -132,17 +133,17 @@ public class FrmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(btnLeaveLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 160, 60));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, -1, -1));
+        iconTeam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
+        iconTeam.setText("jLabel2");
+        jPanel1.add(iconTeam, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, -1, -1));
 
-        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 340, 10));
+        sptPsd.setBackground(new java.awt.Color(0, 0, 0));
+        sptPsd.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(sptPsd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 340, 10));
 
-        jSeparator2.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 340, 10));
+        sptUsn.setBackground(new java.awt.Color(0, 0, 0));
+        sptUsn.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(sptUsn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 340, 10));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/favicon.png"))); // NOI18N
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 60));
@@ -195,17 +196,26 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        txtInfo.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
+        txtInfo.setText("Stylies By Irelia - CMS -Login");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 896, Short.MAX_VALUE))
+                .addGap(245, 245, 245)
+                .addComponent(txtInfo)
+                .addGap(0, 489, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtInfo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 30));
@@ -343,17 +353,18 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnEnterLogin;
     private javax.swing.JButton btnLeaveLogin;
     private javax.swing.JPanel exitButton;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel iconTeam;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel labelWelcome;
     private javax.swing.JLabel lbBtnExit;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JSeparator sptPsd;
+    private javax.swing.JSeparator sptUsn;
     private javax.swing.JTextField textFieldUser;
+    private javax.swing.JLabel txtInfo;
+    private javax.swing.JLabel txtPsd;
+    private javax.swing.JLabel txtUsername;
     // End of variables declaration//GEN-END:variables
 }
