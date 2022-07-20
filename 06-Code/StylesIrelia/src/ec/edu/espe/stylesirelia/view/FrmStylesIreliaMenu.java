@@ -44,6 +44,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         itmSupplier = new javax.swing.JMenuItem();
         itmProduct = new javax.swing.JMenuItem();
+        itmServices = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         itmTableSupplier = new javax.swing.JMenu();
         itmTableProduct = new javax.swing.JMenuItem();
@@ -123,6 +124,14 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
             }
         });
         jMenu4.add(itmProduct);
+
+        itmServices.setText("Services");
+        itmServices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmServicesActionPerformed(evt);
+            }
+        });
+        jMenu4.add(itmServices);
 
         jMenuBar1.add(jMenu4);
 
@@ -276,6 +285,15 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_itmTableSupllierActionPerformed
 
+    private void itmServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmServicesActionPerformed
+        FrmService frmService;
+        frmService = new FrmService();
+        frmService.setVisible(true);
+        this.setVisible(false);
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_itmServicesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -315,6 +333,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itmCustomer;
     private javax.swing.JMenuItem itmProduct;
+    private javax.swing.JMenuItem itmServices;
     private javax.swing.JMenuItem itmStylist;
     private javax.swing.JMenuItem itmSupplier;
     private javax.swing.JMenuItem itmTableCustomer;

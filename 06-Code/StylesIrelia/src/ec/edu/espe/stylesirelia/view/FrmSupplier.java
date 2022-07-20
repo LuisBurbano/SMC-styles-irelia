@@ -13,16 +13,7 @@ import java.text.SimpleDateFormat;
  */
 public class FrmSupplier extends javax.swing.JFrame {
 
-    SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
-
-    public String getDate(JDateChooser jdDate) {
-        if (jdDate.getDate() != null) {
-            return formDate.format(jdDate.getDate());
-        } else {
-            return null;
-        }
-
-    }
+    
     /**
      * Creates new form FrmSupplier
      */
@@ -53,9 +44,9 @@ public class FrmSupplier extends javax.swing.JFrame {
         txtAddress = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnAddSupplier = new javax.swing.JButton();
-        btnRemove = new javax.swing.JButton();
         btnBackToMenu = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,7 +102,7 @@ public class FrmSupplier extends javax.swing.JFrame {
                             .addComponent(txtAppointment)
                             .addComponent(txtNumber)
                             .addComponent(txtAddress))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,20 +129,13 @@ public class FrmSupplier extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         btnAddSupplier.setText("Add");
         btnAddSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddSupplierActionPerformed(evt);
-            }
-        });
-
-        btnRemove.setText("Remove");
-        btnRemove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveActionPerformed(evt);
             }
         });
 
@@ -169,6 +153,13 @@ public class FrmSupplier extends javax.swing.JFrame {
             }
         });
 
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -178,21 +169,21 @@ public class FrmSupplier extends javax.swing.JFrame {
                 .addComponent(btnAddSupplier)
                 .addGap(56, 56, 56)
                 .addComponent(btnSearch)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addComponent(btnRemove)
-                .addGap(44, 44, 44)
+                .addGap(39, 39, 39)
+                .addComponent(btnDelete)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(btnBackToMenu)
                 .addGap(17, 17, 17))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRemove)
                     .addComponent(btnBackToMenu)
                     .addComponent(btnSearch)
-                    .addComponent(btnAddSupplier))
+                    .addComponent(btnAddSupplier)
+                    .addComponent(btnDelete))
                 .addGap(35, 35, 35))
         );
 
@@ -204,20 +195,19 @@ public class FrmSupplier extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(137, 137, 137))))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(27, 27, 27)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -252,13 +242,6 @@ public class FrmSupplier extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnAddSupplierActionPerformed
 
-    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-
-        
-        
-        
-    }//GEN-LAST:event_btnRemoveActionPerformed
-
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
         FrmStylesIreliaMenu frmStylesirelia;
         frmStylesirelia = new FrmStylesIreliaMenu();
@@ -268,9 +251,54 @@ public class FrmSupplier extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
 
+        String name;
+        int number;
+        boolean pendingPayment;
+        String appointment;
+        String address;
         
 
+        name = txtName.getText();
+        number= Integer.parseInt(txtNumber.getText());
+        pendingPayment= Boolean.valueOf(txtPendingPayment.getText());
+        appointment= txtAppointment.getText();
+        address= txtAddress.getText();
+
+        Supplier supplier = new Supplier(name, number, pendingPayment, appointment, address);
+
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+        SupplierController supplierController = new SupplierController(supplier, "supplier");
+        supplierController.read(name);
+
+        txtName.setText(name);
+        //txtNumber.setText();
+
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        String name;
+        int number;
+        boolean pendingPayment;
+        String appointment;
+        String address;
+        
+
+        name = txtName.getText();
+        number= Integer.parseInt(txtNumber.getText());
+        pendingPayment= Boolean.valueOf(txtPendingPayment.getText());
+        appointment= txtAppointment.getText();
+        address= txtAddress.getText();
+
+        Supplier supplier = new Supplier(name, number, pendingPayment, appointment, address);
+
+        Connection connection = new Connection();
+        connection.connectionDataBase();
+
+        SupplierController supplierController = new SupplierController(supplier, "suppliers");
+        supplierController.delete(name, name);
+        
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,7 +338,7 @@ public class FrmSupplier extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddSupplier;
     private javax.swing.JButton btnBackToMenu;
-    private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

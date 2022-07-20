@@ -10,7 +10,7 @@ import org.bson.Document;
 public class Service extends BasicModel {
 
     private String name;
-    private float price;
+    private double price;
     private boolean pendingPayment;
     private boolean available;
     private ArrayList<Stylist> availableStylist;
@@ -30,7 +30,7 @@ public class Service extends BasicModel {
         return document;
     }
 
-    public Service(String name, float price, boolean pendingPayment, boolean available, ArrayList<Stylist> availableStylist) {
+    public Service(String name, double price, boolean pendingPayment, boolean available, ArrayList<Stylist> availableStylist) {
         this.name = name;
         this.price = price;
         this.pendingPayment = pendingPayment;
@@ -66,14 +66,14 @@ public class Service extends BasicModel {
     /**
      * @return the price
      */
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
     /**
      * @param price the price to set
      */
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
