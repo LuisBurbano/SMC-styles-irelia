@@ -74,6 +74,12 @@ public class FrmService extends javax.swing.JFrame {
         jPanel3.add(txtAvailable, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 207, 230, -1));
         jPanel3.add(txtPendingPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 173, 230, -1));
         jPanel3.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 133, 230, -1));
+
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
         jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 99, 230, -1));
 
         jLabel3.setText("Price");
@@ -143,6 +149,10 @@ public class FrmService extends javax.swing.JFrame {
     
         
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
 
     /**
      * @param args the command line arguments
