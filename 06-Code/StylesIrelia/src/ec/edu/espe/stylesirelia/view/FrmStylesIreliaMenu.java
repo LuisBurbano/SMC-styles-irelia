@@ -1,10 +1,21 @@
 package ec.edu.espe.stylesirelia.view;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Joel Arguello, DCCO-ESPE, BETTACODDERS
  */
 public class FrmStylesIreliaMenu extends javax.swing.JFrame {
+    
+    
+       @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/menu_bg.png"));
+        return retValue;
+    }
+    
 
     /**
      * Creates new form frmStylesirelia
@@ -22,8 +33,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenu3 = new javax.swing.JMenu();
-        jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         txtStyles = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -42,11 +52,11 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         itmTableStylist = new javax.swing.JMenuItem();
         itmTableSupllier = new javax.swing.JMenuItem();
 
-        jMenu3.setText("jMenu3");
-
-        jButton3.setText("Yes");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImages(null);
+        setResizable(false);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/mn_bg.jpg"))); // NOI18N
 
         txtStyles.setText("Styles Irelia");
         txtStyles.addActionListener(new java.awt.event.ActionListener() {
@@ -169,11 +179,11 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jLabel1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 234, Short.MAX_VALUE)
+            .addComponent(jLabel1)
         );
 
         pack();
@@ -313,9 +323,8 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmTableStylist;
     private javax.swing.JMenuItem itmTableSupllier;
     private javax.swing.JMenu itmTableSupplier;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;

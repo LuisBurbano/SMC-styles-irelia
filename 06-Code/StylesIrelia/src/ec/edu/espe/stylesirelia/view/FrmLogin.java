@@ -5,6 +5,8 @@ import ec.edu.espe.stylesirelia.controller.UserController;
 import ec.edu.espe.stylesirelia.model.Connection;
 import ec.edu.espe.stylesirelia.model.User;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.Set;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -18,6 +20,13 @@ public class FrmLogin extends javax.swing.JFrame {
 
     int xMouse, yMouse;
 
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/menu_bg.png"));
+        return retValue;
+    }
+    
+    
     public FrmLogin() {
         Connection connection = new Connection();
         connection.connectionDataBase();
@@ -51,7 +60,6 @@ public class FrmLogin extends javax.swing.JFrame {
         iconTeam = new javax.swing.JLabel();
         sptPsd = new javax.swing.JSeparator();
         sptUsn = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         exitButton = new javax.swing.JPanel();
         lbBtnExit = new javax.swing.JLabel();
@@ -133,7 +141,7 @@ public class FrmLogin extends javax.swing.JFrame {
         });
         jPanel1.add(btnLeaveLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, 160, 60));
 
-        iconTeam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
+        iconTeam.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         iconTeam.setText("jLabel2");
         jPanel1.add(iconTeam, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, -1, -1));
 
@@ -144,9 +152,6 @@ public class FrmLogin extends javax.swing.JFrame {
         sptUsn.setBackground(new java.awt.Color(0, 0, 0));
         sptUsn.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(sptUsn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 340, 10));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/favicon.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 80, 60));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -196,8 +201,8 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        txtInfo.setFont(new java.awt.Font("Roboto Black", 0, 12)); // NOI18N
-        txtInfo.setText("Stylies By Irelia - CMS -Login");
+        txtInfo.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        txtInfo.setText("Stylies By Irelia - CMS - Login");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -205,9 +210,9 @@ public class FrmLogin extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(245, 245, 245)
+                .addGap(232, 232, 232)
                 .addComponent(txtInfo)
-                .addGap(0, 489, Short.MAX_VALUE))
+                .addGap(0, 476, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,7 +359,6 @@ public class FrmLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnLeaveLogin;
     private javax.swing.JPanel exitButton;
     private javax.swing.JLabel iconTeam;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel labelWelcome;

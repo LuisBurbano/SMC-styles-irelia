@@ -76,7 +76,7 @@ public class FrmProduct extends javax.swing.JFrame {
         jPanel3.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 323, 256, -1));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 130, 10));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel13.setText("jLabel8");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, -20, -1, -1));
 

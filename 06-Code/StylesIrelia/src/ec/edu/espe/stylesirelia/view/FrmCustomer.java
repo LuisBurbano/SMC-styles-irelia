@@ -148,7 +148,7 @@ public class FrmCustomer extends javax.swing.JFrame {
         jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 189, 256, 10));
         jPanel3.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 345, 256, 10));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel8.setText("jLabel8");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, -20, -1, -1));
 
