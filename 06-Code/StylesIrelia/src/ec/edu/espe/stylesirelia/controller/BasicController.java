@@ -5,6 +5,7 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
+import com.mongodb.client.model.ReplaceOptions;
 import static com.mongodb.client.model.Updates.set;
 import ec.edu.espe.stylesirelia.model.BasicModel;
 import ec.edu.espe.stylesirelia.model.Connection;
@@ -56,6 +57,11 @@ class BasicController<T extends BasicModel> {
 
         getMongoCollection().updateOne(eq(id, idValue), set(updateKey, valueUpdate));
 
+    }
+     public void update(Document query, Document upload) {
+        ReplaceOptions options = new ReplaceOptions().upsert(true);
+
+        mongoCollection.replaceOne(query, upload, options);
     }
 
 }

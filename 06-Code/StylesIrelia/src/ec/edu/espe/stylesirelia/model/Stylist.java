@@ -129,7 +129,7 @@ public class Stylist extends BasicModel {
                 append("number", this.number).
                 append("payment", this.payment).
                 append("appointment", this.appointment).
-                append("adress", this.address);
+                append("address", this.address);
 
         return document;
     }
