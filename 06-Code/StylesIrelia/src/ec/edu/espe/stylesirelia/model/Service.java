@@ -10,13 +10,22 @@ import org.bson.Document;
 public class Service extends BasicModel {
 
     private String name;
-    private double price;
+    private String price;
     private boolean pendingPayment;
     private boolean available;
-    private ArrayList<Stylist> availableStylist;
+    private String availableStylist;
 
     public Service() {
     }
+
+    public Service(String text, String text0, Boolean valueOf, String text1) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Service(String nameService, int price, boolean b, boolean b0, ArrayList<Stylist> stylists) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     
     @Override
     public Document buildDocument() {
@@ -30,7 +39,7 @@ public class Service extends BasicModel {
         return document;
     }
 
-    public Service(String name, double price, boolean pendingPayment, boolean available, ArrayList<Stylist> availableStylist) {
+    public Service(String name, String price, boolean pendingPayment, boolean available,String availableStylist) {
         this.name = name;
         this.price = price;
         this.pendingPayment = pendingPayment;
@@ -66,14 +75,14 @@ public class Service extends BasicModel {
     /**
      * @return the price
      */
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
     /**
      * @param price the price to set
      */
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -108,14 +117,14 @@ public class Service extends BasicModel {
     /**
      * @return the availableStylist
      */
-    public ArrayList<Stylist> getAvailableStylist() {
+    public String getAvailableStylist() {
         return availableStylist;
     }
 
     /**
      * @param availableStylist the availableStylist to set
      */
-    public void setAvailableStylist(ArrayList<Stylist> availableStylist) {
+    public void setAvailableStylist(String availableStylist) {
         this.availableStylist = availableStylist;
     }
 

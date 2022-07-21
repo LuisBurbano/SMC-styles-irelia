@@ -56,6 +56,10 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         itemAddSuppliers = new javax.swing.JMenuItem();
         itemUpdateSuppliers = new javax.swing.JMenuItem();
         itemDeleteSuppliers = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        itemAddService = new javax.swing.JMenuItem();
+        itemUpdateService = new javax.swing.JMenuItem();
+        itemDeleteService = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
@@ -214,6 +218,34 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
+        jMenu7.setText("Services");
+
+        itemAddService.setText("Add Service");
+        itemAddService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemAddServiceActionPerformed(evt);
+            }
+        });
+        jMenu7.add(itemAddService);
+
+        itemUpdateService.setText("Update Service");
+        itemUpdateService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemUpdateServiceActionPerformed(evt);
+            }
+        });
+        jMenu7.add(itemUpdateService);
+
+        itemDeleteService.setText("Delete Service");
+        itemDeleteService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemDeleteServiceActionPerformed(evt);
+            }
+        });
+        jMenu7.add(itemDeleteService);
+
+        jMenuBar1.add(jMenu7);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -347,6 +379,27 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         this.setVisible(false); // TODO add your handling code here:
     }//GEN-LAST:event_itemDeleteSuppliersActionPerformed
 
+    private void itemAddServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAddServiceActionPerformed
+        FrmService frmService;
+        frmService = new FrmService();
+        frmService.setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_itemAddServiceActionPerformed
+
+    private void itemUpdateServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUpdateServiceActionPerformed
+       FrmUpdateService frmService;
+        frmService = new FrmUpdateService();
+        frmService.setVisible(true);
+        this.setVisible(false); // TODO add your handling code here:
+    }//GEN-LAST:event_itemUpdateServiceActionPerformed
+
+    private void itemDeleteServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDeleteServiceActionPerformed
+       FrmDeleteService frmService;
+        frmService = new FrmDeleteService();
+        frmService.setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_itemDeleteServiceActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -384,8 +437,11 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itemAddService;
     private javax.swing.JMenuItem itemAddSuppliers;
+    private javax.swing.JMenuItem itemDeleteService;
     private javax.swing.JMenuItem itemDeleteSuppliers;
+    private javax.swing.JMenuItem itemUpdateService;
     private javax.swing.JMenuItem itemUpdateSuppliers;
     private javax.swing.JMenuItem itmCustomer;
     private javax.swing.JMenuItem itmProduct;
@@ -403,6 +459,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

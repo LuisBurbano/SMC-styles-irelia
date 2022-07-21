@@ -1,35 +1,28 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package ec.edu.espe.stylesirelia.view;
 
-import com.toedter.calendar.JDateChooser;
+import com.google.gson.Gson;
+import com.mongodb.client.MongoCollection;
+import static com.mongodb.client.model.Filters.eq;
 import ec.edu.espe.stylesirelia.controller.ServiceController;
 import ec.edu.espe.stylesirelia.model.Connection;
 import ec.edu.espe.stylesirelia.model.Service;
-import ec.edu.espe.stylesirelia.model.Stylist;
 import static java.lang.Float.parseFloat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import org.bson.Document;
 
 /**
  *
  * @author widin
  */
-public class FrmService extends javax.swing.JFrame {
+public class FrmUpdateService extends javax.swing.JFrame {
 
-   SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
-
-    public String getDate(JDateChooser jdDate) {
-        if (jdDate.getDate() != null) {
-            return formDate.format(jdDate.getDate());
-        } else {
-            return null;
-        }
-
-    }
     /**
-     * Creates new form FrmServices
+     * Creates new form FrmUpdateService
      */
-    public FrmService() {
+    public FrmUpdateService() {
         initComponents();
     }
 
@@ -54,12 +47,10 @@ public class FrmService extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        btnSearch = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         btnBackToMenu = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnFind = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,7 +66,7 @@ public class FrmService extends javax.swing.JFrame {
         jPanel3.add(txtAvailable, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 207, 230, -1));
         jPanel3.add(txtPendingPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 173, 230, -1));
         jPanel3.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 133, 230, -1));
-        jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 99, 230, -1));
+        jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 230, -1));
 
         jLabel3.setText("Price");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 136, -1, -1));
@@ -89,23 +80,6 @@ public class FrmService extends javax.swing.JFrame {
         jLabel6.setText("Available Stylist");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 244, -1, -1));
 
-        btnSearch.setText("Search");
-        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
-
-        btnDelete.setText("Delete");
-        jPanel3.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, -1, -1));
-
-        btnUpdate.setText("Update");
-        jPanel3.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, -1, -1));
-
-        btnAdd.setText("Add");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, -1, -1));
-
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, -1, -1));
 
@@ -115,7 +89,23 @@ public class FrmService extends javax.swing.JFrame {
                 btnBackToMenuActionPerformed(evt);
             }
         });
-        jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, -1, -1));
+        jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, -1, -1));
+
+        btnUpdate.setText("Update ");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
+
+        btnFind.setText("Find");
+        btnFind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFindActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,34 +121,40 @@ public class FrmService extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        
-     String name;
-     String price;
-     boolean pendingPayment;
-     boolean available;
-    String availableStylist;
-    name= txtName.getText();
-    price= txtPrice.getText();
-    available= Boolean.valueOf(txtAvailable.getText());
-    availableStylist= txtAvailableStylist.getText();
-    Service service= new Service(name, price, false, available, availableStylist);
-    Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        ServiceController serviceController = new ServiceController(service, "services");
-        serviceController.create();
-    
-    
-        
-    }//GEN-LAST:event_btnAddActionPerformed
-
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
         FrmStylesIreliaMenu frmStylesirelia;
         frmStylesirelia = new FrmStylesIreliaMenu();
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        MongoCollection<Document> collection = Connection.mongodb.getCollection("services");
+
+        Document doc = collection.find(eq("name",txtName.getText())).first();
+
+        Service service = new Service(txtName.getText(),txtPrice.getText(),Boolean.valueOf(txtAvailable.getText()),txtAvailableStylist.getText());
+
+        ServiceController serviceController = new ServiceController(service,"services");
+        serviceController.update(doc, service.buildDocument());
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
+
+        MongoCollection<Document> collection = Connection.mongodb.getCollection("services");
+
+        Document doc = collection.find(eq("name",txtName.getText())).first();
+
+        Gson gson = new Gson();
+        Service service = gson.fromJson(doc.toJson(), Service.class);
+        txtName.setText(service.getName());
+
+        txtName.setText(service.getName());
+        txtPrice.setText(service.getPrice());
+        txtAvailable.setText(txtAvailable.getText());
+        txtAvailableStylist.setText(service.getAvailableStylist());
+        
+    }//GEN-LAST:event_btnFindActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,30 +173,27 @@ public class FrmService extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUpdateService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUpdateService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUpdateService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUpdateService.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmService().setVisible(true);
+                new FrmUpdateService().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBackToMenu;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnFind;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -216,8 +209,4 @@ public class FrmService extends javax.swing.JFrame {
     private javax.swing.JTextField txtPendingPayment;
     private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
-
-    private ArrayList<Stylist> split(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
