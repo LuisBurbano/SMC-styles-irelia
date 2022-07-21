@@ -40,8 +40,6 @@ public class Product extends BasicModel {
         return name + "," + price + "," + expiration + "," + stock;
     }
 
-    
-
     /**
      * @return the name
      */

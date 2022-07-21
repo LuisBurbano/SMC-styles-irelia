@@ -26,7 +26,6 @@ public class Service extends BasicModel {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    
     @Override
     public Document buildDocument() {
         Document document = new Document();
@@ -39,7 +38,7 @@ public class Service extends BasicModel {
         return document;
     }
 
-    public Service(String name, String price, boolean pendingPayment, boolean available,String availableStylist) {
+    public Service(String name, String price, boolean pendingPayment, boolean available, String availableStylist) {
         this.name = name;
         this.price = price;
         this.pendingPayment = pendingPayment;
@@ -55,8 +54,6 @@ public class Service extends BasicModel {
     public String toStringData() {
         return name + "," + pendingPayment + "," + available + "," + availableStylist;
     }
-
-   
 
     /**
      * @return the name

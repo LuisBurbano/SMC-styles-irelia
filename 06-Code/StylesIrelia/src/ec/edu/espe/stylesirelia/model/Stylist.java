@@ -17,8 +17,6 @@ public class Stylist extends BasicModel {
 
     public Stylist() {
     }
-    
-    
 
     public Stylist(String identificationCard, String name, String number, double payment, String appointment, String address) {
         this.identificationCard = identificationCard;
@@ -33,8 +31,6 @@ public class Stylist extends BasicModel {
     public String toString() {
         return "Stylist --> " + "identificationCard=" + identificationCard + ", name=" + name + ", number=" + number + ", payment=" + payment + ", appointment=" + appointment + ", address=" + address + "\n";
     }
-
-   
 
     /**
      * @return the name

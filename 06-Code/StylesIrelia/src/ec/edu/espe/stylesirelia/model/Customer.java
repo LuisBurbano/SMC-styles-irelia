@@ -17,8 +17,7 @@ public class Customer extends BasicModel {
 
     public Customer() {
     }
-    
-    
+
     @Override
     public Document buildDocument() {
         Document document = new Document();
@@ -49,8 +48,6 @@ public class Customer extends BasicModel {
     public String toStringData() {
         return identificationCard + "," + name + "," + number + "," + pendingPayment + "," + appointment + "," + address;
     }
-
-   
 
     /**
      * @return the name
@@ -135,5 +132,5 @@ public class Customer extends BasicModel {
     public void setIdentificationCard(String identificationCard) {
         this.identificationCard = identificationCard;
     }
-    
+
 }

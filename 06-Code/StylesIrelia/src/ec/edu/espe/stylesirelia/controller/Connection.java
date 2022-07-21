@@ -1,4 +1,4 @@
-package ec.edu.espe.stylesirelia.model;
+package ec.edu.espe.stylesirelia.controller;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;

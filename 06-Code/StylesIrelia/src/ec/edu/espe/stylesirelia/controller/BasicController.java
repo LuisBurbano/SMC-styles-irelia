@@ -8,7 +8,6 @@ import static com.mongodb.client.model.Filters.eq;
 import com.mongodb.client.model.ReplaceOptions;
 import static com.mongodb.client.model.Updates.set;
 import ec.edu.espe.stylesirelia.model.BasicModel;
-import ec.edu.espe.stylesirelia.model.Connection;
 import org.bson.Document;
 
 /**

@@ -2,12 +2,12 @@ package ec.edu.espe.stylesirelia.view;
 
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.stylesirelia.controller.TurnController;
-import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Turn;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.controller.Connection;
 
 /**
  *

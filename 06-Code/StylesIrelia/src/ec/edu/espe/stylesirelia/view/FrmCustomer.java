@@ -2,9 +2,10 @@ package ec.edu.espe.stylesirelia.view;
 
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.stylesirelia.controller.CustomerController;
-import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Customer;
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -119,12 +120,22 @@ public class FrmCustomer extends javax.swing.JFrame {
         jPanel3.add(cmbPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 222, 256, -1));
 
         txtNumber.setBorder(null);
+        txtNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumberKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 167, 256, -1));
 
         txtName.setBorder(null);
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
+            }
+        });
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
             }
         });
         jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 117, 256, -1));
@@ -134,6 +145,11 @@ public class FrmCustomer extends javax.swing.JFrame {
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
+            }
+        });
+        txtId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdKeyTyped(evt);
             }
         });
         jPanel3.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 63, 256, -1));
@@ -236,6 +252,48 @@ public class FrmCustomer extends javax.swing.JFrame {
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdActionPerformed
+
+    private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped
+        String value = txtId.getText();
+        int legth = value.length(); //saca la longitud del string
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            txtId.setEditable(true);
+            if (legth >= 10) {
+
+                JOptionPane.showMessageDialog(this, "Id must have 10 digits", "Warning", JOptionPane.WARNING_MESSAGE);
+                txtId.setText("");
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Enter only numbers", "Warning", JOptionPane.WARNING_MESSAGE);
+            txtId.setText("");
+        }
+    }//GEN-LAST:event_txtIdKeyTyped
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+        char validateLetters = evt.getKeyChar();
+        if (Character.isDigit(validateLetters)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(txtName, "Enter only letters", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_txtNameKeyTyped
+
+    private void txtNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumberKeyTyped
+        String value = txtNumber.getText();
+        int legth = value.length(); //saca la longitud del string
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            txtNumber.setEditable(true);
+            if (legth >= 10) {
+
+                JOptionPane.showMessageDialog(this, "Number must have 10 digits", "Warning", JOptionPane.WARNING_MESSAGE);
+                txtNumber.setText("");
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Enter only numbers", "Warning", JOptionPane.WARNING_MESSAGE);
+            txtNumber.setText("");
+        }
+    }//GEN-LAST:event_txtNumberKeyTyped
 
     /**
      * @param args the command line arguments

@@ -42,8 +42,6 @@ public class Turn extends BasicModel {
         return "yout Turn->>" + "id=" + id + ", date=" + date + ", customer=" + customer + ", service=" + service + ", stylist=" + stylist + '}';
     }
 
-    
-
     /**
      * @return the id
      */

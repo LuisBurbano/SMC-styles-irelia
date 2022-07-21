@@ -1,8 +1,9 @@
 package ec.edu.espe.stylesirelia.view;
 
 import ec.edu.espe.stylesirelia.controller.StylistController;
-import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Stylist;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -86,14 +87,29 @@ public class FrmAddStylist extends javax.swing.JFrame {
                 txtIdentificationActionPerformed(evt);
             }
         });
+        txtIdentification.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdentificationKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtIdentification, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 179, -1));
 
         txtName.setToolTipText("please first name and last name");
         txtName.setBorder(null);
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 179, -1));
 
         txtNumber.setToolTipText("only numbers");
         txtNumber.setBorder(null);
+        txtNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumberKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 179, -1));
 
         txtAddress.setBorder(null);
@@ -108,6 +124,11 @@ public class FrmAddStylist extends javax.swing.JFrame {
         txtAppoinment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAppoinmentActionPerformed(evt);
+            }
+        });
+        txtAppoinment.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAppoinmentKeyTyped(evt);
             }
         });
         jPanel1.add(txtAppoinment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 179, -1));
@@ -250,50 +271,50 @@ public class FrmAddStylist extends javax.swing.JFrame {
         stylistController.update(name, name, address, name);    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-       String identificationCard;
+        String identificationCard;
         String name;
         String number;
         double payment;
         String appointment;
         String address;
-        
+
         identificationCard = txtIdentification.getText();
         name = txtName.getText();
         number = txtNumber.getText();
         payment = Integer.parseInt(txtPayment.getText());
         appointment = txtAppoinment.getText();
         address = txtAddress.getText();
-        
+
         Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
-        
+
         Connection connection = new Connection();
         connection.connectionDataBase();
-        
+
         StylistController stylistController = new StylistController(stylist, "Stylist");
         stylistController.delete(name, name);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
-       String identificationCard;
+        String identificationCard;
         String name;
         String number;
         double payment;
         String appointment;
         String address;
-        
+
         identificationCard = txtIdentification.getText();
         name = txtName.getText();
         number = txtNumber.getText();
         payment = Integer.parseInt(txtPayment.getText());
         appointment = txtAppoinment.getText();
         address = txtAddress.getText();
-        
+
         Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
-        
+
         Connection connection = new Connection();
         connection.connectionDataBase();
-        
-        StylistController stylistController = new StylistController(stylist,"Stylist");
+
+        StylistController stylistController = new StylistController(stylist, "Stylist");
         stylistController.read(name);
     }//GEN-LAST:event_btnReadActionPerformed
 
@@ -311,6 +332,59 @@ public class FrmAddStylist extends javax.swing.JFrame {
     private void txtIdentificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdentificationActionPerformed
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+        char validateLetters = evt.getKeyChar();
+        if (Character.isDigit(validateLetters)) {
+            evt.consume();
+            JOptionPane.showMessageDialog(txtName, "Enter only letters", "Warning", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_txtNameKeyTyped
+
+    private void txtNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumberKeyTyped
+        String value = txtNumber.getText();
+        int legth = value.length(); 
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            txtNumber.setEditable(true);
+            if (legth >= 10) {
+
+                JOptionPane.showMessageDialog(this, "Number must have 10 digits", "Warning", JOptionPane.WARNING_MESSAGE);
+                txtNumber.setText("");
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Enter only numbers", "Warning", JOptionPane.WARNING_MESSAGE);
+            txtNumber.setText("");
+        }
+    }//GEN-LAST:event_txtNumberKeyTyped
+
+    private void txtIdentificationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificationKeyTyped
+        String value = txtIdentification.getText();
+        int legth = value.length();
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
+            txtIdentification.setEditable(true);
+            if (legth >= 10) {
+
+                JOptionPane.showMessageDialog(this, "ID must have 10 digits", "Warning", JOptionPane.WARNING_MESSAGE);
+                
+                txtIdentification.setText(" ");
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Enter only numbers", "Warning", JOptionPane.WARNING_MESSAGE);
+            
+            txtIdentification.setText(" ");
+        }
+    }//GEN-LAST:event_txtIdentificationKeyTyped
+
+    private void txtAppoinmentKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAppoinmentKeyTyped
+char character = evt.getKeyChar();
+        
+        if(((character < '0' || character > '9')) && (character != evt.VK_BACK_SPACE)
+            && (character != '.' || txtPayment.getText().contains(".") )){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAppoinmentKeyTyped
 
     /**
      * @param args the command line arguments

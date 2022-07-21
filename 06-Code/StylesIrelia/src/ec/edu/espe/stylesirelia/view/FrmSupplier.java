@@ -3,7 +3,7 @@ package ec.edu.espe.stylesirelia.view;
 
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.stylesirelia.controller.SupplierController;
-import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Supplier;
 import java.text.SimpleDateFormat;
 

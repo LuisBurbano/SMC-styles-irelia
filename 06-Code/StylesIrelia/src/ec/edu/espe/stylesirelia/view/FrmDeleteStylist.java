@@ -5,7 +5,7 @@
 package ec.edu.espe.stylesirelia.view;
 
 import ec.edu.espe.stylesirelia.controller.StylistController;
-import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Stylist;
 import javax.swing.JOptionPane;
 import org.bson.Document;

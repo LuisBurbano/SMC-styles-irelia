@@ -2,7 +2,7 @@ package ec.edu.espe.stylesirelia.view;
 
 import com.google.gson.Gson;
 import ec.edu.espe.stylesirelia.controller.CustomerController;
-import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Customer;
 import ec.edu.espe.stylesirelia.model.Product;
 import ec.edu.espe.stylesirelia.model.Service;

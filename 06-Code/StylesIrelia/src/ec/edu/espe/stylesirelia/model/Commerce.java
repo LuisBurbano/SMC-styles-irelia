@@ -30,8 +30,6 @@ public class Commerce extends BasicModel {
         return "Commerce{" + "name=" + name + ", direction=" + direction + '}';
     }
 
-   
-
     /**
      * @return the name
      */

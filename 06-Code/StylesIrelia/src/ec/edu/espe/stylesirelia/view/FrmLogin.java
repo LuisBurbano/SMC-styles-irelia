@@ -2,7 +2,7 @@ package ec.edu.espe.stylesirelia.view;
 
 import com.mongodb.client.MongoCollection;
 import ec.edu.espe.stylesirelia.controller.UserController;
-import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.User;
 import java.awt.Color;
 import java.awt.Image;

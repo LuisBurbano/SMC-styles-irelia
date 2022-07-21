@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
 import static com.mongodb.client.model.Filters.eq;
 import ec.edu.espe.stylesirelia.controller.SupplierController;
-import ec.edu.espe.stylesirelia.model.Connection;
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Supplier;
 import org.bson.Document;
 

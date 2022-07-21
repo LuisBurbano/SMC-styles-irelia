@@ -16,7 +16,7 @@ public class Supplier extends BasicModel {
 
     public Supplier() {
     }
-    
+
     @Override
     public Document buildDocument() {
         Document document = new Document();
@@ -42,8 +42,6 @@ public class Supplier extends BasicModel {
     public String toString() {
         return "Supplier{" + "name=" + name + ", number=" + number + ", pendingPayment=" + pendingPayment + ", appointment=" + appointment + ", address=" + address + '}';
     }
-
-    
 
     /**
      * @return the name
