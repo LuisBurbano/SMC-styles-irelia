@@ -12,7 +12,7 @@ public class Connection {
 
     public static MongoDatabase mongodb = null;
 
-    public MongoDatabase connectionDataBase() {
+    public static MongoDatabase connectionDataBase() {
 
         if (mongodb == null) {
             String uri = "mongodb+srv://admin:adminStylesIrealia@stylesirelia.by7pr.mongodb.net/?retryWrites=true&w=majority";
