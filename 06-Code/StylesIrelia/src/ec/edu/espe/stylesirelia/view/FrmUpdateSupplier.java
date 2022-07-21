@@ -23,6 +23,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
      */
     public FrmUpdateSupplier() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     /**

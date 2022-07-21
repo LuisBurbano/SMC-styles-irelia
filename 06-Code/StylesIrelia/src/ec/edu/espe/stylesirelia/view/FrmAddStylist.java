@@ -16,6 +16,8 @@ public class FrmAddStylist extends javax.swing.JFrame {
      */
     public FrmAddStylist() {
         initComponents();
+        
+        Connection.connectionDataBase();
     }
 
     /**
@@ -48,9 +50,6 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         btnAdd = new javax.swing.JButton();
-        btnRead = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
         bntBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -101,7 +100,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
                 txtNameKeyTyped(evt);
             }
         });
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 179, -1));
+        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 179, -1));
 
         txtNumber.setToolTipText("only numbers");
         txtNumber.setBorder(null);
@@ -118,7 +117,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
                 txtAddressActionPerformed(evt);
             }
         });
-        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 387, -1));
+        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 387, -1));
 
         txtAppoinment.setBorder(null);
         txtAppoinment.addActionListener(new java.awt.event.ActionListener() {
@@ -126,19 +125,14 @@ public class FrmAddStylist extends javax.swing.JFrame {
                 txtAppoinmentActionPerformed(evt);
             }
         });
-        txtAppoinment.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtAppoinmentKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtAppoinment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 179, -1));
+        jPanel1.add(txtAppoinment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 360, -1));
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel7.setText("Payment");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 130, -1));
 
         txtPayment.setBorder(null);
-        jPanel1.add(txtPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 387, -1));
+        jPanel1.add(txtPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 387, 20));
 
         jLabel8.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
         jLabel8.setText("Stylist");
@@ -157,34 +151,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
                 btnAddActionPerformed(evt);
             }
         });
-        jPanel1.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
-
-        btnRead.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnRead.setText("Read");
-        btnRead.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReadActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnRead, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, -1, -1));
-
-        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnUpdate.setText("Update");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, -1, -1));
-
-        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, -1, -1));
+        jPanel1.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
 
         bntBack.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bntBack.setText("Back");
@@ -235,10 +202,9 @@ public class FrmAddStylist extends javax.swing.JFrame {
 
         Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
 
-        Connection connection = new Connection();
-        connection.connectionDataBase();
+        
 
-        StylistController stylistController = new StylistController(stylist, "Stylist");
+        StylistController stylistController = new StylistController(stylist, "stylists");
         stylistController.create();
 
     }//GEN-LAST:event_btnAddActionPerformed
@@ -246,77 +212,6 @@ public class FrmAddStylist extends javax.swing.JFrame {
     private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        String identificationCard;
-        String name;
-        String number;
-        double payment;
-        String appointment;
-        String address;
-
-        identificationCard = txtIdentification.getText();
-        name = txtName.getText();
-        number = txtNumber.getText();
-        payment = Integer.parseInt(txtPayment.getText());
-        appointment = txtAppoinment.getText();
-        address = txtAddress.getText();
-
-        Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
-
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        StylistController stylistController = new StylistController(stylist, "Stylist");
-        stylistController.update(name, name, address, name);    }//GEN-LAST:event_btnUpdateActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        String identificationCard;
-        String name;
-        String number;
-        double payment;
-        String appointment;
-        String address;
-
-        identificationCard = txtIdentification.getText();
-        name = txtName.getText();
-        number = txtNumber.getText();
-        payment = Integer.parseInt(txtPayment.getText());
-        appointment = txtAppoinment.getText();
-        address = txtAddress.getText();
-
-        Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
-
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        StylistController stylistController = new StylistController(stylist, "Stylist");
-        stylistController.delete(name, name);
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
-        String identificationCard;
-        String name;
-        String number;
-        double payment;
-        String appointment;
-        String address;
-
-        identificationCard = txtIdentification.getText();
-        name = txtName.getText();
-        number = txtNumber.getText();
-        payment = Integer.parseInt(txtPayment.getText());
-        appointment = txtAppoinment.getText();
-        address = txtAddress.getText();
-
-        Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
-
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        StylistController stylistController = new StylistController(stylist, "Stylist");
-        stylistController.read(name);
-    }//GEN-LAST:event_btnReadActionPerformed
 
     private void bntBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntBackActionPerformed
         FrmStylesIreliaMenu frmStylesirelia;
@@ -346,7 +241,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
         int legth = value.length(); 
         if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
             txtNumber.setEditable(true);
-            if (legth >= 10) {
+            if (legth > 10) {
 
                 JOptionPane.showMessageDialog(this, "Number must have 10 digits", "Warning", JOptionPane.WARNING_MESSAGE);
                 txtNumber.setText("");
@@ -363,7 +258,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
         int legth = value.length();
         if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
             txtIdentification.setEditable(true);
-            if (legth >= 10) {
+            if (legth > 10) {
 
                 JOptionPane.showMessageDialog(this, "ID must have 10 digits", "Warning", JOptionPane.WARNING_MESSAGE);
                 
@@ -376,15 +271,6 @@ public class FrmAddStylist extends javax.swing.JFrame {
             txtIdentification.setText(" ");
         }
     }//GEN-LAST:event_txtIdentificationKeyTyped
-
-    private void txtAppoinmentKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAppoinmentKeyTyped
-char character = evt.getKeyChar();
-        
-        if(((character < '0' || character > '9')) && (character != evt.VK_BACK_SPACE)
-            && (character != '.' || txtPayment.getText().contains(".") )){
-            evt.consume();
-        }
-    }//GEN-LAST:event_txtAppoinmentKeyTyped
 
     /**
      * @param args the command line arguments
@@ -425,9 +311,6 @@ char character = evt.getKeyChar();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntBack;
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnRead;
-    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

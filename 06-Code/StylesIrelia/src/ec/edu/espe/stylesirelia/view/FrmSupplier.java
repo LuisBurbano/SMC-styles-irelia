@@ -19,6 +19,7 @@ public class FrmSupplier extends javax.swing.JFrame {
      */
     public FrmSupplier() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     /**
@@ -45,8 +46,6 @@ public class FrmSupplier extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnAddSupplier = new javax.swing.JButton();
         btnBackToMenu = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,20 +145,6 @@ public class FrmSupplier extends javax.swing.JFrame {
             }
         });
 
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -167,11 +152,7 @@ public class FrmSupplier extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(btnAddSupplier)
-                .addGap(56, 56, 56)
-                .addComponent(btnSearch)
-                .addGap(39, 39, 39)
-                .addComponent(btnDelete)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBackToMenu)
                 .addGap(17, 17, 17))
         );
@@ -181,9 +162,7 @@ public class FrmSupplier extends javax.swing.JFrame {
                 .addContainerGap(44, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBackToMenu)
-                    .addComponent(btnSearch)
-                    .addComponent(btnAddSupplier)
-                    .addComponent(btnDelete))
+                    .addComponent(btnAddSupplier))
                 .addGap(35, 35, 35))
         );
 
@@ -196,7 +175,7 @@ public class FrmSupplier extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 177, Short.MAX_VALUE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -249,57 +228,6 @@ public class FrmSupplier extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-
-        String name;
-        int number;
-        boolean pendingPayment;
-        String appointment;
-        String address;
-        
-
-        name = txtName.getText();
-        number= Integer.parseInt(txtNumber.getText());
-        pendingPayment= Boolean.valueOf(txtPendingPayment.getText());
-        appointment= txtAppointment.getText();
-        address= txtAddress.getText();
-
-        Supplier supplier = new Supplier(name, name, pendingPayment, appointment, address);
-
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-        SupplierController supplierController = new SupplierController(supplier, "supplier");
-        supplierController.read(name);
-
-        txtName.setText(name);
-        //txtNumber.setText();
-
-    }//GEN-LAST:event_btnSearchActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        String name;
-        int number;
-        boolean pendingPayment;
-        String appointment;
-        String address;
-        
-
-        name = txtName.getText();
-        number= Integer.parseInt(txtNumber.getText());
-        pendingPayment= Boolean.valueOf(txtPendingPayment.getText());
-        appointment= txtAppointment.getText();
-        address= txtAddress.getText();
-
-        Supplier supplier = new Supplier(name, name, pendingPayment, appointment, address);
-
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        SupplierController supplierController = new SupplierController(supplier, "suppliers");
-        supplierController.delete(name, name);
-        
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -338,8 +266,6 @@ public class FrmSupplier extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddSupplier;
     private javax.swing.JButton btnBackToMenu;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

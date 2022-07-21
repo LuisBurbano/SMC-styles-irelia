@@ -25,7 +25,7 @@ public class Supplier extends BasicModel {
                 append("name", this.name).
                 append("pendingPayment", this.pendingPayment).
                 append("appointment", this.appointment).
-                append("adress", this.address);
+                append("address", this.address);
 
         return document;
     }

@@ -54,9 +54,6 @@ public class FrmService extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        btnSearch = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        btnUpdate = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         btnBackToMenu = new javax.swing.JButton();
@@ -89,22 +86,13 @@ public class FrmService extends javax.swing.JFrame {
         jLabel6.setText("Available Stylist");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 244, -1, -1));
 
-        btnSearch.setText("Search");
-        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
-
-        btnDelete.setText("Delete");
-        jPanel3.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, -1, -1));
-
-        btnUpdate.setText("Update");
-        jPanel3.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, -1, -1));
-
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
-        jPanel3.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, -1, -1));
+        jPanel3.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, -1, -1));
@@ -115,7 +103,7 @@ public class FrmService extends javax.swing.JFrame {
                 btnBackToMenuActionPerformed(evt);
             }
         });
-        jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, -1, -1));
+        jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -199,9 +187,6 @@ public class FrmService extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBackToMenu;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

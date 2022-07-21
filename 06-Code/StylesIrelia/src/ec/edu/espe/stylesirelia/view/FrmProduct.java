@@ -56,9 +56,6 @@ public class FrmProduct extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtStock = new javax.swing.JTextField();
         btnAddProduct = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
-        txtUpdate = new javax.swing.JButton();
-        btnRemove = new javax.swing.JButton();
         btnBackToMenu = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
@@ -118,31 +115,7 @@ public class FrmProduct extends javax.swing.JFrame {
                 btnAddProductActionPerformed(evt);
             }
         });
-        jPanel3.add(btnAddProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
-
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, -1));
-
-        txtUpdate.setText("Update");
-        txtUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUpdateActionPerformed(evt);
-            }
-        });
-        jPanel3.add(txtUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, -1, -1));
-
-        btnRemove.setText("Delete");
-        btnRemove.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoveActionPerformed(evt);
-            }
-        });
-        jPanel3.add(btnRemove, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, -1, -1));
+        jPanel3.add(btnAddProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, -1, -1));
 
         btnBackToMenu.setText("Back ");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +123,7 @@ public class FrmProduct extends javax.swing.JFrame {
                 btnBackToMenuActionPerformed(evt);
             }
         });
-        jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, -1, -1));
+        jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, -1, -1));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 85, 130, 10));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 130, 10));
 
@@ -193,30 +166,6 @@ public class FrmProduct extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnAddProductActionPerformed
 
-    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-        JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcExpirationProduct));
-        String expiration;
-        String name;
-        Float price;
-        int stock;
-
-        name = txtName.getText();
-        expiration = formDate.format(dtcExpirationProduct.getDate());
-        price = Float.parseFloat(txtPrice.getText());
-        stock = Integer.parseInt(txtStock.getText());
-
-        /////
-        Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
-
-        //CONNECTION TO DATABASE
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-//        Turn turn = new Turn(1, formDate.format(dtcExpirationProduct.getDate()), v, v, v);
-        ProductController productController = new ProductController(product, "products");
-        productController.delete(name, stock);
-
-    }//GEN-LAST:event_btnRemoveActionPerformed
-
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
         FrmStylesIreliaMenu frmStylesirelia;
         frmStylesirelia = new FrmStylesIreliaMenu();
@@ -224,59 +173,9 @@ public class FrmProduct extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
 
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcExpirationProduct));
-        String name;
-        String expiration;
-        Float price;
-        int stock;
-        
-        
-        name = txtName.getText();
-        expiration = formDate.format(dtcExpirationProduct.getDate());
-        price = Float.parseFloat(txtPrice.getText());
-        stock = Integer.parseInt(txtStock.getText());
-        
-       
-        Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
-
-        
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        ProductController productController = new ProductController(product, "products");
-        productController.delete(name, stock);
-        
-        
-    }//GEN-LAST:event_btnSearchActionPerformed
-
     private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtStockActionPerformed
-
-    private void txtUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateActionPerformed
-       JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcExpirationProduct));
-        String name;
-        String expiration;
-        Float price;
-        int stock;
-        
-        
-        name = txtName.getText();
-        expiration = formDate.format(dtcExpirationProduct.getDate());
-        price = Float.parseFloat(txtPrice.getText());
-        stock = Integer.parseInt(txtStock.getText());
-        
-       
-        Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
-
-        
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        ProductController productController = new ProductController(product, "products");
-        productController.updateModel(product);
-    }//GEN-LAST:event_txtUpdateActionPerformed
 
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
         // TODO add your handling code here:
@@ -320,8 +219,6 @@ public class FrmProduct extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnBackToMenu;
-    private javax.swing.JButton btnRemove;
-    private javax.swing.JButton btnSearch;
     private com.toedter.calendar.JDateChooser dtcExpirationProduct;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
@@ -337,6 +234,5 @@ public class FrmProduct extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtStock;
-    private javax.swing.JButton txtUpdate;
     // End of variables declaration//GEN-END:variables
 }
