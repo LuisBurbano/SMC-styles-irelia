@@ -167,11 +167,9 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
       
         MongoCollection<Document> collection = Connection.mongodb.getCollection("stylists");
-        
-        
+
         Document doc = collection.find(eq("identificationCard",txtIdFind.getText())).first();
-                
-        
+
         Gson gson = new Gson();
         Stylist stylist = gson.fromJson(doc.toJson(), Stylist.class);
         txtId.setText(stylist.getIdentificationCard());
