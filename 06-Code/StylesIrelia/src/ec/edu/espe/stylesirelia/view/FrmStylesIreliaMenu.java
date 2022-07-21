@@ -38,8 +38,9 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         txtStyles = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        itmCustomer = new javax.swing.JMenuItem();
-        itmStylist = new javax.swing.JMenuItem();
+        itmaddstylist = new javax.swing.JMenuItem();
+        itmUpdateStylist = new javax.swing.JMenuItem();
+        itemDeleteStylist = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         itmSupplier = new javax.swing.JMenuItem();
@@ -87,23 +88,31 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenu2.setText("Stylist");
 
-        itmCustomer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itmCustomer.setText("Customer");
-        itmCustomer.addActionListener(new java.awt.event.ActionListener() {
+        itmaddstylist.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmaddstylist.setText("Add Stylist");
+        itmaddstylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmCustomerActionPerformed(evt);
+                itmaddstylistActionPerformed(evt);
             }
         });
-        jMenu2.add(itmCustomer);
+        jMenu2.add(itmaddstylist);
 
-        itmStylist.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itmStylist.setText("Stylist");
-        itmStylist.addActionListener(new java.awt.event.ActionListener() {
+        itmUpdateStylist.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        itmUpdateStylist.setText("Update Stylist");
+        itmUpdateStylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmStylistActionPerformed(evt);
+                itmUpdateStylistActionPerformed(evt);
             }
         });
-        jMenu2.add(itmStylist);
+        jMenu2.add(itmUpdateStylist);
+
+        itemDeleteStylist.setText("Delete Stylist");
+        itemDeleteStylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemDeleteStylistActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itemDeleteStylist);
 
         jMenuBar1.add(jMenu2);
 
@@ -276,19 +285,19 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void itmCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmCustomerActionPerformed
-        FrmCustomer frmCustomer;
-        frmCustomer = new FrmCustomer();
+    private void itmaddstylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmaddstylistActionPerformed
+        FrmAddStylist frmCustomer;
+        frmCustomer = new FrmAddStylist();
         frmCustomer.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_itmCustomerActionPerformed
+    }//GEN-LAST:event_itmaddstylistActionPerformed
 
-    private void itmStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmStylistActionPerformed
-        FrmAddStylist frmAddStylist;
-        frmAddStylist = new FrmAddStylist();
+    private void itmUpdateStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmUpdateStylistActionPerformed
+        FrmUpdateStylist frmAddStylist;
+        frmAddStylist = new FrmUpdateStylist();
         frmAddStylist.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_itmStylistActionPerformed
+    }//GEN-LAST:event_itmUpdateStylistActionPerformed
 
     private void itmProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmProductActionPerformed
         FrmProduct frmProduct;
@@ -400,6 +409,13 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_itemDeleteServiceActionPerformed
 
+    private void itemDeleteStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDeleteStylistActionPerformed
+        FrmDeleteStylist frmAddStylist;
+        frmAddStylist = new FrmDeleteStylist();
+        frmAddStylist.setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_itemDeleteStylistActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -440,13 +456,12 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemAddService;
     private javax.swing.JMenuItem itemAddSuppliers;
     private javax.swing.JMenuItem itemDeleteService;
+    private javax.swing.JMenuItem itemDeleteStylist;
     private javax.swing.JMenuItem itemDeleteSuppliers;
     private javax.swing.JMenuItem itemUpdateService;
     private javax.swing.JMenuItem itemUpdateSuppliers;
-    private javax.swing.JMenuItem itmCustomer;
     private javax.swing.JMenuItem itmProduct;
     private javax.swing.JMenuItem itmServices;
-    private javax.swing.JMenuItem itmStylist;
     private javax.swing.JMenuItem itmSupplier;
     private javax.swing.JMenuItem itmTableCustomer;
     private javax.swing.JMenuItem itmTableProduct;
@@ -454,6 +469,8 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmTableStylist;
     private javax.swing.JMenuItem itmTableSupllier;
     private javax.swing.JMenu itmTableSupplier;
+    private javax.swing.JMenuItem itmUpdateStylist;
+    private javax.swing.JMenuItem itmaddstylist;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;

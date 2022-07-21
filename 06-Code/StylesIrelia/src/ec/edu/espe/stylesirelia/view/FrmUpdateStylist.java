@@ -52,6 +52,7 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         btnFind = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        btnBackToMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,6 +87,13 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 36)); // NOI18N
         jLabel8.setText("Update Stylist");
 
+        btnBackToMenu.setText("Back ");
+        btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackToMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,11 +124,13 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(205, 205, 205)
-                        .addComponent(btnUpdate))
+                        .addComponent(btnUpdate)
+                        .addGap(74, 74, 74)
+                        .addComponent(btnBackToMenu))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(132, 132, 132)
                         .addComponent(jLabel8)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,7 +167,9 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(btnUpdate)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnBackToMenu))
                 .addGap(30, 30, 30))
         );
 
@@ -193,6 +205,13 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         StylistController stylistController = new StylistController(stylist,"stylists");
         stylistController.update(doc, stylist.buildDocument());
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
+        FrmStylesIreliaMenu frmStylesirelia;
+        frmStylesirelia = new FrmStylesIreliaMenu();
+        frmStylesirelia.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackToMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,6 +249,7 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBackToMenu;
     private javax.swing.JButton btnFind;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;

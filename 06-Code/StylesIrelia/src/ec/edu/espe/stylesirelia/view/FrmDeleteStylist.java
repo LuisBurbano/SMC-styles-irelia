@@ -37,6 +37,7 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txtIdentificationCard = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
+        btnBackToMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +50,13 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnBackToMenu.setText("Back ");
+        btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackToMenuActionPerformed(evt);
             }
         });
 
@@ -69,8 +77,10 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
-                                .addComponent(btnDelete)))))
-                .addContainerGap(181, Short.MAX_VALUE))
+                                .addComponent(btnDelete)
+                                .addGap(39, 39, 39)
+                                .addComponent(btnBackToMenu)))))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -82,7 +92,9 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtIdentificationCard, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(91, 91, 91)
-                .addComponent(btnDelete)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDelete)
+                    .addComponent(btnBackToMenu))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
 
@@ -101,6 +113,13 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
+        FrmStylesIreliaMenu frmStylesirelia;
+        frmStylesirelia = new FrmStylesIreliaMenu();
+        frmStylesirelia.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackToMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -141,6 +160,7 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBackToMenu;
     private javax.swing.JButton btnDelete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
