@@ -9,7 +9,7 @@ import org.bson.Document;
 public class Supplier extends BasicModel {
 
     private String name;
-    private int number;
+    private String number;
     private boolean pendingPayment;
     private String appointment;
     private String address;
@@ -30,7 +30,7 @@ public class Supplier extends BasicModel {
         return document;
     }
 
-    public Supplier(String name, int number, boolean pendingPayment, String appointment, String address) {
+    public Supplier(String name, String number, boolean pendingPayment, String appointment, String address) {
         this.name = name;
         this.number = number;
         this.pendingPayment = pendingPayment;
@@ -62,14 +62,14 @@ public class Supplier extends BasicModel {
     /**
      * @return the number
      */
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
     /**
      * @param number the number to set
      */
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 

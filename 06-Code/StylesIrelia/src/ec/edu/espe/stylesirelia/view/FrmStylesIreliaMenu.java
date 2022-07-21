@@ -52,6 +52,10 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         itmTableService = new javax.swing.JMenuItem();
         itmTableStylist = new javax.swing.JMenuItem();
         itmTableSupllier = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        itemAddSuppliers = new javax.swing.JMenuItem();
+        itemUpdateSuppliers = new javax.swing.JMenuItem();
+        itemDeleteSuppliers = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
@@ -182,6 +186,34 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(itmTableSupplier);
 
+        jMenu6.setText("Supplier");
+
+        itemAddSuppliers.setText("Add Supplier");
+        itemAddSuppliers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemAddSuppliersActionPerformed(evt);
+            }
+        });
+        jMenu6.add(itemAddSuppliers);
+
+        itemUpdateSuppliers.setText("Update Supplier");
+        itemUpdateSuppliers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemUpdateSuppliersActionPerformed(evt);
+            }
+        });
+        jMenu6.add(itemUpdateSuppliers);
+
+        itemDeleteSuppliers.setText("Delete Supplier");
+        itemDeleteSuppliers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemDeleteSuppliersActionPerformed(evt);
+            }
+        });
+        jMenu6.add(itemDeleteSuppliers);
+
+        jMenuBar1.add(jMenu6);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -294,6 +326,27 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_itmServicesActionPerformed
 
+    private void itemAddSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAddSuppliersActionPerformed
+       FrmSupplier frmSupplier;
+        frmSupplier = new FrmSupplier();
+        frmSupplier.setVisible(true);
+        this.setVisible(false); // TODO add your handling code here:
+    }//GEN-LAST:event_itemAddSuppliersActionPerformed
+
+    private void itemUpdateSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUpdateSuppliersActionPerformed
+        FrmUpdateSupplier frmUpdateSupplier;
+        frmUpdateSupplier = new FrmUpdateSupplier();
+        frmUpdateSupplier.setVisible(true);
+        this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_itemUpdateSuppliersActionPerformed
+
+    private void itemDeleteSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemDeleteSuppliersActionPerformed
+       FrmDeleteSupplier frmDeleteSupplier;
+        frmDeleteSupplier = new FrmDeleteSupplier();
+        frmDeleteSupplier.setVisible(true);
+        this.setVisible(false); // TODO add your handling code here:
+    }//GEN-LAST:event_itemDeleteSuppliersActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -331,6 +384,9 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem itemAddSuppliers;
+    private javax.swing.JMenuItem itemDeleteSuppliers;
+    private javax.swing.JMenuItem itemUpdateSuppliers;
     private javax.swing.JMenuItem itmCustomer;
     private javax.swing.JMenuItem itmProduct;
     private javax.swing.JMenuItem itmServices;
@@ -346,6 +402,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

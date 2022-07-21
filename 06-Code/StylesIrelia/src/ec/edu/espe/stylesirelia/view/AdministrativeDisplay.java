@@ -171,12 +171,12 @@ public class AdministrativeDisplay {
                     case 5:
                         System.out.println("You have selected option 5");
                         String supplier;
-                        int numberSupplier;
+                        String numberSupplier;
 
                         System.out.println("Write the supplier name: ");
                         supplier = textInput.next();
                         System.out.println("Write the number of the Supplier: ");
-                        numberSupplier = textInput.nextInt();
+                        numberSupplier = textInput.next();
                         System.out.println("Write the pending payment with the supplier");
                         payment = textInput.nextInt();
                         supplierData = new Supplier(supplier, numberSupplier, false, "Quito", "Ecuador");

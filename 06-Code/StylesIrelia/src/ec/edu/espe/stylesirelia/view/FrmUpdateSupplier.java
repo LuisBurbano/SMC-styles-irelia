@@ -1,23 +1,27 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package ec.edu.espe.stylesirelia.view;
 
-import com.toedter.calendar.JDateChooser;
+import com.google.gson.Gson;
+import com.mongodb.client.MongoCollection;
+import static com.mongodb.client.model.Filters.eq;
 import ec.edu.espe.stylesirelia.controller.SupplierController;
 import ec.edu.espe.stylesirelia.model.Connection;
 import ec.edu.espe.stylesirelia.model.Supplier;
-import java.text.SimpleDateFormat;
+import org.bson.Document;
 
 /**
  *
  * @author widin
  */
-public class FrmSupplier extends javax.swing.JFrame {
+public class FrmUpdateSupplier extends javax.swing.JFrame {
 
-    
     /**
-     * Creates new form FrmSupplier
+     * Creates new form FrmUpdateSupplier
      */
-    public FrmSupplier() {
+    public FrmUpdateSupplier() {
         initComponents();
     }
 
@@ -42,11 +46,9 @@ public class FrmSupplier extends javax.swing.JFrame {
         txtNumber = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        btnAddSupplier = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnFind = new javax.swing.JButton();
         btnBackToMenu = new javax.swing.JButton();
-        btnSearch = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +69,27 @@ public class FrmSupplier extends javax.swing.JFrame {
         });
 
         jLabel6.setText("Address");
+
+        btnUpdate.setText("Update ");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
+
+        btnFind.setText("Find");
+        btnFind.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFindActionPerformed(evt);
+            }
+        });
+
+        btnBackToMenu.setText("Back to Menu");
+        btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackToMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,13 +119,22 @@ public class FrmSupplier extends javax.swing.JFrame {
                                 .addGap(37, 37, 37)
                                 .addComponent(jLabel6)
                                 .addGap(59, 59, 59)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                            .addComponent(txtPendingPayment)
-                            .addComponent(txtAppointment)
-                            .addComponent(txtNumber)
-                            .addComponent(txtAddress))))
-                .addContainerGap(79, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPendingPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(btnUpdate)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                                    .addComponent(btnBackToMenu))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                                        .addComponent(txtAppointment)
+                                        .addComponent(txtNumber)
+                                        .addComponent(txtAddress))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnFind))))))
+                .addGap(44, 155, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,79 +144,28 @@ public class FrmSupplier extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnFind))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtPendingPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(txtAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-
-        btnAddSupplier.setText("Add");
-        btnAddSupplier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSupplierActionPerformed(evt);
-            }
-        });
-
-        btnBackToMenu.setText("Back to Menu");
-        btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackToMenuActionPerformed(evt);
-            }
-        });
-
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(btnAddSupplier)
-                .addGap(56, 56, 56)
-                .addComponent(btnSearch)
-                .addGap(39, 39, 39)
-                .addComponent(btnDelete)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(btnBackToMenu)
-                .addGap(17, 17, 17))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBackToMenu)
-                    .addComponent(btnSearch)
-                    .addComponent(btnAddSupplier)
-                    .addComponent(btnDelete))
-                .addGap(35, 35, 35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdate)
+                    .addComponent(btnBackToMenu)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -192,22 +173,16 @@ public class FrmSupplier extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         pack();
@@ -217,30 +192,34 @@ public class FrmSupplier extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAppointmentActionPerformed
 
-    private void btnAddSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierActionPerformed
+    private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
-        String name;
-        String number;
-        boolean pendingPayment;
-        String appointment;
-        String address;
-        
+        MongoCollection<Document> collection = Connection.mongodb.getCollection("suppliers");
 
-        name = txtName.getText();
-        number= txtNumber.getText();
-        pendingPayment= Boolean.valueOf(txtPendingPayment.getText());
-        appointment= txtAppointment.getText();
-        address= txtAddress.getText();
+        Document doc = collection.find(eq("name",txtName.getText())).first();
 
-        Supplier supplier = new Supplier(name, number, pendingPayment, appointment, address);
+        Gson gson = new Gson();
+        Supplier supplier = gson.fromJson(doc.toJson(), Supplier.class);
+        txtName.setText(supplier.getName());
 
-        Connection connection = new Connection();
-        connection.connectionDataBase();
+        txtAppointment.setText(supplier.getAppointment());
+        txtName.setText(supplier.getName());
+        txtNumber.setText(supplier.getNumber());
+        txtPendingPayment.setText(String.valueOf(supplier.isPendingPayment()));
+        txtAddress.setText(supplier.getAddress());
 
-        SupplierController supplierController = new SupplierController(supplier, "suppliers");
-        supplierController.create();
+    }//GEN-LAST:event_btnFindActionPerformed
 
-    }//GEN-LAST:event_btnAddSupplierActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        MongoCollection<Document> collection = Connection.mongodb.getCollection("stylists");
+
+        Document doc = collection.find(eq("name",txtName.getText())).first();
+
+        Supplier supplier = new Supplier(txtName.getText(), txtNumber.getText(),Boolean.valueOf(txtPendingPayment.getText()), txtAppointment.getText(), txtAddress.getText());
+
+        SupplierController supplierController = new SupplierController(supplier,"suppliers");
+        supplierController.update(doc, supplier.buildDocument());
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
         FrmStylesIreliaMenu frmStylesirelia;
@@ -248,57 +227,6 @@ public class FrmSupplier extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
-
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-
-        String name;
-        int number;
-        boolean pendingPayment;
-        String appointment;
-        String address;
-        
-
-        name = txtName.getText();
-        number= Integer.parseInt(txtNumber.getText());
-        pendingPayment= Boolean.valueOf(txtPendingPayment.getText());
-        appointment= txtAppointment.getText();
-        address= txtAddress.getText();
-
-        Supplier supplier = new Supplier(name, name, pendingPayment, appointment, address);
-
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-        SupplierController supplierController = new SupplierController(supplier, "supplier");
-        supplierController.read(name);
-
-        txtName.setText(name);
-        //txtNumber.setText();
-
-    }//GEN-LAST:event_btnSearchActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        String name;
-        int number;
-        boolean pendingPayment;
-        String appointment;
-        String address;
-        
-
-        name = txtName.getText();
-        number= Integer.parseInt(txtNumber.getText());
-        pendingPayment= Boolean.valueOf(txtPendingPayment.getText());
-        appointment= txtAppointment.getText();
-        address= txtAddress.getText();
-
-        Supplier supplier = new Supplier(name, name, pendingPayment, appointment, address);
-
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        SupplierController supplierController = new SupplierController(supplier, "suppliers");
-        supplierController.delete(name, name);
-        
-    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,29 +245,28 @@ public class FrmSupplier extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUpdateSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUpdateSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUpdateSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmUpdateSupplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmSupplier().setVisible(true);
+                new FrmUpdateSupplier().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddSupplier;
     private javax.swing.JButton btnBackToMenu;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnFind;
+    private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -347,7 +274,6 @@ public class FrmSupplier extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAppointment;
     private javax.swing.JTextField txtName;
