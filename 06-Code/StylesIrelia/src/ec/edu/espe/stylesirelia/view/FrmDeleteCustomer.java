@@ -4,10 +4,11 @@
  */
 package ec.edu.espe.stylesirelia.view;
 
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.controller.CustomerController;
-import ec.edu.espe.stylesirelia.controller.SupplierController;
+
 import ec.edu.espe.stylesirelia.model.Customer;
-import ec.edu.espe.stylesirelia.model.Supplier;
+
 import javax.swing.JOptionPane;
 import org.bson.Document;
 
@@ -22,6 +23,7 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
      */
     public FrmDeleteCustomer() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     /**

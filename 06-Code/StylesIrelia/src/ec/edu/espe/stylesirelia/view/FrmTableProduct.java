@@ -24,6 +24,7 @@ public class FrmTableProduct extends javax.swing.JFrame {
      */
     public FrmTableProduct() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     public void loadProductsTable() {

@@ -31,6 +31,7 @@ public class FrmProduct extends javax.swing.JFrame {
      */
     public FrmProduct() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     /**

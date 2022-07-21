@@ -31,6 +31,7 @@ public class FrmService extends javax.swing.JFrame {
      */
     public FrmService() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     /**

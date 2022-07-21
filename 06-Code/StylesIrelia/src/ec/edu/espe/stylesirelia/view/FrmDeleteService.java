@@ -4,6 +4,7 @@
  */
 package ec.edu.espe.stylesirelia.view;
 
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.controller.ServiceController;
 import ec.edu.espe.stylesirelia.model.Service;
 import javax.swing.JOptionPane;
@@ -20,6 +21,7 @@ public class FrmDeleteService extends javax.swing.JFrame {
      */
     public FrmDeleteService() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     /**

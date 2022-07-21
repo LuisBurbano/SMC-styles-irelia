@@ -29,6 +29,7 @@ public class FrmCustomer extends javax.swing.JFrame {
      */
     public FrmCustomer() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     /**

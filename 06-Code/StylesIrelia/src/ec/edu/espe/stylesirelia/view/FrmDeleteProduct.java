@@ -4,6 +4,7 @@
  */
 package ec.edu.espe.stylesirelia.view;
 
+import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.controller.ProductController;
 import ec.edu.espe.stylesirelia.model.Product;
 import javax.swing.JOptionPane;
@@ -20,6 +21,7 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
      */
     public FrmDeleteProduct() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     /**

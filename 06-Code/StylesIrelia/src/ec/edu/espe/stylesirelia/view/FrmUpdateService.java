@@ -24,6 +24,7 @@ public class FrmUpdateService extends javax.swing.JFrame {
      */
     public FrmUpdateService() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     /**

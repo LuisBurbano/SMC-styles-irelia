@@ -25,6 +25,7 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
      */
     public FrmUpdateCustomer() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     /**
