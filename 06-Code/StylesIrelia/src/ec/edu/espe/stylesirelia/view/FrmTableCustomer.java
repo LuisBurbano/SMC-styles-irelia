@@ -1,4 +1,3 @@
-
 package ec.edu.espe.stylesirelia.view;
 
 import com.mongodb.MongoClient;
@@ -16,7 +15,7 @@ import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
- * @author widin
+ * @author Roberto Bedon, DCCO-ESPE, BettaCoders
  */
 public class FrmTableCustomer extends javax.swing.JFrame {
 
@@ -26,16 +25,16 @@ public class FrmTableCustomer extends javax.swing.JFrame {
     public FrmTableCustomer() {
         initComponents();
     }
-    
-     public void loadCustomersTable() {
-       //borrar estas dos lineas despues de juntar todas las pantallas
+
+    public void loadCustomersTable() {
+        //borrar estas dos lineas despues de juntar todas las pantallas
         Connection connection = new Connection();
         connection.connectionDataBase();
         //-------
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
-        MongoCollection<Customer> collectionCustomers = db.getCollection("customers", Customer.class); 
+        MongoCollection<Customer> collectionCustomers = db.getCollection("customers", Customer.class);
         List<Customer> customers = collectionCustomers.find(new Document(), Customer.class).into(new ArrayList<Customer>());
 
         Object[][] objects = new Object[customers.size()][6];
@@ -58,7 +57,6 @@ public class FrmTableCustomer extends javax.swing.JFrame {
         }
 
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,15 +67,17 @@ public class FrmTableCustomer extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableCustomers = new javax.swing.JTable();
         btnLoad = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Customers");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tableCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,7 +87,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "identificationCard", "name", "number", "pendingPayment", "appointment", "address"
+                "Identification Card", "Name", "Number", "Pending Payment", "Appointment", "Address"
             }
         ) {
             Class[] types = new Class [] {
@@ -100,12 +100,15 @@ public class FrmTableCustomer extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableCustomers);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 787, 108));
+
         btnLoad.setText("Load");
         btnLoad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoadActionPerformed(evt);
             }
         });
+        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -113,47 +116,30 @@ public class FrmTableCustomer extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        jLabel2.setText("CUSTOMERS");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 220, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 787, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(348, 348, 348)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
-                        .addComponent(btnLoad)
-                        .addGap(161, 161, 161)
-                        .addComponent(btnBack)))
-                .addContainerGap(31, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLoad)
-                    .addComponent(btnBack))
-                .addContainerGap(53, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadActionPerformed
-        
+
         loadCustomersTable();
-        
+
     }//GEN-LAST:event_btnLoadActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -201,7 +187,8 @@ public class FrmTableCustomer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnLoad;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableCustomers;
     // End of variables declaration//GEN-END:variables

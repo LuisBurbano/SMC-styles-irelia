@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 
 /**
  *
- * @author widin
+ * @author Roberto Bedon, DCCO-ESPE, BettaCoders
  */
 public class FrmSupplier extends javax.swing.JFrame {
 

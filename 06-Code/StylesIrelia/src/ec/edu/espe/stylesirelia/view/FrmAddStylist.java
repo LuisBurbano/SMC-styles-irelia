@@ -1,8 +1,10 @@
 package ec.edu.espe.stylesirelia.view;
 
+import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.stylesirelia.controller.StylistController;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Stylist;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,12 +13,23 @@ import javax.swing.JOptionPane;
  */
 public class FrmAddStylist extends javax.swing.JFrame {
 
+    SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
+
+    public String getDate(JDateChooser jdDate) {
+        if (jdDate.getDate() != null) {
+            return formDate.format(jdDate.getDate());
+        } else {
+            return null;
+        }
+
+    }
+
     /**
      * Creates new form AddStylist
      */
     public FrmAddStylist() {
         initComponents();
-        
+
         Connection.connectionDataBase();
     }
 
@@ -39,7 +52,6 @@ public class FrmAddStylist extends javax.swing.JFrame {
         txtName = new javax.swing.JTextField();
         txtNumber = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
-        txtAppoinment = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtPayment = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -47,11 +59,11 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         btnAdd = new javax.swing.JButton();
         bntBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtAppoinment = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -119,14 +131,6 @@ public class FrmAddStylist extends javax.swing.JFrame {
         });
         jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 387, -1));
 
-        txtAppoinment.setBorder(null);
-        txtAppoinment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAppoinmentActionPerformed(evt);
-            }
-        });
-        jPanel1.add(txtAppoinment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 360, -1));
-
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel7.setText("Payment");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 130, -1));
@@ -141,7 +145,6 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 179, 10));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 179, 10));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 179, 10));
-        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 387, 10));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 387, 10));
 
         btnAdd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -164,21 +167,21 @@ public class FrmAddStylist extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, -10, -1, -1));
+        jPanel1.add(txtAppoinment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 180, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(181, 181, 181))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,12 +200,10 @@ public class FrmAddStylist extends javax.swing.JFrame {
         name = txtName.getText();
         number = txtNumber.getText();
         payment = Integer.parseInt(txtPayment.getText());
-        appointment = txtAppoinment.getText();
+        appointment = formDate.format(txtAppoinment.getDate());
         address = txtAddress.getText();
 
         Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
-
-        
 
         StylistController stylistController = new StylistController(stylist, "stylists");
         stylistController.create();
@@ -220,10 +221,6 @@ public class FrmAddStylist extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_bntBackActionPerformed
 
-    private void txtAppoinmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAppoinmentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAppoinmentActionPerformed
-
     private void txtIdentificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdentificationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdentificationActionPerformed
@@ -238,7 +235,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
 
     private void txtNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumberKeyTyped
         String value = txtNumber.getText();
-        int legth = value.length(); 
+        int legth = value.length();
         if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') {
             txtNumber.setEditable(true);
             if (legth > 10) {
@@ -261,13 +258,13 @@ public class FrmAddStylist extends javax.swing.JFrame {
             if (legth > 10) {
 
                 JOptionPane.showMessageDialog(this, "ID must have 10 digits", "Warning", JOptionPane.WARNING_MESSAGE);
-                
+
                 txtIdentification.setText(" ");
 
             }
         } else {
             JOptionPane.showMessageDialog(this, "Enter only numbers", "Warning", JOptionPane.WARNING_MESSAGE);
-            
+
             txtIdentification.setText(" ");
         }
     }//GEN-LAST:event_txtIdentificationKeyTyped
@@ -324,10 +321,9 @@ public class FrmAddStylist extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAppoinment;
+    private com.toedter.calendar.JDateChooser txtAppoinment;
     private javax.swing.JTextField txtIdentification;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumber;

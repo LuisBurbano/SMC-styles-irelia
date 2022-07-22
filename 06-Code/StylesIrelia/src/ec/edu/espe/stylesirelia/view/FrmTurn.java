@@ -49,13 +49,15 @@ public class FrmTurn extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        btnBackToMenu = new javax.swing.JButton();
-        txtGetATurn = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         dtcServiceTurn = new com.toedter.calendar.JDateChooser();
         btnRegisterTurn = new javax.swing.JButton();
         cmbService = new javax.swing.JComboBox<>();
+        btnBackToMenu = new javax.swing.JButton();
+        txtGetATurn = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         mnuStylesIrelia = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
@@ -96,21 +98,15 @@ public class FrmTurn extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnBackToMenu.setText("Back to menu");
-        btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackToMenuActionPerformed(evt);
-            }
-        });
-
-        txtGetATurn.setText("Get a turn");
-
-        jLabel1.setText("Select the date:");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Select the service:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 133, -1, -1));
 
         dtcServiceTurn.setMaxSelectableDate(new java.util.Date(1672552916000L));
         dtcServiceTurn.setMinSelectableDate(new java.util.Date(1657605716000L));
+        jPanel1.add(dtcServiceTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 70, 176, -1));
 
         btnRegisterTurn.setText("Register turn");
         btnRegisterTurn.addActionListener(new java.awt.event.ActionListener() {
@@ -118,9 +114,29 @@ public class FrmTurn extends javax.swing.JFrame {
                 btnRegisterTurnActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRegisterTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 216, -1, -1));
 
         cmbService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hair Cut", "Massages", "Water circuits" }));
         cmbService.setToolTipText("");
+        jPanel1.add(cmbService, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 130, 176, -1));
+
+        btnBackToMenu.setText("Back to menu");
+        btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackToMenuActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 216, -1, -1));
+
+        txtGetATurn.setText("Get a turn");
+        jPanel1.add(txtGetATurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 25, -1, -1));
+
+        jLabel1.setText("Select the date:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 70, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, -80, -1, -1));
 
         mnuStylesIrelia.setText("Styles Irelia");
         mnuStylesIrelia.addActionListener(new java.awt.event.ActionListener() {
@@ -145,42 +161,13 @@ public class FrmTurn extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtGetATurn)
-                    .addComponent(dtcServiceTurn, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(btnRegisterTurn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                .addComponent(btnBackToMenu)
-                .addGap(70, 70, 70))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(txtGetATurn)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(dtcServiceTurn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(cmbService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegisterTurn)
-                    .addComponent(btnBackToMenu))
-                .addGap(49, 49, 49))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -262,6 +249,7 @@ public class FrmTurn extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -272,6 +260,7 @@ public class FrmTurn extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu mnuStylesIrelia;
     private javax.swing.JLabel txtGetATurn;
     // End of variables declaration//GEN-END:variables
