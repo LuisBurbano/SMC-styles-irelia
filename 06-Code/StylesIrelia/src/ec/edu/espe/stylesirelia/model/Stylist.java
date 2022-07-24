@@ -1,12 +1,13 @@
 package ec.edu.espe.stylesirelia.model;
 
+import ec.edu.espe.stylesirelia.controller.BasicModel;
 import org.bson.Document;
 
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Stylist extends BasicModel {
+public class Stylist{
 
     private String identificationCard;
     private String name;
@@ -116,18 +117,5 @@ public class Stylist extends BasicModel {
         this.identificationCard = identificationCard;
     }
 
-    @Override
-    public Document buildDocument() {
-        Document document = new Document();
-
-        document.append("identificationCard", this.identificationCard).
-                append("name", this.name).
-                append("number", this.number).
-                append("payment", this.payment).
-                append("appointment", this.appointment).
-                append("address", this.address);
-
-        return document;
-    }
 
 }

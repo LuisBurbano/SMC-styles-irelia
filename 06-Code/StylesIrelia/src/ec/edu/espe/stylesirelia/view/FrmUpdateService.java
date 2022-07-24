@@ -134,10 +134,10 @@ public class FrmUpdateService extends javax.swing.JFrame {
 
         Document doc = collection.find(eq("name",txtName.getText())).first();
 
-        Service service = new Service(txtName.getText(),txtPrice.getText(),Boolean.valueOf(txtAvailable.getText()),txtAvailableStylist.getText());
+        Service service = new Service(txtName.getText(),txtPrice.getText(),false,false,txtAvailableStylist.getText());
 
         ServiceController serviceController = new ServiceController(service,"services");
-        serviceController.update(doc, service.buildDocument());
+        serviceController.update(doc, serviceController.buildDocument(service));
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed

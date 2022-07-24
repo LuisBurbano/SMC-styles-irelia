@@ -1,6 +1,7 @@
 package ec.edu.espe.stylesirelia.controller;
 
 import ec.edu.espe.stylesirelia.model.Turn;
+import org.bson.Document;
 
 /**
  *
@@ -12,4 +13,15 @@ public class TurnController extends BasicController<Turn> {
         super(object, collectionName);
     }
 
+    public Document buildDocument(Turn  turn) {
+        Document document = new Document();
+
+        document.append("id", turn.getId()).
+                append("date", turn.getDate()).
+                append("customer", turn.getCustomer()).
+                append("service", turn.getService()).
+                append("stylist", turn.getStylist());
+
+        return document;
+    }
 }

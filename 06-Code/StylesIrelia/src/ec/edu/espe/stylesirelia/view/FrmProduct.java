@@ -162,7 +162,7 @@ public class FrmProduct extends javax.swing.JFrame {
         connection.connectionDataBase();
 
         ProductController productController = new ProductController(product, "products");
-        productController.create();
+        productController.create(productController.buildDocument(product));
 
 
     }//GEN-LAST:event_btnAddProductActionPerformed

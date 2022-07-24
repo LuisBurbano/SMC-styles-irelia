@@ -207,7 +207,7 @@ public class FrmCustomer extends javax.swing.JFrame {
         connection.connectionDataBase();
 
         CustomerController customerController = new CustomerController(customer, "customers");
-        customerController.create();
+        customerController.create(customerController.buildDocument(customer));
 
     }//GEN-LAST:event_btnAddActionPerformed
 

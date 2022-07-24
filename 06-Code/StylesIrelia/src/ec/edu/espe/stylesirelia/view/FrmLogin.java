@@ -251,7 +251,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         MongoCollection<Document> m = userController.getMongoCollection();
 
-        Document doc = m.find(user.buildDocument()).first();
+        Document doc = m.find(userController.buildDocument(user)).first();
 
         if (doc != null) {
             FrmStylesIreliaMenu frmStylesIreliaMenu = new FrmStylesIreliaMenu();

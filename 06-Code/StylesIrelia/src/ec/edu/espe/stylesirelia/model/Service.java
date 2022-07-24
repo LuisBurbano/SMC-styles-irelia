@@ -1,5 +1,6 @@
 package ec.edu.espe.stylesirelia.model;
 
+import ec.edu.espe.stylesirelia.controller.BasicModel;
 import java.util.ArrayList;
 import org.bson.Document;
 
@@ -7,7 +8,7 @@ import org.bson.Document;
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Service extends BasicModel {
+public class Service  {
 
     private String name;
     private String price;
@@ -18,25 +19,9 @@ public class Service extends BasicModel {
     public Service() {
     }
 
-    public Service(String text, String text0, Boolean valueOf, String text1) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
-    public Service(String nameService, int price, boolean b, boolean b0, ArrayList<Stylist> stylists) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Document buildDocument() {
-        Document document = new Document();
-
-        document.append("price", this.price).
-                append("name", this.name).
-                append("pendingPayment", this.pendingPayment).
-                append("availableStylist", this.availableStylist);
-
-        return document;
-    }
+    
+    
 
     public Service(String name, String price, boolean pendingPayment, boolean available, String availableStylist) {
         this.name = name;

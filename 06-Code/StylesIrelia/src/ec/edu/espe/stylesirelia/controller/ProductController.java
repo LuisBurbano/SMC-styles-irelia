@@ -1,6 +1,7 @@
 package ec.edu.espe.stylesirelia.controller;
 
 import ec.edu.espe.stylesirelia.model.Product;
+import org.bson.Document;
 
 /**
  *
@@ -10,6 +11,15 @@ public class ProductController extends BasicController<Product> {
 
     public ProductController(Product object, String collectionName) {
         super(object, collectionName);
+    }
+    public Document buildDocument(Product product) {
+        Document document = new Document();
+
+        document.append("name", product.getName()).
+                append("price", product.getPrice()).
+                append("expiration", product.getExpiration()).
+                append("stock", product.getStock());
+        return document;
     }
 
 }

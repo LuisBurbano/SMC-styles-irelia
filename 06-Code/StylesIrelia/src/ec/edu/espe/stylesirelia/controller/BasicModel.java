@@ -1,4 +1,4 @@
-package ec.edu.espe.stylesirelia.model;
+package ec.edu.espe.stylesirelia.controller;
 
 import org.bson.Document;
 
@@ -9,4 +9,6 @@ import org.bson.Document;
 public abstract class BasicModel {
 
     public abstract Document buildDocument();
+
+    
 }

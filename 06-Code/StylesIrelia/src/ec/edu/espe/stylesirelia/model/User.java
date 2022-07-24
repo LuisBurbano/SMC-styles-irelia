@@ -1,24 +1,19 @@
 package ec.edu.espe.stylesirelia.model;
 
+import ec.edu.espe.stylesirelia.controller.BasicModel;
 import org.bson.Document;
 
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class User extends BasicModel {
+public class User {
 
     private String user;
     private String password;
 
-    @Override
-    public Document buildDocument() {
-        Document document = new Document();
-        document.append("user", this.user).
-                append("password", this.password);
-
-        return document;
-    }
+    
+    
 
     public User(String user, String password) {
         this.user = user;

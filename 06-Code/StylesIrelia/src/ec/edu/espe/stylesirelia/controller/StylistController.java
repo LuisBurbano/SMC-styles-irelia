@@ -1,6 +1,7 @@
 package ec.edu.espe.stylesirelia.controller;
 
 import ec.edu.espe.stylesirelia.model.Stylist;
+import org.bson.Document;
 
 /**
  *
@@ -10,6 +11,18 @@ public class StylistController extends BasicController<Stylist> {
 
     public StylistController(Stylist object, String collectionName) {
         super(object, collectionName);
+    }
+    public Document buildDocument(Stylist stylist) {
+        Document document = new Document();
+
+        document.append("identificationCard", stylist.getIdentificationCard()).
+                append("name", stylist.getName()).
+                append("number", stylist.getNumber()).
+                append("payment", stylist.getPayment()).
+                append("appointment", stylist.getAppointment()).
+                append("address", stylist.getAddress());
+
+        return document;
     }
 
 }

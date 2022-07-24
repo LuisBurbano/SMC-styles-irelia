@@ -1,5 +1,6 @@
 package ec.edu.espe.stylesirelia.model;
 
+import ec.edu.espe.stylesirelia.controller.BasicModel;
 import com.toedter.calendar.JDateChooser;
 import java.text.SimpleDateFormat;
 import org.bson.Document;
@@ -8,7 +9,7 @@ import org.bson.Document;
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Turn extends BasicModel {
+public class Turn {
 
     private int id;
     private String date;
@@ -16,18 +17,8 @@ public class Turn extends BasicModel {
     private String service;
     private String stylist;
 
-    @Override
-    public Document buildDocument() {
-        Document document = new Document();
-
-        document.append("id", this.id).
-                append("date", this.date).
-                append("customer", this.customer).
-                append("service", this.service).
-                append("stylist", this.stylist);
-
-        return document;
-    }
+    
+    
 
     public Turn(int id, String date, String customer, String service, String stylist) {
         this.id = id;

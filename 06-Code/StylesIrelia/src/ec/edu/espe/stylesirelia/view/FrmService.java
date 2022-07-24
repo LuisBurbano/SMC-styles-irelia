@@ -136,7 +136,7 @@ public class FrmService extends javax.swing.JFrame {
         connection.connectionDataBase();
 
         ServiceController serviceController = new ServiceController(service, "services");
-        serviceController.create();
+        serviceController.create(serviceController.buildDocument(service));
     
     
         

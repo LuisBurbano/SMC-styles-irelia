@@ -119,7 +119,7 @@ public class AdministrativeDisplay {
                         CustomerController customerController = new CustomerController(customerData, "customers");
                         //creamos el registro en mongoDB
 
-                        customerController.create();
+                        
 
                         /////
                         break;
@@ -148,8 +148,8 @@ public class AdministrativeDisplay {
                         price = textInput.nextInt();
                         System.out.println("Do you have pending Payment?");
                         payment = textInput.nextInt();
-                        servicesData = new Service(nameService, price, false, false, stylists);
-                        services.add(servicesData);
+                        
+                        
 
                         break;
                     case 4:

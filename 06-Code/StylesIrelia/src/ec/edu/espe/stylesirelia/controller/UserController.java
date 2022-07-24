@@ -2,6 +2,7 @@
 package ec.edu.espe.stylesirelia.controller;
 
 import ec.edu.espe.stylesirelia.model.User;
+import org.bson.Document;
 
 /**
  *
@@ -13,4 +14,11 @@ public class UserController extends BasicController<User>{
         super(object, collectionName);
     }
     
+    public Document buildDocument(User user) {
+        Document document = new Document();
+        document.append("user", user.getUser()).
+                append("password", user.getPassword());
+
+        return document;
+    }
 }

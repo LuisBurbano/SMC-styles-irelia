@@ -131,7 +131,7 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         Customer customer = new Customer(txtIdentification.getText(), txtName.getText(), Integer.parseInt(txtNumber.getText()), false, txtAppoiment.getText(), txtAddress.getText());
 
         CustomerController customerController = new CustomerController(customer, "customers");
-        customerController.update(doc, customer.buildDocument());
+        customerController.update(doc, customerController.buildDocument(customer));
 
 
     }//GEN-LAST:event_txtUpdateActionPerformed

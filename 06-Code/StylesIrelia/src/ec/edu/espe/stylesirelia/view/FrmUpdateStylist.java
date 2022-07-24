@@ -165,7 +165,7 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         Stylist stylist = new Stylist(txtId.getText(), txtName.getText(), txtNumber.getText(),Double.parseDouble(txtPayment.getText()), txtAppointment.getText(), txtAddress.getText());
         
         StylistController stylistController = new StylistController(stylist,"stylists");
-        stylistController.update(doc, stylist.buildDocument());
+        stylistController.update(doc, stylistController.buildDocument(stylist));
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed

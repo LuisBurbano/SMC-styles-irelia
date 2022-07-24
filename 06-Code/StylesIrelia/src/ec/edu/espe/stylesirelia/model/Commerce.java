@@ -1,5 +1,6 @@
 package ec.edu.espe.stylesirelia.model;
 
+import ec.edu.espe.stylesirelia.controller.BasicModel;
 import org.bson.Document;
 
 /**

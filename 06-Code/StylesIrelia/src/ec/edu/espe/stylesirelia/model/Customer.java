@@ -1,12 +1,13 @@
 package ec.edu.espe.stylesirelia.model;
 
+import ec.edu.espe.stylesirelia.controller.BasicModel;
 import org.bson.Document;
 
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Customer extends BasicModel {
+public class Customer {
 
     private String identificationCard;
     private String name;
@@ -18,18 +19,8 @@ public class Customer extends BasicModel {
     public Customer() {
     }
 
-    @Override
-    public Document buildDocument() {
-        Document document = new Document();
-
-        document.append("identificationCard", this.identificationCard).
-                append("name", this.name).append("number", this.number).
-                append("pendingPayment", this.pendingPayment).
-                append("appointment", this.appointment).
-                append("address", this.address);
-
-        return document;
-    }
+    
+    
 
     public Customer(String identificationCard, String name, int number, boolean pendingPayment, String appointment, String address) {
         this.identificationCard = identificationCard;

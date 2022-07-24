@@ -159,7 +159,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         Supplier supplier = new Supplier(txtName.getText(), txtNumber.getText(),Boolean.valueOf(txtPendingPayment.getText()), txtAppointment.getText(), txtAddress.getText());
 
         SupplierController supplierController = new SupplierController(supplier,"suppliers");
-        supplierController.update(doc, supplier.buildDocument());
+        supplierController.update(doc, supplierController.buildDocument(supplier));
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed

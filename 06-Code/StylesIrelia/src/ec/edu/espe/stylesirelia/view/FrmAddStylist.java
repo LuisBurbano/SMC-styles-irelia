@@ -206,7 +206,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
         Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
 
         StylistController stylistController = new StylistController(stylist, "stylists");
-        stylistController.create();
+        stylistController.create(stylistController.buildDocument(stylist));
 
     }//GEN-LAST:event_btnAddActionPerformed
 

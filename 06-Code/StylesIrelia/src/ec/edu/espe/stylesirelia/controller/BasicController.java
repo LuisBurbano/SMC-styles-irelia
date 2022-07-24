@@ -7,14 +7,13 @@ import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
 import com.mongodb.client.model.ReplaceOptions;
 import static com.mongodb.client.model.Updates.set;
-import ec.edu.espe.stylesirelia.model.BasicModel;
 import org.bson.Document;
 
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-class BasicController<T extends BasicModel> {
+class BasicController<T> {
 
     T model;
     private MongoDatabase mongoDB = Connection.mongodb;
@@ -30,9 +29,9 @@ class BasicController<T extends BasicModel> {
         return this.mongoCollection;
     }
 
-    public void create()  {
+    public void create(Document document)  {
 
-        Document document = model.buildDocument();
+        
 
         mongoCollection.insertOne(document);
 
@@ -46,10 +45,6 @@ class BasicController<T extends BasicModel> {
     public void delete(String id, Object idValue) {
         mongoCollection.deleteOne(eq(id, idValue));
 
-    }
-
-    public void updateModel(T model) {
-        this.model = model;
     }
 
     public void update(String id, String idValue, String updateKey, String valueUpdate) {

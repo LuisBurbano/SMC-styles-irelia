@@ -202,7 +202,7 @@ public class FrmTurn extends javax.swing.JFrame {
         /////
         Turn turn = new Turn(1, formDate.format(dtcServiceTurn.getDate()), v, v, v);
         TurnController cTurn = new TurnController(turn, "turns");
-        cTurn.create();
+        cTurn.create(cTurn.buildDocument(turn));
 
     }//GEN-LAST:event_btnRegisterTurnActionPerformed
 

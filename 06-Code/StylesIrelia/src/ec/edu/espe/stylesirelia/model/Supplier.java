@@ -1,12 +1,13 @@
 package ec.edu.espe.stylesirelia.model;
 
+import ec.edu.espe.stylesirelia.controller.BasicModel;
 import org.bson.Document;
 
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Supplier extends BasicModel {
+public class Supplier  {
 
     private String name;
     private String number;
@@ -17,18 +18,7 @@ public class Supplier extends BasicModel {
     public Supplier() {
     }
 
-    @Override
-    public Document buildDocument() {
-        Document document = new Document();
-
-        document.append("number", this.number).
-                append("name", this.name).
-                append("pendingPayment", this.pendingPayment).
-                append("appointment", this.appointment).
-                append("address", this.address);
-
-        return document;
-    }
+    
 
     public Supplier(String name, String number, boolean pendingPayment, String appointment, String address) {
         this.name = name;

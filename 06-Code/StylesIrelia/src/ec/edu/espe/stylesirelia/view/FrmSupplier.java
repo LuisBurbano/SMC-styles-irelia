@@ -217,7 +217,7 @@ public class FrmSupplier extends javax.swing.JFrame {
         connection.connectionDataBase();
 
         SupplierController supplierController = new SupplierController(supplier, "suppliers");
-        supplierController.create();
+        supplierController.create(supplierController.buildDocument(supplier));
 
     }//GEN-LAST:event_btnAddSupplierActionPerformed
 
