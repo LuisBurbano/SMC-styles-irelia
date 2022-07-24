@@ -13,7 +13,7 @@ import org.bson.Document;
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-class BasicController<T> {
+class BasicController<T> extends BasicModel{
 
     T model;
     private MongoDatabase mongoDB = Connection.mongodb;
@@ -29,29 +29,31 @@ class BasicController<T> {
         return this.mongoCollection;
     }
 
+    @Override
     public void create(Document document)  {
-
-        
-
         mongoCollection.insertOne(document);
 
     }
 
+    @Override
     public Document read(String id) {
 
         return mongoCollection.find(eq(id)).first();
     }
 
+    @Override
     public void delete(String id, Object idValue) {
         mongoCollection.deleteOne(eq(id, idValue));
 
     }
 
+    @Override
     public void update(String id, String idValue, String updateKey, String valueUpdate) {
 
         getMongoCollection().updateOne(eq(id, idValue), set(updateKey, valueUpdate));
 
     }
+    @Override
      public void update(Document query, Document upload) {
         ReplaceOptions options = new ReplaceOptions().upsert(true);
 

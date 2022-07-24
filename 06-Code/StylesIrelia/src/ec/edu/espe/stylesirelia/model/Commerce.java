@@ -7,19 +7,13 @@ import org.bson.Document;
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Commerce extends BasicModel {
+public class Commerce {
 
     private String name;
     private String direction;
 
-    @Override
-    public Document buildDocument() {
-        Document document = new Document();
-
-        document.append("name", this.name).
-                append("direction", this.direction);
-        return document;
-    }
+    
+    
 
     public Commerce(String name, String direction) {
         this.name = name;
