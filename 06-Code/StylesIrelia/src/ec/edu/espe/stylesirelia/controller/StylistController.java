@@ -12,6 +12,7 @@ public class StylistController extends BasicController<Stylist> {
     public StylistController(Stylist object, String collectionName) {
         super(object, collectionName);
     }
+
     public Document buildDocument(Stylist stylist) {
         Document document = new Document();
 

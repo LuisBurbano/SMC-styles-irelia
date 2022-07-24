@@ -1,14 +1,10 @@
 package ec.edu.espe.stylesirelia.model;
 
-import ec.edu.espe.stylesirelia.controller.BasicModel;
-import java.util.ArrayList;
-import org.bson.Document;
-
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Service  {
+public class Service {
 
     private String name;
     private String price;
@@ -18,10 +14,6 @@ public class Service  {
 
     public Service() {
     }
-
-
-    
-    
 
     public Service(String name, String price, boolean pendingPayment, boolean available, String availableStylist) {
         this.name = name;

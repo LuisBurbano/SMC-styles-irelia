@@ -1,8 +1,5 @@
 package ec.edu.espe.stylesirelia.model;
 
-import ec.edu.espe.stylesirelia.controller.BasicModel;
-import org.bson.Document;
-
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
@@ -11,9 +8,6 @@ public class User {
 
     private String user;
     private String password;
-
-    
-    
 
     public User(String user, String password) {
         this.user = user;

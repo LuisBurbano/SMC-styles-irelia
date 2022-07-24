@@ -1,13 +1,10 @@
 package ec.edu.espe.stylesirelia.model;
 
-import ec.edu.espe.stylesirelia.controller.BasicModel;
-import org.bson.Document;
-
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Supplier  {
+public class Supplier {
 
     private String name;
     private String number;
@@ -17,8 +14,6 @@ public class Supplier  {
 
     public Supplier() {
     }
-
-    
 
     public Supplier(String name, String number, boolean pendingPayment, String appointment, String address) {
         this.name = name;

@@ -1,10 +1,5 @@
 package ec.edu.espe.stylesirelia.model;
 
-import ec.edu.espe.stylesirelia.controller.BasicModel;
-import com.toedter.calendar.JDateChooser;
-import java.text.SimpleDateFormat;
-import org.bson.Document;
-
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
@@ -16,9 +11,6 @@ public class Turn {
     private String customer;
     private String service;
     private String stylist;
-
-    
-    
 
     public Turn(int id, String date, String customer, String service, String stylist) {
         this.id = id;

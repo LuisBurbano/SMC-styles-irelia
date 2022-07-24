@@ -1,8 +1,5 @@
 package ec.edu.espe.stylesirelia.model;
 
-import ec.edu.espe.stylesirelia.controller.BasicModel;
-import org.bson.Document;
-
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
@@ -11,9 +8,6 @@ public class Commerce {
 
     private String name;
     private String direction;
-
-    
-    
 
     public Commerce(String name, String direction) {
         this.name = name;

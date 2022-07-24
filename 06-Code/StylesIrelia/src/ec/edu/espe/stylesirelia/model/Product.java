@@ -1,8 +1,5 @@
 package ec.edu.espe.stylesirelia.model;
 
-import ec.edu.espe.stylesirelia.controller.BasicModel;
-import org.bson.Document;
-
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
@@ -13,8 +10,6 @@ public class Product {
     private float price;
     private String expiration;
     private int stock;
-
-    
 
     public Product(String name, float price, String expiration, int stock) {
         this.name = name;

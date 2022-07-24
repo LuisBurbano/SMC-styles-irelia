@@ -12,6 +12,7 @@ public class CustomerController extends BasicController<Customer> {
     public CustomerController(Customer object, String collectionName) {
         super(object, collectionName);
     }
+
     public Document buildDocument(Customer customer) {
         Document document = new Document();
 

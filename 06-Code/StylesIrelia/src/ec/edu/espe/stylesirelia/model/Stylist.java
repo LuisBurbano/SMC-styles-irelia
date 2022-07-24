@@ -1,13 +1,10 @@
 package ec.edu.espe.stylesirelia.model;
 
-import ec.edu.espe.stylesirelia.controller.BasicModel;
-import org.bson.Document;
-
 /**
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-public class Stylist{
+public class Stylist {
 
     private String identificationCard;
     private String name;
@@ -116,6 +113,5 @@ public class Stylist{
     public void setIdentificationCard(String identificationCard) {
         this.identificationCard = identificationCard;
     }
-
 
 }

@@ -12,6 +12,7 @@ public class SupplierController extends BasicController<Supplier> {
     public SupplierController(Supplier object, String collectionName) {
         super(object, collectionName);
     }
+
     public Document buildDocument(Supplier supplier) {
         Document document = new Document();
 
