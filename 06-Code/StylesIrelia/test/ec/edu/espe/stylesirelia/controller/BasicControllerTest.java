@@ -5,6 +5,7 @@
 package ec.edu.espe.stylesirelia.controller;
 
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.result.DeleteResult;
 import ec.edu.espe.stylesirelia.model.Customer;
 import ec.edu.espe.stylesirelia.model.Stylist;
 import ec.edu.espe.stylesirelia.model.User;
@@ -23,22 +24,22 @@ import static org.junit.Assert.*;
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
 public class BasicControllerTest {
-    
+
     public BasicControllerTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -53,13 +54,13 @@ public class BasicControllerTest {
         CustomerController customerController = new CustomerController();
         System.out.println("parseJsonToClass");
         Document document = customerController.buildDocument(customer);
-        
+
         Object expResult = customer;
         Customer customerExpected;
-        customerExpected= customerController.parseDocumentToClass(document);
+        customerExpected = customerController.parseDocumentToClass(document);
         Object result = customerExpected;
         assertEquals(expResult.toString(), result.toString());
-        
+
     }
 
     /**
@@ -73,7 +74,7 @@ public class BasicControllerTest {
         MongoCollection expResult = userController.getMongoCollection();
         MongoCollection result = Connection.connectionDataBase().getCollection("users");
         assertEquals(expResult.getNamespace().getCollectionName(), result.getNamespace().getCollectionName());
-        
+
     }
 
     /**
@@ -88,7 +89,7 @@ public class BasicControllerTest {
         Document document = userController.buildDocument(user);
         userController.create(document);
         Document result = userController.read("Melina", "user");
-        assertTrue(result!=null);
+        assertTrue(result != null);
     }
 
     /**
@@ -98,21 +99,20 @@ public class BasicControllerTest {
     public void testRead_String_String() {
         Connection.connectionDataBase();
         StylistController stylistController = new StylistController();
-        
-        
+
         System.out.println("read");
         String id = "1755231683";
         String fieldName = "identificationCard";
-        
+
         Document expResult = new Document();
-        expResult.append("_id",new ObjectId("62da0cca5d5a16610efa0234"))
+        expResult.append("_id", new ObjectId("62da0cca5d5a16610efa0234"))
                 .append("identificationCard", "1755231683").append("name", "Mero")
                 .append("number", "12")
                 .append("payment", 12.0)
                 .append("appointment", "13-07-2022")
                 .append("address", "asd");
         Document result = stylistController.read(id, fieldName);
-        
+
         assertEquals(expResult, result);
 
     }
@@ -126,17 +126,17 @@ public class BasicControllerTest {
         Connection.connectionDataBase();
         StylistController stylistController = new StylistController();
         Document document = new Document();
-        document.append("_id",new ObjectId("62da0cca5d5a16610efa0234"))
+        document.append("_id", new ObjectId("62da0cca5d5a16610efa0234"))
                 .append("identificationCard", "1755231683").append("name", "Mero")
                 .append("number", "12")
                 .append("payment", 12.0)
                 .append("appointment", "13-07-2022")
                 .append("address", "asd");
-        
+
         Document expResult = document;
         Document result = stylistController.read(document);
         assertEquals(expResult, result);
-        
+
     }
 
     /**
@@ -147,13 +147,14 @@ public class BasicControllerTest {
         System.out.println("delete");
         Connection.connectionDataBase();
         UserController userController = new UserController();
-        
+
         String id = "user";
         Object idValue = "Melina";
-        
-        userController.delete(id, idValue);
-        // TODO review the generated test code and remove the default call to fail.
-        
+
+        DeleteResult result = userController.delete(id, idValue);
+        assertTrue(result.getDeletedCount() > 0);
+        assertFalse(result.getDeletedCount() == 0);
+
     }
 
     /**
@@ -162,14 +163,20 @@ public class BasicControllerTest {
     @Test
     public void testUpdate_4args() {
         System.out.println("update");
-        String id = "";
-        String idValue = "";
-        String updateKey = "";
-        String valueUpdate = "";
-        BasicController instance = null;
-        instance.update(id, idValue, updateKey, valueUpdate);
+        Connection.connectionDataBase();
+        UserController userController = new UserController();
+        String id = "user";
+        String idValue = "1";
+        String updateKey = "user";
+        String valueUpdate = "2";
+
+        userController.update(id, idValue, updateKey, valueUpdate);
+        Document result = userController.read(valueUpdate, updateKey);
+
+        assertTrue(result != null);
+        assertFalse(result == null);
+
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -178,12 +185,18 @@ public class BasicControllerTest {
     @Test
     public void testUpdate_Document_Document() {
         System.out.println("update");
-        Document query = null;
-        Document upload = null;
-        BasicController instance = null;
-        instance.update(query, upload);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Connection.connectionDataBase();
+        UserController userController = new UserController();
+        User user = new User("Melina", "123");
+        User userUpdate = new User("Harry", "123");
+        Document query = userController.buildDocument(user);
+        Document upload = userController.buildDocument(userUpdate);
+        
+        userController.update(query, upload);
+        Document result = userController.read(upload);
+        assertTrue(result!=null);
+        assertFalse(result==null);
+        
     }
-    
+
 }

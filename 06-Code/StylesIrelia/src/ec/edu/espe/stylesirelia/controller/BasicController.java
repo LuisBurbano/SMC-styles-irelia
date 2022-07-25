@@ -7,6 +7,7 @@ import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
 import com.mongodb.client.model.ReplaceOptions;
 import static com.mongodb.client.model.Updates.set;
+import com.mongodb.client.result.DeleteResult;
 import ec.edu.espe.stylesirelia.model.Stylist;
 import org.bson.Document;
 
@@ -55,8 +56,8 @@ public class BasicController<T> extends BasicModel {
     }
 
     @Override
-    public void delete(String id, Object idValue) {
-        mongoCollection.deleteOne(eq(id, idValue));
+    public DeleteResult delete(String id, Object idValue) {
+        return mongoCollection.deleteOne(eq(id, idValue));
 
     }
 
