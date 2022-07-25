@@ -5,7 +5,9 @@
 package ec.edu.espe.stylesirelia.controller;
 
 import com.mongodb.client.MongoCollection;
+import ec.edu.espe.stylesirelia.model.Customer;
 import ec.edu.espe.stylesirelia.model.Stylist;
+import ec.edu.espe.stylesirelia.model.User;
 import org.bson.types.ObjectId;
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -42,18 +44,22 @@ public class BasicControllerTest {
     }
 
     /**
-     * Test of parseJsonToClass method, of class BasicController.
+     * Test of parseDocumentToClass method, of class BasicController.
      */
     @Test
-    public void testParseJsonToClass() {
+    public void testParseDocumentToClass() {
+        Connection.connectionDataBase();
+        Customer customer = new Customer("1720985566", "Harry", 9877554, false, "28-08-2022", "Quito");
+        CustomerController customerController = new CustomerController();
         System.out.println("parseJsonToClass");
-        Document document = null;
-        BasicController instance = null;
-        Object expResult = null;
-        Object result = instance.parseJsonToClass(document);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Document document = customerController.buildDocument(customer);
+        
+        Object expResult = customer;
+        Customer customerExpected;
+        customerExpected= customerController.parseDocumentToClass(document);
+        Object result = customerExpected;
+        assertEquals(expResult.toString(), result.toString());
+        
     }
 
     /**
@@ -61,13 +67,13 @@ public class BasicControllerTest {
      */
     @Test
     public void testGetMongoCollection() {
+        Connection.connectionDataBase();
         System.out.println("getMongoCollection");
-        BasicController instance = null;
-        MongoCollection expResult = null;
-        MongoCollection result = instance.getMongoCollection();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        UserController userController = new UserController();
+        MongoCollection expResult = userController.getMongoCollection();
+        MongoCollection result = Connection.connectionDataBase().getCollection("users");
+        assertEquals(expResult.getNamespace().getCollectionName(), result.getNamespace().getCollectionName());
+        
     }
 
     /**
@@ -76,13 +82,13 @@ public class BasicControllerTest {
     @Test
     public void testCreate() {
         Connection.connectionDataBase();
-        
+        UserController userController = new UserController();
+        User user = new User("Melina", "123");
         System.out.println("create");
-        Document document = null;
-        BasicController instance = null;
-        instance.create(document);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Document document = userController.buildDocument(user);
+        userController.create(document);
+        Document result = userController.read("Melina", "user");
+        assertTrue(result!=null);
     }
 
     /**
@@ -117,13 +123,20 @@ public class BasicControllerTest {
     @Test
     public void testRead_Document() {
         System.out.println("read");
-        Document document = null;
-        BasicController instance = null;
-        Document expResult = null;
-        Document result = instance.read(document);
+        Connection.connectionDataBase();
+        StylistController stylistController = new StylistController();
+        Document document = new Document();
+        document.append("_id",new ObjectId("62da0cca5d5a16610efa0234"))
+                .append("identificationCard", "1755231683").append("name", "Mero")
+                .append("number", "12")
+                .append("payment", 12.0)
+                .append("appointment", "13-07-2022")
+                .append("address", "asd");
+        
+        Document expResult = document;
+        Document result = stylistController.read(document);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -132,12 +145,15 @@ public class BasicControllerTest {
     @Test
     public void testDelete() {
         System.out.println("delete");
-        String id = "";
-        Object idValue = null;
-        BasicController instance = null;
-        instance.delete(id, idValue);
+        Connection.connectionDataBase();
+        UserController userController = new UserController();
+        
+        String id = "user";
+        Object idValue = "Melina";
+        
+        userController.delete(id, idValue);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**

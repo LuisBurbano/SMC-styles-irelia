@@ -145,7 +145,7 @@ public class FrmUpdateService extends javax.swing.JFrame {
 
         Document doc = serviceController.read("name", txtName.getText());
 
-        Service service = serviceController.parseJsonToClass(doc);
+        Service service = serviceController.parseDocumentToClass(doc);
         txtName.setText(service.getName());
         txtName.setText(service.getName());
         txtPrice.setText(service.getPrice());

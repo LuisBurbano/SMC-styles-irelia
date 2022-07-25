@@ -141,7 +141,7 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         
 
         Document doc = customerController.read("identificationCard", txtIdentification.getText());
-        Customer customer = customerController.parseJsonToClass(doc);
+        Customer customer = customerController.parseDocumentToClass(doc);
         txtIdentification.setText(customer.getIdentificationCard());
         txtAppoiment.setText(customer.getAppointment());
         txtName.setName(customer.getName());

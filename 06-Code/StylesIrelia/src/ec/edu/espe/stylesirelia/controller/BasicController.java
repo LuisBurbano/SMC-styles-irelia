@@ -26,7 +26,7 @@ public class BasicController<T> extends BasicModel {
         this.mongoCollection = mongoDB.getCollection(collectionName);
     }
 
-    public T parseJsonToClass(Document document) {
+    public T parseDocumentToClass(Document document) {
 
         Gson gson = new Gson();
         return (T) gson.fromJson(document.toJson(), model.getClass());

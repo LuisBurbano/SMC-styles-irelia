@@ -146,7 +146,7 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
         Document doc = stylistController.read(txtIdFind.getText(), "identificationCard");
-        Stylist stylist = stylistController.parseJsonToClass(doc);
+        Stylist stylist = stylistController.parseDocumentToClass(doc);
 
         txtId.setText(stylist.getIdentificationCard());
         txtAppointment.setText(stylist.getAppointment());
