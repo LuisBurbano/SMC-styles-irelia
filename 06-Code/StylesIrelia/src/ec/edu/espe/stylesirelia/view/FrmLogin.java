@@ -249,7 +249,8 @@ public class FrmLogin extends javax.swing.JFrame {
 
         User user;
         user = new User(textFieldUser.getText(), new String(passwordField.getPassword()));
-        Document doc = userController.read(userController.buildDocument(user));
+        Document userDoc = userController.buildDocument(user);
+        Document doc = userController.read(userDoc);
 
         if (doc != null) {
             FrmStylesIreliaMenu frmStylesIreliaMenu = new FrmStylesIreliaMenu();

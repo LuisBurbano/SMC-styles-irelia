@@ -49,7 +49,7 @@ class BasicController<T> extends BasicModel {
          
         return mongoCollection.find(eq(fieldName,id)).first();
     }
-    
+    @Override
     public Document read(Document document) {
          
         return mongoCollection.find(eq(document)).first();
