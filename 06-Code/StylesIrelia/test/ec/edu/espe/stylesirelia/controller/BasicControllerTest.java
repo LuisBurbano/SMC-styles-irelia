@@ -102,13 +102,13 @@ public class BasicControllerTest {
         expResult.append("_id",new ObjectId("62da0cca5d5a16610efa0234"))
                 .append("identificationCard", "1755231683").append("name", "Mero")
                 .append("number", "12")
-                .append("payment", 12)
+                .append("payment", 12.0)
                 .append("appointment", "13-07-2022")
-                .append("addres", "asd");
+                .append("address", "asd");
         Document result = stylistController.read(id, fieldName);
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
 
     /**
