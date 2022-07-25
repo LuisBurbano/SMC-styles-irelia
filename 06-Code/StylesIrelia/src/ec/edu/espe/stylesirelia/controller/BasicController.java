@@ -14,7 +14,7 @@ import org.bson.Document;
  *
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
-class BasicController<T> extends BasicModel {
+public class BasicController<T> extends BasicModel {
 
     T model;
     private MongoDatabase mongoDB = Connection.mongodb;
@@ -25,7 +25,6 @@ class BasicController<T> extends BasicModel {
         this.model = object;
         this.mongoCollection = mongoDB.getCollection(collectionName);
     }
-
 
     public T parseJsonToClass(Document document) {
 
@@ -46,13 +45,13 @@ class BasicController<T> extends BasicModel {
 
     @Override
     public Document read(String id,String fieldName) {
-         
+        
         return mongoCollection.find(eq(fieldName,id)).first();
     }
     @Override
     public Document read(Document document) {
          
-        return mongoCollection.find(eq(document)).first();
+        return mongoCollection.find(document).first();
     }
 
     @Override

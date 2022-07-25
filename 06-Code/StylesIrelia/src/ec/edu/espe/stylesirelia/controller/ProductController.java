@@ -15,7 +15,9 @@ public class ProductController extends BasicController<Product> {
      public ProductController() {
         super(new Product(), "products");
     }
-
+     
+     
+     
     public Document buildDocument(Product product) {
         Document document = new Document();
 

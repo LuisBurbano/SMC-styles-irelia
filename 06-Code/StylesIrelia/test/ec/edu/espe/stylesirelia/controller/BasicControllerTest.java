@@ -5,7 +5,10 @@
 package ec.edu.espe.stylesirelia.controller;
 
 import com.mongodb.client.MongoCollection;
+import ec.edu.espe.stylesirelia.model.Stylist;
+import org.bson.types.ObjectId;
 import org.bson.Document;
+import org.bson.types.ObjectId;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -72,6 +75,8 @@ public class BasicControllerTest {
      */
     @Test
     public void testCreate() {
+        Connection.connectionDataBase();
+        
         System.out.println("create");
         Document document = null;
         BasicController instance = null;
@@ -85,12 +90,22 @@ public class BasicControllerTest {
      */
     @Test
     public void testRead_String_String() {
+        Connection.connectionDataBase();
+        StylistController stylistController = new StylistController();
+        
+        
         System.out.println("read");
-        String id = "";
-        String fieldName = "";
-        BasicController instance = null;
-        Document expResult = null;
-        Document result = instance.read(id, fieldName);
+        String id = "1755231683";
+        String fieldName = "identificationCard";
+        
+        Document expResult = new Document();
+        expResult.append("_id",new ObjectId("62da0cca5d5a16610efa0234"))
+                .append("identificationCard", "1755231683").append("name", "Mero")
+                .append("number", "12")
+                .append("payment", 12)
+                .append("appointment", "13-07-2022")
+                .append("addres", "asd");
+        Document result = stylistController.read(id, fieldName);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

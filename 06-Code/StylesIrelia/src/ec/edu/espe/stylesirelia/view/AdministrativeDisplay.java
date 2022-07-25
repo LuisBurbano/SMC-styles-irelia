@@ -1,14 +1,18 @@
 package ec.edu.espe.stylesirelia.view;
 
 import com.google.gson.Gson;
+import ec.edu.espe.stylesirelia.controller.BasicController;
 import ec.edu.espe.stylesirelia.controller.CustomerController;
+
 import ec.edu.espe.stylesirelia.controller.Connection;
+import ec.edu.espe.stylesirelia.controller.UserController;
 import ec.edu.espe.stylesirelia.model.Customer;
 import ec.edu.espe.stylesirelia.model.Product;
 import ec.edu.espe.stylesirelia.model.Service;
 import ec.edu.espe.stylesirelia.model.Stylist;
 import ec.edu.espe.stylesirelia.model.Supplier;
 import ec.edu.espe.stylesirelia.model.Turn;
+import ec.edu.espe.stylesirelia.model.User;
 import java.io.*;
 import java.util.*;
 
@@ -22,7 +26,7 @@ public class AdministrativeDisplay {
 
     public static void main(String[] args) {
         System.out.println("System of Styles Irelia");
-
+        
         Product productData;
         Service servicesData;
         Stylist stylistData;
