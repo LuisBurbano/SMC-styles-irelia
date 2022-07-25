@@ -19,12 +19,15 @@ import org.bson.Document;
  */
 public class FrmUpdateService extends javax.swing.JFrame {
 
+    private ServiceController serviceController;
+
     /**
      * Creates new form FrmUpdateService
      */
     public FrmUpdateService() {
         initComponents();
         Connection.connectionDataBase();
+        serviceController = new ServiceController();
     }
 
     /**
@@ -130,31 +133,25 @@ public class FrmUpdateService extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackToMenuActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        MongoCollection<Document> collection = Connection.mongodb.getCollection("services");
 
-        Document doc = collection.find(eq("name",txtName.getText())).first();
+        Document doc = serviceController.read("name", txtName.getText());
 
-        Service service = new Service(txtName.getText(),txtPrice.getText(),false,false,txtAvailableStylist.getText());
+        Service service = new Service(txtName.getText(), txtPrice.getText(), false, false, txtAvailableStylist.getText());
 
-        ServiceController serviceController = new ServiceController(service,"services");
         serviceController.update(doc, serviceController.buildDocument(service));
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
-        MongoCollection<Document> collection = Connection.mongodb.getCollection("services");
+        Document doc = serviceController.read("name", txtName.getText());
 
-        Document doc = collection.find(eq("name",txtName.getText())).first();
-
-        Gson gson = new Gson();
-        Service service = gson.fromJson(doc.toJson(), Service.class);
+        Service service = serviceController.parseJsonToClass(doc);
         txtName.setText(service.getName());
-
         txtName.setText(service.getName());
         txtPrice.setText(service.getPrice());
         txtAvailable.setText(txtAvailable.getText());
         txtAvailableStylist.setText(service.getAvailableStylist());
-        
+
     }//GEN-LAST:event_btnFindActionPerformed
 
     /**

@@ -20,6 +20,10 @@ public class Turn {
         this.stylist = stylist;
     }
 
+    public Turn() {
+    }
+    
+
     @Override
     public String toString() {
         return "yout Turn->>" + "id=" + id + ", date=" + date + ", customer=" + customer + ", service=" + service + ", stylist=" + stylist + '}';

@@ -17,13 +17,15 @@ import org.bson.Document;
  * @author widin
  */
 public class FrmUpdateSupplier extends javax.swing.JFrame {
-
+    
+    private SupplierController supplierController;
     /**
      * Creates new form FrmUpdateSupplier
      */
     public FrmUpdateSupplier() {
         initComponents();
         Connection.connectionDataBase();
+        supplierController = new SupplierController();
     }
 
     /**
@@ -152,13 +154,11 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        MongoCollection<Document> collection = Connection.mongodb.getCollection("stylists");
+        
 
-        Document doc = collection.find(eq("name",txtName.getText())).first();
+        Document doc = supplierController.read("name",txtName.getText());
 
         Supplier supplier = new Supplier(txtName.getText(), txtNumber.getText(),Boolean.valueOf(txtPendingPayment.getText()), txtAppointment.getText(), txtAddress.getText());
-
-        SupplierController supplierController = new SupplierController(supplier,"suppliers");
         supplierController.update(doc, supplierController.buildDocument(supplier));
     }//GEN-LAST:event_btnUpdateActionPerformed
 

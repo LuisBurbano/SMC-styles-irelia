@@ -13,6 +13,9 @@ public class CustomerController extends BasicController<Customer> {
         super(object, collectionName);
     }
 
+    public CustomerController() {
+        super(new Customer(), "customers");
+    }
     public Document buildDocument(Customer customer) {
         Document document = new Document();
 

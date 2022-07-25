@@ -1,4 +1,3 @@
-
 package ec.edu.espe.stylesirelia.view;
 
 import com.toedter.calendar.JDateChooser;
@@ -16,7 +15,8 @@ import java.util.ArrayList;
  */
 public class FrmService extends javax.swing.JFrame {
 
-   SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
+    SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
+    private ServiceController serviceController;
 
     public String getDate(JDateChooser jdDate) {
         if (jdDate.getDate() != null) {
@@ -26,12 +26,14 @@ public class FrmService extends javax.swing.JFrame {
         }
 
     }
+
     /**
      * Creates new form FrmServices
      */
     public FrmService() {
         initComponents();
         Connection.connectionDataBase();
+        serviceController = new ServiceController();
     }
 
     /**
@@ -121,25 +123,21 @@ public class FrmService extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        
-     String name;
-     String price;
-     boolean pendingPayment;
-     boolean available;
-    String availableStylist;
-    name= txtName.getText();
-    price= txtPrice.getText();
-    available= Boolean.valueOf(txtAvailable.getText());
-    availableStylist= txtAvailableStylist.getText();
-    Service service= new Service(name, price, false, available, availableStylist);
-    Connection connection = new Connection();
-        connection.connectionDataBase();
 
-        ServiceController serviceController = new ServiceController(service, "services");
+        String name;
+        String price;
+        boolean pendingPayment;
+        boolean available;
+        String availableStylist;
+        name = txtName.getText();
+        price = txtPrice.getText();
+        available = Boolean.valueOf(txtAvailable.getText());
+        availableStylist = txtAvailableStylist.getText();
+        Service service = new Service(name, price, false, available, availableStylist);
+
         serviceController.create(serviceController.buildDocument(service));
-    
-    
-        
+
+
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed

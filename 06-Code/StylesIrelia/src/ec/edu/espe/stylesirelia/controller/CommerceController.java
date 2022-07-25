@@ -14,6 +14,11 @@ public class CommerceController extends BasicController {
         super(object, collectionName);
     }
 
+    public CommerceController() {
+        super(new Commerce(), "commerces");
+    }
+    
+
     public Document buildDocument(Commerce commerce) {
         Document document = new Document();
 

@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class FrmAddStylist extends javax.swing.JFrame {
 
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
-
+    private StylistController stylistController;
     public String getDate(JDateChooser jdDate) {
         if (jdDate.getDate() != null) {
             return formDate.format(jdDate.getDate());
@@ -29,8 +29,8 @@ public class FrmAddStylist extends javax.swing.JFrame {
      */
     public FrmAddStylist() {
         initComponents();
-
         Connection.connectionDataBase();
+        stylistController = new StylistController();
     }
 
     /**
@@ -205,7 +205,6 @@ public class FrmAddStylist extends javax.swing.JFrame {
 
         Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
 
-        StylistController stylistController = new StylistController(stylist, "stylists");
         stylistController.create(stylistController.buildDocument(stylist));
 
     }//GEN-LAST:event_btnAddActionPerformed

@@ -1,10 +1,13 @@
 package ec.edu.espe.stylesirelia.controller;
 
+import com.google.gson.Gson;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
 import com.mongodb.client.model.ReplaceOptions;
 import static com.mongodb.client.model.Updates.set;
+import ec.edu.espe.stylesirelia.model.Stylist;
 import org.bson.Document;
 
 /**
@@ -23,6 +26,14 @@ class BasicController<T> extends BasicModel {
         this.mongoCollection = mongoDB.getCollection(collectionName);
     }
 
+
+    public T parseJsonToClass(Document document) {
+
+        Gson gson = new Gson();
+        return (T) gson.fromJson(document.toJson(), model.getClass());
+
+    }
+
     public MongoCollection getMongoCollection() {
         return this.mongoCollection;
     }
@@ -34,9 +45,14 @@ class BasicController<T> extends BasicModel {
     }
 
     @Override
-    public Document read(String id) {
-
-        return mongoCollection.find(eq(id)).first();
+    public Document read(String id,String fieldName) {
+         
+        return mongoCollection.find(eq(fieldName,id)).first();
+    }
+    
+    public Document read(Document document) {
+         
+        return mongoCollection.find(eq(document)).first();
     }
 
     @Override

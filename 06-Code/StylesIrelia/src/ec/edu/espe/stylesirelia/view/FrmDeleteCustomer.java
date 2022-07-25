@@ -18,12 +18,16 @@ import org.bson.Document;
  */
 public class FrmDeleteCustomer extends javax.swing.JFrame {
 
+    private CustomerController customerController;
+
     /**
      * Creates new form FrmDeleteCustomer
      */
     public FrmDeleteCustomer() {
         initComponents();
         Connection.connectionDataBase();
+        customerController = new CustomerController();
+
     }
 
     /**
@@ -110,13 +114,13 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        CustomerController customerController;
+        
         Customer customer = new Customer();
-        customerController = new CustomerController(customer, "customers");
+        
         customerController.delete("name", txtName.getText());
 
-        Document doc =customerController.read(txtName.getText());
-        if(doc==null){
+        Document doc = customerController.read(txtName.getText(), "identificationCard");
+        if (doc == null) {
             JOptionPane.showMessageDialog(rootPane, "This customer has been succesfully deleted");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed

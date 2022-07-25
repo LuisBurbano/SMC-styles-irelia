@@ -12,6 +12,9 @@ public class ProductController extends BasicController<Product> {
     public ProductController(Product object, String collectionName) {
         super(object, collectionName);
     }
+     public ProductController() {
+        super(new Product(), "products");
+    }
 
     public Document buildDocument(Product product) {
         Document document = new Document();

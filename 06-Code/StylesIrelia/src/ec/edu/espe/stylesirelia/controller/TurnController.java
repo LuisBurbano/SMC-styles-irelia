@@ -12,6 +12,10 @@ public class TurnController extends BasicController<Turn> {
     public TurnController(Turn object, String collectionName) {
         super(object, collectionName);
     }
+    public TurnController() {
+        super(new Turn(), "turns");
+    }
+    
 
     public Document buildDocument(Turn  turn) {
         Document document = new Document();

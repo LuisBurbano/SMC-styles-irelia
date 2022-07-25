@@ -18,6 +18,10 @@ public class Product {
         this.stock = stock;
     }
 
+    public Product() {
+    }
+    
+
     @Override
     public String toString() {
         return "Product{" + "name=" + name + ", price=" + price + ", expiration=" + expiration + ", stock=" + stock + '}';

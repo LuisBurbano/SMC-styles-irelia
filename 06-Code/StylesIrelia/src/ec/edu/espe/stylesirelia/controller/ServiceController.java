@@ -12,6 +12,10 @@ public class ServiceController extends BasicController<Service> {
     public ServiceController(Service object, String collectionName) {
         super(object, collectionName);
     }
+    
+    public ServiceController() {
+        super(new Service(), "services");
+    }
 
     public Document buildDocument(Service service) {
         Document document = new Document();

@@ -15,13 +15,14 @@ import org.bson.Document;
  * @author widin
  */
 public class FrmDeleteService extends javax.swing.JFrame {
-
+    private ServiceController serviceController;
     /**
      * Creates new form FrmDeleteService
      */
     public FrmDeleteService() {
         initComponents();
         Connection.connectionDataBase();
+        serviceController = new ServiceController();
     }
 
     /**
@@ -93,12 +94,12 @@ public class FrmDeleteService extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        ServiceController serviceController;
+        
         Service service = new Service();
-        serviceController = new ServiceController(service, "services");
+        
         serviceController.delete("name", txtName.getText());
 
-        Document doc =serviceController.read(txtName.getText());
+        Document doc =serviceController.read(txtName.getText(),"");
         if(doc==null){
             JOptionPane.showMessageDialog(rootPane, "This service has been succesfully deleted");
         }

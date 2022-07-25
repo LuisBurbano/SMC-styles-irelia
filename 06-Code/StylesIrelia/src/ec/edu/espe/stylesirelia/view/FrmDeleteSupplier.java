@@ -16,12 +16,15 @@ import org.bson.Document;
  */
 public class FrmDeleteSupplier extends javax.swing.JFrame {
 
+    private SupplierController supplierController;
+
     /**
      * Creates new form FrmDeleteSupplier
      */
     public FrmDeleteSupplier() {
         initComponents();
         Connection.connectionDataBase();
+        supplierController = new SupplierController();
     }
 
     /**
@@ -95,13 +98,13 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        SupplierController supplierController;
+
         Supplier supplier = new Supplier();
-        supplierController = new SupplierController(supplier, "suppliers");
+
         supplierController.delete("name", txtName.getText());
 
-        Document doc =supplierController.read(txtName.getText());
-        if(doc==null){
+        Document doc = supplierController.read(txtName.getText(), "");
+        if (doc == null) {
             JOptionPane.showMessageDialog(rootPane, "This supplier has been succesfully deleted");
         }
 

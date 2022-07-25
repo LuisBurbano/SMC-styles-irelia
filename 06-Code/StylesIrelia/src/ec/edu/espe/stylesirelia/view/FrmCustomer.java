@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class FrmCustomer extends javax.swing.JFrame {
 
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
-
+    private CustomerController customerController;
     public String getDate(JDateChooser jdDate) {
         if (jdDate.getDate() != null) {
             return formDate.format(jdDate.getDate());
@@ -30,6 +30,7 @@ public class FrmCustomer extends javax.swing.JFrame {
     public FrmCustomer() {
         initComponents();
         Connection.connectionDataBase();
+        customerController = new CustomerController();
     }
 
     /**
@@ -202,11 +203,7 @@ public class FrmCustomer extends javax.swing.JFrame {
         address = txtAddress.getText();
 
         Customer customer = new Customer(identificationCard, name, number, false, appointment, address);
-
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        CustomerController customerController = new CustomerController(customer, "customers");
+        
         customerController.create(customerController.buildDocument(customer));
 
     }//GEN-LAST:event_btnAddActionPerformed
@@ -228,11 +225,7 @@ public class FrmCustomer extends javax.swing.JFrame {
 
         Customer customer = new Customer(identificationCard, name, number, false, appointment, address);
 
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        CustomerController customerController = new CustomerController(customer, "customers");
-        customerController.read(identificationCard);
+        customerController.read(identificationCard, "identificationCard");
 
         txtId.setText(identificationCard);
         txtName.setText(name);

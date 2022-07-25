@@ -19,13 +19,14 @@ import org.bson.Document;
  * @author Roberto Bedon, DCCO-ESPE, BettaCoders
  */
 public class FrmUpdateCustomer extends javax.swing.JFrame {
-
+    private CustomerController customerController;
     /**
      * Creates new form FrmUpdateCustomer
      */
     public FrmUpdateCustomer() {
         initComponents();
         Connection.connectionDataBase();
+        customerController = new CustomerController ();
     }
 
     /**
@@ -130,24 +131,20 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
 
         Customer customer = new Customer(txtIdentification.getText(), txtName.getText(), Integer.parseInt(txtNumber.getText()), false, txtAppoiment.getText(), txtAddress.getText());
 
-        CustomerController customerController = new CustomerController(customer, "customers");
+        
         customerController.update(doc, customerController.buildDocument(customer));
 
 
     }//GEN-LAST:event_txtUpdateActionPerformed
 
     private void txtFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFindActionPerformed
-        MongoCollection<Document> collection = Connection.mongodb.getCollection("customers");
+        
 
-        Document doc = collection.find(eq("identificationCard", txtIdentification.getText())).first();
-
-        Gson gson = new Gson();
-
-        Customer customer = gson.fromJson(doc.toJson(), Customer.class);
+        Document doc = customerController.read("identificationCard", txtIdentification.getText());
+        Customer customer = customerController.parseJsonToClass(doc);
         txtIdentification.setText(customer.getIdentificationCard());
         txtAppoiment.setText(customer.getAppointment());
         txtName.setName(customer.getName());
-
         txtAddress.setText(customer.getAddress());
     }//GEN-LAST:event_txtFindActionPerformed
 

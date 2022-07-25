@@ -1,4 +1,3 @@
-
 package ec.edu.espe.stylesirelia.view;
 
 import com.toedter.calendar.JDateChooser;
@@ -13,13 +12,15 @@ import java.text.SimpleDateFormat;
  */
 public class FrmSupplier extends javax.swing.JFrame {
 
-    
+    private SupplierController supplierController;
+
     /**
      * Creates new form FrmSupplier
      */
     public FrmSupplier() {
         initComponents();
         Connection.connectionDataBase();
+        supplierController = new SupplierController();
     }
 
     /**
@@ -203,20 +204,15 @@ public class FrmSupplier extends javax.swing.JFrame {
         boolean pendingPayment;
         String appointment;
         String address;
-        
 
         name = txtName.getText();
-        number= txtNumber.getText();
-        pendingPayment= Boolean.valueOf(txtPendingPayment.getText());
-        appointment= txtAppointment.getText();
-        address= txtAddress.getText();
+        number = txtNumber.getText();
+        pendingPayment = Boolean.valueOf(txtPendingPayment.getText());
+        appointment = txtAppointment.getText();
+        address = txtAddress.getText();
 
         Supplier supplier = new Supplier(name, number, pendingPayment, appointment, address);
 
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        SupplierController supplierController = new SupplierController(supplier, "suppliers");
         supplierController.create(supplierController.buildDocument(supplier));
 
     }//GEN-LAST:event_btnAddSupplierActionPerformed

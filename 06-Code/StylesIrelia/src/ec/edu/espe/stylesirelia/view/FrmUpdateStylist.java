@@ -21,9 +21,14 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     /**
      * Creates new form FrmUpdateStylist
      */
+    private StylistController stylistController;
+
     public FrmUpdateStylist() {
         initComponents();
         Connection.connectionDataBase();
+
+        stylistController = new StylistController();
+
     }
 
     /**
@@ -139,32 +144,26 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
-      
-        MongoCollection<Document> collection = Connection.mongodb.getCollection("stylists");
 
-        Document doc = collection.find(eq("identificationCard",txtIdFind.getText())).first();
+        Document doc = stylistController.read(txtIdFind.getText(), "identificationCard");
+        Stylist stylist = stylistController.parseJsonToClass(doc);
 
-        Gson gson = new Gson();
-        Stylist stylist = gson.fromJson(doc.toJson(), Stylist.class);
         txtId.setText(stylist.getIdentificationCard());
-        
         txtAppointment.setText(stylist.getAppointment());
         txtName.setText(stylist.getName());
         txtNumber.setText(stylist.getNumber());
         txtPayment.setText(String.valueOf(stylist.getPayment()));
         txtAddress.setText(stylist.getAddress());
-        
-        
+
+
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        MongoCollection<Document> collection = Connection.mongodb.getCollection("stylists");      
+
+        Document doc = stylistController.read(txtIdFind.getText(), "identificationCard");
         
-        Document doc = collection.find(eq("identificationCard",txtIdFind.getText())).first();
-        
-        Stylist stylist = new Stylist(txtId.getText(), txtName.getText(), txtNumber.getText(),Double.parseDouble(txtPayment.getText()), txtAppointment.getText(), txtAddress.getText());
-        
-        StylistController stylistController = new StylistController(stylist,"stylists");
+        Stylist stylist = new Stylist(txtId.getText(), txtName.getText(), txtNumber.getText(), Double.parseDouble(txtPayment.getText()), txtAppointment.getText(), txtAddress.getText());
+
         stylistController.update(doc, stylistController.buildDocument(stylist));
     }//GEN-LAST:event_btnUpdateActionPerformed
 

@@ -16,7 +16,7 @@ import ec.edu.espe.stylesirelia.controller.Connection;
 public class FrmTurn extends javax.swing.JFrame {
 
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
-
+    private TurnController cTurn;
     public String getDate(JDateChooser jdDate) {
         if (jdDate.getDate() != null) {
             return formDate.format(jdDate.getDate());
@@ -31,6 +31,8 @@ public class FrmTurn extends javax.swing.JFrame {
      */
     public FrmTurn() {
         initComponents();
+        Connection.connectionDataBase();
+        cTurn = new TurnController();
     }
 
     /**
@@ -192,16 +194,9 @@ public class FrmTurn extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcServiceTurn));
         String v;
         v = formDate.format(dtcServiceTurn.getDate());
-        
-        
-        
-        //CONNECTION TO DATABASE
-        Connection connection = new Connection();
-        connection.connectionDataBase();
 
-        /////
         Turn turn = new Turn(1, formDate.format(dtcServiceTurn.getDate()), v, v, v);
-        TurnController cTurn = new TurnController(turn, "turns");
+        
         cTurn.create(cTurn.buildDocument(turn));
 
     }//GEN-LAST:event_btnRegisterTurnActionPerformed

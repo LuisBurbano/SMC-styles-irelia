@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
  */
 public class FrmProduct extends javax.swing.JFrame {
 
+    private ProductController productController;
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
 
     public String getDate(JDateChooser jdDate) {
@@ -32,6 +33,7 @@ public class FrmProduct extends javax.swing.JFrame {
     public FrmProduct() {
         initComponents();
         Connection.connectionDataBase();
+        productController = new ProductController();
     }
 
     /**
@@ -158,10 +160,6 @@ public class FrmProduct extends javax.swing.JFrame {
 
         Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
 
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-
-        ProductController productController = new ProductController(product, "products");
         productController.create(productController.buildDocument(product));
 
 

@@ -13,6 +13,10 @@ public class StylistController extends BasicController<Stylist> {
         super(object, collectionName);
     }
 
+    public StylistController() {
+        super(new Stylist(), "stylists");
+    }
+
     public Document buildDocument(Stylist stylist) {
         Document document = new Document();
 

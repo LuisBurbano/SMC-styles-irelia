@@ -14,6 +14,11 @@ public class Commerce {
         this.direction = direction;
     }
 
+    public Commerce() {
+    }
+    
+    
+
     @Override
     public String toString() {
         return "Commerce{" + "name=" + name + ", direction=" + direction + '}';

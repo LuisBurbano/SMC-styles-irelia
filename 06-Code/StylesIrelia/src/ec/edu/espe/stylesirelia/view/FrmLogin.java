@@ -19,6 +19,7 @@ import org.bson.Document;
 public class FrmLogin extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    private UserController userController;
 
     @Override
     public Image getIconImage(){
@@ -28,10 +29,11 @@ public class FrmLogin extends javax.swing.JFrame {
     
     
     public FrmLogin() {
-        Connection connection = new Connection();
-        connection.connectionDataBase();
+        
+        Connection.connectionDataBase();
 
         initComponents();
+        userController = new UserController();
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         String path = System.getProperty("user.dir");
 //        ImageIcon img = new ImageIcon(path +"\\src\\ec\\edu\\espe\\stylesirelia\\sources\\logoBettaCoders.png");
@@ -247,11 +249,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         User user;
         user = new User(textFieldUser.getText(), new String(passwordField.getPassword()));
-        UserController userController = new UserController(user, "users");
-
-        MongoCollection<Document> m = userController.getMongoCollection();
-
-        Document doc = m.find(userController.buildDocument(user)).first();
+        Document doc = userController.read(userController.buildDocument(user));
 
         if (doc != null) {
             FrmStylesIreliaMenu frmStylesIreliaMenu = new FrmStylesIreliaMenu();

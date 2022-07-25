@@ -10,18 +10,22 @@ import ec.edu.espe.stylesirelia.model.Product;
 import javax.swing.JOptionPane;
 import org.bson.Document;
 
+
 /**
  *
  * @author widin
  */
 public class FrmDeleteProduct extends javax.swing.JFrame {
 
+    
+    private ProductController productController;
     /**
      * Creates new form FrmDeleteProduct
      */
     public FrmDeleteProduct() {
         initComponents();
         Connection.connectionDataBase();
+        productController = new ProductController();
     }
 
     /**
@@ -92,16 +96,16 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-//        ProductController productController;
-//        Product product;
-//        product = new Product();
-//        productController = new ProductController(product, "products");
-//        productController.delete("name", txtName.getText());
-//
-//        Document doc =productController.read(txtName.getText());
-//        if(doc==null){
-//            JOptionPane.showMessageDialog(rootPane, "This product has been succesfully deleted");
-//        }
+        
+        Product product;
+        product = new Product();
+        
+        productController.delete("name", txtName.getText());
+
+        Document doc =productController.read(txtName.getText(),"products");
+        if(doc==null){
+            JOptionPane.showMessageDialog(rootPane, "This product has been succesfully deleted");
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed

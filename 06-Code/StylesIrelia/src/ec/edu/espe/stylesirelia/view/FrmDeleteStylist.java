@@ -15,13 +15,15 @@ import org.bson.Document;
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
 public class FrmDeleteStylist extends javax.swing.JFrame {
-
+    
+    private StylistController stylistController;
     /**
      * Creates new form FrmFindStylist
      */
     public FrmDeleteStylist() {
         initComponents();
         Connection.connectionDataBase();
+        stylistController = new StylistController();
     }
 
     /**
@@ -96,12 +98,11 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        StylistController stylistController;
+        
         Stylist stylist = new Stylist();
-        stylistController = new StylistController(stylist, "stylists");
         stylistController.delete("identificationCard", txtIdentificationCard.getText());
         
-        Document doc =stylistController.read(txtIdentificationCard.getText());
+        Document doc =stylistController.read(txtIdentificationCard.getText(),"");
         if(doc==null){
             JOptionPane.showMessageDialog(rootPane, "This stylist has been succesfully deleted");
         }
