@@ -23,7 +23,8 @@ public class ServiceController extends BasicController<Service> {
         document.append("price", service.getPrice()).
                 append("name", service.getName()).
                 append("pendingPayment", service.isPendingPayment()).
-                append("availableStylist", service.getAvailableStylist());
+                append("availableStylist", service.getAvailableStylist())
+                .append("available", service.isAvailable());
 
         return document;
     }

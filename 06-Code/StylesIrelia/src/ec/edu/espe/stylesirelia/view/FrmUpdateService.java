@@ -134,24 +134,24 @@ public class FrmUpdateService extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
-        Document doc = serviceController.read("name", txtName.getText());
+        Document doc = serviceController.read(txtName.getText(),"name");
 
-        Service service = new Service(txtName.getText(), txtPrice.getText(), false, false, txtAvailableStylist.getText());
+        Service service = new Service(txtName.getText(), Double.parseDouble(txtPrice.getText()), false, false, txtAvailableStylist.getText());
 
         serviceController.update(doc, serviceController.buildDocument(service));
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
-        Document doc = serviceController.read("name", txtName.getText());
+        Document doc = serviceController.read(txtName.getText(),"name");
 
         Service service = serviceController.parseDocumentToClass(doc);
         txtName.setText(service.getName());
         txtName.setText(service.getName());
-        txtPrice.setText(service.getPrice());
-        txtAvailable.setText(txtAvailable.getText());
+        txtPrice.setText(String.valueOf(service.getPrice()));
+        txtAvailable.setText(String.valueOf(service.isAvailable()));
         txtAvailableStylist.setText(service.getAvailableStylist());
-
+        txtPendingPayment.setText(String.valueOf(service.isPendingPayment()));
     }//GEN-LAST:event_btnFindActionPerformed
 
     /**
