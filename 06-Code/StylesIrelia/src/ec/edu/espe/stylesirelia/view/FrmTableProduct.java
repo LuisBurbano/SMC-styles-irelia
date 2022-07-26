@@ -28,12 +28,12 @@ public class FrmTableProduct extends javax.swing.JFrame {
     }
 
     public void loadProductsTable() {
-        Connection connection = new Connection();
-        connection.connectionDataBase();
+        
+        
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
-        MongoCollection<Product> collectionProducts = db.getCollection("Products", Product.class);
+        MongoCollection<Product> collectionProducts = db.getCollection("products", Product.class);
         List<Product> products = collectionProducts.find(new Document(), Product.class).into(new ArrayList<Product>());
 
         Object[][] objects = new Object[products.size()][5];

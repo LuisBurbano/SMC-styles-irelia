@@ -41,26 +41,28 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         itmaddstylist = new javax.swing.JMenuItem();
         itmUpdateStylist = new javax.swing.JMenuItem();
         itemDeleteStylist = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        itmSupplier = new javax.swing.JMenuItem();
-        itmProduct = new javax.swing.JMenuItem();
-        itmServices = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        itmTableSupplier = new javax.swing.JMenu();
-        itmTableProduct = new javax.swing.JMenuItem();
-        itmTableCustomer = new javax.swing.JMenuItem();
-        itmTableService = new javax.swing.JMenuItem();
         itmTableStylist = new javax.swing.JMenuItem();
-        itmTableSupllier = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        menuAddCustomer = new javax.swing.JMenuItem();
+        menuUpdateCustomer = new javax.swing.JMenuItem();
+        menuDeleteCustomer = new javax.swing.JMenuItem();
+        itmTableCustomer = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        itmProduct = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        menuDeleteProduct = new javax.swing.JMenuItem();
+        itmTableProduct = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         itemAddSuppliers = new javax.swing.JMenuItem();
         itemUpdateSuppliers = new javax.swing.JMenuItem();
         itemDeleteSuppliers = new javax.swing.JMenuItem();
+        itmTableSupllier = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         itemAddService = new javax.swing.JMenuItem();
         itemUpdateService = new javax.swing.JMenuItem();
         itemDeleteService = new javax.swing.JMenuItem();
+        itmTableService = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
@@ -114,56 +116,41 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu2.add(itemDeleteStylist);
 
+        itmTableStylist.setText("Table Stylist");
+        itmTableStylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmTableStylistActionPerformed(evt);
+            }
+        });
+        jMenu2.add(itmTableStylist);
+
         jMenuBar1.add(jMenu2);
 
-        jMenu4.setText("Products");
+        jMenu1.setText("Customer");
 
-        jMenuItem2.setText("Add or sell");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menuAddCustomer.setText("Add Customer");
+        menuAddCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menuAddCustomerActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem2);
+        jMenu1.add(menuAddCustomer);
 
-        itmSupplier.setText("Supplier");
-        itmSupplier.addActionListener(new java.awt.event.ActionListener() {
+        menuUpdateCustomer.setText("Update Customer");
+        menuUpdateCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmSupplierActionPerformed(evt);
+                menuUpdateCustomerActionPerformed(evt);
             }
         });
-        jMenu4.add(itmSupplier);
+        jMenu1.add(menuUpdateCustomer);
 
-        itmProduct.setText("Product");
-        itmProduct.addActionListener(new java.awt.event.ActionListener() {
+        menuDeleteCustomer.setText("Delete Customer");
+        menuDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmProductActionPerformed(evt);
+                menuDeleteCustomerActionPerformed(evt);
             }
         });
-        jMenu4.add(itmProduct);
-
-        itmServices.setText("Services");
-        itmServices.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmServicesActionPerformed(evt);
-            }
-        });
-        jMenu4.add(itmServices);
-
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Help");
-        jMenuBar1.add(jMenu5);
-
-        itmTableSupplier.setText("Tables");
-
-        itmTableProduct.setText("Table Product");
-        itmTableProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmTableProductActionPerformed(evt);
-            }
-        });
-        itmTableSupplier.add(itmTableProduct);
+        jMenu1.add(menuDeleteCustomer);
 
         itmTableCustomer.setText("TableCustomer");
         itmTableCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -171,33 +158,45 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
                 itmTableCustomerActionPerformed(evt);
             }
         });
-        itmTableSupplier.add(itmTableCustomer);
+        jMenu1.add(itmTableCustomer);
 
-        itmTableService.setText("Table Service");
-        itmTableService.addActionListener(new java.awt.event.ActionListener() {
+        jMenuBar1.add(jMenu1);
+
+        jMenu4.setText("Products");
+
+        itmProduct.setText("Add Product");
+        itmProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmTableServiceActionPerformed(evt);
+                itmProductActionPerformed(evt);
             }
         });
-        itmTableSupplier.add(itmTableService);
+        jMenu4.add(itmProduct);
 
-        itmTableStylist.setText("Table Stylist");
-        itmTableStylist.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setText("Update Product");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmTableStylistActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        itmTableSupplier.add(itmTableStylist);
+        jMenu4.add(jMenuItem2);
 
-        itmTableSupllier.setText("Table Supplier");
-        itmTableSupllier.addActionListener(new java.awt.event.ActionListener() {
+        menuDeleteProduct.setText("Delete Product");
+        menuDeleteProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itmTableSupllierActionPerformed(evt);
+                menuDeleteProductActionPerformed(evt);
             }
         });
-        itmTableSupplier.add(itmTableSupllier);
+        jMenu4.add(menuDeleteProduct);
 
-        jMenuBar1.add(itmTableSupplier);
+        itmTableProduct.setText("Table Product");
+        itmTableProduct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmTableProductActionPerformed(evt);
+            }
+        });
+        jMenu4.add(itmTableProduct);
+
+        jMenuBar1.add(jMenu4);
 
         jMenu6.setText("Supplier");
 
@@ -224,6 +223,14 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
             }
         });
         jMenu6.add(itemDeleteSuppliers);
+
+        itmTableSupllier.setText("Table Supplier");
+        itmTableSupllier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmTableSupllierActionPerformed(evt);
+            }
+        });
+        jMenu6.add(itmTableSupllier);
 
         jMenuBar1.add(jMenu6);
 
@@ -253,7 +260,18 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu7.add(itemDeleteService);
 
+        itmTableService.setText("Table Service");
+        itmTableService.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmTableServiceActionPerformed(evt);
+            }
+        });
+        jMenu7.add(itmTableService);
+
         jMenuBar1.add(jMenu7);
+
+        jMenu5.setText("Help");
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -277,13 +295,6 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_txtStylesActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        FrmProduct frmProduct;
-        frmProduct = new FrmProduct();
-        frmProduct.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void itmaddstylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmaddstylistActionPerformed
         FrmAddStylist frmCustomer;
@@ -327,13 +338,6 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_itmTableProductActionPerformed
 
-    private void itmSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmSupplierActionPerformed
-         FrmSupplier frmSupplier;
-        frmSupplier = new FrmSupplier();
-        frmSupplier.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_itmSupplierActionPerformed
-
     private void itmTableCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmTableCustomerActionPerformed
         FrmTableCustomer frmTableCustomer;
         frmTableCustomer = new FrmTableCustomer();
@@ -357,15 +361,6 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         frmTableSupplier.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmTableSupllierActionPerformed
-
-    private void itmServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmServicesActionPerformed
-        FrmService frmService;
-        frmService = new FrmService();
-        frmService.setVisible(true);
-        this.setVisible(false);
-
-// TODO add your handling code here:
-    }//GEN-LAST:event_itmServicesActionPerformed
 
     private void itemAddSuppliersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAddSuppliersActionPerformed
        FrmSupplier frmSupplier;
@@ -416,6 +411,38 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         this.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_itemDeleteStylistActionPerformed
 
+    private void menuAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAddCustomerActionPerformed
+        FrmCustomer frmCustomer = new FrmCustomer();
+        frmCustomer.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_menuAddCustomerActionPerformed
+
+    private void menuUpdateCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUpdateCustomerActionPerformed
+        FrmUpdateCustomer frmUpdateCustomer = new FrmUpdateCustomer();
+        frmUpdateCustomer.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_menuUpdateCustomerActionPerformed
+
+    private void menuDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDeleteCustomerActionPerformed
+        FrmDeleteCustomer frmDeleteCustomer = new FrmDeleteCustomer();
+        frmDeleteCustomer.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_menuDeleteCustomerActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        FrmUpdateProduct frmUpdateProduct = new FrmUpdateProduct();
+        frmUpdateProduct.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void menuDeleteProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuDeleteProductActionPerformed
+        FrmDeleteProduct frmDeleteProduct = new FrmDeleteProduct();
+        frmDeleteProduct.setVisible(true);
+        this.setVisible(false);
+        
+        
+    }//GEN-LAST:event_menuDeleteProductActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -461,17 +488,15 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemUpdateService;
     private javax.swing.JMenuItem itemUpdateSuppliers;
     private javax.swing.JMenuItem itmProduct;
-    private javax.swing.JMenuItem itmServices;
-    private javax.swing.JMenuItem itmSupplier;
     private javax.swing.JMenuItem itmTableCustomer;
     private javax.swing.JMenuItem itmTableProduct;
     private javax.swing.JMenuItem itmTableService;
     private javax.swing.JMenuItem itmTableStylist;
     private javax.swing.JMenuItem itmTableSupllier;
-    private javax.swing.JMenu itmTableSupplier;
     private javax.swing.JMenuItem itmUpdateStylist;
     private javax.swing.JMenuItem itmaddstylist;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
@@ -480,6 +505,10 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem menuAddCustomer;
+    private javax.swing.JMenuItem menuDeleteCustomer;
+    private javax.swing.JMenuItem menuDeleteProduct;
+    private javax.swing.JMenuItem menuUpdateCustomer;
     private javax.swing.JMenu txtStyles;
     // End of variables declaration//GEN-END:variables
 }

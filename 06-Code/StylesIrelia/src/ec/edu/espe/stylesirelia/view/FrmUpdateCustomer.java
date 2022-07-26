@@ -41,20 +41,21 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         txtName = new javax.swing.JTextField();
         txtNumber = new javax.swing.JTextField();
-        txtPending = new javax.swing.JTextField();
         txtAppoiment = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtFind = new javax.swing.JButton();
+        btnFind = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Appoiment = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtIdentification = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtUpdate = new javax.swing.JButton();
+        btnBackMenu = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        txtUpdate1 = new javax.swing.JButton();
+        cmbPayment = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,7 +63,6 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 136, 164, -1));
         jPanel3.add(txtNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 176, 164, -1));
-        jPanel3.add(txtPending, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 216, 164, -1));
         jPanel3.add(txtAppoiment, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 256, 164, -1));
 
         jLabel2.setText("Identification Card:");
@@ -72,13 +72,13 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         jLabel3.setText("Name:");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 139, 78, -1));
 
-        txtFind.setText("Find");
-        txtFind.addActionListener(new java.awt.event.ActionListener() {
+        btnFind.setText("Find");
+        btnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFindActionPerformed(evt);
+                btnFindActionPerformed(evt);
             }
         });
-        jPanel3.add(txtFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 93, -1, -1));
+        jPanel3.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 93, -1, -1));
 
         jLabel4.setText("Number:");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 179, 121, -1));
@@ -97,16 +97,32 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         jLabel1.setText("UPDATE CUSTOMER");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 240, -1));
 
-        txtUpdate.setText("Update");
-        txtUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnBackMenu.setText("Back to Menu");
+        btnBackMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUpdateActionPerformed(evt);
+                btnBackMenuActionPerformed(evt);
             }
         });
-        jPanel3.add(txtUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
+        jPanel3.add(btnBackMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 370, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, -30, 280, -1));
+
+        txtUpdate1.setText("Update");
+        txtUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUpdate1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txtUpdate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, -1, -1));
+
+        cmbPayment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pay", "Need to pay" }));
+        cmbPayment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbPaymentActionPerformed(evt);
+            }
+        });
+        jPanel3.add(cmbPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 256, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,20 +140,15 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdateActionPerformed
-        MongoCollection<Document> collection = Connection.mongodb.getCollection("stylists");
-
-        Document doc = collection.find(eq("identificationCard", txtIdentification.getText())).first();
-
-        Customer customer = new Customer(txtIdentification.getText(), txtName.getText(), Integer.parseInt(txtNumber.getText()), false, txtAppoiment.getText(), txtAddress.getText());
-
-        
-        customerController.update(doc, customerController.buildDocument(customer));
+    private void btnBackMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMenuActionPerformed
+        FrmStylesIreliaMenu frmStylesIreliaMenu = new FrmStylesIreliaMenu();
+        frmStylesIreliaMenu.setVisible(true);
+        this.setVisible(false);
 
 
-    }//GEN-LAST:event_txtUpdateActionPerformed
+    }//GEN-LAST:event_btnBackMenuActionPerformed
 
-    private void txtFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFindActionPerformed
+    private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
         
 
         Document doc = customerController.read("identificationCard", txtIdentification.getText());
@@ -146,7 +157,20 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         txtAppoiment.setText(customer.getAppointment());
         txtName.setName(customer.getName());
         txtAddress.setText(customer.getAddress());
-    }//GEN-LAST:event_txtFindActionPerformed
+    }//GEN-LAST:event_btnFindActionPerformed
+
+    private void txtUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdate1ActionPerformed
+        Document doc = customerController.read("identificationCard", txtIdentification.getText());
+        Customer customer = new Customer(txtIdentification.getText(),
+                txtName.getText(),
+                Integer.parseInt(txtNumber.getText()),
+                false, txtAppoiment.getText(), txtAddress.getText());
+        customerController.update(doc, customerController.buildDocument(customer));
+    }//GEN-LAST:event_txtUpdate1ActionPerformed
+
+    private void cmbPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPaymentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbPaymentActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,6 +209,9 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Appoiment;
+    private javax.swing.JButton btnBackMenu;
+    private javax.swing.JButton btnFind;
+    private javax.swing.JComboBox<String> cmbPayment;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -195,11 +222,9 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAppoiment;
-    private javax.swing.JButton txtFind;
     private javax.swing.JTextField txtIdentification;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumber;
-    private javax.swing.JTextField txtPending;
-    private javax.swing.JButton txtUpdate;
+    private javax.swing.JButton txtUpdate1;
     // End of variables declaration//GEN-END:variables
 }
