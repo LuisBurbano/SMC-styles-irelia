@@ -25,12 +25,13 @@ public class FrmTableSupplier extends javax.swing.JFrame {
      */
     public FrmTableSupplier() {
         initComponents();
+        Connection.connectionDataBase();
     }
     
      public void loadSuppliersTable() {
        //borrar estas dos lineas despues de juntar todas las pantallas
-        Connection connection = new Connection();
-        connection.connectionDataBase();
+        
+        
         //-------
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
@@ -179,6 +180,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         FrmSupplier frmSupplier;
         frmSupplier = new FrmSupplier();
         frmSupplier.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

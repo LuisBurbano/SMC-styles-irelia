@@ -17,8 +17,9 @@ import org.bson.Document;
  * @author widin
  */
 public class FrmUpdateSupplier extends javax.swing.JFrame {
-    
+
     private SupplierController supplierController;
+
     /**
      * Creates new form FrmUpdateSupplier
      */
@@ -137,12 +138,10 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
-        MongoCollection<Document> collection = Connection.mongodb.getCollection("suppliers");
-
-        Document doc = collection.find(eq("name",txtName.getText())).first();
-
-        Gson gson = new Gson();
-        Supplier supplier = gson.fromJson(doc.toJson(), Supplier.class);
+        
+        Document doc= supplierController.read(txtName.getText(), "name");
+        
+        Supplier supplier = supplierController.parseDocumentToClass(doc);
         txtName.setText(supplier.getName());
 
         txtAppointment.setText(supplier.getAppointment());
@@ -154,11 +153,10 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        
 
-        Document doc = supplierController.read("name",txtName.getText());
+        Document doc= supplierController.read(txtName.getText(), "name");
 
-        Supplier supplier = new Supplier(txtName.getText(), txtNumber.getText(),Boolean.valueOf(txtPendingPayment.getText()), txtAppointment.getText(), txtAddress.getText());
+        Supplier supplier = new Supplier(txtName.getText(), txtNumber.getText(), Boolean.valueOf(txtPendingPayment.getText()), txtAppointment.getText(), txtAddress.getText());
         supplierController.update(doc, supplierController.buildDocument(supplier));
     }//GEN-LAST:event_btnUpdateActionPerformed
 

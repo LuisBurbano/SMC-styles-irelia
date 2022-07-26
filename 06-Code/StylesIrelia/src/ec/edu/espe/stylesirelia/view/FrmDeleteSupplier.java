@@ -99,11 +99,9 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
 
-        Supplier supplier = new Supplier();
-
         supplierController.delete("name", txtName.getText());
 
-        Document doc = supplierController.read(txtName.getText(), "");
+        Document doc = supplierController.read(txtName.getText(), "name");
         if (doc == null) {
             JOptionPane.showMessageDialog(rootPane, "This supplier has been succesfully deleted");
         }
