@@ -154,12 +154,14 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
         try {
-            Document doc = customerController.read("identificationCard", txtIdentification.getText());
+            Document doc = customerController.read(txtIdentification.getText(),"identificationCard");
             Customer customer = customerController.parseDocumentToClass(doc);
+            
             txtIdentification.setText(customer.getIdentificationCard());
             txtAppoiment.setText(customer.getAppointment());
-            txtName.setName(customer.getName());
+            txtName.setText(customer.getName());
             txtAddress.setText(customer.getAddress());
+            txtNumber.setText(String.valueOf(customer.getNumber()));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "It was not found");
         }
@@ -167,7 +169,7 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void txtUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdate1ActionPerformed
-        Document doc = customerController.read("identificationCard", txtIdentification.getText());
+        Document doc = customerController.read(txtIdentification.getText(),"identificationCard");
         Customer customer = new Customer(txtIdentification.getText(),
                 txtName.getText(),
                 Integer.parseInt(txtNumber.getText()),
