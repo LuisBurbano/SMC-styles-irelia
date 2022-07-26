@@ -156,7 +156,7 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         } catch (ParseException ex) {
             JOptionPane.showMessageDialog(null, "Something happened, please try again");
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se encontro");
+            JOptionPane.showMessageDialog(null, "It was not found");
         }
         
     }//GEN-LAST:event_btnFindActionPerformed
@@ -166,6 +166,13 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         Document doc = productController.read(txtNameProduct.getText(), "name");
           
         productController.update(doc, productController.buildDocument(product));
+        Document result = productController.read(productController.buildDocument(product));
+        if (result!=null) {
+            
+            JOptionPane.showMessageDialog(null, "Updated successfully");
+        }else{
+            JOptionPane.showMessageDialog(null, "A problem has occurred");
+        }
         
     }//GEN-LAST:event_btnUpdateActionPerformed
 

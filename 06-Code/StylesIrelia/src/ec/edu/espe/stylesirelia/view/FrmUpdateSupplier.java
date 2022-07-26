@@ -10,6 +10,7 @@ import static com.mongodb.client.model.Filters.eq;
 import ec.edu.espe.stylesirelia.controller.SupplierController;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Supplier;
+import javax.swing.JOptionPane;
 import org.bson.Document;
 
 /**
@@ -138,26 +139,37 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
-        
-        Document doc= supplierController.read(txtName.getText(), "name");
-        
-        Supplier supplier = supplierController.parseDocumentToClass(doc);
-        txtName.setText(supplier.getName());
+        try {
+            Document doc = supplierController.read(txtName.getText(), "name");
 
-        txtAppointment.setText(supplier.getAppointment());
-        txtName.setText(supplier.getName());
-        txtNumber.setText(supplier.getNumber());
-        txtPendingPayment.setText(String.valueOf(supplier.isPendingPayment()));
-        txtAddress.setText(supplier.getAddress());
+            Supplier supplier = supplierController.parseDocumentToClass(doc);
+            txtName.setText(supplier.getName());
+
+            txtAppointment.setText(supplier.getAppointment());
+            txtName.setText(supplier.getName());
+            txtNumber.setText(supplier.getNumber());
+            txtPendingPayment.setText(String.valueOf(supplier.isPendingPayment()));
+            txtAddress.setText(supplier.getAddress());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "It was not found");
+        }
+
 
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
-        Document doc= supplierController.read(txtName.getText(), "name");
+        Document doc = supplierController.read(txtName.getText(), "name");
 
         Supplier supplier = new Supplier(txtName.getText(), txtNumber.getText(), Boolean.valueOf(txtPendingPayment.getText()), txtAppointment.getText(), txtAddress.getText());
         supplierController.update(doc, supplierController.buildDocument(supplier));
+        Document result = supplierController.read(supplierController.buildDocument(supplier));
+        if (result!=null) {
+            
+            JOptionPane.showMessageDialog(null, "Updated successfully");
+        }else{
+            JOptionPane.showMessageDialog(null, "A problem has occurred");
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed

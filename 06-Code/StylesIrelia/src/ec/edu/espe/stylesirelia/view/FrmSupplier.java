@@ -5,6 +5,8 @@ import ec.edu.espe.stylesirelia.controller.SupplierController;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Supplier;
 import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
+import org.bson.Document;
 
 /**
  *
@@ -214,7 +216,12 @@ public class FrmSupplier extends javax.swing.JFrame {
         Supplier supplier = new Supplier(name, number, pendingPayment, appointment, address);
 
         supplierController.create(supplierController.buildDocument(supplier));
-
+        Document result = supplierController.read(supplierController.buildDocument(supplier));
+        if (result != null) {
+            JOptionPane.showMessageDialog(null, "Successfully created");
+        } else {
+            JOptionPane.showMessageDialog(null, "A problem has occurred");
+        }
     }//GEN-LAST:event_btnAddSupplierActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed

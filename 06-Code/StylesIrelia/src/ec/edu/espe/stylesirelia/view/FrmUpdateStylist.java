@@ -7,9 +7,13 @@ package ec.edu.espe.stylesirelia.view;
 import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
 import static com.mongodb.client.model.Filters.eq;
+import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.stylesirelia.controller.StylistController;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Stylist;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 import org.bson.Document;
 
 /**
@@ -21,7 +25,17 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     /**
      * Creates new form FrmUpdateStylist
      */
+    SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
     private StylistController stylistController;
+
+    public String getDate(JDateChooser jdDate) {
+        if (jdDate.getDate() != null) {
+            return formDate.format(jdDate.getDate());
+        } else {
+            return null;
+        }
+
+    }
 
     public FrmUpdateStylist() {
         initComponents();
@@ -57,9 +71,9 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         txtIdFind = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtNumber = new javax.swing.JTextField();
-        txtAppointment = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        txtAppoinment = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,7 +130,6 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         jPanel1.add(txtIdFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 130, -1));
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 130, -1));
         jPanel1.add(txtNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 130, -1));
-        jPanel1.add(txtAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 130, -1));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, -20, -1, -1));
@@ -124,6 +137,7 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel8.setText("UPDATE STYLIST");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 220, -1));
+        jPanel1.add(txtAppoinment, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 180, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -145,15 +159,20 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
-        Document doc = stylistController.read(txtIdFind.getText(), "identificationCard");
-        Stylist stylist = stylistController.parseDocumentToClass(doc);
-
-        txtId.setText(stylist.getIdentificationCard());
-        txtAppointment.setText(stylist.getAppointment());
-        txtName.setText(stylist.getName());
-        txtNumber.setText(stylist.getNumber());
-        txtPayment.setText(String.valueOf(stylist.getPayment()));
-        txtAddress.setText(stylist.getAddress());
+        try {
+            Document doc = stylistController.read(txtIdFind.getText(), "identificationCard");
+            Stylist stylist = stylistController.parseDocumentToClass(doc);
+            txtId.setText(stylist.getIdentificationCard());
+            txtAppoinment.setDate(formDate.parse(stylist.getAppointment()));
+            txtName.setText(stylist.getName());
+            txtNumber.setText(stylist.getNumber());
+            txtPayment.setText(String.valueOf(stylist.getPayment()));
+            txtAddress.setText(stylist.getAddress());
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "Something happened, please try again");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "It was not found");
+        }
 
 
     }//GEN-LAST:event_btnFindActionPerformed
@@ -161,10 +180,17 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
         Document doc = stylistController.read(txtIdFind.getText(), "identificationCard");
-        
-        Stylist stylist = new Stylist(txtId.getText(), txtName.getText(), txtNumber.getText(), Double.parseDouble(txtPayment.getText()), txtAppointment.getText(), txtAddress.getText());
+
+        Stylist stylist = new Stylist(txtId.getText(), txtName.getText(), txtNumber.getText(), Double.parseDouble(txtPayment.getText()), formDate.format(txtAppoinment.getDate()), txtAddress.getText());
 
         stylistController.update(doc, stylistController.buildDocument(stylist));
+        Document result = stylistController.read(stylistController.buildDocument(stylist));
+        if (result != null) {
+
+            JOptionPane.showMessageDialog(null, "Updated successfully");
+        } else {
+            JOptionPane.showMessageDialog(null, "A problem has occurred");
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
@@ -224,7 +250,7 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAppointment;
+    private com.toedter.calendar.JDateChooser txtAppoinment;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtIdFind;
     private javax.swing.JTextField txtName;

@@ -25,12 +25,11 @@ public class FrmTableService extends javax.swing.JFrame {
      */
     public FrmTableService() {
         initComponents();
+        Connection.connectionDataBase();
     }
     
-     public void loadServicesTable() {
-       //borrar estas dos lineas despues de juntar todas las pantallas
-        Connection connection = new Connection();
-        connection.connectionDataBase();
+     public void loadServicesTable() { 
+        
         //-------
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
@@ -38,15 +37,15 @@ public class FrmTableService extends javax.swing.JFrame {
         MongoCollection<Service> collectionServices = db.getCollection("services", Service.class); 
         List<Service> services = collectionServices.find(new Document(), Service.class).into(new ArrayList<Service>());
 
-        Object[][] objects = new Object[services.size()][4];
+        Object[][] objects = new Object[services.size()][5];
 
         for (int i = 0; i < services.size(); i++) {
             objects[i][0] = services.get(i).getName();
             objects[i][1] = services.get(i).getPrice();
             objects[i][2] = services.get(i).isPendingPayment();
-            objects[i][3] = services.get(i).getAvailableStylist();
-//            objects[i][4] = services.get(i).getAppointment();
-//            objects[i][5] = services.get(i).getAddress();
+            objects[i][3] = services.get(i).isAvailable();
+            objects[i][4] = services.get(i).getAvailableStylist();
+
 
             tableServices.setModel(new javax.swing.table.DefaultTableModel(
                     objects,

@@ -8,6 +8,8 @@ import ec.edu.espe.stylesirelia.model.Stylist;
 import static java.lang.Float.parseFloat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import org.bson.Document;
 
 /**
  *
@@ -125,19 +127,25 @@ public class FrmService extends javax.swing.JFrame {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
 
         String name;
-        String price;
+        double price;
         boolean pendingPayment;
         boolean available;
         String availableStylist;
         name = txtName.getText();
-        price = txtPrice.getText();
+        price = Double.parseDouble(txtPrice.getText());
         available = Boolean.valueOf(txtAvailable.getText());
+        pendingPayment = Boolean.valueOf(txtPendingPayment.getText());
         availableStylist = txtAvailableStylist.getText();
-        Service service = new Service(name, price, false, available, availableStylist);
+        Service service = new Service(name, price, pendingPayment, available, availableStylist);
 
         serviceController.create(serviceController.buildDocument(service));
 
-
+        Document result = serviceController.read(serviceController.buildDocument(service));
+        if (result != null) {
+            JOptionPane.showMessageDialog(null, "Successfully created");
+        } else {
+            JOptionPane.showMessageDialog(null, "A problem has occurred");
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed

@@ -25,14 +25,12 @@ public class FrmTableStylist extends javax.swing.JFrame {
      */
     public FrmTableStylist() {
         initComponents();
+        Connection.connectionDataBase();
     }
 
     
     public void loadStylistsTable() {
-       //borrar estas dos lineas despues de juntar todas las pantallas
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-        //-------
+       
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);

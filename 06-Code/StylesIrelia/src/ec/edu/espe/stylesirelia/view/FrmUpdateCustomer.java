@@ -12,6 +12,7 @@ import ec.edu.espe.stylesirelia.controller.StylistController;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Customer;
 import ec.edu.espe.stylesirelia.model.Stylist;
+import javax.swing.JOptionPane;
 import org.bson.Document;
 
 /**
@@ -19,14 +20,16 @@ import org.bson.Document;
  * @author Roberto Bedon, DCCO-ESPE, BettaCoders
  */
 public class FrmUpdateCustomer extends javax.swing.JFrame {
+
     private CustomerController customerController;
+
     /**
      * Creates new form FrmUpdateCustomer
      */
     public FrmUpdateCustomer() {
         initComponents();
         Connection.connectionDataBase();
-        customerController = new CustomerController ();
+        customerController = new CustomerController();
     }
 
     /**
@@ -149,14 +152,18 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackMenuActionPerformed
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
-        
 
-        Document doc = customerController.read("identificationCard", txtIdentification.getText());
-        Customer customer = customerController.parseDocumentToClass(doc);
-        txtIdentification.setText(customer.getIdentificationCard());
-        txtAppoiment.setText(customer.getAppointment());
-        txtName.setName(customer.getName());
-        txtAddress.setText(customer.getAddress());
+        try {
+            Document doc = customerController.read("identificationCard", txtIdentification.getText());
+            Customer customer = customerController.parseDocumentToClass(doc);
+            txtIdentification.setText(customer.getIdentificationCard());
+            txtAppoiment.setText(customer.getAppointment());
+            txtName.setName(customer.getName());
+            txtAddress.setText(customer.getAddress());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "It was not found");
+        }
+
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void txtUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdate1ActionPerformed
@@ -166,6 +173,13 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
                 Integer.parseInt(txtNumber.getText()),
                 false, txtAppoiment.getText(), txtAddress.getText());
         customerController.update(doc, customerController.buildDocument(customer));
+        Document result = customerController.read(customerController.buildDocument(customer));
+        if (result!=null) {
+            
+            JOptionPane.showMessageDialog(null, "Updated successfully");
+        }else{
+            JOptionPane.showMessageDialog(null, "A problem has occurred");
+        }
     }//GEN-LAST:event_txtUpdate1ActionPerformed
 
     private void cmbPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPaymentActionPerformed

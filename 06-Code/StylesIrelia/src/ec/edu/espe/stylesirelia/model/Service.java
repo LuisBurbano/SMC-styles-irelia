@@ -7,7 +7,7 @@ package ec.edu.espe.stylesirelia.model;
 public class Service {
 
     private String name;
-    private String price;
+    private double price;
     private boolean pendingPayment;
     private boolean available;
     private String availableStylist;
@@ -15,7 +15,7 @@ public class Service {
     public Service() {
     }
 
-    public Service(String name, String price, boolean pendingPayment, boolean available, String availableStylist) {
+    public Service(String name, double price, boolean pendingPayment, boolean available, String availableStylist) {
         this.name = name;
         this.price = price;
         this.pendingPayment = pendingPayment;
@@ -49,14 +49,14 @@ public class Service {
     /**
      * @return the price
      */
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
     /**
      * @param price the price to set
      */
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
