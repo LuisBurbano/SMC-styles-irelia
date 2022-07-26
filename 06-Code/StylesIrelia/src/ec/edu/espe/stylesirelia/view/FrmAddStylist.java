@@ -6,6 +6,7 @@ import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Stylist;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import org.bson.Document;
 
 /**
  *
@@ -206,6 +207,12 @@ public class FrmAddStylist extends javax.swing.JFrame {
         Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
 
         stylistController.create(stylistController.buildDocument(stylist));
+        Document result = stylistController.read(stylistController.buildDocument(stylist));
+        if (result!=null) {
+            JOptionPane.showMessageDialog(null, "Successfully created");
+        }else{
+            JOptionPane.showMessageDialog(null, "A problem has occurred");
+        }
 
     }//GEN-LAST:event_btnAddActionPerformed
 

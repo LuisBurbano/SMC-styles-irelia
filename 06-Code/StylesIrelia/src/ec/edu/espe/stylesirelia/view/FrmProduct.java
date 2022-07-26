@@ -8,6 +8,7 @@ import ec.edu.espe.stylesirelia.model.Product;
 import ec.edu.espe.stylesirelia.model.Turn;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
+import org.bson.Document;
 
 /**
  *
@@ -161,7 +162,12 @@ public class FrmProduct extends javax.swing.JFrame {
         Product product = new Product(name, price, formDate.format(dtcExpirationProduct.getDate()), stock);
 
         productController.create(productController.buildDocument(product));
-
+        Document result = productController.read(productController.buildDocument(product));
+        if (result != null) {
+            JOptionPane.showMessageDialog(null, "Successfully created");
+        } else {
+            JOptionPane.showMessageDialog(null, "A problem has occurred");
+        }
 
     }//GEN-LAST:event_btnAddProductActionPerformed
 

@@ -11,6 +11,7 @@ import ec.edu.espe.stylesirelia.controller.ServiceController;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Service;
 import static java.lang.Float.parseFloat;
+import javax.swing.JOptionPane;
 import org.bson.Document;
 
 /**
@@ -134,24 +135,37 @@ public class FrmUpdateService extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
-        Document doc = serviceController.read(txtName.getText(),"name");
+        Document doc = serviceController.read(txtName.getText(), "name");
 
         Service service = new Service(txtName.getText(), Double.parseDouble(txtPrice.getText()), false, false, txtAvailableStylist.getText());
 
         serviceController.update(doc, serviceController.buildDocument(service));
+        Document result = serviceController.read(serviceController.buildDocument(service));
+        if (result!=null) {
+            
+            JOptionPane.showMessageDialog(null, "Updated successfully");
+        }else{
+            JOptionPane.showMessageDialog(null, "A problem has occurred");
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
-        Document doc = serviceController.read(txtName.getText(),"name");
+        try {
+            Document doc = serviceController.read(txtName.getText(), "name");
 
-        Service service = serviceController.parseDocumentToClass(doc);
-        txtName.setText(service.getName());
-        txtName.setText(service.getName());
-        txtPrice.setText(String.valueOf(service.getPrice()));
-        txtAvailable.setText(String.valueOf(service.isAvailable()));
-        txtAvailableStylist.setText(service.getAvailableStylist());
-        txtPendingPayment.setText(String.valueOf(service.isPendingPayment()));
+            Service service = serviceController.parseDocumentToClass(doc);
+            txtName.setText(service.getName());
+            txtName.setText(service.getName());
+            txtPrice.setText(String.valueOf(service.getPrice()));
+            txtAvailable.setText(String.valueOf(service.isAvailable()));
+            txtAvailableStylist.setText(service.getAvailableStylist());
+            txtPendingPayment.setText(String.valueOf(service.isPendingPayment()));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "It was not found");
+        }
+
+
     }//GEN-LAST:event_btnFindActionPerformed
 
     /**
