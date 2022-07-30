@@ -6,8 +6,17 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Stylist;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.text.*;
+import java.awt.print.*;
+import java.awt.print.PrinterException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.JTable.PrintMode;
 import org.bson.Document;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
@@ -73,6 +82,7 @@ public class FrmTableStylist extends javax.swing.JFrame {
         tableStylists = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnPrintStylist = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,7 +95,7 @@ public class FrmTableStylist extends javax.swing.JFrame {
                 btnLoadActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 415, -1, -1));
+        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +103,7 @@ public class FrmTableStylist extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 415, -1, -1));
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, -1, -1));
 
         tableStylists.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,7 +119,7 @@ public class FrmTableStylist extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tableStylists);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 489, 275));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 490, 290));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -118,6 +128,14 @@ public class FrmTableStylist extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel1.setText("STYLIST");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 220, -1));
+
+        btnPrintStylist.setText("Print Table Stylist");
+        btnPrintStylist.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintStylistActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPrintStylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,6 +165,38 @@ public class FrmTableStylist extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnPrintStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintStylistActionPerformed
+
+        MessageFormat headerFormat = new MessageFormat("Table Service");
+        MessageFormat footerFormat = new MessageFormat("- Página {0} -");
+        try {
+           tableStylists.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
+        } catch (PrinterException ex) {
+            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        boolean complete = false;
+        try {
+            complete = tableStylists.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (complete) {
+            System.out.println("Impresión finalizada!");
+        } else {
+            System.out.println("Error al imprimir");
+        }
+
+        //        MessageFormat cabesa = new MessageFormat("table print");
+        //        MessageFormat pie = new MessageFormat("Page{o,number.integer}");
+        //        try {
+            //            tableServices.print(JTable.PrintMode.NORMAL, cabesa, pie);
+            //
+            //        } catch (Exception e) {
+            //            System.err.format("no se pudo imprimir", e.getMessage());
+            //
+            //        }
+    }//GEN-LAST:event_btnPrintStylistActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,6 +236,7 @@ public class FrmTableStylist extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnLoad;
+    private javax.swing.JToggleButton btnPrintStylist;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

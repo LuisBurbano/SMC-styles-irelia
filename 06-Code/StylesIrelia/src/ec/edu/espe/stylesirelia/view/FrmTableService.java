@@ -84,7 +84,7 @@ public class FrmTableService extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         btnLoad = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        btnImprimir1 = new javax.swing.JToggleButton();
+        btnPrintService = new javax.swing.JToggleButton();
         btnImprimir = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -139,13 +139,13 @@ public class FrmTableService extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, -10, 270, -1));
 
-        btnImprimir1.setText("imprimir");
-        btnImprimir1.addActionListener(new java.awt.event.ActionListener() {
+        btnPrintService.setText("Print Table Service");
+        btnPrintService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimir1ActionPerformed(evt);
+                btnPrintServiceActionPerformed(evt);
             }
         });
-        jPanel3.add(btnImprimir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
+        jPanel3.add(btnPrintService, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
 
         btnImprimir.setText("imprimir");
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
@@ -225,7 +225,7 @@ public class FrmTableService extends javax.swing.JFrame {
             //        }
     }//GEN-LAST:event_btnImprimirActionPerformed
 
-    private void btnImprimir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimir1ActionPerformed
+    private void btnPrintServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintServiceActionPerformed
 
         MessageFormat headerFormat = new MessageFormat("Table Service");
         MessageFormat footerFormat = new MessageFormat("- Página {0} -");
@@ -255,7 +255,7 @@ public class FrmTableService extends javax.swing.JFrame {
             //            System.err.format("no se pudo imprimir", e.getMessage());
             //
             //        }
-    }//GEN-LAST:event_btnImprimir1ActionPerformed
+    }//GEN-LAST:event_btnPrintServiceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,8 +295,8 @@ public class FrmTableService extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JToggleButton btnImprimir;
-    private javax.swing.JToggleButton btnImprimir1;
     private javax.swing.JButton btnLoad;
+    private javax.swing.JToggleButton btnPrintService;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;

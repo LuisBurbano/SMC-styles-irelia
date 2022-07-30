@@ -172,16 +172,16 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="btnImprimir1">
+        <Component class="javax.swing.JToggleButton" name="btnPrintService">
           <Properties>
-            <Property name="text" type="java.lang.String" value="imprimir"/>
+            <Property name="text" type="java.lang.String" value="Print Table Service"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImprimir1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrintServiceActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="280" y="440" width="-1" height="-1"/>
+              <AbsoluteConstraints x="250" y="440" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
