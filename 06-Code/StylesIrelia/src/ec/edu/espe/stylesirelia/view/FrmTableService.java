@@ -85,7 +85,6 @@ public class FrmTableService extends javax.swing.JFrame {
         btnLoad = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnPrintService = new javax.swing.JToggleButton();
-        btnImprimir = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,7 +112,7 @@ public class FrmTableService extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableServices);
 
-        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 540, 380));
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 550, 370));
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel1.setText("SERVICE");
@@ -137,7 +136,7 @@ public class FrmTableService extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, -10, 270, -1));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 270, -1));
 
         btnPrintService.setText("Print Table Service");
         btnPrintService.addActionListener(new java.awt.event.ActionListener() {
@@ -147,34 +146,21 @@ public class FrmTableService extends javax.swing.JFrame {
         });
         jPanel3.add(btnPrintService, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, -1, -1));
 
-        btnImprimir.setText("imprimir");
-        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnImprimir)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(btnImprimir)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 514, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -192,30 +178,6 @@ public class FrmTableService extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
-
-//        MessageFormat headerFormat = new MessageFormat("Services");
-//        MessageFormat footerFormat = new MessageFormat("- Página {0} -");
-//        try {
-//            tableServices.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
-//        } catch (PrinterException ex) {
-//            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        boolean complete = false;
-//        try {
-//            complete = tableServices.print();
-//        } catch (PrinterException ex) {
-//            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//         if (complete) {
-//            System.out.println("---print finished!--");
-//        } else {
-//            System.out.println("---Error printing---");
-//        }
-//
-//       
-    }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnPrintServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintServiceActionPerformed
 
@@ -278,7 +240,6 @@ public class FrmTableService extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JToggleButton btnImprimir;
     private javax.swing.JButton btnLoad;
     private javax.swing.JToggleButton btnPrintService;
     private javax.swing.JLabel jLabel1;
