@@ -8,6 +8,14 @@ import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Supplier;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.text.*;
+import java.awt.print.*;
+import java.awt.print.PrinterException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.JTable.PrintMode;
 import org.bson.Document;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
@@ -78,6 +86,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         btnLoad = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnPrintSupplier = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,7 +123,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableSuppliers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 530, 240));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 630, 280));
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel1.setText("SUPPLIER TABLE");
@@ -136,7 +145,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
                 btnLoadActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, -1, -1));
+        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, -1, -1));
@@ -149,6 +158,14 @@ public class FrmTableSupplier extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, -1, -1));
+
+        btnPrintSupplier.setText("Print table Supplier");
+        btnPrintSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintSupplierActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPrintSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,6 +199,39 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         frmSupplier.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnPrintSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintSupplierActionPerformed
+       
+                MessageFormat headerFormat = new MessageFormat("Table Service");
+        MessageFormat footerFormat = new MessageFormat("- Página {0} -");
+        try {
+           tableSuppliers.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
+        } catch (PrinterException ex) {
+            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        boolean complete = false;
+        try {
+            complete = tableSuppliers.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (complete) {
+            System.out.println("Impresión finalizada!");
+        } else {
+            System.out.println("Error al imprimir");
+        }
+
+        //        MessageFormat cabesa = new MessageFormat("table print");
+        //        MessageFormat pie = new MessageFormat("Page{o,number.integer}");
+        //        try {
+            //            tableServices.print(JTable.PrintMode.NORMAL, cabesa, pie);
+            //
+            //        } catch (Exception e) {
+            //            System.err.format("no se pudo imprimir", e.getMessage());
+            //
+            //        }
+        
+    }//GEN-LAST:event_btnPrintSupplierActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,6 +271,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnLoad;
+    private javax.swing.JToggleButton btnPrintSupplier;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
