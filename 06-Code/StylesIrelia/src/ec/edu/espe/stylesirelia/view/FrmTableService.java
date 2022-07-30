@@ -214,17 +214,7 @@ public class FrmTableService extends javax.swing.JFrame {
             System.out.println("---Error printing---");
         }
 
-        
-
-        //        MessageFormat cabesa = new MessageFormat("table print");
-        //        MessageFormat pie = new MessageFormat("Page{o,number.integer}");
-        //        try {
-            //            tableServices.print(JTable.PrintMode.NORMAL, cabesa, pie);
-            //
-            //        } catch (Exception e) {
-            //            System.err.format("no se pudo imprimir", e.getMessage());
-            //
-            //        }
+       
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     private void btnPrintServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintServiceActionPerformed
