@@ -136,7 +136,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, -1, -1));
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 80, 30));
 
         btnLoad.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btnLoad.setText("Load");
@@ -145,7 +145,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
                 btnLoadActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, -1, -1));
+        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 70, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, -1, -1));
@@ -157,7 +157,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 80, 30));
 
         btnPrintSupplier.setText("Print table Supplier");
         btnPrintSupplier.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +165,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
                 btnPrintSupplierActionPerformed(evt);
             }
         });
-        jPanel1.add(btnPrintSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
+        jPanel1.add(btnPrintSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 140, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
