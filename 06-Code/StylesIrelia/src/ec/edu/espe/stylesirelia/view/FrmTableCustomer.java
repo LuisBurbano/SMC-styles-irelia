@@ -7,6 +7,14 @@ import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Customer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.text.*;
+import java.awt.print.*;
+import java.awt.print.PrinterException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTable;
+import javax.swing.JTable.PrintMode;
 import org.bson.Document;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
@@ -73,6 +81,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
         btnLoad = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btnPrintCustomers = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,7 +109,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableCustomers);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 787, 108));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 787, 160));
 
         btnLoad.setText("Load");
         btnLoad.addActionListener(new java.awt.event.ActionListener() {
@@ -108,7 +117,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
                 btnLoadActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
+        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -116,11 +125,19 @@ public class FrmTableCustomer extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, -1, -1));
+        jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel2.setText("CUSTOMERS");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 220, -1));
+
+        btnPrintCustomers.setText("Print table Costumers");
+        btnPrintCustomers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrintCustomersActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnPrintCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,6 +165,28 @@ public class FrmTableCustomer extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnPrintCustomersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintCustomersActionPerformed
+
+        MessageFormat headerFormat = new MessageFormat("Customers");
+        MessageFormat footerFormat = new MessageFormat("- Página {0} -");
+        try {
+            tableCustomers.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
+        } catch (PrinterException ex) {
+            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        boolean complete = false;
+        try {
+            complete = tableCustomers.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (complete) {
+            System.out.println("---print finished!--");
+        } else {
+            System.out.println("---Error printing---");
+        }
+    }//GEN-LAST:event_btnPrintCustomersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,6 +226,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnLoad;
+    private javax.swing.JToggleButton btnPrintCustomers;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
