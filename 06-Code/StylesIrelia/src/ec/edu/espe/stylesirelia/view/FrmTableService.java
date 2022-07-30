@@ -195,6 +195,30 @@ public class FrmTableService extends javax.swing.JFrame {
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
 
+//        MessageFormat headerFormat = new MessageFormat("Services");
+//        MessageFormat footerFormat = new MessageFormat("- Página {0} -");
+//        try {
+//            tableServices.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
+//        } catch (PrinterException ex) {
+//            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        boolean complete = false;
+//        try {
+//            complete = tableServices.print();
+//        } catch (PrinterException ex) {
+//            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//         if (complete) {
+//            System.out.println("---print finished!--");
+//        } else {
+//            System.out.println("---Error printing---");
+//        }
+//
+//       
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void btnPrintServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintServiceActionPerformed
+
         MessageFormat headerFormat = new MessageFormat("Services");
         MessageFormat footerFormat = new MessageFormat("- Página {0} -");
         try {
@@ -215,38 +239,6 @@ public class FrmTableService extends javax.swing.JFrame {
         }
 
        
-    }//GEN-LAST:event_btnImprimirActionPerformed
-
-    private void btnPrintServiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintServiceActionPerformed
-
-        MessageFormat headerFormat = new MessageFormat("Table Service");
-        MessageFormat footerFormat = new MessageFormat("- Página {0} -");
-        try {
-            tableServices.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
-        } catch (PrinterException ex) {
-            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        boolean complete = false;
-        try {
-            complete = tableServices.print();
-        } catch (PrinterException ex) {
-            Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        if (complete) {
-            System.out.println("Impresión finalizada!");
-        } else {
-            System.out.println("Error al imprimir");
-        }
-
-        //        MessageFormat cabesa = new MessageFormat("table print");
-        //        MessageFormat pie = new MessageFormat("Page{o,number.integer}");
-        //        try {
-            //            tableServices.print(JTable.PrintMode.NORMAL, cabesa, pie);
-            //
-            //        } catch (Exception e) {
-            //            System.err.format("no se pudo imprimir", e.getMessage());
-            //
-            //        }
     }//GEN-LAST:event_btnPrintServiceActionPerformed
 
     /**
