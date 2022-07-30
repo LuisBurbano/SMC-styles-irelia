@@ -195,7 +195,7 @@ public class FrmTableService extends javax.swing.JFrame {
 
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
 
-        MessageFormat headerFormat = new MessageFormat("Table Service");
+        MessageFormat headerFormat = new MessageFormat("Services");
         MessageFormat footerFormat = new MessageFormat("- Página {0} -");
         try {
             tableServices.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
