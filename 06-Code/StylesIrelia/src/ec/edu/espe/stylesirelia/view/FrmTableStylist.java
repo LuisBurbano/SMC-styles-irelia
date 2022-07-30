@@ -168,7 +168,7 @@ public class FrmTableStylist extends javax.swing.JFrame {
 
     private void btnPrintStylistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintStylistActionPerformed
 
-        MessageFormat headerFormat = new MessageFormat("Table Service");
+        MessageFormat headerFormat = new MessageFormat("Stylists");
         MessageFormat footerFormat = new MessageFormat("- Página {0} -");
         try {
            tableStylists.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
@@ -181,10 +181,10 @@ public class FrmTableStylist extends javax.swing.JFrame {
         } catch (PrinterException ex) {
             Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if (complete) {
-            System.out.println("Impresión finalizada!");
+         if (complete) {
+            System.out.println("---print finished!--");
         } else {
-            System.out.println("Error al imprimir");
+            System.out.println("---Error printing---");
         }
 
         //        MessageFormat cabesa = new MessageFormat("table print");
