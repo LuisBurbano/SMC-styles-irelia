@@ -202,7 +202,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
 
     private void btnPrintSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintSupplierActionPerformed
        
-                MessageFormat headerFormat = new MessageFormat("Table Supplier");
+                MessageFormat headerFormat = new MessageFormat("Suppliers");
         MessageFormat footerFormat = new MessageFormat("- Página {0} -");
         try {
            tableSuppliers.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
