@@ -208,11 +208,13 @@ public class FrmTableService extends javax.swing.JFrame {
         } catch (PrinterException ex) {
             Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if (complete) {
-            System.out.println("Impresión finalizada!");
+         if (complete) {
+            System.out.println("---print finished!--");
         } else {
-            System.out.println("Error al imprimir");
+            System.out.println("---Error printing---");
         }
+
+        
 
         //        MessageFormat cabesa = new MessageFormat("table print");
         //        MessageFormat pie = new MessageFormat("Page{o,number.integer}");
