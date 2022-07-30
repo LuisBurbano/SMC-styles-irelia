@@ -221,15 +221,6 @@ public class FrmTableSupplier extends javax.swing.JFrame {
             System.out.println("Error al imprimir");
         }
 
-        //        MessageFormat cabesa = new MessageFormat("table print");
-        //        MessageFormat pie = new MessageFormat("Page{o,number.integer}");
-        //        try {
-            //            tableServices.print(JTable.PrintMode.NORMAL, cabesa, pie);
-            //
-            //        } catch (Exception e) {
-            //            System.err.format("no se pudo imprimir", e.getMessage());
-            //
-            //        }
         
     }//GEN-LAST:event_btnPrintSupplierActionPerformed
 
