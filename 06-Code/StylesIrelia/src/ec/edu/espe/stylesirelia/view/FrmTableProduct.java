@@ -195,7 +195,7 @@ public class FrmTableProduct extends javax.swing.JFrame {
 
     private void btnPrintProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintProductsActionPerformed
 
-        MessageFormat headerFormat = new MessageFormat("Suppliers");
+        MessageFormat headerFormat = new MessageFormat("Products");
         MessageFormat footerFormat = new MessageFormat("- Página {0} -");
         try {
             tableProducts.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
