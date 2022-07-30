@@ -216,9 +216,9 @@ public class FrmTableSupplier extends javax.swing.JFrame {
             Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
         }
         if (complete) {
-            System.out.println("Impresión finalizada!");
+            System.out.println("---print finished!--");
         } else {
-            System.out.println("Error al imprimir");
+            System.out.println("---Error printing---");
         }
 
         
