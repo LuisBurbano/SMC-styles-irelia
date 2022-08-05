@@ -81,6 +81,12 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, -20, -1, -1));
+
+        txtNameProduct.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameProductKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtNameProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 164, -1));
 
         jLabel3.setText("Name Product");
@@ -96,7 +102,19 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
 
         jLabel4.setText("Name:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 78, -1));
+
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 164, -1));
+
+        txtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPriceKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 164, -1));
 
         jLabel5.setText("Price:");
@@ -104,6 +122,17 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
 
         jLabel6.setText("Expiration:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 121, -1));
+
+        txtStock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtStockActionPerformed(evt);
+            }
+        });
+        txtStock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtStockKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 164, -1));
 
         Appoiment.setText("Stock");
@@ -182,6 +211,46 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         this.setVisible(false);
 
     }//GEN-LAST:event_btnBackMenuActionPerformed
+
+    private void txtNameProductKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameProductKeyTyped
+       char validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}  // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameProductKeyTyped
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+ char validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameKeyTyped
+
+    private void txtPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyTyped
+      char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");}   // TODO add your handling code here:
+    }//GEN-LAST:event_txtPriceKeyTyped
+
+    private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockActionPerformed
+
+    private void txtStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockKeyTyped
+       char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");}  // TODO add your handling code here:
+    }//GEN-LAST:event_txtStockKeyTyped
 
     /**
      * @param args the command line arguments

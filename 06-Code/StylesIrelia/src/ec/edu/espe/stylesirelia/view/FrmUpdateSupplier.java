@@ -72,6 +72,12 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
 
         jLabel5.setText("Appointment");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 133, -1));
         jPanel1.add(txtPendingPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 133, -1));
 
@@ -80,11 +86,33 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
                 txtAppointmentActionPerformed(evt);
             }
         });
+        txtAppointment.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAppointmentKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 133, -1));
+
+        txtNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumberActionPerformed(evt);
+            }
+        });
+        txtNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumberKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 133, -1));
 
         jLabel6.setText("Address");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+
+        txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAddressKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 133, -1));
 
         btnUpdate.setText("Update ");
@@ -178,6 +206,46 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+         char validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}// TODO add your handling code here:
+    }//GEN-LAST:event_txtNameKeyTyped
+
+    private void txtNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumberActionPerformed
+
+    private void txtNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumberKeyTyped
+       char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");} // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumberKeyTyped
+
+    private void txtAppointmentKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAppointmentKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");} // TODO add your handling code here:
+    }//GEN-LAST:event_txtAppointmentKeyTyped
+
+    private void txtAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");} // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddressKeyTyped
 
     /**
      * @param args the command line arguments

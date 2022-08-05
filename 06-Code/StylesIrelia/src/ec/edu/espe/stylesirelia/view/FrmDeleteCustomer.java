@@ -73,6 +73,11 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, -1));
 
         txtName.setBorder(null);
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 211, -1));
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
@@ -119,6 +124,15 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "This customer has been succesfully deleted");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+      char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");}  // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameKeyTyped
 
     /**
      * @param args the command line arguments

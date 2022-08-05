@@ -48,7 +48,6 @@ public class FrmProduct extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel13 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -63,6 +62,7 @@ public class FrmProduct extends javax.swing.JFrame {
         btnBackToMenu = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        txtAdress = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,9 +72,6 @@ public class FrmProduct extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
         jLabel7.setText("PRODUCT");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
-
-        txtAddress.setBorder(null);
-        jPanel3.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 323, 256, -1));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 130, 10));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
@@ -85,6 +82,11 @@ public class FrmProduct extends javax.swing.JFrame {
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         txtName.setBorder(null);
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 133, -1));
 
         jLabel3.setText("Expiration");
@@ -100,6 +102,11 @@ public class FrmProduct extends javax.swing.JFrame {
                 txtPriceActionPerformed(evt);
             }
         });
+        txtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPriceKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 130, -1));
 
         jLabel5.setText("Stock");
@@ -109,6 +116,11 @@ public class FrmProduct extends javax.swing.JFrame {
         txtStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtStockActionPerformed(evt);
+            }
+        });
+        txtStock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtStockKeyTyped(evt);
             }
         });
         jPanel3.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 130, -1));
@@ -130,6 +142,7 @@ public class FrmProduct extends javax.swing.JFrame {
         jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, -1, -1));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 85, 130, 10));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 130, 10));
+        jPanel3.add(txtAdress, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -186,6 +199,33 @@ public class FrmProduct extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPriceActionPerformed
 
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+       char validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}
+    }//GEN-LAST:event_txtNameKeyTyped
+
+    private void txtPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyTyped
+       char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");} // TODO add your handling code here:
+    }//GEN-LAST:event_txtPriceKeyTyped
+
+    private void txtStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");}// TODO add your handling code here:
+    }//GEN-LAST:event_txtStockKeyTyped
+    
     /**
      * @param args the command line arguments
      */
@@ -235,7 +275,7 @@ public class FrmProduct extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtAdress;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtStock;

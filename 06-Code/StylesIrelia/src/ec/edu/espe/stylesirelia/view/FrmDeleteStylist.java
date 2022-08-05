@@ -57,6 +57,11 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 70, -1, -1));
 
         txtIdentificationCard.setBorder(null);
+        txtIdentificationCard.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdentificationCardKeyTyped(evt);
+            }
+        });
         jPanel1.add(txtIdentificationCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 150, 20));
 
         btnDelete.setText("Delete");
@@ -115,6 +120,15 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
+
+    private void txtIdentificationCardKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificationCardKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");} // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdentificationCardKeyTyped
 
     /**
      * @param args the command line arguments

@@ -158,6 +158,11 @@ public class FrmCustomer extends javax.swing.JFrame {
         jPanel3.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 63, 256, -1));
 
         txtAddress.setBorder(null);
+        txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAddressKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 323, 256, -1));
 
         txtDateService.setMinSelectableDate(new java.util.Date(1658210469000L));
@@ -295,6 +300,16 @@ public class FrmCustomer extends javax.swing.JFrame {
             txtNumber.setText("");
         }
     }//GEN-LAST:event_txtNumberKeyTyped
+
+    private void txtAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyTyped
+       char validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddressKeyTyped
 
     /**
      * @param args the command line arguments

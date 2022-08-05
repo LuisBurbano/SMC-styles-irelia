@@ -64,12 +64,41 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 136, 164, -1));
+
+        txtNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumberKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 176, 164, -1));
+
+        txtAppoiment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAppoimentActionPerformed(evt);
+            }
+        });
+        txtAppoiment.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAppoimentKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtAppoiment, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 256, 164, -1));
 
         jLabel2.setText("Identification Card:");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 96, 121, -1));
+
+        txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAddressKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 296, 164, -1));
 
         jLabel3.setText("Name:");
@@ -94,6 +123,12 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
 
         jLabel7.setText("Address:");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 299, 121, -1));
+
+        txtIdentification.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIdentificationKeyTyped(evt);
+            }
+        });
         jPanel3.add(txtIdentification, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 93, 164, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
@@ -187,6 +222,55 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
     private void cmbPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPaymentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbPaymentActionPerformed
+
+    private void txtIdentificationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificationKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");} // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdentificationKeyTyped
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");} // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameKeyTyped
+
+    private void txtNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumberKeyTyped
+       char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");} // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumberKeyTyped
+
+    private void txtAppoimentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAppoimentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAppoimentActionPerformed
+
+    private void txtAppoimentKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAppoimentKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");} // TODO add your handling code here:
+    }//GEN-LAST:event_txtAppoimentKeyTyped
+
+    private void txtAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyTyped
+        char validar = evt.getKeyChar();
+        if(Character.isDigit(validar)){
+            getToolkit().beep();
+            
+            evt.consume();
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");} // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddressKeyTyped
 
     /**
      * @param args the command line arguments
