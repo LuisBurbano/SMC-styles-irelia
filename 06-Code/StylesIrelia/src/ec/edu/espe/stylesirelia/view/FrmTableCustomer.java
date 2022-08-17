@@ -35,10 +35,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
     }
 
     public void loadCustomersTable() {
-        //borrar estas dos lineas despues de juntar todas las pantallas
-        Connection connection = new Connection();
-        connection.connectionDataBase();
-        //-------
+
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);

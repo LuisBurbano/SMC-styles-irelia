@@ -12,6 +12,9 @@ public class Connection {
 
     public static MongoDatabase mongodb = null;
 
+    private Connection(){
+        
+    }
     public static MongoDatabase connectionDataBase() {
 
         if (mongodb == null) {
