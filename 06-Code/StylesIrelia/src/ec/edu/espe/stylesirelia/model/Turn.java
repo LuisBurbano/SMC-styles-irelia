@@ -10,14 +10,13 @@ public class Turn {
     private String date;
     private String customer;
     private String service;
-    private String stylist;
 
-    public Turn(int id, String date, String customer, String service, String stylist) {
+    public Turn(int id, String date, String customer, String service) {
         this.id = id;
         this.date = date;
         this.customer = customer;
         this.service = service;
-        this.stylist = stylist;
+        
     }
 
     public Turn() {
@@ -26,7 +25,7 @@ public class Turn {
 
     @Override
     public String toString() {
-        return "yout Turn->>" + "id=" + id + ", date=" + date + ", customer=" + customer + ", service=" + service + ", stylist=" + stylist + '}';
+        return "yout Turn->>" + "id=" + id + ", date=" + date + ", customer=" + customer + ", service=" + service ;
     }
 
     /**
@@ -88,15 +87,5 @@ public class Turn {
     /**
      * @return the stylist
      */
-    public String getStylist() {
-        return stylist;
-    }
-
-    /**
-     * @param stylist the stylist to set
-     */
-    public void setStylist(String stylist) {
-        this.stylist = stylist;
-    }
 
 }

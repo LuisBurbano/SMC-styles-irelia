@@ -4,11 +4,20 @@
  */
 package ec.edu.espe.stylesirelia.view;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.controller.SupplierController;
 import ec.edu.espe.stylesirelia.model.Supplier;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -25,8 +34,22 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
         initComponents();
         Connection.connectionDataBase();
         supplierController = new SupplierController();
+        supplierController = new SupplierController();
+        loadSupplierComboBox();
     }
+    public void loadSupplierComboBox() {
 
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Supplier> collectionSupplier = db.getCollection("suppliers", Supplier.class);
+        List<Supplier> suppliers = collectionSupplier.find(new Document(), Supplier.class).into(new ArrayList<Supplier>());
+
+        for (Supplier supplier : suppliers) {
+            comboBoxSupplier.addItem(supplier.getName());
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,12 +61,12 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
         btnBackToMenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
+        comboBoxSupplier = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,19 +75,6 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
 
         jLabel2.setText("Name");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
-
-        txtName.setBorder(null);
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNameKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 160, 20));
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -90,6 +100,7 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, -90, -1, -1));
+        jPanel1.add(comboBoxSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,9 +120,9 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
 
-        supplierController.delete("name", txtName.getText());
+        supplierController.delete("name", comboBoxSupplier.getSelectedItem().toString());
 
-        Document doc = supplierController.read(txtName.getText(), "name");
+        Document doc = supplierController.read(comboBoxSupplier.getSelectedItem().toString(), "name");
         if (doc == null) {
             JOptionPane.showMessageDialog(rootPane, "This supplier has been succesfully deleted");
         }
@@ -124,19 +135,6 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
-
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
-
-    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
-        char validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
-            getToolkit().beep();
-            
-            evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");} // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameKeyTyped
 
     /**
      * @param args the command line arguments
@@ -176,11 +174,11 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackToMenu;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JComboBox<String> comboBoxSupplier;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

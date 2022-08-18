@@ -41,7 +41,6 @@ public class FrmAbout extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(925, 505));
         setResizable(false);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -87,7 +86,7 @@ public class FrmAbout extends javax.swing.JFrame {
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel7.setText("1.0 - Version");
+        jLabel7.setText("2.0 - Version");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N

@@ -24,7 +24,7 @@ public class StylistController extends BasicController<Stylist> {
                 append("name", stylist.getName()).
                 append("number", stylist.getNumber()).
                 append("payment", stylist.getPayment()).
-                append("appointment", stylist.getAppointment()).
+                append("service", stylist.getService()).
                 append("address", stylist.getAddress());
 
         return document;

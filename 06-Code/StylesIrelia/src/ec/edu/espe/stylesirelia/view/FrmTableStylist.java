@@ -53,13 +53,13 @@ public class FrmTableStylist extends javax.swing.JFrame {
             objects[i][1] = stylists.get(i).getName();
             objects[i][2] = stylists.get(i).getNumber();
             objects[i][3] = stylists.get(i).getPayment();
-            objects[i][4] = stylists.get(i).getAppointment();
+            objects[i][4] = stylists.get(i).getService();
             objects[i][5] = stylists.get(i).getAddress();
 
             tableStylists.setModel(new javax.swing.table.DefaultTableModel(
                     objects,
                     new String[]{
-                        "Id", "Name", "Number", "Payment", "Appointmen", "Address"
+                        "Id", "Name", "Number", "Payment", "Service", "Address"
                     }
             ));
 

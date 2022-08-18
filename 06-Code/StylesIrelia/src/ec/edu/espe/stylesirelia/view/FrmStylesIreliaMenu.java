@@ -1,7 +1,20 @@
 package ec.edu.espe.stylesirelia.view;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import ec.edu.espe.stylesirelia.controller.Connection;
+import ec.edu.espe.stylesirelia.model.Product;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -22,6 +35,20 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
      */
     public FrmStylesIreliaMenu() {
         initComponents();
+        Connection.connectionDataBase();
+        showAlertProducts();
+    }
+    public void showAlertProducts(){
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Product> collectionProducts = db.getCollection("products", Product.class);
+        List<Product> products = collectionProducts.find(new Document(), Product.class).into(new ArrayList<Product>());
+        for (Product product : products) {
+            if(product.getStock()<=5){
+                JOptionPane.showMessageDialog(null, "The stock of product: "+ product.getName() + " is " + product.getStock() + ". Please restock");
+            }
+        }
     }
 
     /**

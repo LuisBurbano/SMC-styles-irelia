@@ -34,135 +34,29 @@ public class FrmSupplier extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        txtPendingPayment = new javax.swing.JTextField();
-        txtAppointment = new javax.swing.JTextField();
-        txtNumber = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        btnAddSupplier = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         btnBackToMenu = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtAddress1 = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtPendingPayment = new javax.swing.JTextField();
+        txtNumber = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        btnAddSupplier = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Suppliers");
-
-        jLabel2.setText("Name");
-
-        jLabel3.setText("Number");
-
-        jLabel4.setText("PendingPayment");
-
-        jLabel5.setText("Appointment");
-
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNameKeyTyped(evt);
-            }
-        });
-
-        txtAppointment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAppointmentActionPerformed(evt);
-            }
-        });
-        txtAppointment.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtAppointmentKeyTyped(evt);
-            }
-        });
-
-        txtNumber.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNumberKeyTyped(evt);
-            }
-        });
-
-        jLabel6.setText("Address");
-
-        txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtAddressKeyTyped(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(173, 173, 173)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5))
-                                    .addGap(41, 41, 41))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(46, 46, 46)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3)
-                                        .addComponent(jLabel2))
-                                    .addGap(40, 40, 40)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jLabel6)
-                                .addGap(59, 59, 59)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                            .addComponent(txtPendingPayment)
-                            .addComponent(txtAppointment)
-                            .addComponent(txtNumber)
-                            .addComponent(txtAddress))))
-                .addContainerGap(79, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPendingPayment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-
-        btnAddSupplier.setText("Add");
-        btnAddSupplier.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSupplierActionPerformed(evt);
-            }
-        });
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBackToMenu.setText("Back to Menu");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -170,73 +64,105 @@ public class FrmSupplier extends javax.swing.JFrame {
                 btnBackToMenuActionPerformed(evt);
             }
         });
+        jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(btnAddSupplier)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBackToMenu)
-                .addGap(17, 17, 17))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBackToMenu)
-                    .addComponent(btnAddSupplier))
-                .addGap(35, 35, 35))
-        );
+        jLabel7.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
+        jLabel7.setText("Suppliers");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+
+        jLabel9.setText("Number");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+
+        txtAddress1.setBorder(null);
+        txtAddress1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAddress1KeyTyped(evt);
+            }
+        });
+        jPanel3.add(txtAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 323, 256, -1));
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 256, 10));
+        jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 256, 10));
+        jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 256, 10));
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
+        jLabel13.setText("jLabel8");
+        jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, -20, -1, -1));
+
+        jLabel6.setText("Address");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
+
+        jLabel4.setText("PendingPayment");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        jPanel3.add(txtPendingPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 260, -1));
+
+        txtNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNumberKeyTyped(evt);
+            }
+        });
+        jPanel3.add(txtNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 260, -1));
+
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
+        jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 260, -1));
+
+        jLabel2.setText("Name");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
+
+        txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAddressKeyTyped(evt);
+            }
+        });
+        jPanel3.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 250, -1));
+
+        btnAddSupplier.setText("Add");
+        btnAddSupplier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSupplierActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnAddSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
+        jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 256, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 177, Short.MAX_VALUE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 892, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAppointmentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAppointmentActionPerformed
-
     private void btnAddSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierActionPerformed
 
         String name;
         String number;
-        boolean pendingPayment;
+        double pendingPayment;
         String appointment;
         String address;
 
         name = txtName.getText();
         number = txtNumber.getText();
-        pendingPayment = Boolean.valueOf(txtPendingPayment.getText());
-        appointment = txtAppointment.getText();
+        pendingPayment = Double.parseDouble(txtPendingPayment.getText());
+        
         address = txtAddress.getText();
 
-        Supplier supplier = new Supplier(name, number, pendingPayment, appointment, address);
+        Supplier supplier = new Supplier(name, number, pendingPayment, address);
 
         supplierController.create(supplierController.buildDocument(supplier));
         Document result = supplierController.read(supplierController.buildDocument(supplier));
@@ -281,14 +207,15 @@ public class FrmSupplier extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}  // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressKeyTyped
 
-    private void txtAppointmentKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAppointmentKeyTyped
+    private void txtAddress1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddress1KeyTyped
         char validar = evt.getKeyChar();
         if(Character.isDigit(validar)){
             getToolkit().beep();
-            
+
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");} // TODO add your handling code here:
-    }//GEN-LAST:event_txtAppointmentKeyTyped
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAddress1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -328,16 +255,19 @@ public class FrmSupplier extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddSupplier;
     private javax.swing.JButton btnBackToMenu;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAppointment;
+    private javax.swing.JTextField txtAddress1;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumber;
     private javax.swing.JTextField txtPendingPayment;

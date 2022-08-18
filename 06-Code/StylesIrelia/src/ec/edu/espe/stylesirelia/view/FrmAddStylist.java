@@ -1,12 +1,22 @@
 package ec.edu.espe.stylesirelia.view;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.stylesirelia.controller.StylistController;
 import ec.edu.espe.stylesirelia.controller.Connection;
+import ec.edu.espe.stylesirelia.model.Service;
 import ec.edu.espe.stylesirelia.model.Stylist;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -32,8 +42,24 @@ public class FrmAddStylist extends javax.swing.JFrame {
         initComponents();
         Connection.connectionDataBase();
         stylistController = new StylistController();
+        loadServicesComboBox();
     }
+    public void loadServicesComboBox() { 
+        
+        //-------
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Service> collectionServices = db.getCollection("services", Service.class); 
+        List<Service> services = collectionServices.find(new Document(), Service.class).into(new ArrayList<Service>());
 
+        for (Service service : services) {
+            comboBoxServices.addItem(service.getName());
+        }
+
+        
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,7 +73,6 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtIdentification = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
@@ -64,7 +89,8 @@ public class FrmAddStylist extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         bntBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtAppoinment = new com.toedter.calendar.JDateChooser();
+        jLabel9 = new javax.swing.JLabel();
+        comboBoxServices = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -84,13 +110,9 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jLabel4.setText("Number");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel5.setText("Appoinment");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 107, -1));
-
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel6.setText("Address");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 71, -1));
+        jLabel6.setText("Service:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 71, -1));
 
         txtIdentification.setToolTipText("only numbers");
         txtIdentification.setBorder(null);
@@ -130,7 +152,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
                 txtAddressActionPerformed(evt);
             }
         });
-        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 387, -1));
+        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 387, -1));
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel7.setText("Payment");
@@ -146,7 +168,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 179, 10));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 179, 10));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 179, 10));
-        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 387, 10));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 387, 10));
 
         btnAdd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAdd.setText("Add");
@@ -168,7 +190,11 @@ public class FrmAddStylist extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, -10, -1, -1));
-        jPanel1.add(txtAppoinment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 180, -1));
+
+        jLabel9.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel9.setText("Address");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 71, -1));
+        jPanel1.add(comboBoxServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,17 +220,17 @@ public class FrmAddStylist extends javax.swing.JFrame {
         String name;
         String number;
         double payment;
-        String appointment;
+        String service;
         String address;
 
         identificationCard = txtIdentification.getText();
         name = txtName.getText();
         number = txtNumber.getText();
         payment = Integer.parseInt(txtPayment.getText());
-        appointment = formDate.format(txtAppoinment.getDate());
+        service = comboBoxServices.getSelectedItem().toString();
         address = txtAddress.getText();
 
-        Stylist stylist = new Stylist(identificationCard, name, number, payment, appointment, address);
+        Stylist stylist = new Stylist(identificationCard, name, number, payment, service, address);
 
         stylistController.create(stylistController.buildDocument(stylist));
         Document result = stylistController.read(stylistController.buildDocument(stylist));
@@ -314,14 +340,15 @@ public class FrmAddStylist extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntBack;
     private javax.swing.JButton btnAdd;
+    private javax.swing.JComboBox<String> comboBoxServices;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
@@ -329,7 +356,6 @@ public class FrmAddStylist extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTextField txtAddress;
-    private com.toedter.calendar.JDateChooser txtAppoinment;
     private javax.swing.JTextField txtIdentification;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumber;

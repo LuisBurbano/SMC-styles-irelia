@@ -55,39 +55,11 @@
         </DimensionLayout>
       </Layout>
     </Container>
-    <Menu class="javax.swing.JMenuBar" name="jMenuBar2">
-      <SubComponents>
-        <Menu class="javax.swing.JMenu" name="mnuStylesIrelia">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Styles Irelia"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuStylesIreliaActionPerformed"/>
-          </Events>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Login Stylist"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Products"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Help"/>
-          </Properties>
-        </Menu>
-      </SubComponents>
-    </Menu>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar2"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -113,7 +85,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" pref="371" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="6" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,7 +108,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="69" y="133" width="-1" height="-1"/>
+              <AbsoluteConstraints x="60" y="170" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -151,7 +123,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="195" y="70" width="176" height="-1"/>
+              <AbsoluteConstraints x="190" y="110" width="176" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -168,15 +140,8 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cmbService">
+        <Component class="javax.swing.JComboBox" name="comboBoxServices">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Hair Cut"/>
-                <StringItem index="1" value="Massages"/>
-                <StringItem index="2" value="Water circuits"/>
-              </StringArray>
-            </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <AuxValues>
@@ -184,7 +149,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="195" y="130" width="176" height="-1"/>
+              <AbsoluteConstraints x="190" y="170" width="176" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -217,7 +182,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="82" y="70" width="-1" height="-1"/>
+              <AbsoluteConstraints x="80" y="110" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -231,6 +196,26 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="430" y="-80" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="comboBoxCustomers">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="190" y="70" width="190" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Identification Card:"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="50" y="70" width="121" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

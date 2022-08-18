@@ -4,11 +4,20 @@
  */
 package ec.edu.espe.stylesirelia.view;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.stylesirelia.controller.StylistController;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Stylist;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -24,6 +33,20 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         initComponents();
         Connection.connectionDataBase();
         stylistController = new StylistController();
+        loadStylistComboBox();
+    }
+    public void loadStylistComboBox() {
+
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Stylist> collectionServices = db.getCollection("stylists", Stylist.class);
+        List<Stylist> stylists = collectionServices.find(new Document(), Stylist.class).into(new ArrayList<Stylist>());
+
+        for (Stylist stylist : stylists) {
+            comboBoxStylist.addItem(stylist.getName());
+        }
+
     }
 
     /**
@@ -38,12 +61,12 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txtIdentificationCard = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
         btnBackToMenu = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        comboBoxStylist = new javax.swing.JComboBox<>();
 
         jLabel3.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel3.setText("DELETE CUSTOMER");
@@ -55,14 +78,6 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
 
         jLabel2.setText("Identification Card:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 70, -1, -1));
-
-        txtIdentificationCard.setBorder(null);
-        txtIdentificationCard.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtIdentificationCardKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtIdentificationCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 150, 20));
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +102,7 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel4.setText("DELETE STYLIST");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 220, -1));
+        jPanel1.add(comboBoxStylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,9 +121,9 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         
         Stylist stylist = new Stylist();
-        stylistController.delete("identificationCard", txtIdentificationCard.getText());
+        stylistController.delete("identificationCard", comboBoxStylist.getSelectedItem().toString());
         
-        Document doc =stylistController.read(txtIdentificationCard.getText(),"");
+        Document doc =stylistController.read(comboBoxStylist.getSelectedItem().toString(),"");
         if(doc==null){
             JOptionPane.showMessageDialog(rootPane, "This stylist has been succesfully deleted");
         }
@@ -120,15 +136,6 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
-
-    private void txtIdentificationCardKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificationCardKeyTyped
-        char validar = evt.getKeyChar();
-        if(Character.isLetter(validar)){
-            getToolkit().beep();
-            
-            evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");} // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdentificationCardKeyTyped
 
     /**
      * @param args the command line arguments
@@ -171,12 +178,12 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackToMenu;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JComboBox<String> comboBoxStylist;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField txtIdentificationCard;
     // End of variables declaration//GEN-END:variables
 }

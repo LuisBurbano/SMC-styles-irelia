@@ -52,15 +52,14 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         for (int i = 0; i < suppliers.size(); i++) {
             objects[i][0] = suppliers.get(i).getName();
             objects[i][1] = suppliers.get(i).getNumber();
-            objects[i][2] = suppliers.get(i).isPendingPayment();
-            objects[i][3] =suppliers.get(i).getAppointment();
+            objects[i][2] = suppliers.get(i).getPendingPayment();
             objects[i][4] = suppliers.get(i).getAddress();
 //            objects[i][5] = services.get(i).getAddress();
 
             tableSuppliers.setModel(new javax.swing.table.DefaultTableModel(
                     objects,
                     new String[]{
-                         "Name", "Number", "PendingPayment", "Appointment", "Address"
+                         "Name", "Number", "PendingPayment", "Address"
                     }
             ));
 

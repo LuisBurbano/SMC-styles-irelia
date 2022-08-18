@@ -5,13 +5,22 @@
 package ec.edu.espe.stylesirelia.view;
 
 import com.google.gson.Gson;
+import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
 import ec.edu.espe.stylesirelia.controller.SupplierController;
 import ec.edu.espe.stylesirelia.controller.Connection;
+import ec.edu.espe.stylesirelia.model.Service;
 import ec.edu.espe.stylesirelia.model.Supplier;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -28,8 +37,22 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         initComponents();
         Connection.connectionDataBase();
         supplierController = new SupplierController();
+        loadSupplierComboBox();
     }
 
+     public void loadSupplierComboBox() {
+
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Supplier> collectionSupplier = db.getCollection("suppliers", Supplier.class);
+        List<Supplier> suppliers = collectionSupplier.find(new Document(), Supplier.class).into(new ArrayList<Supplier>());
+
+        for (Supplier supplier : suppliers) {
+            comboBoxSupplier.addItem(supplier.getName());
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,7 +67,6 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
         txtPendingPayment = new javax.swing.JTextField();
         txtAppointment = new javax.swing.JTextField();
         txtNumber = new javax.swing.JTextField();
@@ -55,6 +77,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         btnBackToMenu = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        comboBoxSupplier = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,13 +95,6 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
 
         jLabel5.setText("Appointment");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNameKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 133, -1));
         jPanel1.add(txtPendingPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 133, -1));
 
         txtAppointment.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +145,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
                 btnFindActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, -1, -1));
+        jPanel1.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
 
         btnBackToMenu.setText("Back to Menu");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +162,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel7.setText("jLabel7");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, -50, -1, -1));
+        jPanel1.add(comboBoxSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,15 +185,13 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
         try {
-            Document doc = supplierController.read(txtName.getText(), "name");
+            Document doc = supplierController.read(comboBoxSupplier.getSelectedItem().toString(), "name");
 
             Supplier supplier = supplierController.parseDocumentToClass(doc);
-            txtName.setText(supplier.getName());
-
-            txtAppointment.setText(supplier.getAppointment());
-            txtName.setText(supplier.getName());
+            
+            
             txtNumber.setText(supplier.getNumber());
-            txtPendingPayment.setText(String.valueOf(supplier.isPendingPayment()));
+            txtPendingPayment.setText(String.valueOf(supplier.getPendingPayment()));
             txtAddress.setText(supplier.getAddress());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "It was not found");
@@ -187,9 +202,9 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
-        Document doc = supplierController.read(txtName.getText(), "name");
+        Document doc = supplierController.read(comboBoxSupplier.getSelectedItem().toString(), "name");
 
-        Supplier supplier = new Supplier(txtName.getText(), txtNumber.getText(), Boolean.valueOf(txtPendingPayment.getText()), txtAppointment.getText(), txtAddress.getText());
+        Supplier supplier = new Supplier(comboBoxSupplier.getSelectedItem().toString(), txtNumber.getText(), Double.parseDouble(txtPendingPayment.getText()), txtAddress.getText());
         supplierController.update(doc, supplierController.buildDocument(supplier));
         Document result = supplierController.read(supplierController.buildDocument(supplier));
         if (result!=null) {
@@ -206,15 +221,6 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
-
-    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
-         char validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
-            getToolkit().beep();
-            
-            evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}// TODO add your handling code here:
-    }//GEN-LAST:event_txtNameKeyTyped
 
     private void txtNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumberActionPerformed
         // TODO add your handling code here:
@@ -286,6 +292,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
     private javax.swing.JButton btnBackToMenu;
     private javax.swing.JButton btnFind;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> comboBoxSupplier;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -296,7 +303,6 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAppointment;
-    private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumber;
     private javax.swing.JTextField txtPendingPayment;
     // End of variables declaration//GEN-END:variables

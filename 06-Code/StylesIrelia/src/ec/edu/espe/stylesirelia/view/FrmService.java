@@ -1,5 +1,8 @@
 package ec.edu.espe.stylesirelia.view;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.stylesirelia.controller.ServiceController;
 import ec.edu.espe.stylesirelia.controller.Connection;
@@ -8,8 +11,13 @@ import ec.edu.espe.stylesirelia.model.Stylist;
 import static java.lang.Float.parseFloat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -36,8 +44,21 @@ public class FrmService extends javax.swing.JFrame {
         initComponents();
         Connection.connectionDataBase();
         serviceController = new ServiceController();
+        loadStylistComboBox();
     }
+public void loadStylistComboBox() {
 
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Stylist> collectionStylist = db.getCollection("stylists", Stylist.class);
+        List<Stylist> stylists = collectionStylist.find(new Document(), Stylist.class).into(new ArrayList<Stylist>());
+
+        for (Stylist stylist : stylists) {
+            comboBoxStylist.addItem(stylist.getName());
+        }
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -50,18 +71,16 @@ public class FrmService extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtAvailableStylist = new javax.swing.JTextField();
         txtAvailable = new javax.swing.JTextField();
-        txtPendingPayment = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         btnAdd = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         btnBackToMenu = new javax.swing.JButton();
+        comboBoxStylist = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,15 +92,7 @@ public class FrmService extends javax.swing.JFrame {
 
         jLabel2.setText("Name");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 102, -1, -1));
-
-        txtAvailableStylist.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtAvailableStylistKeyTyped(evt);
-            }
-        });
-        jPanel3.add(txtAvailableStylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 241, 132, -1));
-        jPanel3.add(txtAvailable, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 207, 230, -1));
-        jPanel3.add(txtPendingPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 173, 230, -1));
+        jPanel3.add(txtAvailable, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 230, -1));
 
         txtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -105,14 +116,8 @@ public class FrmService extends javax.swing.JFrame {
         jLabel3.setText("Price");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 136, -1, -1));
 
-        jLabel4.setText("Pending Payment");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 176, -1, -1));
-
         jLabel5.setText("Available");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 210, -1, -1));
-
-        jLabel6.setText("Available Stylist");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 244, -1, -1));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +137,10 @@ public class FrmService extends javax.swing.JFrame {
             }
         });
         jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, -1, -1));
+        jPanel3.add(comboBoxStylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 190, -1));
+
+        jLabel6.setText("Available Stylist");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,9 +166,8 @@ public class FrmService extends javax.swing.JFrame {
         name = txtName.getText();
         price = Double.parseDouble(txtPrice.getText());
         available = Boolean.valueOf(txtAvailable.getText());
-        pendingPayment = Boolean.valueOf(txtPendingPayment.getText());
-        availableStylist = txtAvailableStylist.getText();
-        Service service = new Service(name, price, pendingPayment, available, availableStylist);
+        availableStylist = comboBoxStylist.getSelectedItem().toString();
+        Service service = new Service(name, price, available, availableStylist);
 
         serviceController.create(serviceController.buildDocument(service));
 
@@ -195,15 +203,6 @@ public class FrmService extends javax.swing.JFrame {
             evt.consume();
             JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");}// TODO add your handling code here:
     }//GEN-LAST:event_txtPriceKeyTyped
-
-    private void txtAvailableStylistKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAvailableStylistKeyTyped
-        char validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
-            getToolkit().beep();
-            
-            evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}// TODO add your handling code here:
-    }//GEN-LAST:event_txtAvailableStylistKeyTyped
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
@@ -248,18 +247,16 @@ public class FrmService extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBackToMenu;
+    private javax.swing.JComboBox<String> comboBoxStylist;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtAvailable;
-    private javax.swing.JTextField txtAvailableStylist;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPendingPayment;
     private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
 

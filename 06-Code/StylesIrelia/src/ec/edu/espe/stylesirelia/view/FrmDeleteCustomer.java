@@ -4,13 +4,22 @@
  */
 package ec.edu.espe.stylesirelia.view;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.controller.CustomerController;
 
 import ec.edu.espe.stylesirelia.model.Customer;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -27,9 +36,22 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
         initComponents();
         Connection.connectionDataBase();
         customerController = new CustomerController();
+        loadCustomerComboBox();
+    }
+    
+    public void loadCustomerComboBox() {
+
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Customer> collectionCustomers = db.getCollection("customers", Customer.class);
+        List<Customer> customers = collectionCustomers.find(new Document(), Customer.class).into(new ArrayList<Customer>());
+
+        for (Customer customer : customers) {
+            comboBoxCustomers.addItem(customer.getIdentificationCard());
+        }
 
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,11 +65,11 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnDelete = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        txtName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
+        comboBoxCustomers = new javax.swing.JComboBox<>();
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
 
@@ -72,14 +94,6 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
         });
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, -1, -1));
 
-        txtName.setBorder(null);
-        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNameKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 211, -1));
-
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         jLabel2.setText("Identification Card");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 150, -1));
@@ -91,6 +105,7 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, -60, -1, -1));
+        jPanel1.add(comboBoxCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,22 +132,13 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
         
         Customer customer = new Customer();
         
-        customerController.delete("identificationCard", txtName.getText());
+        customerController.delete("identificationCard",comboBoxCustomers.getSelectedItem().toString());
 
-        Document doc = customerController.read(txtName.getText(), "identificationCard");
+        Document doc = customerController.read(comboBoxCustomers.getSelectedItem().toString(), "identificationCard");
         if (doc == null) {
             JOptionPane.showMessageDialog(rootPane, "This customer has been succesfully deleted");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
-      char validar = evt.getKeyChar();
-        if(Character.isLetter(validar)){
-            getToolkit().beep();
-            
-            evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");}  // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameKeyTyped
 
     /**
      * @param args the command line arguments
@@ -172,12 +178,12 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JComboBox<String> comboBoxCustomers;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

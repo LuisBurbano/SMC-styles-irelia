@@ -4,17 +4,27 @@
  */
 package ec.edu.espe.stylesirelia.view;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.controller.ProductController;
 import ec.edu.espe.stylesirelia.model.Product;
+import ec.edu.espe.stylesirelia.model.Stylist;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -41,6 +51,20 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         initComponents();
         Connection.connectionDataBase();
         productController = new ProductController();
+        loadProductComboBox();
+    }
+    public void loadProductComboBox() {
+
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Product> collectionProducts = db.getCollection("products", Product.class);
+        List<Product> products = collectionProducts.find(new Document(), Product.class).into(new ArrayList<Product>());
+
+        for (Product product : products) {
+            comboBoxProducts.addItem(product.getName());
+        }
+
     }
 
     /**
@@ -55,7 +79,6 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtNameProduct = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnFind = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -68,6 +91,7 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         btnUpdate = new javax.swing.JButton();
         btnBackMenu = new javax.swing.JButton();
         txtExpirationDate = new com.toedter.calendar.JDateChooser();
+        comboBoxProducts = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,13 +105,6 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, -20, -1, -1));
-
-        txtNameProduct.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtNameProductKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtNameProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 164, -1));
 
         jLabel3.setText("Name Product");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 121, -1));
@@ -154,6 +171,7 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         });
         jPanel1.add(btnBackMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, -1, -1));
         jPanel1.add(txtExpirationDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 180, -1));
+        jPanel1.add(comboBoxProducts, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,9 +192,8 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
         try {
-            Document doc = productController.read(txtNameProduct.getText(), "name");
+            Document doc = productController.read(comboBoxProducts.getSelectedItem().toString(), "name");
             Product product = productController.parseDocumentToClass(doc);
-            txtNameProduct.setText(product.getName());
             txtStock.setText(product.getExpiration());
             txtName.setText(product.getName());
             txtPrice.setText(String.valueOf(product.getPrice()));
@@ -192,13 +209,14 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         Product product = new Product(txtName.getText(),Float.parseFloat(txtPrice.getText()),formDate.format(txtExpirationDate.getDate()),Integer.parseInt(txtStock.getText()));
-        Document doc = productController.read(txtNameProduct.getText(), "name");
+        Document doc = productController.read(comboBoxProducts.getSelectedItem().toString(), "name");
           
         productController.update(doc, productController.buildDocument(product));
         Document result = productController.read(productController.buildDocument(product));
         if (result!=null) {
             
             JOptionPane.showMessageDialog(null, "Updated successfully");
+            
         }else{
             JOptionPane.showMessageDialog(null, "A problem has occurred");
         }
@@ -211,15 +229,6 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         this.setVisible(false);
 
     }//GEN-LAST:event_btnBackMenuActionPerformed
-
-    private void txtNameProductKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameProductKeyTyped
-       char validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
-            getToolkit().beep();
-            
-            evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}  // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameProductKeyTyped
 
     private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
  char validar = evt.getKeyChar();
@@ -292,6 +301,7 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
     private javax.swing.JButton btnBackMenu;
     private javax.swing.JButton btnFind;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> comboBoxProducts;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -301,7 +311,6 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private com.toedter.calendar.JDateChooser txtExpirationDate;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtNameProduct;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtStock;
     // End of variables declaration//GEN-END:variables

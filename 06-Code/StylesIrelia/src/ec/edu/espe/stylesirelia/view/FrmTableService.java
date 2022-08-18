@@ -51,15 +51,14 @@ public class FrmTableService extends javax.swing.JFrame {
         for (int i = 0; i < services.size(); i++) {
             objects[i][0] = services.get(i).getName();
             objects[i][1] = services.get(i).getPrice();
-            objects[i][2] = services.get(i).isPendingPayment();
-            objects[i][3] = services.get(i).isAvailable();
-            objects[i][4] = services.get(i).getAvailableStylist();
+            objects[i][2] = services.get(i).isAvailable();
+            objects[i][3] = services.get(i).getAvailableStylist();
 
 
             tableServices.setModel(new javax.swing.table.DefaultTableModel(
                     objects,
                     new String[]{
-                         "Name", "Price", "PendingPayment", "Available", "AavailableStylist"
+                         "Name", "Price", "Available", "AavailableStylist"
                     }
             ));
 

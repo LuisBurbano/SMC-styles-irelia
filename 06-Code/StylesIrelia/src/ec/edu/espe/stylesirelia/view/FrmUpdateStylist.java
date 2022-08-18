@@ -5,16 +5,25 @@
 package ec.edu.espe.stylesirelia.view;
 
 import com.google.gson.Gson;
+import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.stylesirelia.controller.StylistController;
 import ec.edu.espe.stylesirelia.controller.Connection;
+import ec.edu.espe.stylesirelia.model.Service;
 import ec.edu.espe.stylesirelia.model.Stylist;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -42,6 +51,34 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         Connection.connectionDataBase();
 
         stylistController = new StylistController();
+        loadServicesComboBox();
+        loadStylistComboBox();
+    }
+
+    public void loadServicesComboBox() {
+
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Service> collectionServices = db.getCollection("services", Service.class);
+        List<Service> services = collectionServices.find(new Document(), Service.class).into(new ArrayList<Service>());
+
+        for (Service service : services) {
+            comboBoxServices.addItem(service.getName());
+        }
+
+    }
+    public void loadStylistComboBox() {
+
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Stylist> collectionServices = db.getCollection("stylists", Stylist.class);
+        List<Stylist> stylists = collectionServices.find(new Document(), Stylist.class).into(new ArrayList<Stylist>());
+
+        for (Stylist stylist : stylists) {
+            comboBoxStylist.addItem(stylist.getName());
+        }
 
     }
 
@@ -63,17 +100,17 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         btnFind = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnBackToMenu = new javax.swing.JButton();
         txtId = new javax.swing.JTextField();
-        txtIdFind = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         txtNumber = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtAppoinment = new com.toedter.calendar.JDateChooser();
+        jLabel10 = new javax.swing.JLabel();
+        comboBoxStylist = new javax.swing.JComboBox<>();
+        comboBoxServices = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,13 +134,13 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         jLabel3.setText("Number");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
-        btnFind.setText("Find");
+        btnFind.setText("Edit");
         btnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFindActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+        jPanel1.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
 
         jLabel4.setText("Payment");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
@@ -115,9 +152,6 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
-
-        jLabel5.setText("Appointment");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
         jLabel6.setText("Address");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
@@ -145,18 +179,6 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         });
         jPanel1.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 130, -1));
 
-        txtIdFind.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdFindActionPerformed(evt);
-            }
-        });
-        txtIdFind.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtIdFindKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtIdFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 130, -1));
-
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNameActionPerformed(evt);
@@ -182,7 +204,12 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel8.setText("UPDATE STYLIST");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 220, -1));
-        jPanel1.add(txtAppoinment, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 180, -1));
+
+        jLabel10.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jLabel10.setText("Service:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 71, -1));
+        jPanel1.add(comboBoxStylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 190, -1));
+        jPanel1.add(comboBoxServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,16 +232,14 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
         try {
-            Document doc = stylistController.read(txtIdFind.getText(), "identificationCard");
+            Document doc = stylistController.read(comboBoxStylist.getSelectedItem().toString(), "name");
             Stylist stylist = stylistController.parseDocumentToClass(doc);
             txtId.setText(stylist.getIdentificationCard());
-            txtAppoinment.setDate(formDate.parse(stylist.getAppointment()));
+            comboBoxStylist.setSelectedItem(stylist.getService());
             txtName.setText(stylist.getName());
             txtNumber.setText(stylist.getNumber());
             txtPayment.setText(String.valueOf(stylist.getPayment()));
             txtAddress.setText(stylist.getAddress());
-        } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(null, "Something happened, please try again");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "It was not found");
         }
@@ -224,9 +249,9 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
-        Document doc = stylistController.read(txtIdFind.getText(), "identificationCard");
+        Document doc = stylistController.read(comboBoxStylist.getSelectedItem().toString(), "identificationCard");
 
-        Stylist stylist = new Stylist(txtId.getText(), txtName.getText(), txtNumber.getText(), Double.parseDouble(txtPayment.getText()), formDate.format(txtAppoinment.getDate()), txtAddress.getText());
+        Stylist stylist = new Stylist(txtId.getText(), txtName.getText(), txtNumber.getText(), Double.parseDouble(txtPayment.getText()), comboBoxStylist.getSelectedItem().toString(), txtAddress.getText());
 
         stylistController.update(doc, stylistController.buildDocument(stylist));
         Document result = stylistController.read(stylistController.buildDocument(stylist));
@@ -245,30 +270,18 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
 
-    private void txtIdFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdFindActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdFindActionPerformed
-
-    private void txtIdFindKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdFindKeyTyped
-        char validar = evt.getKeyChar();
-        if(Character.isLetter(validar)){
-            getToolkit().beep();
-            
-            evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");} // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdFindKeyTyped
-
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdActionPerformed
 
     private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped
- char validar = evt.getKeyChar();
-        if(Character.isLetter(validar)){
+        char validar = evt.getKeyChar();
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
-            
+
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");}        // TODO add your handling code here:
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_txtIdKeyTyped
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -276,30 +289,33 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
-      char validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
+        char validar = evt.getKeyChar();
+        if (Character.isDigit(validar)) {
             getToolkit().beep();
-            
+
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}  // TODO add your handling code here:
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");
+        }  // TODO add your handling code here:
     }//GEN-LAST:event_txtNameKeyTyped
 
     private void txtNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumberKeyTyped
         char validar = evt.getKeyChar();
-        if(Character.isLetter(validar)){
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
-            
+
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");}    // TODO add your handling code here:
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");
+        }    // TODO add your handling code here:
     }//GEN-LAST:event_txtNumberKeyTyped
 
     private void txtAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyTyped
-       char validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
+        char validar = evt.getKeyChar();
+        if (Character.isDigit(validar)) {
             getToolkit().beep();
-            
+
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}  // TODO add your handling code here:
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");
+        }  // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressKeyTyped
 
     /**
@@ -341,20 +357,20 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
     private javax.swing.JButton btnBackToMenu;
     private javax.swing.JButton btnFind;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> comboBoxServices;
+    private javax.swing.JComboBox<String> comboBoxStylist;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtAddress;
-    private com.toedter.calendar.JDateChooser txtAppoinment;
     private javax.swing.JTextField txtId;
-    private javax.swing.JTextField txtIdFind;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumber;
     private javax.swing.JTextField txtPayment;

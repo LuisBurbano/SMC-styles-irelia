@@ -45,9 +45,9 @@ public class BasicController<T> extends BasicModel {
     }
 
     @Override
-    public Document read(String id,String fieldName) {
+    public Document read(String idFind,String valueFind) {
         
-        return mongoCollection.find(eq(fieldName,id)).first();
+        return mongoCollection.find(eq(valueFind,idFind)).first();
     }
     @Override
     public Document read(Document document) {

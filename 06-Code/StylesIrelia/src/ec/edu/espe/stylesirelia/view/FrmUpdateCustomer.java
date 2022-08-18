@@ -5,15 +5,23 @@
 package ec.edu.espe.stylesirelia.view;
 
 import com.google.gson.Gson;
+import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import static com.mongodb.client.model.Filters.eq;
 import ec.edu.espe.stylesirelia.controller.CustomerController;
 import ec.edu.espe.stylesirelia.controller.StylistController;
 import ec.edu.espe.stylesirelia.controller.Connection;
 import ec.edu.espe.stylesirelia.model.Customer;
 import ec.edu.espe.stylesirelia.model.Stylist;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -30,6 +38,20 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         initComponents();
         Connection.connectionDataBase();
         customerController = new CustomerController();
+        loadCustomerComboBox();
+    }
+    public void loadCustomerComboBox() {
+
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Customer> collectionCustomers = db.getCollection("customers", Customer.class);
+        List<Customer> customers = collectionCustomers.find(new Document(), Customer.class).into(new ArrayList<Customer>());
+
+        for (Customer customer : customers) {
+            comboBoxCustomers.addItem(customer.getIdentificationCard());
+        }
+
     }
 
     /**
@@ -53,12 +75,12 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         Appoiment = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtIdentification = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnBackMenu = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtUpdate1 = new javax.swing.JButton();
         cmbPayment = new javax.swing.JComboBox<>();
+        comboBoxCustomers = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,7 +132,7 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
                 btnFindActionPerformed(evt);
             }
         });
-        jPanel3.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(509, 93, -1, -1));
+        jPanel3.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 90, -1, -1));
 
         jLabel4.setText("Number:");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 179, 121, -1));
@@ -123,13 +145,6 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
 
         jLabel7.setText("Address:");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 299, 121, -1));
-
-        txtIdentification.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtIdentificationKeyTyped(evt);
-            }
-        });
-        jPanel3.add(txtIdentification, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 93, 164, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel1.setText("UPDATE CUSTOMER");
@@ -161,6 +176,7 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
             }
         });
         jPanel3.add(cmbPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 256, -1));
+        jPanel3.add(comboBoxCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,10 +205,10 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
         try {
-            Document doc = customerController.read(txtIdentification.getText(),"identificationCard");
+            Document doc = customerController.read(comboBoxCustomers.getSelectedItem().toString(),"identificationCard");
             Customer customer = customerController.parseDocumentToClass(doc);
             
-            txtIdentification.setText(customer.getIdentificationCard());
+            
             txtAppoiment.setText(customer.getAppointment());
             txtName.setText(customer.getName());
             txtAddress.setText(customer.getAddress());
@@ -204,8 +220,8 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFindActionPerformed
 
     private void txtUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUpdate1ActionPerformed
-        Document doc = customerController.read(txtIdentification.getText(),"identificationCard");
-        Customer customer = new Customer(txtIdentification.getText(),
+        Document doc = customerController.read(comboBoxCustomers.getSelectedItem().toString(),"identificationCard");
+        Customer customer = new Customer(comboBoxCustomers.getSelectedItem().toString(),
                 txtName.getText(),
                 Integer.parseInt(txtNumber.getText()),
                 false, txtAppoiment.getText(), txtAddress.getText());
@@ -222,15 +238,6 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
     private void cmbPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPaymentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbPaymentActionPerformed
-
-    private void txtIdentificationKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificationKeyTyped
-        char validar = evt.getKeyChar();
-        if(Character.isLetter(validar)){
-            getToolkit().beep();
-            
-            evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");} // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdentificationKeyTyped
 
     private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
         char validar = evt.getKeyChar();
@@ -312,6 +319,7 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
     private javax.swing.JButton btnBackMenu;
     private javax.swing.JButton btnFind;
     private javax.swing.JComboBox<String> cmbPayment;
+    private javax.swing.JComboBox<String> comboBoxCustomers;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -322,7 +330,6 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAppoiment;
-    private javax.swing.JTextField txtIdentification;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtNumber;
     private javax.swing.JButton txtUpdate1;

@@ -23,8 +23,8 @@ public class TurnController extends BasicController<Turn> {
         document.append("id", turn.getId()).
                 append("date", turn.getDate()).
                 append("customer", turn.getCustomer()).
-                append("service", turn.getService()).
-                append("stylist", turn.getStylist());
+                append("service", turn.getService());
+                
 
         return document;
     }

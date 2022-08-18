@@ -1,5 +1,8 @@
 package ec.edu.espe.stylesirelia.view;
 
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import com.toedter.calendar.JDateChooser;
 import ec.edu.espe.stylesirelia.controller.TurnController;
 import ec.edu.espe.stylesirelia.controller.Connection;
@@ -8,6 +11,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import ec.edu.espe.stylesirelia.controller.Connection;
+import ec.edu.espe.stylesirelia.model.Customer;
+import ec.edu.espe.stylesirelia.model.Service;
+import java.util.ArrayList;
+import java.util.List;
+import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -33,6 +45,34 @@ public class FrmTurn extends javax.swing.JFrame {
         initComponents();
         Connection.connectionDataBase();
         cTurn = new TurnController();
+        loadCustomerComboBox();
+        loadServiceComboBox();
+    }
+    public void loadServiceComboBox() {
+
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Service> collectionServices = db.getCollection("services", Service.class);
+        List<Service> services = collectionServices.find(new Document(), Service.class).into(new ArrayList<Service>());
+
+        for (Service service : services) {
+            comboBoxServices.addItem(service.getName());
+        }
+
+    }
+     public void loadCustomerComboBox() {
+
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Customer> collectionCustomers = db.getCollection("customers", Customer.class);
+        List<Customer> customers = collectionCustomers.find(new Document(), Customer.class).into(new ArrayList<Customer>());
+
+        for (Customer customer : customers) {
+            comboBoxCustomers.addItem(customer.getIdentificationCard());
+        }
+
     }
 
     /**
@@ -55,16 +95,13 @@ public class FrmTurn extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         dtcServiceTurn = new com.toedter.calendar.JDateChooser();
         btnRegisterTurn = new javax.swing.JButton();
-        cmbService = new javax.swing.JComboBox<>();
+        comboBoxServices = new javax.swing.JComboBox<>();
         btnBackToMenu = new javax.swing.JButton();
         txtGetATurn = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        mnuStylesIrelia = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
+        comboBoxCustomers = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
 
         jMenu1.setText("Styles Irelia");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,11 +141,11 @@ public class FrmTurn extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Select the service:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 133, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
         dtcServiceTurn.setMaxSelectableDate(new java.util.Date(1672552916000L));
         dtcServiceTurn.setMinSelectableDate(new java.util.Date(1657605716000L));
-        jPanel1.add(dtcServiceTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 70, 176, -1));
+        jPanel1.add(dtcServiceTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 176, -1));
 
         btnRegisterTurn.setText("Register turn");
         btnRegisterTurn.addActionListener(new java.awt.event.ActionListener() {
@@ -118,9 +155,8 @@ public class FrmTurn extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegisterTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 216, -1, -1));
 
-        cmbService.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hair Cut", "Massages", "Water circuits" }));
-        cmbService.setToolTipText("");
-        jPanel1.add(cmbService, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 130, 176, -1));
+        comboBoxServices.setToolTipText("");
+        jPanel1.add(comboBoxServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 176, -1));
 
         btnBackToMenu.setText("Back to menu");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -134,30 +170,15 @@ public class FrmTurn extends javax.swing.JFrame {
         jPanel1.add(txtGetATurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 25, -1, -1));
 
         jLabel1.setText("Select the date:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 70, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, -80, -1, -1));
+        jPanel1.add(comboBoxCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 190, -1));
 
-        mnuStylesIrelia.setText("Styles Irelia");
-        mnuStylesIrelia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuStylesIreliaActionPerformed(evt);
-            }
-        });
-        jMenuBar2.add(mnuStylesIrelia);
-
-        jMenu6.setText("Login Stylist");
-        jMenuBar2.add(jMenu6);
-
-        jMenu7.setText("Products");
-        jMenuBar2.add(jMenu7);
-
-        jMenu8.setText("Help");
-        jMenuBar2.add(jMenu8);
-
-        setJMenuBar(jMenuBar2);
+        jLabel4.setText("Identification Card:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 121, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,7 +190,7 @@ public class FrmTurn extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
 
         pack();
@@ -179,25 +200,27 @@ public class FrmTurn extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenu1ActionPerformed
 
-    private void mnuStylesIreliaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuStylesIreliaActionPerformed
-
-    }//GEN-LAST:event_mnuStylesIreliaActionPerformed
-
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
-//        FrmStylesirelia frmStylesirelia;
-//        frmStylesirelia = new FrmStylesirelia();
-//        frmStylesirelia.setVisible(true);
-//        this.setVisible(false);
+        FrmStylesIreliaMenu frmStylesirelia;
+        frmStylesirelia = new FrmStylesIreliaMenu();
+        frmStylesirelia.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnBackToMenuActionPerformed
 
     private void btnRegisterTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterTurnActionPerformed
-        JOptionPane.showMessageDialog(this, "Select Date is: " + getDate(dtcServiceTurn));
-        String v;
-        v = formDate.format(dtcServiceTurn.getDate());
+        
+        String date;
+        date = formDate.format(dtcServiceTurn.getDate());
 
-        Turn turn = new Turn(1, formDate.format(dtcServiceTurn.getDate()), v, v, v);
+        Turn turn = new Turn(1, date,comboBoxCustomers.getSelectedItem().toString(), comboBoxServices.getSelectedItem().toString());
         
         cTurn.create(cTurn.buildDocument(turn));
+        Document result = cTurn.read(cTurn.buildDocument(turn));
+        if (result!=null) {
+            JOptionPane.showMessageDialog(null, "Successfully created");
+        }else{
+            JOptionPane.showMessageDialog(null, "A problem has occurred");
+        }
 
     }//GEN-LAST:event_btnRegisterTurnActionPerformed
 
@@ -239,24 +262,21 @@ public class FrmTurn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackToMenu;
     private javax.swing.JButton btnRegisterTurn;
-    private javax.swing.JComboBox<String> cmbService;
+    private javax.swing.JComboBox<String> comboBoxCustomers;
+    private javax.swing.JComboBox<String> comboBoxServices;
     private com.toedter.calendar.JDateChooser dtcServiceTurn;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenu mnuStylesIrelia;
     private javax.swing.JLabel txtGetATurn;
     // End of variables declaration//GEN-END:variables
 }

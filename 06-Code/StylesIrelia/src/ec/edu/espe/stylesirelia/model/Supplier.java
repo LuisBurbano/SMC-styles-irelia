@@ -8,24 +8,22 @@ public class Supplier {
 
     private String name;
     private String number;
-    private boolean pendingPayment;
-    private String appointment;
+    private double pendingPayment;
     private String address;
 
     public Supplier() {
     }
 
-    public Supplier(String name, String number, boolean pendingPayment, String appointment, String address) {
+    public Supplier(String name, String number, double pendingPayment, String address) {
         this.name = name;
         this.number = number;
         this.pendingPayment = pendingPayment;
-        this.appointment = appointment;
         this.address = address;
     }
 
     @Override
     public String toString() {
-        return "Supplier{" + "name=" + name + ", number=" + number + ", pendingPayment=" + pendingPayment + ", appointment=" + appointment + ", address=" + address + '}';
+        return "Supplier{" + "name=" + name + ", number=" + number + ", pendingPayment=" + pendingPayment  + ", address=" + address + '}';
     }
 
     /**
@@ -59,29 +57,15 @@ public class Supplier {
     /**
      * @return the pendingPayment
      */
-    public boolean isPendingPayment() {
+    public double getPendingPayment() {
         return pendingPayment;
     }
 
     /**
      * @param pendingPayment the pendingPayment to set
      */
-    public void setPendingPayment(boolean pendingPayment) {
+    public void setPendingPayment(double pendingPayment) {
         this.pendingPayment = pendingPayment;
-    }
-
-    /**
-     * @return the appointment
-     */
-    public String getAppointment() {
-        return appointment;
-    }
-
-    /**
-     * @param appointment the appointment to set
-     */
-    public void setAppointment(String appointment) {
-        this.appointment = appointment;
     }
 
     /**

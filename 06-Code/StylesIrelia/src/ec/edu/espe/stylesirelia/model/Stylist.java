@@ -10,24 +10,24 @@ public class Stylist {
     private String name;
     private String number;
     private double payment;
-    private String appointment;
+    private String service;
     private String address;
 
     public Stylist() {
     }
 
-    public Stylist(String identificationCard, String name, String number, double payment, String appointment, String address) {
+    public Stylist(String identificationCard, String name, String number, double payment, String service, String address) {
         this.identificationCard = identificationCard;
         this.name = name;
         this.number = number;
         this.payment = payment;
-        this.appointment = appointment;
+        this.service = service;
         this.address = address;
     }
 
     @Override
     public String toString() {
-        return "Stylist --> " + "identificationCard=" + identificationCard + ", name=" + name + ", number=" + number + ", payment=" + payment + ", appointment=" + appointment + ", address=" + address + "\n";
+        return "Stylist --> " + "identificationCard=" + identificationCard + ", name=" + name + ", number=" + number + ", payment=" + payment + ", appointment=" + service + ", address=" + address + "\n";
     }
 
     /**
@@ -73,17 +73,17 @@ public class Stylist {
     }
 
     /**
-     * @return the appointment
+     * @return the service
      */
-    public String getAppointment() {
-        return appointment;
+    public String getService() {
+        return service;
     }
 
     /**
-     * @param appointment the appointment to set
+     * @param service the service to set
      */
-    public void setAppointment(String appointment) {
-        this.appointment = appointment;
+    public void setService(String service) {
+        this.service = service;
     }
 
     /**

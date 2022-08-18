@@ -8,29 +8,24 @@ public class Service {
 
     private String name;
     private double price;
-    private boolean pendingPayment;
     private boolean available;
     private String availableStylist;
 
     public Service() {
     }
 
-    public Service(String name, double price, boolean pendingPayment, boolean available, String availableStylist) {
+    public Service(String name, double price, boolean available, String availableStylist) {
         this.name = name;
         this.price = price;
-        this.pendingPayment = pendingPayment;
         this.available = available;
         this.availableStylist = availableStylist;
     }
 
     @Override
     public String toString() {
-        return "Service{" + "name=" + name + ", price=" + price + ", pendingPayment=" + pendingPayment + ", available=" + available + ", availableStylist=" + availableStylist + '}';
+        return "Service{" + "name=" + name + ", price=" + price + ", available=" + available + ", availableStylist=" + availableStylist + '}';
     }
 
-    public String toStringData() {
-        return name + "," + pendingPayment + "," + available + "," + availableStylist;
-    }
 
     /**
      * @return the name
@@ -60,19 +55,7 @@ public class Service {
         this.price = price;
     }
 
-    /**
-     * @return the pendingPayment
-     */
-    public boolean isPendingPayment() {
-        return pendingPayment;
-    }
 
-    /**
-     * @param pendingPayment the pendingPayment to set
-     */
-    public void setPendingPayment(boolean pendingPayment) {
-        this.pendingPayment = pendingPayment;
-    }
 
     /**
      * @return the available
