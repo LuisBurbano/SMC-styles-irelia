@@ -49,6 +49,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenu3 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         txtStyles = new javax.swing.JMenu();
@@ -78,7 +79,10 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         itemUpdateService = new javax.swing.JMenuItem();
         itemDeleteService = new javax.swing.JMenuItem();
         itmTableService = new javax.swing.JMenuItem();
+        menuTurn = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
+
+        jMenu3.setText("jMenu3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
@@ -286,6 +290,14 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
+        menuTurn.setText("Add Turn");
+        menuTurn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuTurnActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(menuTurn);
+
         jMenu5.setText("Help");
         jMenu5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -471,6 +483,12 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenu5ActionPerformed
 
+    private void menuTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTurnActionPerformed
+        FrmTurn frmTurn = new FrmTurn();
+        frmTurn.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_menuTurnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -526,6 +544,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
@@ -536,6 +555,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuAddCustomer;
     private javax.swing.JMenuItem menuDeleteCustomer;
     private javax.swing.JMenuItem menuDeleteProduct;
+    private javax.swing.JMenu menuTurn;
     private javax.swing.JMenuItem menuUpdateCustomer;
     private javax.swing.JMenu txtStyles;
     // End of variables declaration//GEN-END:variables
