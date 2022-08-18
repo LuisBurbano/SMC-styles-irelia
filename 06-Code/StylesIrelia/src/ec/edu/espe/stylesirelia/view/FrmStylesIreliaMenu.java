@@ -36,20 +36,9 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     public FrmStylesIreliaMenu() {
         initComponents();
         Connection.connectionDataBase();
-        showAlertProducts();
+        
     }
-    public void showAlertProducts(){
-        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
-                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
-        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
-        MongoCollection<Product> collectionProducts = db.getCollection("products", Product.class);
-        List<Product> products = collectionProducts.find(new Document(), Product.class).into(new ArrayList<Product>());
-        for (Product product : products) {
-            if(product.getStock()<=5){
-                JOptionPane.showMessageDialog(null, "The stock of product: "+ product.getName() + " is " + product.getStock() + ". Please restock");
-            }
-        }
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

@@ -1,16 +1,25 @@
 package ec.edu.espe.stylesirelia.view;
 
+import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.stylesirelia.controller.UserController;
 import ec.edu.espe.stylesirelia.controller.Connection;
+import ec.edu.espe.stylesirelia.model.Product;
 import ec.edu.espe.stylesirelia.model.User;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.bson.Document;
+import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
+import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
+import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.PojoCodecProvider;
 
 /**
  *
@@ -41,7 +50,19 @@ public class FrmLogin extends javax.swing.JFrame {
         this.setTitle("Login Window");
 
     }
-
+    
+    public void showAlertProducts(){
+        CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
+        MongoCollection<Product> collectionProducts = db.getCollection("products", Product.class);
+        List<Product> products = collectionProducts.find(new Document(), Product.class).into(new ArrayList<Product>());
+        for (Product product : products) {
+            if(product.getStock()<=5){
+                JOptionPane.showMessageDialog(null, "The stock of product: "+ product.getName() + " is " + product.getStock() + ". Please restock");
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -257,6 +278,7 @@ public class FrmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Welcome to the system");
             this.setVisible(false);
             frmStylesIreliaMenu.setVisible(true);
+            showAlertProducts();
         } else {
             JOptionPane.showMessageDialog(null, "A one value is incorrect try again");
         }
