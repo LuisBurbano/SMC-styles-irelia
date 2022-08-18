@@ -80,7 +80,9 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         itemDeleteService = new javax.swing.JMenuItem();
         itmTableService = new javax.swing.JMenuItem();
         menuTurn = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         jMenu3.setText("jMenu3");
 
@@ -290,12 +292,21 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
-        menuTurn.setText("Add Turn");
+        menuTurn.setText("Turn");
         menuTurn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuTurnActionPerformed(evt);
             }
         });
+
+        jMenuItem3.setText("Add Turn");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menuTurn.add(jMenuItem3);
+
         jMenuBar1.add(menuTurn);
 
         jMenu5.setText("Help");
@@ -304,6 +315,15 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
                 jMenu5ActionPerformed(evt);
             }
         });
+
+        jMenuItem4.setText("Help Application");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem4);
+
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -477,17 +497,25 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_menuDeleteProductActionPerformed
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-        FrmHelp frmlHelp = new FrmHelp();
-        frmlHelp.setVisible(true);
-        this.setVisible(false);
+        
         
     }//GEN-LAST:event_jMenu5ActionPerformed
 
     private void menuTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuTurnActionPerformed
-        FrmTurn frmTurn = new FrmTurn();
+        
+    }//GEN-LAST:event_menuTurnActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    FrmTurn frmTurn = new FrmTurn();
         frmTurn.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_menuTurnActionPerformed
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        FrmHelp frmlHelp = new FrmHelp();
+        frmlHelp.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -552,6 +580,8 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem menuAddCustomer;
     private javax.swing.JMenuItem menuDeleteCustomer;
     private javax.swing.JMenuItem menuDeleteProduct;

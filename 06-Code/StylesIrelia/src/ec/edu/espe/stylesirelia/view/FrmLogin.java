@@ -63,6 +63,22 @@ public class FrmLogin extends javax.swing.JFrame {
             }
         }
     }
+    public void loginVerification(){
+        User user;
+        user = new User(textFieldUser.getText(), new String(passwordField.getPassword()));
+        Document userDoc = userController.buildDocument(user);
+        Document doc = userController.read(userDoc);
+
+        if (doc != null) {
+            FrmStylesIreliaMenu frmStylesIreliaMenu = new FrmStylesIreliaMenu();
+            JOptionPane.showMessageDialog(null, "Welcome to the system");
+            this.setVisible(false);
+            frmStylesIreliaMenu.setVisible(true);
+            showAlertProducts();
+        } else {
+            JOptionPane.showMessageDialog(null, "A one value is incorrect try again");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -267,21 +283,8 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLeaveLoginActionPerformed
 
     private void btnEnterLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterLoginActionPerformed
-
-        User user;
-        user = new User(textFieldUser.getText(), new String(passwordField.getPassword()));
-        Document userDoc = userController.buildDocument(user);
-        Document doc = userController.read(userDoc);
-
-        if (doc != null) {
-            FrmStylesIreliaMenu frmStylesIreliaMenu = new FrmStylesIreliaMenu();
-            JOptionPane.showMessageDialog(null, "Welcome to the system");
-            this.setVisible(false);
-            frmStylesIreliaMenu.setVisible(true);
-            showAlertProducts();
-        } else {
-            JOptionPane.showMessageDialog(null, "A one value is incorrect try again");
-        }
+        loginVerification();
+        
     }//GEN-LAST:event_btnEnterLoginActionPerformed
 
     private void textFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUserActionPerformed
