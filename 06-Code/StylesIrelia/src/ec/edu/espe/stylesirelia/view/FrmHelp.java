@@ -47,13 +47,13 @@ public class FrmHelp extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtOK1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        txtOK1.setText("OK");
+        txtOK1.setText("Aceptar");
         txtOK1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtOK1ActionPerformed(evt);
             }
         });
-        jPanel4.add(txtOK1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 80, -1));
+        jPanel4.add(txtOK1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, 90, -1));
 
         labelWelcome.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         labelWelcome.setText("CMS - Styles by Irelia");
@@ -95,17 +95,11 @@ public class FrmHelp extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 903, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 903, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

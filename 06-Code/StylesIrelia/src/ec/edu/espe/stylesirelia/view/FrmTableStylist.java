@@ -114,7 +114,7 @@ public class FrmTableStylist extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Number", "Payment", "Appointment", "Address"
+                "ID", "Nombre", "Número", "Pago", "Cita", "Dirección"
             }
         ));
         jScrollPane1.setViewportView(tableStylists);

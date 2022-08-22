@@ -98,7 +98,7 @@ public class FrmTableService extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Price", "Pending Payment", "Available", "Available Stylist"
+                "Nombre", "Pricio", "Pago pendiente", "Disponible", "Stock disponible"
             }
         ) {
             Class[] types = new Class [] {

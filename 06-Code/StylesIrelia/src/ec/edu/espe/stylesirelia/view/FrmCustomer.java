@@ -103,7 +103,7 @@ public class FrmCustomer extends javax.swing.JFrame {
         });
         jPanel3.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, -1));
 
-        btnSearch.setText("Search");
+        btnSearch.setText("Buscar");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);

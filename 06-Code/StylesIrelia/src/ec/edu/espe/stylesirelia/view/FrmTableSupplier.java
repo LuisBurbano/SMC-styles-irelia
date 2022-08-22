@@ -108,7 +108,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Name", "Number", "Pending Payment", "Appointment", "Address"
+                "Nombre", "Número", "Pago pendiente", "Cita", "Dirección"
             }
         ) {
             Class[] types = new Class [] {
@@ -143,7 +143,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
                 btnLoadActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 70, 30));
+        jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 90, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, -1, -1));

@@ -93,7 +93,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Identification Card", "Name", "Number", "Pending Payment", "Appointment", "Address"
+                "Cedula", "Nombre", "Número", "Pago pendiente", "Cita", "Direccion"
             }
         ) {
             Class[] types = new Class [] {

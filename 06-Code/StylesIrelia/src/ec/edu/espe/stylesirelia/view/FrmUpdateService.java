@@ -124,7 +124,7 @@ public class FrmUpdateService extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, -1, -1));
 
-        btnBackToMenu.setText("Back ");
+        btnBackToMenu.setText("Regresar");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackToMenuActionPerformed(evt);
@@ -132,7 +132,7 @@ public class FrmUpdateService extends javax.swing.JFrame {
         });
         jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
 
-        btnUpdate.setText("Update ");
+        btnUpdate.setText("Actualizar");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -140,7 +140,7 @@ public class FrmUpdateService extends javax.swing.JFrame {
         });
         jPanel3.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, -1, -1));
 
-        btnFind.setText("Find");
+        btnFind.setText("Buscar");
         btnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFindActionPerformed(evt);

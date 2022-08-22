@@ -100,7 +100,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem1.setText("About");
+        jMenuItem1.setText("Acerca");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -110,10 +110,10 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(txtStyles);
 
-        jMenu2.setText("Stylist");
+        jMenu2.setText("Estilistas");
 
         itmaddstylist.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itmaddstylist.setText("Add Stylist");
+        itmaddstylist.setText("Agregar estilista");
         itmaddstylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmaddstylistActionPerformed(evt);
@@ -122,7 +122,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         jMenu2.add(itmaddstylist);
 
         itmUpdateStylist.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        itmUpdateStylist.setText("Update Stylist");
+        itmUpdateStylist.setText("Editar estilista");
         itmUpdateStylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmUpdateStylistActionPerformed(evt);
@@ -130,7 +130,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu2.add(itmUpdateStylist);
 
-        itemDeleteStylist.setText("Delete Stylist");
+        itemDeleteStylist.setText("Eliminar estilista");
         itemDeleteStylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemDeleteStylistActionPerformed(evt);
@@ -138,7 +138,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu2.add(itemDeleteStylist);
 
-        itmTableStylist.setText("Table Stylist");
+        itmTableStylist.setText("Tabla de estilistas");
         itmTableStylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmTableStylistActionPerformed(evt);
@@ -148,9 +148,9 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu1.setText("Customer");
+        jMenu1.setText("Clientes");
 
-        menuAddCustomer.setText("Add Customer");
+        menuAddCustomer.setText("Agregar cliente");
         menuAddCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuAddCustomerActionPerformed(evt);
@@ -158,7 +158,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu1.add(menuAddCustomer);
 
-        menuUpdateCustomer.setText("Update Customer");
+        menuUpdateCustomer.setText("Actualizar cliente");
         menuUpdateCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuUpdateCustomerActionPerformed(evt);
@@ -166,7 +166,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu1.add(menuUpdateCustomer);
 
-        menuDeleteCustomer.setText("Delete Customer");
+        menuDeleteCustomer.setText("Eliminar cliente");
         menuDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuDeleteCustomerActionPerformed(evt);
@@ -174,7 +174,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu1.add(menuDeleteCustomer);
 
-        itmTableCustomer.setText("TableCustomer");
+        itmTableCustomer.setText("Tabla de clientes");
         itmTableCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmTableCustomerActionPerformed(evt);
@@ -184,9 +184,9 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu4.setText("Products");
+        jMenu4.setText("Productos");
 
-        itmProduct.setText("Add Product");
+        itmProduct.setText("Agregar productos");
         itmProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmProductActionPerformed(evt);
@@ -194,7 +194,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu4.add(itmProduct);
 
-        jMenuItem2.setText("Update Product");
+        jMenuItem2.setText("Actualizar productos");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -202,7 +202,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem2);
 
-        menuDeleteProduct.setText("Delete Product");
+        menuDeleteProduct.setText("Eliminar productos");
         menuDeleteProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuDeleteProductActionPerformed(evt);
@@ -210,7 +210,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu4.add(menuDeleteProduct);
 
-        itmTableProduct.setText("Table Product");
+        itmTableProduct.setText("Tablla de productos");
         itmTableProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmTableProductActionPerformed(evt);
@@ -220,9 +220,9 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu6.setText("Supplier");
+        jMenu6.setText("Proveedor");
 
-        itemAddSuppliers.setText("Add Supplier");
+        itemAddSuppliers.setText("Agregar proveedor");
         itemAddSuppliers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemAddSuppliersActionPerformed(evt);
@@ -230,7 +230,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu6.add(itemAddSuppliers);
 
-        itemUpdateSuppliers.setText("Update Supplier");
+        itemUpdateSuppliers.setText("Actualizar proveedor");
         itemUpdateSuppliers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemUpdateSuppliersActionPerformed(evt);
@@ -238,7 +238,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu6.add(itemUpdateSuppliers);
 
-        itemDeleteSuppliers.setText("Delete Supplier");
+        itemDeleteSuppliers.setText("Eliminar proveedor");
         itemDeleteSuppliers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemDeleteSuppliersActionPerformed(evt);
@@ -246,7 +246,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu6.add(itemDeleteSuppliers);
 
-        itmTableSupllier.setText("Table Supplier");
+        itmTableSupllier.setText("Tabla de proveedores");
         itmTableSupllier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmTableSupllierActionPerformed(evt);
@@ -256,9 +256,9 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
-        jMenu7.setText("Services");
+        jMenu7.setText("Servicios");
 
-        itemAddService.setText("Add Service");
+        itemAddService.setText("Agregar servicio");
         itemAddService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemAddServiceActionPerformed(evt);
@@ -266,7 +266,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu7.add(itemAddService);
 
-        itemUpdateService.setText("Update Service");
+        itemUpdateService.setText("Actualizar servicio");
         itemUpdateService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemUpdateServiceActionPerformed(evt);
@@ -274,7 +274,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu7.add(itemUpdateService);
 
-        itemDeleteService.setText("Delete Service");
+        itemDeleteService.setText("Eliminar servicio");
         itemDeleteService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemDeleteServiceActionPerformed(evt);
@@ -282,7 +282,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         });
         jMenu7.add(itemDeleteService);
 
-        itmTableService.setText("Table Service");
+        itmTableService.setText("Tabla de servicios");
         itmTableService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itmTableServiceActionPerformed(evt);
@@ -299,7 +299,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem3.setText("Add Turn");
+        jMenuItem3.setText("Agregar turno");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -309,14 +309,14 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(menuTurn);
 
-        jMenu5.setText("Help");
+        jMenu5.setText("Ayuda");
         jMenu5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu5ActionPerformed(evt);
             }
         });
 
-        jMenuItem4.setText("Help Application");
+        jMenuItem4.setText("Ayuda de la aplicación");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);

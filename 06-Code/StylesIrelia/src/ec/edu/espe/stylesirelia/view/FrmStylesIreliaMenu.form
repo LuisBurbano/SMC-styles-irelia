@@ -26,7 +26,7 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+A"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="About"/>
+                <Property name="text" type="java.lang.String" value="Acerca"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
@@ -36,7 +36,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Stylist"/>
+            <Property name="text" type="java.lang.String" value="Estilistas"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itmaddstylist">
@@ -44,7 +44,7 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+C"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Add Stylist"/>
+                <Property name="text" type="java.lang.String" value="Agregar estilista"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmaddstylistActionPerformed"/>
@@ -55,7 +55,7 @@
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+S"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Update Stylist"/>
+                <Property name="text" type="java.lang.String" value="Editar estilista"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmUpdateStylistActionPerformed"/>
@@ -63,7 +63,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemDeleteStylist">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete Stylist"/>
+                <Property name="text" type="java.lang.String" value="Eliminar estilista"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemDeleteStylistActionPerformed"/>
@@ -71,7 +71,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmTableStylist">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Table Stylist"/>
+                <Property name="text" type="java.lang.String" value="Tabla de estilistas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmTableStylistActionPerformed"/>
@@ -81,12 +81,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Customer"/>
+            <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuAddCustomer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Customer"/>
+                <Property name="text" type="java.lang.String" value="Agregar cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuAddCustomerActionPerformed"/>
@@ -94,7 +94,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuUpdateCustomer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Update Customer"/>
+                <Property name="text" type="java.lang.String" value="Actualizar cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuUpdateCustomerActionPerformed"/>
@@ -102,7 +102,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuDeleteCustomer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete Customer"/>
+                <Property name="text" type="java.lang.String" value="Eliminar cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuDeleteCustomerActionPerformed"/>
@@ -110,7 +110,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmTableCustomer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="TableCustomer"/>
+                <Property name="text" type="java.lang.String" value="Tabla de clientes"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmTableCustomerActionPerformed"/>
@@ -120,12 +120,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Products"/>
+            <Property name="text" type="java.lang.String" value="Productos"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itmProduct">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Product"/>
+                <Property name="text" type="java.lang.String" value="Agregar productos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmProductActionPerformed"/>
@@ -133,7 +133,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Update Product"/>
+                <Property name="text" type="java.lang.String" value="Actualizar productos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
@@ -141,7 +141,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuDeleteProduct">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete Product"/>
+                <Property name="text" type="java.lang.String" value="Eliminar productos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuDeleteProductActionPerformed"/>
@@ -149,7 +149,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmTableProduct">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Table Product"/>
+                <Property name="text" type="java.lang.String" value="Tablla de productos"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmTableProductActionPerformed"/>
@@ -159,12 +159,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Supplier"/>
+            <Property name="text" type="java.lang.String" value="Proveedor"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itemAddSuppliers">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Supplier"/>
+                <Property name="text" type="java.lang.String" value="Agregar proveedor"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemAddSuppliersActionPerformed"/>
@@ -172,7 +172,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemUpdateSuppliers">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Update Supplier"/>
+                <Property name="text" type="java.lang.String" value="Actualizar proveedor"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemUpdateSuppliersActionPerformed"/>
@@ -180,7 +180,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemDeleteSuppliers">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete Supplier"/>
+                <Property name="text" type="java.lang.String" value="Eliminar proveedor"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemDeleteSuppliersActionPerformed"/>
@@ -188,7 +188,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmTableSupllier">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Table Supplier"/>
+                <Property name="text" type="java.lang.String" value="Tabla de proveedores"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmTableSupllierActionPerformed"/>
@@ -198,12 +198,12 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu7">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Services"/>
+            <Property name="text" type="java.lang.String" value="Servicios"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="itemAddService">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Service"/>
+                <Property name="text" type="java.lang.String" value="Agregar servicio"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemAddServiceActionPerformed"/>
@@ -211,7 +211,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemUpdateService">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Update Service"/>
+                <Property name="text" type="java.lang.String" value="Actualizar servicio"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemUpdateServiceActionPerformed"/>
@@ -219,7 +219,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itemDeleteService">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Delete Service"/>
+                <Property name="text" type="java.lang.String" value="Eliminar servicio"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itemDeleteServiceActionPerformed"/>
@@ -227,7 +227,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmTableService">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Table Service"/>
+                <Property name="text" type="java.lang.String" value="Tabla de servicios"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmTableServiceActionPerformed"/>
@@ -245,7 +245,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Add Turn"/>
+                <Property name="text" type="java.lang.String" value="Agregar turno"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
@@ -255,7 +255,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Help"/>
+            <Property name="text" type="java.lang.String" value="Ayuda"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu5ActionPerformed"/>
@@ -263,7 +263,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Help Application"/>
+                <Property name="text" type="java.lang.String" value="Ayuda de la aplicaci&#xf3;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>

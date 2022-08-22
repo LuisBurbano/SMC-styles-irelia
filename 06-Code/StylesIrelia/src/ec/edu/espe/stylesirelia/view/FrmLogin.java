@@ -31,14 +31,13 @@ public class FrmLogin extends javax.swing.JFrame {
     private UserController userController;
 
     @Override
-    public Image getIconImage(){
+    public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/menu_bg.png"));
         return retValue;
     }
-    
-    
+
     public FrmLogin() {
-        
+
         Connection.connectionDataBase();
 
         initComponents();
@@ -50,20 +49,21 @@ public class FrmLogin extends javax.swing.JFrame {
         this.setTitle("Login Window");
 
     }
-    
-    public void showAlertProducts(){
+
+    public void showAlertProducts() {
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
         MongoCollection<Product> collectionProducts = db.getCollection("products", Product.class);
         List<Product> products = collectionProducts.find(new Document(), Product.class).into(new ArrayList<Product>());
         for (Product product : products) {
-            if(product.getStock()<=5){
-                JOptionPane.showMessageDialog(null, "The stock of product: "+ product.getName() + " is " + product.getStock() + ". Please restock");
+            if (product.getStock() <= 5) {
+                JOptionPane.showMessageDialog(null, "El stock de los productos " + product.getName() + " es " + product.getStock() + ". Por favor rellene.");
             }
         }
     }
-    public void loginVerification(){
+
+    public void loginVerification() {
         User user;
         user = new User(textFieldUser.getText(), new String(passwordField.getPassword()));
         Document userDoc = userController.buildDocument(user);
@@ -71,14 +71,15 @@ public class FrmLogin extends javax.swing.JFrame {
 
         if (doc != null) {
             FrmStylesIreliaMenu frmStylesIreliaMenu = new FrmStylesIreliaMenu();
-            JOptionPane.showMessageDialog(null, "Welcome to the system");
+            JOptionPane.showMessageDialog(null, "Bienvenido al sistema.");
             this.setVisible(false);
             frmStylesIreliaMenu.setVisible(true);
             showAlertProducts();
         } else {
-            JOptionPane.showMessageDialog(null, "A one value is incorrect try again");
+            JOptionPane.showMessageDialog(null, "Usuario o clave incorrectos, vuelva a intentar.");
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -283,7 +284,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void btnEnterLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterLoginActionPerformed
         loginVerification();
-        
+
     }//GEN-LAST:event_btnEnterLoginActionPerformed
 
     private void textFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUserActionPerformed
@@ -294,11 +295,11 @@ public class FrmLogin extends javax.swing.JFrame {
         if (String.valueOf(passwordField.getPassword()).isEmpty()) {
             passwordField.setText("*********");
             passwordField.setForeground(Color.gray);
-        } 
+        }
     }//GEN-LAST:event_textFieldUserActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
-       if (String.valueOf(passwordField.getPassword()).equals("*********")) {
+        if (String.valueOf(passwordField.getPassword()).equals("*********")) {
             passwordField.setText("");
             passwordField.setForeground(Color.black);
         }
@@ -353,7 +354,7 @@ public class FrmLogin extends javax.swing.JFrame {
             textFieldUser.setText("Use your username");
             textFieldUser.setForeground(Color.gray);
         }
-       
+
     }//GEN-LAST:event_passwordFieldMousePressed
 
     /**

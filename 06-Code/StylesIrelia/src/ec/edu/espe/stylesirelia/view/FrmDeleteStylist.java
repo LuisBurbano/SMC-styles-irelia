@@ -63,7 +63,6 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnDelete = new javax.swing.JButton();
         btnBackToMenu = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         comboBoxStylist = new javax.swing.JComboBox<>();
@@ -94,7 +93,6 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 194, -1, -1));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 150, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, -100, -1, -1));
@@ -102,7 +100,7 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         jLabel4.setText("Eliminar Estilista");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 220, -1));
-        jPanel1.add(comboBoxStylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 190, -1));
+        jPanel1.add(comboBoxStylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -184,6 +182,5 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

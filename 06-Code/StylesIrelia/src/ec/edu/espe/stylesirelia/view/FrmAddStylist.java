@@ -112,7 +112,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel6.setText("Servicio");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 71, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, 71, -1));
 
         txtIdentification.setToolTipText("only numbers");
         txtIdentification.setBorder(null);
@@ -156,7 +156,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel7.setText("Sueldo");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 60, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 60, -1));
 
         txtPayment.setBorder(null);
         jPanel1.add(txtPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 387, 20));
