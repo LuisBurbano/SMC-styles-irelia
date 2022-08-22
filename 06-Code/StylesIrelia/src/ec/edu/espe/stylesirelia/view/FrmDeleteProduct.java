@@ -26,8 +26,17 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmDeleteProduct extends javax.swing.JFrame {
 
-    
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     private ProductController productController;
+
     /**
      * Creates new form FrmDeleteProduct
      */
@@ -112,6 +121,7 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

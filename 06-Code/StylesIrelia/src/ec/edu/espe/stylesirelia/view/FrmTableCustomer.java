@@ -27,6 +27,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmTableCustomer extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     /**
      * Creates new form FrmTableCustomer
      */
@@ -55,7 +64,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
             tableCustomers.setModel(new javax.swing.table.DefaultTableModel(
                     objects,
                     new String[]{
-                        "Id", "Name", "Number", "PendingPaymentPayment", "Appointmen", "Address"
+                        "Cédula", "Nombre", "Número", "Pago", "Cita", "Dirección"
                     }
             ));
 
@@ -148,6 +157,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadActionPerformed

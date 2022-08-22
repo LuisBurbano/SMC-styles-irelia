@@ -25,6 +25,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmService extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
     private ServiceController serviceController;
 
@@ -46,7 +55,8 @@ public class FrmService extends javax.swing.JFrame {
         serviceController = new ServiceController();
         loadStylistComboBox();
     }
-public void loadStylistComboBox() {
+
+    public void loadStylistComboBox() {
 
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
@@ -59,6 +69,7 @@ public void loadStylistComboBox() {
         }
 
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -155,6 +166,7 @@ public void loadStylistComboBox() {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -189,20 +201,22 @@ public void loadStylistComboBox() {
 
     private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
         char validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
+        if (Character.isDigit(validar)) {
             getToolkit().beep();
-            
+
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");}// TODO add your handling code here:
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");
+        }// TODO add your handling code here:
     }//GEN-LAST:event_txtNameKeyTyped
 
     private void txtPriceKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyTyped
         char validar = evt.getKeyChar();
-        if(Character.isLetter(validar)){
+        if (Character.isLetter(validar)) {
             getToolkit().beep();
-            
+
             evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");}// TODO add your handling code here:
+            JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");
+        }// TODO add your handling code here:
     }//GEN-LAST:event_txtPriceKeyTyped
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed

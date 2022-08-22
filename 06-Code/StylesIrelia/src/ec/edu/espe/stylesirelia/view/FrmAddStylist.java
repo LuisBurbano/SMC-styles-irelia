@@ -24,8 +24,18 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmAddStylist extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
     private StylistController stylistController;
+
     public String getDate(JDateChooser jdDate) {
         if (jdDate.getDate() != null) {
             return formDate.format(jdDate.getDate());
@@ -212,6 +222,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -235,9 +246,9 @@ public class FrmAddStylist extends javax.swing.JFrame {
         stylistController.create(stylistController.buildDocument(stylist));
         Document result = stylistController.read(stylistController.buildDocument(stylist));
         if (result!=null) {
-            JOptionPane.showMessageDialog(null, "Successfully created");
+            JOptionPane.showMessageDialog(null, "Creado con exito");
         }else{
-            JOptionPane.showMessageDialog(null, "A problem has occurred");
+            JOptionPane.showMessageDialog(null, "Hubo un problema");
         }
 
     }//GEN-LAST:event_btnAddActionPerformed
@@ -261,7 +272,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
         char validateLetters = evt.getKeyChar();
         if (Character.isDigit(validateLetters)) {
             evt.consume();
-            JOptionPane.showMessageDialog(txtName, "Enter only letters", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(txtName, "Solo letras", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_txtNameKeyTyped
 
@@ -272,12 +283,12 @@ public class FrmAddStylist extends javax.swing.JFrame {
             txtNumber.setEditable(true);
             if (legth > 10) {
 
-                JOptionPane.showMessageDialog(this, "Number must have 10 digits", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "La cédula tiene 10 digitos", "Advertencia", JOptionPane.WARNING_MESSAGE);
                 txtNumber.setText("");
 
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Enter only numbers", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ingrese solo números", "Advertencia", JOptionPane.WARNING_MESSAGE);
             txtNumber.setText("");
         }
     }//GEN-LAST:event_txtNumberKeyTyped
@@ -289,13 +300,13 @@ public class FrmAddStylist extends javax.swing.JFrame {
             txtIdentification.setEditable(true);
             if (legth > 10) {
 
-                JOptionPane.showMessageDialog(this, "ID must have 10 digits", "Warning", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Cédula debe tener 10 digitos", "Advertencia", JOptionPane.WARNING_MESSAGE);
 
                 txtIdentification.setText(" ");
 
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Enter only numbers", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Ingrese solo números", "Advertencia", JOptionPane.WARNING_MESSAGE);
 
             txtIdentification.setText(" ");
         }

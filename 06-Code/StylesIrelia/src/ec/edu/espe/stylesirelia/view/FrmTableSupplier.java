@@ -1,4 +1,3 @@
-
 package ec.edu.espe.stylesirelia.view;
 
 import com.mongodb.MongoClient;
@@ -28,6 +27,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmTableSupplier extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     /**
      * Creates new form FrmTableSupplier
      */
@@ -35,16 +43,15 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         initComponents();
         Connection.connectionDataBase();
     }
-    
-     public void loadSuppliersTable() {
-       //borrar estas dos lineas despues de juntar todas las pantallas
-        
-        
+
+    public void loadSuppliersTable() {
+        //borrar estas dos lineas despues de juntar todas las pantallas
+
         //-------
         CodecRegistry codecRegistry = fromRegistries(MongoClient.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
         MongoDatabase db = Connection.mongodb.withCodecRegistry(codecRegistry);
-        MongoCollection<Supplier> collectionSuppliers = db.getCollection("suppliers", Supplier.class); 
+        MongoCollection<Supplier> collectionSuppliers = db.getCollection("suppliers", Supplier.class);
         List<Supplier> suppliers = collectionSuppliers.find(new Document(), Supplier.class).into(new ArrayList<Supplier>());
 
         Object[][] objects = new Object[suppliers.size()][5];
@@ -59,14 +66,13 @@ public class FrmTableSupplier extends javax.swing.JFrame {
             tableSuppliers.setModel(new javax.swing.table.DefaultTableModel(
                     objects,
                     new String[]{
-                         "Name", "Number", "PendingPayment", "Address"
+                        "Nombre", "Número", "Pago", "Dirección"
                     }
             ));
 
         }
 
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -168,6 +174,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoadActionPerformed
@@ -183,11 +190,11 @@ public class FrmTableSupplier extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnPrintSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintSupplierActionPerformed
-       
-                MessageFormat headerFormat = new MessageFormat("Suppliers");
+
+        MessageFormat headerFormat = new MessageFormat("Suppliers");
         MessageFormat footerFormat = new MessageFormat("- Página {0} -");
         try {
-           tableSuppliers.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
+            tableSuppliers.print(PrintMode.FIT_WIDTH, headerFormat, footerFormat);
         } catch (PrinterException ex) {
             Logger.getLogger(FrmTableService.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -203,7 +210,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
             System.out.println("---Error printing---");
         }
 
-        
+
     }//GEN-LAST:event_btnPrintSupplierActionPerformed
 
     /**

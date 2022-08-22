@@ -27,6 +27,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmDeleteCustomer extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     private CustomerController customerController;
 
     /**
@@ -117,6 +126,7 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

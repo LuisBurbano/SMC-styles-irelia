@@ -10,6 +10,15 @@ package ec.edu.espe.stylesirelia.view;
  */
 public class FrmAbout extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     /**
      * Creates new form FrmAbout
      */
@@ -113,6 +122,7 @@ public class FrmAbout extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOKActionPerformed

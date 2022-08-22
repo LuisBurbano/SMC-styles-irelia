@@ -16,6 +16,15 @@ import org.bson.Document;
  */
 public class FrmProduct extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     private ProductController productController;
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -164,6 +173,7 @@ public class FrmProduct extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed

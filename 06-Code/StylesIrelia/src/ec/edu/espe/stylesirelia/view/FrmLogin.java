@@ -26,6 +26,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
 public class FrmLogin extends javax.swing.JFrame {
+    
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+            
+            setLocationRelativeTo(null);
+        }
+    }
 
     int xMouse, yMouse;
     private UserController userController;
@@ -276,6 +285,7 @@ public class FrmLogin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLeaveLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeaveLoginActionPerformed

@@ -32,6 +32,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmUpdateProduct extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
     ProductController productController;
 
@@ -187,6 +196,7 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed

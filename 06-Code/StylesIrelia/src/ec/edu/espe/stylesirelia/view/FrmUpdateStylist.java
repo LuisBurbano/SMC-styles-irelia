@@ -31,6 +31,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmUpdateStylist extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     /**
      * Creates new form FrmUpdateStylist
      */
@@ -227,6 +236,7 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
@@ -241,7 +251,7 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
             txtPayment.setText(String.valueOf(stylist.getPayment()));
             txtAddress.setText(stylist.getAddress());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "It was not found");
+            JOptionPane.showMessageDialog(null, "No sé encontro");
         }
 
 
@@ -257,9 +267,9 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         Document result = stylistController.read(stylistController.buildDocument(stylist));
         if (result != null) {
 
-            JOptionPane.showMessageDialog(null, "Updated successfully");
+            JOptionPane.showMessageDialog(null, "Actualización con extio");
         } else {
-            JOptionPane.showMessageDialog(null, "A problem has occurred");
+            JOptionPane.showMessageDialog(null, "Hubo un problema reintente con exito");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
