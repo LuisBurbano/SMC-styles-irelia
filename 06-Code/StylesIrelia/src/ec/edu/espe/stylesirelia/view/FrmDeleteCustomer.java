@@ -134,7 +134,7 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
 
         Document doc = customerController.read(comboBoxCustomers.getSelectedItem().toString(), "identificationCard");
         if (doc == null) {
-            JOptionPane.showMessageDialog(rootPane, "This customer has been succesfully deleted");
+            JOptionPane.showMessageDialog(rootPane, "Fue eliminado con exito.");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

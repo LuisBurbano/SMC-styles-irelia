@@ -292,7 +292,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
-        menuTurn.setText("Turn");
+        menuTurn.setText("Turno");
         menuTurn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuTurnActionPerformed(evt);

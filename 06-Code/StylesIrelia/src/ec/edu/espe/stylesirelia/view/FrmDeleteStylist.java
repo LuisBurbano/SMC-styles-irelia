@@ -123,7 +123,7 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         
         Document doc =stylistController.read(comboBoxStylist.getSelectedItem().toString(),"");
         if(doc==null){
-            JOptionPane.showMessageDialog(rootPane, "This stylist has been succesfully deleted");
+            JOptionPane.showMessageDialog(rootPane, "Fue eliminado exitosamente");
         }
         
     }//GEN-LAST:event_btnDeleteActionPerformed

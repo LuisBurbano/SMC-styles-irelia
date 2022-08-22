@@ -119,7 +119,7 @@ public class FrmDeleteService extends javax.swing.JFrame {
 
         Document doc =serviceController.read(comboBoxServices.getSelectedItem().toString(),"");
         if(doc==null){
-            JOptionPane.showMessageDialog(rootPane, "This service has been succesfully deleted");
+            JOptionPane.showMessageDialog(rootPane, "Fue eliminado exitosamente");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

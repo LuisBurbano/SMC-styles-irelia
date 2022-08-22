@@ -122,7 +122,7 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
 
         Document doc = supplierController.read(comboBoxSupplier.getSelectedItem().toString(), "name");
         if (doc == null) {
-            JOptionPane.showMessageDialog(rootPane, "This supplier has been succesfully deleted");
+            JOptionPane.showMessageDialog(rootPane, "Fue eliminado exitosamente");
         }
 
     }//GEN-LAST:event_btnDeleteActionPerformed

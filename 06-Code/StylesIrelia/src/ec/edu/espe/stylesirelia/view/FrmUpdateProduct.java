@@ -200,9 +200,9 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
             txtExpirationDate.setDate(formDate.parse(product.getExpiration()));
             txtStock.setText(String.valueOf(product.getStock()));
         } catch (ParseException ex) {
-            JOptionPane.showMessageDialog(null, "Something happened, please try again");
+            JOptionPane.showMessageDialog(null, "Hubo un error, reintente");
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "It was not found");
+            JOptionPane.showMessageDialog(null, "No se encontro");
         }
         
     }//GEN-LAST:event_btnFindActionPerformed
@@ -215,10 +215,10 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         Document result = productController.read(productController.buildDocument(product));
         if (result!=null) {
             
-            JOptionPane.showMessageDialog(null, "Updated successfully");
+            JOptionPane.showMessageDialog(null, "Actualizado correctamente");
             
         }else{
-            JOptionPane.showMessageDialog(null, "A problem has occurred");
+            JOptionPane.showMessageDialog(null, "Hubo un problema, reintente");
         }
         
     }//GEN-LAST:event_btnUpdateActionPerformed

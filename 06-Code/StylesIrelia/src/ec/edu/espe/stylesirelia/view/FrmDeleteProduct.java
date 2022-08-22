@@ -123,7 +123,7 @@ public class FrmDeleteProduct extends javax.swing.JFrame {
 
         Document doc =productController.read(comboBoxProducts.getSelectedItem().toString(),"products");
         if(doc==null){
-            JOptionPane.showMessageDialog(rootPane, "This product has been succesfully deleted");
+            JOptionPane.showMessageDialog(rootPane, "Fue eliminado exitosamente");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

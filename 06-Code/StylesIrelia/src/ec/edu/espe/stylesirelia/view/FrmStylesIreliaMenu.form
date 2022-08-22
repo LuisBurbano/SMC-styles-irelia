@@ -237,7 +237,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuTurn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Turn"/>
+            <Property name="text" type="java.lang.String" value="Turno"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuTurnActionPerformed"/>
