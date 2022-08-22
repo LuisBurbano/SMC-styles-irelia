@@ -117,8 +117,8 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Identification Card");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jLabel1.setText("Cedula");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
 
         txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -127,14 +127,14 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         });
         jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 130, -1));
 
-        jLabel2.setText("Name");
+        jLabel2.setText("Nombre");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
         jPanel1.add(txtPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 130, -1));
 
-        jLabel3.setText("Number");
+        jLabel3.setText("Número");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
-        btnFind.setText("Edit");
+        btnFind.setText("Editar");
         btnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFindActionPerformed(evt);
@@ -142,10 +142,10 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         });
         jPanel1.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
 
-        jLabel4.setText("Payment");
+        jLabel4.setText("Sueldo");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
 
-        btnUpdate.setText("Update ");
+        btnUpdate.setText("Actualizar");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -153,13 +153,13 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         });
         jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, -1));
 
-        jLabel6.setText("Address");
+        jLabel6.setText("Dirección");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
-        jLabel7.setText("Identification Card");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        jLabel7.setText("Cedula");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
 
-        btnBackToMenu.setText("Back ");
+        btnBackToMenu.setText("Volver");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackToMenuActionPerformed(evt);
@@ -202,11 +202,11 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, -20, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel8.setText("UPDATE STYLIST");
+        jLabel8.setText("Actualizar Estilista");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 220, -1));
 
         jLabel10.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel10.setText("Service:");
+        jLabel10.setText("Servicio");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 71, -1));
         jPanel1.add(comboBoxStylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 190, -1));
         jPanel1.add(comboBoxServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 190, -1));

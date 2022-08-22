@@ -73,29 +73,29 @@ public class FrmCustomer extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("ID");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 63, -1, -1));
+        jLabel2.setText("Cedula");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
-        jLabel1.setText("Customer");
+        jLabel1.setText("Cliente");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
-        jLabel3.setText("Name");
+        jLabel3.setText("Nombre");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 117, -1, -1));
 
-        jLabel4.setText("Number");
+        jLabel4.setText("Número");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 167, -1, -1));
 
-        jLabel5.setText("Payment");
+        jLabel5.setText("Falta Pagar");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 225, -1, -1));
 
-        jLabel6.setText("Date");
+        jLabel6.setText("Fecha");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 279, -1, -1));
 
-        jLabel7.setText("Address");
+        jLabel7.setText("Dirección");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 323, -1, -1));
 
-        btnAdd.setText("Add");
+        btnAdd.setText("Crear");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -111,7 +111,7 @@ public class FrmCustomer extends javax.swing.JFrame {
         });
         jPanel3.add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, -1, -1));
 
-        btnBackToMenu.setText("Back to Menu");
+        btnBackToMenu.setText("Volver al Menu");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackToMenuActionPerformed(evt);
@@ -119,7 +119,7 @@ public class FrmCustomer extends javax.swing.JFrame {
         });
         jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, -1, -1));
 
-        cmbPayment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pay", "Need to pay" }));
+        cmbPayment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pagado", "Falta pagar" }));
         jPanel3.add(cmbPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 222, 256, -1));
 
         txtNumber.setBorder(null);

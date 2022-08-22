@@ -84,7 +84,6 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         btnLoad = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         btnPrintSupplier = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -125,11 +124,11 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 630, 280));
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel1.setText("SUPPLIER TABLE");
+        jLabel1.setText("Proveedor");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
         btnBack.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        btnBack.setText("Back");
+        btnBack.setText("Volver");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -138,7 +137,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 80, 30));
 
         btnLoad.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        btnLoad.setText("Load");
+        btnLoad.setText("Cargar");
         btnLoad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoadActionPerformed(evt);
@@ -149,16 +148,7 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 0, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jButton1.setText("Add");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, 80, 30));
-
-        btnPrintSupplier.setText("Print table Supplier");
+        btnPrintSupplier.setText("Imprimir tabla");
         btnPrintSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintSupplierActionPerformed(evt);
@@ -191,13 +181,6 @@ public class FrmTableSupplier extends javax.swing.JFrame {
         frmStylesirelia.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        FrmSupplier frmSupplier;
-        frmSupplier = new FrmSupplier();
-        frmSupplier.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnPrintSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintSupplierActionPerformed
        
@@ -262,7 +245,6 @@ public class FrmTableSupplier extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnLoad;
     private javax.swing.JToggleButton btnPrintSupplier;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

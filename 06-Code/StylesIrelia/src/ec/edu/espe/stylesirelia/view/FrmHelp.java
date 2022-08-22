@@ -57,7 +57,7 @@ public class FrmHelp extends javax.swing.JFrame {
 
         labelWelcome.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
         labelWelcome.setText("CMS - Styles by Irelia");
-        jPanel4.add(labelWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 240, 40));
+        jPanel4.add(labelWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 240, 40));
 
         jLabel3.setText("laburbano1@espe.edu.ec  ");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, -1));
@@ -72,20 +72,20 @@ public class FrmHelp extends javax.swing.JFrame {
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Roboto", 1, 30)); // NOI18N
-        jLabel12.setText("Help");
-        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, -1, -1));
+        jLabel12.setText("Ayuda");
+        jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel13.setText("2.0 - Version");
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, -1, -1));
+        jLabel13.setText("2.4 - Versión");
+        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel14.setText("Application developed by BettaCodders");
-        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, -1, -1));
+        jLabel14.setText("Aplicación desarollada por BettaCodders");
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        jLabel15.setText("For more help please contact: ");
-        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, -1, -1));
+        jLabel15.setText("Para más información contacte al:");
+        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
         jLabel16.setText("jLabel8");

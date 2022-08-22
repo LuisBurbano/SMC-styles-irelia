@@ -89,7 +89,7 @@ public class FrmTableStylist extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnLoad.setText("Load");
+        btnLoad.setText("Cargar");
         btnLoad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoadActionPerformed(evt);
@@ -97,7 +97,7 @@ public class FrmTableStylist extends javax.swing.JFrame {
         });
         jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
 
-        btnBack.setText("Back");
+        btnBack.setText("Volver");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -126,10 +126,10 @@ public class FrmTableStylist extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel1.setText("STYLIST");
+        jLabel1.setText("Estilista");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 220, -1));
 
-        btnPrintStylist.setText("Print Table Stylist");
+        btnPrintStylist.setText("Imprimir tabla");
         btnPrintStylist.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintStylistActionPerformed(evt);

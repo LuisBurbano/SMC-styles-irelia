@@ -104,7 +104,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Select the service:"/>
+            <Property name="text" type="java.lang.String" value="Seleccionar servicio"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -129,7 +129,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnRegisterTurn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Register turn"/>
+            <Property name="text" type="java.lang.String" value="Registrar turno"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterTurnActionPerformed"/>
@@ -155,7 +155,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnBackToMenu">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Back to menu"/>
+            <Property name="text" type="java.lang.String" value="Volver"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackToMenuActionPerformed"/>
@@ -168,7 +168,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="txtGetATurn">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Get a turn"/>
+            <Property name="text" type="java.lang.String" value="Turno"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -178,11 +178,11 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Select the date:"/>
+            <Property name="text" type="java.lang.String" value="Fecha del turno"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="80" y="110" width="-1" height="-1"/>
+              <AbsoluteConstraints x="70" y="110" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -211,11 +211,11 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Identification Card:"/>
+            <Property name="text" type="java.lang.String" value="Cedula"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="70" width="121" height="-1"/>
+              <AbsoluteConstraints x="110" y="70" width="50" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>

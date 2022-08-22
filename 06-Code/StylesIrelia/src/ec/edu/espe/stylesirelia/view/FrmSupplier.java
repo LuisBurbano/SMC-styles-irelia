@@ -58,7 +58,7 @@ public class FrmSupplier extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBackToMenu.setText("Back to Menu");
+        btnBackToMenu.setText("Volver");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackToMenuActionPerformed(evt);
@@ -67,10 +67,10 @@ public class FrmSupplier extends javax.swing.JFrame {
         jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
-        jLabel7.setText("Suppliers");
+        jLabel7.setText("Proveedor");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
-        jLabel9.setText("Number");
+        jLabel9.setText("Número:");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
 
         txtAddress1.setBorder(null);
@@ -88,10 +88,10 @@ public class FrmSupplier extends javax.swing.JFrame {
         jLabel13.setText("jLabel8");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, -20, -1, -1));
 
-        jLabel6.setText("Address");
+        jLabel6.setText("Dirección");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
 
-        jLabel4.setText("PendingPayment");
+        jLabel4.setText("Pago Pendiente");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
         jPanel3.add(txtPendingPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 260, -1));
 
@@ -109,7 +109,7 @@ public class FrmSupplier extends javax.swing.JFrame {
         });
         jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 260, -1));
 
-        jLabel2.setText("Name");
+        jLabel2.setText("Nombre");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
 
         txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -119,7 +119,7 @@ public class FrmSupplier extends javax.swing.JFrame {
         });
         jPanel3.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 250, -1));
 
-        btnAddSupplier.setText("Add");
+        btnAddSupplier.setText("Agregar");
         btnAddSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddSupplierActionPerformed(evt);

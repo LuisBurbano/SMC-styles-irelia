@@ -82,15 +82,15 @@ public class FrmAbout extends javax.swing.JFrame {
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 1, 30)); // NOI18N
-        jLabel6.setText("About the aplication");
+        jLabel6.setText("Sobre la Aplicación");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel7.setText("2.0 - Version");
+        jLabel7.setText("2.4 - Versión");
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel9.setText("Application developed by BettaCodders");
+        jLabel9.setText("Aplicación desarrollada por BettaCoders");
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N

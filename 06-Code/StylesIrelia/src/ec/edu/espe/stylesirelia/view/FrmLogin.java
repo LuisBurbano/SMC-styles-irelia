@@ -115,7 +115,7 @@ public class FrmLogin extends javax.swing.JFrame {
         btnEnterLogin.setBackground(new java.awt.Color(51, 51, 51));
         btnEnterLogin.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
         btnEnterLogin.setForeground(new java.awt.Color(242, 242, 242));
-        btnEnterLogin.setText("Enter");
+        btnEnterLogin.setText("Entrar");
         btnEnterLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEnterLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,12 +125,12 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.add(btnEnterLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 160, 60));
 
         txtPsd.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        txtPsd.setText("Password");
+        txtPsd.setText("Contraseña");
         jPanel1.add(txtPsd, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
         textFieldUser.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         textFieldUser.setForeground(new java.awt.Color(204, 204, 204));
-        textFieldUser.setText("Use your username");
+        textFieldUser.setText("ejemplo");
         textFieldUser.setBorder(null);
         textFieldUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -145,7 +145,7 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.add(textFieldUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 230, -1));
 
         txtUsername.setFont(new java.awt.Font("Roboto Light", 1, 24)); // NOI18N
-        txtUsername.setText("Username");
+        txtUsername.setText("Usuario");
         jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
         passwordField.setForeground(new java.awt.Color(102, 102, 102));
@@ -165,13 +165,13 @@ public class FrmLogin extends javax.swing.JFrame {
         jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 230, 30));
 
         labelWelcome.setFont(new java.awt.Font("Freestyle Script", 0, 65)); // NOI18N
-        labelWelcome.setText("Welcome to Styles by Irelia");
+        labelWelcome.setText("Bienvenido a Styles by Irelia");
         jPanel1.add(labelWelcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 550, 130));
 
         btnLeaveLogin.setBackground(new java.awt.Color(51, 51, 51));
         btnLeaveLogin.setFont(new java.awt.Font("MS Reference Sans Serif", 0, 24)); // NOI18N
         btnLeaveLogin.setForeground(new java.awt.Color(242, 242, 242));
-        btnLeaveLogin.setText("Leave");
+        btnLeaveLogin.setText("Salir");
         btnLeaveLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnLeaveLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

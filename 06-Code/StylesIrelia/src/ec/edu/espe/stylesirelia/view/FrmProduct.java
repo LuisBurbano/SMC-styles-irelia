@@ -70,7 +70,7 @@ public class FrmProduct extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Roboto Black", 1, 18)); // NOI18N
-        jLabel7.setText("PRODUCT");
+        jLabel7.setText("Producto ");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 130, 10));
 
@@ -78,7 +78,7 @@ public class FrmProduct extends javax.swing.JFrame {
         jLabel13.setText("jLabel8");
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, -20, -1, -1));
 
-        jLabel2.setText("Name");
+        jLabel2.setText("Nombre");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         txtName.setBorder(null);
@@ -89,11 +89,11 @@ public class FrmProduct extends javax.swing.JFrame {
         });
         jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 133, -1));
 
-        jLabel3.setText("Expiration");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jLabel3.setText("Fecha de Expiración");
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
         jPanel3.add(dtcExpirationProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 130, -1));
 
-        jLabel4.setText("Price");
+        jLabel4.setText("Precio");
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
         txtPrice.setBorder(null);
@@ -125,7 +125,7 @@ public class FrmProduct extends javax.swing.JFrame {
         });
         jPanel3.add(txtStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 130, -1));
 
-        btnAddProduct.setText("Add");
+        btnAddProduct.setText("Agregar");
         btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddProductActionPerformed(evt);
@@ -133,7 +133,7 @@ public class FrmProduct extends javax.swing.JFrame {
         });
         jPanel3.add(btnAddProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, -1, -1));
 
-        btnBackToMenu.setText("Back ");
+        btnBackToMenu.setText("Volver");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackToMenuActionPerformed(evt);

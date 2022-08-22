@@ -114,10 +114,10 @@ public class FrmTableService extends javax.swing.JFrame {
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 550, 370));
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel1.setText("SERVICE");
+        jLabel1.setText("Servicios");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 220, -1));
 
-        btnBack.setText("Back");
+        btnBack.setText("Volver");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -125,7 +125,7 @@ public class FrmTableService extends javax.swing.JFrame {
         });
         jPanel3.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, -1, -1));
 
-        btnLoad.setText("Load");
+        btnLoad.setText("Cargar");
         btnLoad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoadActionPerformed(evt);
@@ -137,7 +137,7 @@ public class FrmTableService extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 270, -1));
 
-        btnPrintService.setText("Print Table Service");
+        btnPrintService.setText("Imprimir tabla");
         btnPrintService.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintServiceActionPerformed(evt);

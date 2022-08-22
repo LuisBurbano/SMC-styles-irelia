@@ -99,19 +99,19 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel2.setText("Identification Card");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
+        jLabel2.setText("Cedula");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel3.setText("Name");
+        jLabel3.setText("Nombre");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 53, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel4.setText("Number");
+        jLabel4.setText("Número");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel6.setText("Service:");
+        jLabel6.setText("Servicio");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 71, -1));
 
         txtIdentification.setToolTipText("only numbers");
@@ -155,14 +155,14 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 387, -1));
 
         jLabel7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel7.setText("Payment");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 130, -1));
+        jLabel7.setText("Sueldo");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 60, -1));
 
         txtPayment.setBorder(null);
         jPanel1.add(txtPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 387, 20));
 
         jLabel8.setFont(new java.awt.Font("Roboto Black", 0, 36)); // NOI18N
-        jLabel8.setText("Stylist");
+        jLabel8.setText("Estilista");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, -10, 150, 70));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 179, 10));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 179, 10));
@@ -171,7 +171,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 387, 10));
 
         btnAdd.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnAdd.setText("Add");
+        btnAdd.setText("Crear");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -180,7 +180,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jPanel1.add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, -1, -1));
 
         bntBack.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        bntBack.setText("Back");
+        bntBack.setText("Volver");
         bntBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntBackActionPerformed(evt);
@@ -192,7 +192,7 @@ public class FrmAddStylist extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, -10, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLabel9.setText("Address");
+        jLabel9.setText("Dirección");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 71, -1));
         jPanel1.add(comboBoxServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 190, -1));
 

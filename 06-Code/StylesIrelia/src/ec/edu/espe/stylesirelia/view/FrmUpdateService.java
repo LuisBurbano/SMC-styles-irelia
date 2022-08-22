@@ -97,10 +97,11 @@ public class FrmUpdateService extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Services");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 6, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setText("Actualizar Servicio");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
-        jLabel2.setText("Name");
+        jLabel2.setText("Nombre");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 102, -1, -1));
         jPanel3.add(txtAvailable, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 230, -1));
 
@@ -111,13 +112,13 @@ public class FrmUpdateService extends javax.swing.JFrame {
         });
         jPanel3.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 133, 230, -1));
 
-        jLabel3.setText("Price");
+        jLabel3.setText("Precio");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 136, -1, -1));
 
-        jLabel5.setText("Available");
+        jLabel5.setText("Disponible");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
-        jLabel6.setText("Available Stylist");
+        jLabel6.setText("Estilista Disponible");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N

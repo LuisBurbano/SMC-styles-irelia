@@ -76,10 +76,10 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Identification Card:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 70, -1, -1));
+        jLabel2.setText("Cedula");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
 
-        btnDelete.setText("Delete");
+        btnDelete.setText("Eliminar");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -87,7 +87,7 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         });
         jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 194, -1, -1));
 
-        btnBackToMenu.setText("Back ");
+        btnBackToMenu.setText("Volver");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackToMenuActionPerformed(evt);
@@ -100,7 +100,7 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, -100, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel4.setText("DELETE STYLIST");
+        jLabel4.setText("Eliminar Estilista");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 220, -1));
         jPanel1.add(comboBoxStylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 190, -1));
 

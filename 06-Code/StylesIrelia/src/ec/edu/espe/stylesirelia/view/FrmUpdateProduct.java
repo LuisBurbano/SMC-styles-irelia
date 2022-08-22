@@ -99,17 +99,17 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel1.setText("UPDATE PRODUCT");
+        jLabel1.setText("Actualizar Producto");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 220, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, -20, -1, -1));
 
-        jLabel3.setText("Name Product");
+        jLabel3.setText("Nombre del Producto");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 121, -1));
 
-        btnFind.setText("Find");
+        btnFind.setText("Editar");
         btnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFindActionPerformed(evt);
@@ -117,7 +117,7 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         });
         jPanel1.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
 
-        jLabel4.setText("Name:");
+        jLabel4.setText("Nombre:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 78, -1));
 
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -134,10 +134,10 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         });
         jPanel1.add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 164, -1));
 
-        jLabel5.setText("Price:");
+        jLabel5.setText("Precio:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 121, -1));
 
-        jLabel6.setText("Expiration:");
+        jLabel6.setText("Expiración");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 121, -1));
 
         txtStock.addActionListener(new java.awt.event.ActionListener() {
@@ -155,7 +155,7 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         Appoiment.setText("Stock");
         jPanel1.add(Appoiment, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 121, -1));
 
-        btnUpdate.setText("Update");
+        btnUpdate.setText("Actualizar");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -163,7 +163,7 @@ public class FrmUpdateProduct extends javax.swing.JFrame {
         });
         jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
 
-        btnBackMenu.setText("Back to Menu");
+        btnBackMenu.setText("Volver");
         btnBackMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackMenuActionPerformed(evt);

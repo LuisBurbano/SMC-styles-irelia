@@ -87,10 +87,11 @@ public void loadStylistComboBox() {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Services");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Servicios");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(271, 6, -1, -1));
 
-        jLabel2.setText("Name");
+        jLabel2.setText("Nombre");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 102, -1, -1));
         jPanel3.add(txtAvailable, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 230, -1));
 
@@ -113,13 +114,13 @@ public void loadStylistComboBox() {
         });
         jPanel3.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 99, 230, -1));
 
-        jLabel3.setText("Price");
+        jLabel3.setText("Precio");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 136, -1, -1));
 
-        jLabel5.setText("Available");
+        jLabel5.setText("Disponible");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, -1, -1));
 
-        btnAdd.setText("Add");
+        btnAdd.setText("Agregar");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -130,7 +131,7 @@ public void loadStylistComboBox() {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/view/banner.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, -1, -1));
 
-        btnBackToMenu.setText("Back ");
+        btnBackToMenu.setText("Volver");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackToMenuActionPerformed(evt);
@@ -139,7 +140,7 @@ public void loadStylistComboBox() {
         jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, -1, -1));
         jPanel3.add(comboBoxStylist, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 190, -1));
 
-        jLabel6.setText("Available Stylist");
+        jLabel6.setText("Estilista encargado");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

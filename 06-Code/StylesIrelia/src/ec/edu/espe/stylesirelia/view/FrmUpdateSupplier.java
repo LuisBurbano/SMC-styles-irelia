@@ -66,9 +66,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         txtPendingPayment = new javax.swing.JTextField();
-        txtAppointment = new javax.swing.JTextField();
         txtNumber = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
@@ -84,30 +82,15 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Name");
+        jLabel2.setText("Nombre");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
-        jLabel3.setText("Number");
+        jLabel3.setText("Número");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
-        jLabel4.setText("Pending Payment");
+        jLabel4.setText("Pago pendiente");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
-
-        jLabel5.setText("Appointment");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
         jPanel1.add(txtPendingPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 133, -1));
-
-        txtAppointment.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAppointmentActionPerformed(evt);
-            }
-        });
-        txtAppointment.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtAppointmentKeyTyped(evt);
-            }
-        });
-        jPanel1.add(txtAppointment, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 133, -1));
 
         txtNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,17 +104,17 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         });
         jPanel1.add(txtNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 133, -1));
 
-        jLabel6.setText("Address");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+        jLabel6.setText("Dirección");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
 
         txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtAddressKeyTyped(evt);
             }
         });
-        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 133, -1));
+        jPanel1.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 133, -1));
 
-        btnUpdate.setText("Update ");
+        btnUpdate.setText("Actualizar");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -139,7 +122,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         });
         jPanel1.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
 
-        btnFind.setText("Find");
+        btnFind.setText("Editar");
         btnFind.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFindActionPerformed(evt);
@@ -147,7 +130,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         });
         jPanel1.add(btnFind, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, -1, -1));
 
-        btnBackToMenu.setText("Back to Menu");
+        btnBackToMenu.setText("Volver");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackToMenuActionPerformed(evt);
@@ -156,8 +139,8 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         jPanel1.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel1.setText("UPDATE SUPPLIER");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 220, -1));
+        jLabel1.setText("ACTUALIZAR PROVEEDOR");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 320, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel7.setText("jLabel7");
@@ -177,10 +160,6 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAppointmentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAppointmentActionPerformed
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
 
@@ -235,15 +214,6 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");} // TODO add your handling code here:
     }//GEN-LAST:event_txtNumberKeyTyped
 
-    private void txtAppointmentKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAppointmentKeyTyped
-        char validar = evt.getKeyChar();
-        if(Character.isDigit(validar)){
-            getToolkit().beep();
-            
-            evt.consume();
-            JOptionPane.showMessageDialog(rootPane, "Ingresar solo letras \n Enter only letters");} // TODO add your handling code here:
-    }//GEN-LAST:event_txtAppointmentKeyTyped
-
     private void txtAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyTyped
         char validar = evt.getKeyChar();
         if(Character.isDigit(validar)){
@@ -297,12 +267,10 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAppointment;
     private javax.swing.JTextField txtNumber;
     private javax.swing.JTextField txtPendingPayment;
     // End of variables declaration//GEN-END:variables

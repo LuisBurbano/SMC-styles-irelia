@@ -108,7 +108,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 787, 160));
 
-        btnLoad.setText("Load");
+        btnLoad.setText("Cargar");
         btnLoad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoadActionPerformed(evt);
@@ -116,7 +116,7 @@ public class FrmTableCustomer extends javax.swing.JFrame {
         });
         jPanel1.add(btnLoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 352, -1, 30));
 
-        btnBack.setText("Back");
+        btnBack.setText("Volver");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -125,10 +125,10 @@ public class FrmTableCustomer extends javax.swing.JFrame {
         jPanel1.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, -1, 30));
 
         jLabel2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
-        jLabel2.setText("CUSTOMERS");
+        jLabel2.setText("Clientes");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 220, -1));
 
-        btnPrintCustomers.setText("Print table Costumers");
+        btnPrintCustomers.setText("Imprimir tabla");
         btnPrintCustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPrintCustomersActionPerformed(evt);

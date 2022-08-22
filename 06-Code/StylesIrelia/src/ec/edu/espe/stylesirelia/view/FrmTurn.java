@@ -140,14 +140,14 @@ public class FrmTurn extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Select the service:");
+        jLabel2.setText("Seleccionar servicio");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
         dtcServiceTurn.setMaxSelectableDate(new java.util.Date(1672552916000L));
         dtcServiceTurn.setMinSelectableDate(new java.util.Date(1657605716000L));
         jPanel1.add(dtcServiceTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 176, -1));
 
-        btnRegisterTurn.setText("Register turn");
+        btnRegisterTurn.setText("Registrar turno");
         btnRegisterTurn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterTurnActionPerformed(evt);
@@ -158,7 +158,7 @@ public class FrmTurn extends javax.swing.JFrame {
         comboBoxServices.setToolTipText("");
         jPanel1.add(comboBoxServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 176, -1));
 
-        btnBackToMenu.setText("Back to menu");
+        btnBackToMenu.setText("Volver");
         btnBackToMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackToMenuActionPerformed(evt);
@@ -166,19 +166,19 @@ public class FrmTurn extends javax.swing.JFrame {
         });
         jPanel1.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 216, -1, -1));
 
-        txtGetATurn.setText("Get a turn");
+        txtGetATurn.setText("Turno");
         jPanel1.add(txtGetATurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 25, -1, -1));
 
-        jLabel1.setText("Select the date:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+        jLabel1.setText("Fecha del turno");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, -80, -1, -1));
         jPanel1.add(comboBoxCustomers, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 190, -1));
 
-        jLabel4.setText("Identification Card:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 121, -1));
+        jLabel4.setText("Cedula");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 50, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
