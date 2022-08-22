@@ -100,7 +100,7 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, -90, -1, -1));
-        jPanel1.add(comboBoxSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 190, -1));
+        jPanel1.add(comboBoxSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 190, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

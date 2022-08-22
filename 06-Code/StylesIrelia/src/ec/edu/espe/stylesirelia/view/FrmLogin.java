@@ -130,7 +130,6 @@ public class FrmLogin extends javax.swing.JFrame {
 
         textFieldUser.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         textFieldUser.setForeground(new java.awt.Color(204, 204, 204));
-        textFieldUser.setText("ejemplo");
         textFieldUser.setBorder(null);
         textFieldUser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -288,11 +287,25 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEnterLoginActionPerformed
 
     private void textFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldUserActionPerformed
-        // TODO add your handling code here:
+        if (textFieldUser.getText().equals("Usuario")) {
+            textFieldUser.setText("");
+            textFieldUser.setForeground(Color.black);
+        }
+        if (String.valueOf(passwordField.getPassword()).isEmpty()) {
+            passwordField.setText("*********");
+            passwordField.setForeground(Color.gray);
+        } 
     }//GEN-LAST:event_textFieldUserActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
-        // TODO add your handling code here:
+       if (String.valueOf(passwordField.getPassword()).equals("*********")) {
+            passwordField.setText("");
+            passwordField.setForeground(Color.black);
+        }
+        if (textFieldUser.getText().isEmpty()) {
+            textFieldUser.setText("Use your username");
+            textFieldUser.setForeground(Color.gray);
+        }
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
