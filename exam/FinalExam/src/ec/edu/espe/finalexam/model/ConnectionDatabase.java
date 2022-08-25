@@ -1,8 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package ec.edu.espe.finalexam.utils;
+package ec.edu.espe.finalexam.model;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -10,15 +6,15 @@ import com.mongodb.client.MongoDatabase;
 
 /**
  *
- * @author Luis Burbano, DCCO- ESPE, BettaCoders
+ * @author Joel Arguello, DCCO-ESPE, BETTACODDERS
  */
 public class ConnectionDatabase {
 
     public static MongoDatabase mongodb = null;
 
     static {
-        String uri = "mongodb+srv://admin:adminStylesIrealia@stylesirelia.by7pr.mongodb.net/?retryWrites=true&w=majority";
-        String db = "dbStylesIrelia";
+        String uri = "mongodb+srv://joel:joel@joel.crhww.mongodb.net/test";
+        String db = "joel";
         try {
             MongoClient mongoClient = MongoClients.create(uri);
             mongodb = mongoClient.getDatabase(db);

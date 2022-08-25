@@ -1,19 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ec.edu.espe.finalexam.controller;
 
+import ec.edu.espe.finalexam.model.ConnectionDatabase;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.finalexam.model.ListNumbers;
-import ec.edu.espe.finalexam.utils.ConnectionDatabase;
 import java.util.Arrays;
 import org.bson.Document;
 
 /**
  *
- * @author Luis Burbano, DCCO- ESPE, BettaCoders
+ * @author Joel Arguello, DCCO-ESPE, BETTACODDERS
  */
 public class ListNumbersController {
 
@@ -22,7 +18,7 @@ public class ListNumbersController {
     private MongoCollection<Document> mongoCollection;
 
     public ListNumbersController(){
-        this.mongoCollection = mongoDatabase.getCollection("numbers");
+        this.mongoCollection = mongoDatabase.getCollection("numberDB");
     }
     
     public void updateToDatabase(Document document) {
