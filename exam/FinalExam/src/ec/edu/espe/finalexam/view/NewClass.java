@@ -19,16 +19,16 @@ public class NewClass {
         ListNumbers listNumbers = new ListNumbers();
         int numbers []={5,8,7,2};
         
-        listNumbers.setListOfNumbersDisordered(numbers);
+        //listNumbers.setListOfNumbersDisordered(numbers);
         //solo en quickshort
         listNumbers.setListOfNumbersDisordered(Arrays.copyOf(numbers, numbers.length));
-        BubbleSort b = new BubbleSort();
+        //BubbleSort b = new BubbleSort();
         InsertionSort insertionSort = new InsertionSort();
-        QuickShort quickShort = new QuickShort();
-        //insertionSort.sort(listNumbers);
+        //QuickShort quickShort = new QuickShort();
+        insertionSort.sort(listNumbers);
         //b.sort(listNumbers);
         int size = numbers.length;
-        QuickShort.sort(numbers, 0, size-1,listNumbers);
+        //QuickShort.sort(numbers, 0, size-1,listNumbers);
         
         System.out.println(listNumbers);
 
