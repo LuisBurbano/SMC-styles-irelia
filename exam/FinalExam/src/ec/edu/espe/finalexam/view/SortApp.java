@@ -83,6 +83,9 @@ public class SortApp extends javax.swing.JFrame {
 
         System.out.println(Arrays.asList(numberToSort));
 
+        
+        txtNumberInOrder.setText(numberInDesorder);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
