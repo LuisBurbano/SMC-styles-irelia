@@ -14,6 +14,15 @@ import org.bson.Document;
  */
 public class FrmSupplier extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     private SupplierController supplierController;
 
     /**
@@ -71,7 +80,7 @@ public class FrmSupplier extends javax.swing.JFrame {
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
         jLabel9.setText("Número:");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
         txtAddress1.setBorder(null);
         txtAddress1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -82,7 +91,7 @@ public class FrmSupplier extends javax.swing.JFrame {
         jPanel3.add(txtAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 323, 256, -1));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 256, 10));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 256, 10));
-        jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 256, 10));
+        jPanel3.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 256, 10));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/espe/stylesirelia/sources/bg-logo.png"))); // NOI18N
         jLabel13.setText("jLabel8");
@@ -92,7 +101,7 @@ public class FrmSupplier extends javax.swing.JFrame {
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
 
         jLabel4.setText("Pago Pendiente");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
         jPanel3.add(txtPendingPayment, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 260, -1));
 
         txtNumber.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -117,7 +126,7 @@ public class FrmSupplier extends javax.swing.JFrame {
                 txtAddressKeyTyped(evt);
             }
         });
-        jPanel3.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 250, -1));
+        jPanel3.add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 260, -1));
 
         btnAddSupplier.setText("Agregar");
         btnAddSupplier.addActionListener(new java.awt.event.ActionListener() {
@@ -140,6 +149,7 @@ public class FrmSupplier extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierActionPerformed

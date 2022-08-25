@@ -29,6 +29,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmUpdateService extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     private ServiceController serviceController;
 
     /**
@@ -162,6 +171,7 @@ public class FrmUpdateService extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackToMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackToMenuActionPerformed
@@ -181,9 +191,9 @@ public class FrmUpdateService extends javax.swing.JFrame {
         Document result = serviceController.read(serviceController.buildDocument(service));
         if (result!=null) {
             
-            JOptionPane.showMessageDialog(null, "Updated successfully");
+            JOptionPane.showMessageDialog(null, "Actualizado correctamente");
         }else{
-            JOptionPane.showMessageDialog(null, "A problem has occurred");
+            JOptionPane.showMessageDialog(null, "Hubo un problema");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 

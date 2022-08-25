@@ -16,6 +16,15 @@ import org.bson.Document;
  */
 public class FrmProduct extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     private ProductController productController;
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -142,6 +151,12 @@ public class FrmProduct extends javax.swing.JFrame {
         jPanel3.add(btnBackToMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 430, -1, -1));
         jPanel3.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 85, 130, 10));
         jPanel3.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 130, 10));
+
+        txtAdress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAdressActionPerformed(evt);
+            }
+        });
         jPanel3.add(txtAdress, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,6 +173,7 @@ public class FrmProduct extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
@@ -225,6 +241,10 @@ public class FrmProduct extends javax.swing.JFrame {
             evt.consume();
             JOptionPane.showMessageDialog(rootPane, "Ingresar solo numeros \n Enter only numbers");}// TODO add your handling code here:
     }//GEN-LAST:event_txtStockKeyTyped
+
+    private void txtAdressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAdressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAdressActionPerformed
     
     /**
      * @param args the command line arguments

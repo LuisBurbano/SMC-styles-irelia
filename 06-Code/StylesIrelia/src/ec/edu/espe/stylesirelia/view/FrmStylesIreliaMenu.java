@@ -21,10 +21,18 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  * @author Joel Arguello, DCCO-ESPE, BETTACODDERS
  */
 public class FrmStylesIreliaMenu extends javax.swing.JFrame {
-    
-    
-       @Override
-    public Image getIconImage(){
+
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
+    @Override
+    public Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("images/menu_bg.png"));
         return retValue;
     }
@@ -292,7 +300,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu7);
 
-        menuTurn.setText("Turn");
+        menuTurn.setText("Turno");
         menuTurn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuTurnActionPerformed(evt);
@@ -340,6 +348,7 @@ public class FrmStylesIreliaMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtStylesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStylesActionPerformed

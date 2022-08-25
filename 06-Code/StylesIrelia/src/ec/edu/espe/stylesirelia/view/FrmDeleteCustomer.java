@@ -27,6 +27,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmDeleteCustomer extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     private CustomerController customerController;
 
     /**
@@ -117,6 +126,7 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -134,7 +144,7 @@ public class FrmDeleteCustomer extends javax.swing.JFrame {
 
         Document doc = customerController.read(comboBoxCustomers.getSelectedItem().toString(), "identificationCard");
         if (doc == null) {
-            JOptionPane.showMessageDialog(rootPane, "This customer has been succesfully deleted");
+            JOptionPane.showMessageDialog(rootPane, "Fue eliminado con exito.");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

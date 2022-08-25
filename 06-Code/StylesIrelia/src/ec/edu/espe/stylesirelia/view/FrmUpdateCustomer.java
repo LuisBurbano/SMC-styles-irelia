@@ -29,6 +29,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmUpdateCustomer extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     private CustomerController customerController;
 
     /**
@@ -192,6 +201,7 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMenuActionPerformed
@@ -214,7 +224,7 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
             txtAddress.setText(customer.getAddress());
             txtNumber.setText(String.valueOf(customer.getNumber()));
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "It was not found");
+            JOptionPane.showMessageDialog(null, "Verifique bien los datos, no se encontro.");
         }
 
     }//GEN-LAST:event_btnFindActionPerformed
@@ -229,9 +239,9 @@ public class FrmUpdateCustomer extends javax.swing.JFrame {
         Document result = customerController.read(customerController.buildDocument(customer));
         if (result!=null) {
             
-            JOptionPane.showMessageDialog(null, "Updated successfully");
+            JOptionPane.showMessageDialog(null, "Actualizado correctamente");
         }else{
-            JOptionPane.showMessageDialog(null, "A problem has occurred");
+            JOptionPane.showMessageDialog(null, "Hubo un problema, intente de nuevo");
         }
     }//GEN-LAST:event_txtUpdate1ActionPerformed
 

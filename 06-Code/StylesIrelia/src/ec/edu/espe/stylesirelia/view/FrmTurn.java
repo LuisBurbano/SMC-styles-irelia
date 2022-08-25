@@ -27,8 +27,18 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmTurn extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
     private TurnController cTurn;
+
     public String getDate(JDateChooser jdDate) {
         if (jdDate.getDate() != null) {
             return formDate.format(jdDate.getDate());
@@ -156,6 +166,11 @@ public class FrmTurn extends javax.swing.JFrame {
         jPanel1.add(btnRegisterTurn, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 216, -1, -1));
 
         comboBoxServices.setToolTipText("");
+        comboBoxServices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxServicesActionPerformed(evt);
+            }
+        });
         jPanel1.add(comboBoxServices, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 176, -1));
 
         btnBackToMenu.setText("Volver");
@@ -192,6 +207,7 @@ public class FrmTurn extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
@@ -215,12 +231,16 @@ public class FrmTurn extends javax.swing.JFrame {
         cTurn.create(cTurn.buildDocument(turn));
         Document result = cTurn.read(cTurn.buildDocument(turn));
         if (result!=null) {
-            JOptionPane.showMessageDialog(null, "Successfully created");
+            JOptionPane.showMessageDialog(null, "Creado con exito");
         }else{
-            JOptionPane.showMessageDialog(null, "A problem has occurred");
+            JOptionPane.showMessageDialog(null, "Hubo un problema");
         }
 
     }//GEN-LAST:event_btnRegisterTurnActionPerformed
+
+    private void comboBoxServicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxServicesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboBoxServicesActionPerformed
 
     /**
      * @param args the command line arguments

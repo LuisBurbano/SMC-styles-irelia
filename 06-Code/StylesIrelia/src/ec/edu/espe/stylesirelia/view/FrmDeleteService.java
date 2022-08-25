@@ -24,7 +24,17 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  * @author widin
  */
 public class FrmDeleteService extends javax.swing.JFrame {
+
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
     private ServiceController serviceController;
+
     /**
      * Creates new form FrmDeleteService
      */
@@ -109,6 +119,7 @@ public class FrmDeleteService extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -119,7 +130,7 @@ public class FrmDeleteService extends javax.swing.JFrame {
 
         Document doc =serviceController.read(comboBoxServices.getSelectedItem().toString(),"");
         if(doc==null){
-            JOptionPane.showMessageDialog(rootPane, "This service has been succesfully deleted");
+            JOptionPane.showMessageDialog(rootPane, "Fue eliminado exitosamente");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

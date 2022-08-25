@@ -14,6 +14,15 @@ import org.bson.Document;
  */
 public class FrmCustomer extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     SimpleDateFormat formDate = new SimpleDateFormat("dd-MM-yyyy");
     private CustomerController customerController;
     public String getDate(JDateChooser jdDate) {
@@ -190,6 +199,7 @@ public class FrmCustomer extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -213,9 +223,9 @@ public class FrmCustomer extends javax.swing.JFrame {
         customerController.create(customerController.buildDocument(customer));
         Document result = customerController.read(customerController.buildDocument(customer));
         if (result!=null) {
-            JOptionPane.showMessageDialog(null, "Successfully created");
+            JOptionPane.showMessageDialog(null, "Creado con exito");
         }else{
-            JOptionPane.showMessageDialog(null, "A problem has occurred");
+            JOptionPane.showMessageDialog(null, "Hubo un problema reintente");
         }
 
     }//GEN-LAST:event_btnAddActionPerformed

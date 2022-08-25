@@ -24,8 +24,17 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  * @author Luis Burbano, DCCO- ESPE, BettaCoders
  */
 public class FrmDeleteStylist extends javax.swing.JFrame {
-    
+
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
     private StylistController stylistController;
+
     /**
      * Creates new form FrmFindStylist
      */
@@ -114,6 +123,7 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -123,7 +133,7 @@ public class FrmDeleteStylist extends javax.swing.JFrame {
         
         Document doc =stylistController.read(comboBoxStylist.getSelectedItem().toString(),"");
         if(doc==null){
-            JOptionPane.showMessageDialog(rootPane, "This stylist has been succesfully deleted");
+            JOptionPane.showMessageDialog(rootPane, "Fue eliminado exitosamente");
         }
         
     }//GEN-LAST:event_btnDeleteActionPerformed

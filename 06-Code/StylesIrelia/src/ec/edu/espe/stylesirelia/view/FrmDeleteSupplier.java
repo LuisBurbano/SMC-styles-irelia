@@ -25,6 +25,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmDeleteSupplier extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     private SupplierController supplierController;
 
     /**
@@ -114,6 +123,7 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -122,7 +132,7 @@ public class FrmDeleteSupplier extends javax.swing.JFrame {
 
         Document doc = supplierController.read(comboBoxSupplier.getSelectedItem().toString(), "name");
         if (doc == null) {
-            JOptionPane.showMessageDialog(rootPane, "This supplier has been succesfully deleted");
+            JOptionPane.showMessageDialog(rootPane, "Fue eliminado exitosamente");
         }
 
     }//GEN-LAST:event_btnDeleteActionPerformed

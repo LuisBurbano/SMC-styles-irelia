@@ -28,6 +28,15 @@ import org.bson.codecs.pojo.PojoCodecProvider;
  */
 public class FrmUpdateSupplier extends javax.swing.JFrame {
 
+    public class centerFrame extends javax.swing.JFrame {
+
+        public centerFrame() {
+            initComponents();
+
+            setLocationRelativeTo(null);
+        }
+    }
+
     private SupplierController supplierController;
 
     /**
@@ -159,6 +168,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFindActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindActionPerformed
@@ -173,7 +183,7 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
             txtPendingPayment.setText(String.valueOf(supplier.getPendingPayment()));
             txtAddress.setText(supplier.getAddress());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "It was not found");
+            JOptionPane.showMessageDialog(null, "No sé encontro");
         }
 
 
@@ -188,9 +198,9 @@ public class FrmUpdateSupplier extends javax.swing.JFrame {
         Document result = supplierController.read(supplierController.buildDocument(supplier));
         if (result!=null) {
             
-            JOptionPane.showMessageDialog(null, "Updated successfully");
+            JOptionPane.showMessageDialog(null, "Actualizado exitosamente");
         }else{
-            JOptionPane.showMessageDialog(null, "A problem has occurred");
+            JOptionPane.showMessageDialog(null, "Hubo un problema, reintente");
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
