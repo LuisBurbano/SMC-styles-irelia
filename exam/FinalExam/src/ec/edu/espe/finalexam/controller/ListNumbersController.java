@@ -35,7 +35,7 @@ public class ListNumbersController {
 
     public Document createDocument(ListNumbers listNumbers){
         Document document = new Document();    
-        
+        document.append("listOfNumbersDisordered", Arrays.toString(listNumbers.getListOfNumbersDisordered()));
         document.append("sizeOfListOfNumbers", listNumbers.getSizeOfListOfNumbers());
         document.append("sortAlgorithm", listNumbers.getSortAlgorithm());
         document.append("listOfNumberOrdered", Arrays.toString(listNumbers.getListOfNumberOrdered()));

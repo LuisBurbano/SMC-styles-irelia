@@ -5,6 +5,7 @@
 package ec.edu.espe.finalexam.controller;
 
 import ec.edu.espe.finalexam.model.ListNumbers;
+import java.util.Arrays;
 
 /**
  *
@@ -18,7 +19,7 @@ public class BubbleSort extends SortingStrategy {
         
         int listOfNumbersAux[];
         
-        listOfNumbersAux = listOfNumbers.getListOfNumbersDisordered();
+        listOfNumbersAux = Arrays.copyOf(listOfNumbers.getListOfNumbersDisordered(), listOfNumbers.getListOfNumbersDisordered().length);
         
         for (int i = 0; i < listOfNumbers.getListOfNumbersDisordered().length - 1; ++i) {
 
