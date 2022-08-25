@@ -75,18 +75,14 @@ public class SortApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ListNumbersController listNumbersController = new ListNumbersController();
-        ListNumbers listNumbers = new ListNumbers();
-        
         String numberInDesorder;
-        
-        numberInDesorder = txtNumberInDesorder.getText();
-        
-        String[] parts = numberInDesorder.split("");              
 
-        System.out.println(Arrays.asList(parts));
-        
-        
+        numberInDesorder = txtNumberInDesorder.getText();
+
+        String[] numberToSort = numberInDesorder.split("");
+
+        System.out.println(Arrays.asList(numberToSort));
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
