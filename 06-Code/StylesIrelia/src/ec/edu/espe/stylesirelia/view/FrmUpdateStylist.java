@@ -249,7 +249,7 @@ public class FrmUpdateStylist extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
-        Document doc = stylistController.read(comboBoxStylist.getSelectedItem().toString(), "identificationCard");
+        Document doc = stylistController.read(comboBoxStylist.getSelectedItem().toString(), "name");
 
         Stylist stylist = new Stylist(txtId.getText(), txtName.getText(), txtNumber.getText(), Double.parseDouble(txtPayment.getText()), comboBoxStylist.getSelectedItem().toString(), txtAddress.getText());
 
